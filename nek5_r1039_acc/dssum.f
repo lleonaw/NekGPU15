@@ -191,8 +191,11 @@ c
 c     if (ifldt.eq.0)       ifldt = 1
       if (ifldt.eq.ifldmhd) ifldt = 1
 
-      call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,1,0)
 
+      !call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,1,0)
+      call gs_op(gsh_fld(ifldt),u,1,1,0)
+      call gs_op(gsh_fld(ifldt),v,1,1,0)
+      call gs_op(gsh_fld(ifldt),w,1,1,0)
 #ifndef NOTIMER
       timee=(dnekclock()-etime1)
       tvdss=tvdss+timee
@@ -232,27 +235,53 @@ c     if (ifldt.eq.0)       ifldt = 1
 c     write(6,*) 'opdsop: ',op,ifldt,ifield
       if(ifsync) call nekgsync()
 
-      if (op.eq.'+  ' .or. op.eq.'sum' .or. op.eq.'SUM')
-     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,1,0)
+c      if (op.eq.'+  ' .or. op.eq.'sum' .or. op.eq.'SUM')
+c     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,1,0)
+      if (op.eq.'+  ' .or. op.eq.'sum' .or. op.eq.'SUM') then
+         call gs_op(gsh_fld(ifldt),u,1,1,0)
+         call gs_op(gsh_fld(ifldt),v,1,1,0)
+         call gs_op(gsh_fld(ifldt),w,1,1,0)
+      endif
 
 
-      if (op.eq.'*  ' .or. op.eq.'mul' .or. op.eq.'MUL')
-     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,2,0)
+c      if (op.eq.'*  ' .or. op.eq.'mul' .or. op.eq.'MUL')
+c     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,2,0)
 
+      if (op.eq.'*  ' .or. op.eq.'mul' .or. op.eq.'MUL') then
+         call gs_op(gsh_fld(ifldt),u,1,2,0)
+         call gs_op(gsh_fld(ifldt),v,1,2,0)
+         call gs_op(gsh_fld(ifldt),w,1,2,0)
+      endif
+
+
+c      if (op.eq.'m  ' .or. op.eq.'min' .or. op.eq.'mna'
+c     $                .or. op.eq.'MIN' .or. op.eq.'MNA')
+c     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,3,0)
 
       if (op.eq.'m  ' .or. op.eq.'min' .or. op.eq.'mna'
-     $                .or. op.eq.'MIN' .or. op.eq.'MNA')
-     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,3,0)
+     $                .or. op.eq.'MIN' .or. op.eq.'MNA') then
+         call gs_op(gsh_fld(ifldt),u,1,3,0)
+         call gs_op(gsh_fld(ifldt),v,1,3,0)
+         call gs_op(gsh_fld(ifldt),w,1,3,0)
+      endif
 
+
+c      if (op.eq.'M  ' .or. op.eq.'max' .or. op.eq.'mxa'
+c     $                .or. op.eq.'MAX' .or. op.eq.'MXA')
+c     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,4,0)
 
       if (op.eq.'M  ' .or. op.eq.'max' .or. op.eq.'mxa'
-     $                .or. op.eq.'MAX' .or. op.eq.'MXA')
-     $   call gs_op_many(gsh_fld(ifldt),u,v,w,u,u,u,ndim,1,4,0)
+     $                .or. op.eq.'MAX' .or. op.eq.'MXA') then
+         call gs_op(gsh_fld(ifldt),u,1,4,0)
+         call gs_op(gsh_fld(ifldt),v,1,4,0)
+         call gs_op(gsh_fld(ifldt),w,1,4,0)
+      endif
 
 
       return
       end
 c-----------------------------------------------------------------------
+
       subroutine nvec_dssum(u,stride,n,gs_handle)
 
 c     Direct stiffness summation of the array u for n fields
