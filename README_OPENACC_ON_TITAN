@@ -1,0 +1,37 @@
+Run nek5000 with OpenACC on Titan (titan.ccs.ornl.gov)
+
+1. PGI compiler (default on Titan)
+  a) load module "cudatoolkit" for OpenACC
+   > module add cudatoolkit
+ 
+  b) set correct options in nek5_r1039_acc/makenek.inc
+    *ftn*)    P="-r8 -Mpreprocess -fast "
+
+  c) in pipe_r1039_acc/makenek, uncommand 
+    IFPGIACC="true"  
+
+  d) in pipe_r1039_acc
+   > ./maknek clean
+   > ./maknek stenosis
+   > aprun -n 4 -N 1 ./nek5000
+
+2. Cray CCE compiler 
+
+ a) switch to CCE ompiler 
+   > module switch PrgEnv-pgi PrgEnv-cray
+
+ b) load module "craype-accel-nvidia35" for OpenACC
+   >  module add  craype-accel-nvidia35
+
+ c) set correct options in nek5_r1039_acc/makenek.inc, e.g.
+   *ftn*)        P="-ra -s real64 -eZ -em -Rc"
+
+ d) in pipe_r1039_acc/makenek, uncommand
+    IFCRAYACC="true"                        
+  
+ e) in trunk/test
+   > ./maknek clean
+   > ./maknek stenosis
+   > aprun -n 4 -N 1 ./nek5000
+
+

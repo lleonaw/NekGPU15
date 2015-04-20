@@ -1,0 +1,579 @@
+      .version 3.1
+      .target sm_35
+      .address_size 64
+
+      // Cray Fortran : Version 8.3.4  (u83056f83186i83169p83291a83009z83291)
+
+      .file	1	"/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/dssum.f"
+
+      .entry hsmg_dssum_acc_$ck_L1003_1(
+               .param .s32 $$_arg_nglobl_t82,
+               .param .s64 $$arg_ptr_acc_ug_t25_t83,
+               .param .s64 $$arg_ptr_acc_mg_ptr_t27_t84,
+               .param .s64 $$arg_ptr_acc_mg_lgl1_t29_t85,
+               .param .s64 $$arg_ptr_acc_u_t31_t86,
+               .param .s32 $$_arg_acc_seat_l_t37_t87 )
+      {
+      .reg .pred %p<8>;
+      .reg .b32  %b<14>;
+      .reg .s32  %s<26>;
+      .reg .s64  %sd<33>;
+      .reg .u32  %u<4>;
+      .reg .f64  %fd<8>;
+      //
+      .loc                 1  1003  0
+      .loc                 1  1004  0
+      ld.param.s32         %s1, [$$_arg_nglobl_t82];   // dssum.f:1004 : $$mr_nglobl_45_t70
+      setp.le.s32          %p1, %s1, 0;                // dssum.f:1004
+      @%p1 bra             $hsmg_dssum_acc_$ck_L1003_1__l114__;// dssum.f:1004
+      .loc                 1  1004  0
+      mov.u32              %u1, %ntid.x;               // dssum.f:1004
+      mov.u32              %u2, %ctaid.x;              // dssum.f:1004
+      mov.u32              %u3, %tid.x;                // dssum.f:1004
+      mad.lo.u32           %s2, %u1, %u2, %u3;         // dssum.f:1004 : $$id_t34
+      setp.ge.s32          %p2, %s2, %s1;              // dssum.f:1004
+      @%p2 bra             $hsmg_dssum_acc_$ck_L1003_1__l114__;// dssum.f:1004
+      .loc                 1  1005  0
+      ld.param.s64         %sd3, [$$arg_ptr_acc_ug_t25_t83];// dssum.f:1005 : $$arg_ptr_acc_ug_t25_t83
+      shl.b32              %b1, %s2, 3;                // dssum.f:1005
+      cvt.s64.s32          %sd4, %b1;                  // dssum.f:1005
+      add.s64              %sd5, %sd3, %sd4;           // dssum.f:1005
+      st.global.f64        [%sd5], 0d0000000000000000; // dssum.f:1005 : 0[$$arg_ptr_acc_ug_t25_t83,$$id_t34].L
+      .loc                 1  1008  0
+      ld.param.s32         %s9, [$$_arg_acc_seat_l_t37_t87];// dssum.f:1008 : $$_arg_acc_seat_l_t37_t87
+      ld.param.s64         %sd6, [$$arg_ptr_acc_mg_ptr_t27_t84];// dssum.f:1008 : $$arg_ptr_acc_mg_ptr_t27_t84
+      mov.s32              %s3, %s9;                   // dssum.f:1008 : $$lcs_l_4_t73
+      mad.lo.s32           %s10, 209920, %s9, %s2;     // dssum.f:1008
+      shl.b32              %b2, %s10, 2;               // dssum.f:1008
+      cvt.s64.s32          %sd7, %b2;                  // dssum.f:1008
+      add.s64              %sd8, %sd6, %sd7;           // dssum.f:1008
+      ld.global.nc.s32     %s11, [%sd8 + -839680];     // dssum.f:1008 : -209920[$$arg_ptr_acc_mg_ptr_t27_t84,$$lcs_id_3_t72,ex]
+      ld.global.nc.s32     %s12, [%sd8 + -839676];     // dssum.f:1008 : -209919[$$arg_ptr_acc_mg_ptr_t27_t84,$$lcs_id_3_t72,ex]
+      mov.s32              %s4, %s11;                  // dssum.f:1008 : $$t_s2_t55
+      add.s32              %s13, %s12, -1;             // dssum.f:1008
+      sub.s32              %s5, %s13, %s11;            // dssum.f:1008 : $$lcs_t_5_t74
+      setp.lt.s32          %p3, %s5, 0;                // dssum.f:1008
+      @%p3 bra             $hsmg_dssum_acc_$ck_L1003_1__l114__;// dssum.f:1008
+      .loc                 1  1008  0
+      mov.f64              %fd1, 0d0000000000000000;   // dssum.f:1008 : $sca_ug_i0
+      mov.s32              %s8, 0;                     // dssum.f:1008 : $$i_l1008_64_t57
+      .loc                 1  1009  0
+      mad.lo.s32           %s7, 209922, %s3, %s4;      // dssum.f:1009 : $$lis_b0_t58
+      .loc                 1  1011  0
+      add.s32              %s6, %s5, 1;                // dssum.f:1011 : $$lis_b1_t59
+      cvt.s64.s32          %sd9, %s6;                  // dssum.f:1011
+      setp.gt.s64          %p4, 4, %sd9;               // dssum.f:1011
+      @%p4 bra             $hsmg_dssum_acc_$ck_L1003_1__l106__;// dssum.f:1011
+      .loc                 1  1008  0
+      shr.s32              %s14, %s6, 1;               // dssum.f:1008
+      shr.b32              %b3, %s14, 30;              // dssum.f:1008
+      add.s32              %s15, %s6, %b3;             // dssum.f:1008
+      and.b32              %b4, %s15, 0xfffffffffffffffc;// dssum.f:1008
+      add.s32              %s16, %b4, 3;               // dssum.f:1008
+      shr.b32              %b5, %s16, 2;               // dssum.f:1008
+      neg.s32              %s17, %b5;                  // dssum.f:1008
+      cvt.s64.s32          %sd1, %s17;                 // dssum.f:1008 : $$induc01_s31_t78
+$hsmg_dssum_acc_$ck_L1003_1__l102__:
+      .loc                 1  1009  0
+      add.s32              %s18, %s8, %s7;             // dssum.f:1009
+      shl.b32              %b6, %s18, 2;               // dssum.f:1009
+      cvt.s64.s32          %sd10, %b6;                 // dssum.f:1009
+      ld.param.s64         %sd11, [$$arg_ptr_acc_mg_lgl1_t29_t85];// dssum.f:1009 : $$arg_ptr_acc_mg_lgl1_t29_t85
+      add.s64              %sd12, %sd11, %sd10;        // dssum.f:1009
+      ld.global.nc.s32     %s19, [%sd12 + -839684];    // dssum.f:1009 : -209921[$$arg_ptr_acc_mg_lgl1_t29_t85,$$lcs_6_t75,ex]
+      .loc                 1  1010  0
+      shl.b32              %b7, %s19, 3;               // dssum.f:1010
+      cvt.s64.s32          %sd13, %b7;                 // dssum.f:1010
+      ld.param.s64         %sd14, [$$arg_ptr_acc_u_t31_t86];// dssum.f:1010 : $$arg_ptr_acc_u_t31_t86
+      add.s64              %sd15, %sd14, %sd13;        // dssum.f:1010
+      ld.global.nc.f64     %fd2, [%sd15 + -8];         // dssum.f:1010 : -1[$$arg_ptr_acc_u_t31_t86,$il_s9,ex].L
+      add.rn.f64           %fd1, %fd1, %fd2;           // dssum.f:1010 : $sca_ug_i0
+      .loc                 1  1009  0
+      ld.global.nc.s32     %s20, [%sd12 + -839680];    // dssum.f:1009 : -209920[$$arg_ptr_acc_mg_lgl1_t29_t85,$$lcs_6_t75,ex]
+      .loc                 1  1010  0
+      shl.b32              %b8, %s20, 3;               // dssum.f:1010
+      cvt.s64.s32          %sd16, %b8;                 // dssum.f:1010
+      add.s64              %sd17, %sd14, %sd16;        // dssum.f:1010
+      ld.global.nc.f64     %fd3, [%sd17 + -8];         // dssum.f:1010 : -1[$$arg_ptr_acc_u_t31_t86,$il_s10,ex].L
+      add.rn.f64           %fd1, %fd1, %fd3;           // dssum.f:1010 : $sca_ug_i0
+      .loc                 1  1009  0
+      ld.global.nc.s32     %s21, [%sd12 + -839676];    // dssum.f:1009 : -209919[$$arg_ptr_acc_mg_lgl1_t29_t85,$$lcs_6_t75,ex]
+      .loc                 1  1010  0
+      shl.b32              %b9, %s21, 3;               // dssum.f:1010
+      cvt.s64.s32          %sd18, %b9;                 // dssum.f:1010
+      add.s64              %sd19, %sd14, %sd18;        // dssum.f:1010
+      ld.global.nc.f64     %fd4, [%sd19 + -8];         // dssum.f:1010 : -1[$$arg_ptr_acc_u_t31_t86,$il_s11,ex].L
+      add.rn.f64           %fd5, %fd1, %fd4;           // dssum.f:1010
+      .loc                 1  1009  0
+      ld.global.nc.s32     %s22, [%sd12 + -839672];    // dssum.f:1009 : -209918[$$arg_ptr_acc_mg_lgl1_t29_t85,$$lcs_6_t75,ex]
+      .loc                 1  1010  0
+      shl.b32              %b10, %s22, 3;              // dssum.f:1010
+      cvt.s64.s32          %sd20, %b10;                // dssum.f:1010
+      add.s64              %sd21, %sd14, %sd20;        // dssum.f:1010
+      ld.global.nc.f64     %fd6, [%sd21 + -8];         // dssum.f:1010 : -1[$$arg_ptr_acc_u_t31_t86,$sc_il_i1,ex].L
+      add.rn.f64           %fd1, %fd5, %fd6;           // dssum.f:1010 : $sca_ug_i0
+      .loc                 1  1011  0
+      add.s32              %s8, %s8, 4;                // dssum.f:1011 : $$i_l1008_64_t57
+      .loc                 1  1008  0
+      add.s64              %sd1, %sd1, 1;              // dssum.f:1008 : $$induc01_s31_t78
+      setp.lt.s64          %p5, %sd1, 0;               // dssum.f:1008
+      @%p5 bra             $hsmg_dssum_acc_$ck_L1003_1__l102__;// dssum.f:1008
+$hsmg_dssum_acc_$ck_L1003_1__l106__:
+      .loc                 1  1008  0
+      cvt.s64.s32          %sd22, %s8;                 // dssum.f:1008
+      cvt.s64.s32          %sd23, %s6;                 // dssum.f:1008
+      setp.ge.s64          %p6, %sd22, %sd23;          // dssum.f:1008
+      @%p6 bra             $hsmg_dssum_acc_$ck_L1003_1__l113__;// dssum.f:1008
+      .loc                 1  1008  0
+      sub.s32              %s23, %s8, %s6;             // dssum.f:1008
+      cvt.s64.s32          %sd2, %s23;                 // dssum.f:1008 : $$induc01_s34_t81
+$hsmg_dssum_acc_$ck_L1003_1__l109__:
+      .loc                 1  1009  0
+      add.s32              %s24, %s8, %s7;             // dssum.f:1009
+      shl.b32              %b11, %s24, 2;              // dssum.f:1009
+      cvt.s64.s32          %sd24, %b11;                // dssum.f:1009
+      ld.param.s64         %sd25, [$$arg_ptr_acc_mg_lgl1_t29_t85];// dssum.f:1009 : $$arg_ptr_acc_mg_lgl1_t29_t85
+      add.s64              %sd26, %sd25, %sd24;        // dssum.f:1009
+      ld.global.nc.s32     %s25, [%sd26 + -839684];    // dssum.f:1009 : -209921[$$arg_ptr_acc_mg_lgl1_t29_t85,$$i_l1008_64_t57 + $$lis_b0_t58,ex]
+      .loc                 1  1010  0
+      shl.b32              %b12, %s25, 3;              // dssum.f:1010
+      cvt.s64.s32          %sd27, %b12;                // dssum.f:1010
+      ld.param.s64         %sd28, [$$arg_ptr_acc_u_t31_t86];// dssum.f:1010 : $$arg_ptr_acc_u_t31_t86
+      add.s64              %sd29, %sd28, %sd27;        // dssum.f:1010
+      ld.global.nc.f64     %fd7, [%sd29 + -8];         // dssum.f:1010 : -1[$$arg_ptr_acc_u_t31_t86,$sc_il_i1,ex].L
+      add.rn.f64           %fd1, %fd1, %fd7;           // dssum.f:1010 : $sca_ug_i0
+      .loc                 1  1011  0
+      add.s32              %s8, %s8, 1;                // dssum.f:1011 : $$i_l1008_64_t57
+      .loc                 1  1008  0
+      add.s64              %sd2, %sd2, 1;              // dssum.f:1008 : $$induc01_s34_t81
+      .loc                 1  1011  0
+      setp.lt.s64          %p7, %sd2, 0;               // dssum.f:1011
+      @%p7 bra             $hsmg_dssum_acc_$ck_L1003_1__l109__;// dssum.f:1011
+$hsmg_dssum_acc_$ck_L1003_1__l113__:
+      .loc                 1  1008  0
+      shl.b32              %b13, %s2, 3;               // dssum.f:1008
+      cvt.s64.s32          %sd30, %b13;                // dssum.f:1008
+      ld.param.s64         %sd31, [$$arg_ptr_acc_ug_t25_t83];// dssum.f:1008 : $$arg_ptr_acc_ug_t25_t83
+      add.s64              %sd32, %sd31, %sd30;        // dssum.f:1008
+      st.global.f64        [%sd32], %fd1;              // dssum.f:1008 : 0[$$arg_ptr_acc_ug_t25_t83,$$id_t34].L
+$hsmg_dssum_acc_$ck_L1003_1__l114__:
+      exit;
+      } // hsmg_dssum_acc_$ck_L1003_1
+
+
+      .entry hsmg_dssum_acc_$ck_L1024_2(
+               .param .s32 $$_arg_nglobl_t88,
+               .param .s64 $$arg_ptr_acc_ug_t25_t89,
+               .param .s64 $$arg_ptr_acc_mg_ptr_t27_t90,
+               .param .s64 $$arg_ptr_acc_mg_lgl1_t29_t91,
+               .param .s64 $$arg_ptr_acc_u_t31_t92,
+               .param .s32 $$_arg_acc_seat_l_t38_t93 )
+      {
+      .reg .pred %p<8>;
+      .reg .b32  %b<13>;
+      .reg .s32  %s<25>;
+      .reg .s64  %sd<30>;
+      .reg .u32  %u<4>;
+      .reg .f64  %fd<2>;
+      //
+      .loc                 1  1024  0
+      .loc                 1  1025  0
+      ld.param.s32         %s1, [$$_arg_nglobl_t88];   // dssum.f:1025 : $$mr_nglobl_57_t60
+      setp.le.s32          %p1, %s1, 0;                // dssum.f:1025
+      @%p1 bra             $hsmg_dssum_acc_$ck_L1024_2__l138__;// dssum.f:1025
+      .loc                 1  1025  0
+      mov.u32              %u1, %ntid.x;               // dssum.f:1025
+      mov.u32              %u2, %ctaid.x;              // dssum.f:1025
+      mov.u32              %u3, %tid.x;                // dssum.f:1025
+      mad.lo.u32           %s2, %u1, %u2, %u3;         // dssum.f:1025 : $$id_t36
+      setp.ge.s32          %p2, %s2, %s1;              // dssum.f:1025
+      @%p2 bra             $hsmg_dssum_acc_$ck_L1024_2__l138__;// dssum.f:1025
+      .loc                 1  1028  0
+      ld.param.s32         %s9, [$$_arg_acc_seat_l_t38_t93];// dssum.f:1028 : $$_arg_acc_seat_l_t38_t93
+      mov.s32              %s3, %s9;                   // dssum.f:1028 : $$lcs_l_8_t63
+      mad.lo.s32           %s10, 209920, %s9, %s2;     // dssum.f:1028
+      shl.b32              %b1, %s10, 2;               // dssum.f:1028
+      cvt.s64.s32          %sd3, %b1;                  // dssum.f:1028
+      ld.param.s64         %sd4, [$$arg_ptr_acc_mg_ptr_t27_t90];// dssum.f:1028 : $$arg_ptr_acc_mg_ptr_t27_t90
+      add.s64              %sd5, %sd4, %sd3;           // dssum.f:1028
+      ld.global.nc.s32     %s4, [%sd5 + -839680];      // dssum.f:1028 : $$t_s6_t49
+      ld.global.nc.s32     %s11, [%sd5 + -839676];     // dssum.f:1028 : -209919[$$arg_ptr_acc_mg_ptr_t27_t90,$$lcs_id_7_t62,ex]
+      add.s32              %s12, %s11, -1;             // dssum.f:1028
+      sub.s32              %s5, %s12, %s4;             // dssum.f:1028 : $$lcs_t_9_t64
+      setp.lt.s32          %p3, %s5, 0;                // dssum.f:1028
+      @%p3 bra             $hsmg_dssum_acc_$ck_L1024_2__l138__;// dssum.f:1028
+      .loc                 1  1028  0
+      mov.s32              %s8, 0;                     // dssum.f:1028 : $$i_l1028_66_t51
+      .loc                 1  1029  0
+      mad.lo.s32           %s7, 209922, %s3, %s4;      // dssum.f:1029 : $$lis_b2_t52
+      .loc                 1  1031  0
+      add.s32              %s6, %s5, 1;                // dssum.f:1031 : $$lis_b4_t54
+      .loc                 1  1030  0
+      shl.b32              %b2, %s2, 3;                // dssum.f:1030
+      cvt.s64.s32          %sd6, %b2;                  // dssum.f:1030
+      ld.param.s64         %sd7, [$$arg_ptr_acc_ug_t25_t89];// dssum.f:1030 : $$arg_ptr_acc_ug_t25_t89
+      add.s64              %sd8, %sd7, %sd6;           // dssum.f:1030
+      ld.global.nc.f64     %fd1, [%sd8];               // dssum.f:1030 : $$lis_b3_t53
+      .loc                 1  1031  0
+      cvt.s64.s32          %sd9, %s6;                  // dssum.f:1031
+      setp.gt.s64          %p4, 4, %sd9;               // dssum.f:1031
+      @%p4 bra             $hsmg_dssum_acc_$ck_L1024_2__l131__;// dssum.f:1031
+      .loc                 1  1028  0
+      shr.s32              %s13, %s6, 1;               // dssum.f:1028
+      shr.b32              %b3, %s13, 30;              // dssum.f:1028
+      add.s32              %s14, %s6, %b3;             // dssum.f:1028
+      and.b32              %b4, %s14, 0xfffffffffffffffc;// dssum.f:1028
+      add.s32              %s15, %b4, 3;               // dssum.f:1028
+      shr.b32              %b5, %s15, 2;               // dssum.f:1028
+      neg.s32              %s16, %b5;                  // dssum.f:1028
+      cvt.s64.s32          %sd1, %s16;                 // dssum.f:1028 : $$induc01_s36_t67
+$hsmg_dssum_acc_$ck_L1024_2__l127__:
+      .loc                 1  1029  0
+      add.s32              %s17, %s8, %s7;             // dssum.f:1029
+      ld.param.s64         %sd10, [$$arg_ptr_acc_mg_lgl1_t29_t91];// dssum.f:1029 : $$arg_ptr_acc_mg_lgl1_t29_t91
+      shl.b32              %b6, %s17, 2;               // dssum.f:1029
+      cvt.s64.s32          %sd11, %b6;                 // dssum.f:1029
+      add.s64              %sd12, %sd10, %sd11;        // dssum.f:1029
+      ld.global.nc.s32     %s18, [%sd12 + -839684];    // dssum.f:1029 : -209921[$$arg_ptr_acc_mg_lgl1_t29_t91,$$lcs_10_t65,ex]
+      ld.global.nc.s32     %s19, [%sd12 + -839680];    // dssum.f:1029 : -209920[$$arg_ptr_acc_mg_lgl1_t29_t91,$$lcs_10_t65,ex]
+      ld.global.nc.s32     %s20, [%sd12 + -839676];    // dssum.f:1029 : -209919[$$arg_ptr_acc_mg_lgl1_t29_t91,$$lcs_10_t65,ex]
+      ld.global.nc.s32     %s21, [%sd12 + -839672];    // dssum.f:1029 : -209918[$$arg_ptr_acc_mg_lgl1_t29_t91,$$lcs_10_t65,ex]
+      .loc                 1  1030  0
+      ld.param.s64         %sd13, [$$arg_ptr_acc_u_t31_t92];// dssum.f:1030 : $$arg_ptr_acc_u_t31_t92
+      shl.b32              %b7, %s18, 3;               // dssum.f:1030
+      cvt.s64.s32          %sd14, %b7;                 // dssum.f:1030
+      add.s64              %sd15, %sd13, %sd14;        // dssum.f:1030
+      st.global.f64        [%sd15 + -8], %fd1;         // dssum.f:1030 : -1[$$arg_ptr_acc_u_t31_t92,$il_s12,na].L
+      shl.b32              %b8, %s19, 3;               // dssum.f:1030
+      cvt.s64.s32          %sd16, %b8;                 // dssum.f:1030
+      add.s64              %sd17, %sd13, %sd16;        // dssum.f:1030
+      st.global.f64        [%sd17 + -8], %fd1;         // dssum.f:1030 : -1[$$arg_ptr_acc_u_t31_t92,$il_s13,na].L
+      shl.b32              %b9, %s20, 3;               // dssum.f:1030
+      cvt.s64.s32          %sd18, %b9;                 // dssum.f:1030
+      add.s64              %sd19, %sd13, %sd18;        // dssum.f:1030
+      st.global.f64        [%sd19 + -8], %fd1;         // dssum.f:1030 : -1[$$arg_ptr_acc_u_t31_t92,$il_s14,na].L
+      shl.b32              %b10, %s21, 3;              // dssum.f:1030
+      cvt.s64.s32          %sd20, %b10;                // dssum.f:1030
+      add.s64              %sd21, %sd13, %sd20;        // dssum.f:1030
+      st.global.f64        [%sd21 + -8], %fd1;         // dssum.f:1030 : -1[$$arg_ptr_acc_u_t31_t92,$sc_il_i2,na].L
+      .loc                 1  1031  0
+      add.s32              %s8, %s8, 4;                // dssum.f:1031 : $$i_l1028_66_t51
+      .loc                 1  1028  0
+      add.s64              %sd1, %sd1, 1;              // dssum.f:1028 : $$induc01_s36_t67
+      setp.lt.s64          %p5, %sd1, 0;               // dssum.f:1028
+      @%p5 bra             $hsmg_dssum_acc_$ck_L1024_2__l127__;// dssum.f:1028
+$hsmg_dssum_acc_$ck_L1024_2__l131__:
+      .loc                 1  1028  0
+      cvt.s64.s32          %sd22, %s8;                 // dssum.f:1028
+      cvt.s64.s32          %sd23, %s6;                 // dssum.f:1028
+      setp.ge.s64          %p6, %sd22, %sd23;          // dssum.f:1028
+      @%p6 bra             $hsmg_dssum_acc_$ck_L1024_2__l138__;// dssum.f:1028
+      .loc                 1  1028  0
+      sub.s32              %s22, %s8, %s6;             // dssum.f:1028
+      cvt.s64.s32          %sd2, %s22;                 // dssum.f:1028 : $$induc01_s38_t69
+$hsmg_dssum_acc_$ck_L1024_2__l134__:
+      .loc                 1  1029  0
+      add.s32              %s23, %s8, %s7;             // dssum.f:1029
+      shl.b32              %b11, %s23, 2;              // dssum.f:1029
+      cvt.s64.s32          %sd24, %b11;                // dssum.f:1029
+      ld.param.s64         %sd25, [$$arg_ptr_acc_mg_lgl1_t29_t91];// dssum.f:1029 : $$arg_ptr_acc_mg_lgl1_t29_t91
+      add.s64              %sd26, %sd25, %sd24;        // dssum.f:1029
+      ld.global.nc.s32     %s24, [%sd26 + -839684];    // dssum.f:1029 : -209921[$$arg_ptr_acc_mg_lgl1_t29_t91,$$i_l1028_66_t51 + $$lis_b2_t52,ex]
+      .loc                 1  1030  0
+      shl.b32              %b12, %s24, 3;              // dssum.f:1030
+      cvt.s64.s32          %sd27, %b12;                // dssum.f:1030
+      ld.param.s64         %sd28, [$$arg_ptr_acc_u_t31_t92];// dssum.f:1030 : $$arg_ptr_acc_u_t31_t92
+      add.s64              %sd29, %sd28, %sd27;        // dssum.f:1030
+      st.global.f64        [%sd29 + -8], %fd1;         // dssum.f:1030 : -1[$$arg_ptr_acc_u_t31_t92,$sc_il_i2,na].L
+      .loc                 1  1031  0
+      add.s32              %s8, %s8, 1;                // dssum.f:1031 : $$i_l1028_66_t51
+      .loc                 1  1028  0
+      add.s64              %sd2, %sd2, 1;              // dssum.f:1028 : $$induc01_s38_t69
+      .loc                 1  1031  0
+      setp.lt.s64          %p7, %sd2, 0;               // dssum.f:1031
+      @%p7 bra             $hsmg_dssum_acc_$ck_L1024_2__l134__;// dssum.f:1031
+$hsmg_dssum_acc_$ck_L1024_2__l138__:
+      exit;
+      } // hsmg_dssum_acc_$ck_L1024_2
+
+
+      .entry dssum_acc_$ck_L1329_3(
+               .param .s32 $$_arg_nglobl_t74,
+               .param .s64 $$arg_ptr_acc_ug_t25_t75,
+               .param .s64 $$arg_ptr_acc_ids_lgl1_t27_t76,
+               .param .s64 $$arg_ptr_acc_u_t29_t77,
+               .param .s64 $$arg_ptr_acc_ids_ptr_t31_t78 )
+      {
+      .reg .pred %p<8>;
+      .reg .b32  %b<14>;
+      .reg .s32  %s<22>;
+      .reg .s64  %sd<33>;
+      .reg .u32  %u<4>;
+      .reg .f64  %fd<8>;
+      //
+      .loc                 1  1329  0
+      .loc                 1  1330  0
+      ld.param.s32         %s1, [$$_arg_nglobl_t74];   // dssum.f:1330 : $$mr_nglobl_43_t65
+      setp.le.s32          %p1, %s1, 0;                // dssum.f:1330
+      @%p1 bra             $dssum_acc_$ck_L1329_3__l114__;// dssum.f:1330
+      .loc                 1  1330  0
+      mov.u32              %u1, %ntid.x;               // dssum.f:1330
+      mov.u32              %u2, %ctaid.x;              // dssum.f:1330
+      mov.u32              %u3, %tid.x;                // dssum.f:1330
+      mad.lo.u32           %s2, %u1, %u2, %u3;         // dssum.f:1330 : $$id_t34
+      setp.ge.s32          %p2, %s2, %s1;              // dssum.f:1330
+      @%p2 bra             $dssum_acc_$ck_L1329_3__l114__;// dssum.f:1330
+      .loc                 1  1331  0
+      ld.param.s64         %sd3, [$$arg_ptr_acc_ug_t25_t75];// dssum.f:1331 : $$arg_ptr_acc_ug_t25_t75
+      shl.b32              %b1, %s2, 3;                // dssum.f:1331
+      cvt.s64.s32          %sd4, %b1;                  // dssum.f:1331
+      add.s64              %sd5, %sd3, %sd4;           // dssum.f:1331
+      .loc                 1  1334  0
+      shl.b32              %b2, %s2, 2;                // dssum.f:1334
+      cvt.s64.s32          %sd6, %b2;                  // dssum.f:1334
+      .loc                 1  1331  0
+      st.global.f64        [%sd5], 0d0000000000000000; // dssum.f:1331 : 0[$$arg_ptr_acc_ug_t25_t75,$$id_t34].L
+      .loc                 1  1334  0
+      ld.param.s64         %sd7, [$$arg_ptr_acc_ids_ptr_t31_t78];// dssum.f:1334 : $$arg_ptr_acc_ids_ptr_t31_t78
+      add.s64              %sd8, %sd7, %sd6;           // dssum.f:1334
+      ld.global.nc.s32     %s7, [%sd8];                // dssum.f:1334 : 0[$$arg_ptr_acc_ids_ptr_t31_t78,$$id_t34,ex]
+      ld.global.nc.s32     %s8, [%sd8 + 4];            // dssum.f:1334 : 1[$$arg_ptr_acc_ids_ptr_t31_t78,$$id_t34,ex]
+      mov.s32              %s5, %s7;                   // dssum.f:1334 : $$lis_b0_t56
+      add.s32              %s9, %s8, -1;               // dssum.f:1334
+      sub.s32              %s3, %s9, %s7;              // dssum.f:1334 : $$lcs_t_2_t66
+      setp.lt.s32          %p3, %s3, 0;                // dssum.f:1334
+      @%p3 bra             $dssum_acc_$ck_L1329_3__l114__;// dssum.f:1334
+      .loc                 1  1334  0
+      mov.f64              %fd1, 0d0000000000000000;   // dssum.f:1334 : $sca_ug_i0
+      mov.s32              %s6, 0;                     // dssum.f:1334 : $$i_l1334_64_t55
+      .loc                 1  1337  0
+      add.s32              %s4, %s3, 1;                // dssum.f:1337 : $$lis_b1_t57
+      cvt.s64.s32          %sd9, %s4;                  // dssum.f:1337
+      setp.gt.s64          %p4, 4, %sd9;               // dssum.f:1337
+      @%p4 bra             $dssum_acc_$ck_L1329_3__l106__;// dssum.f:1337
+      .loc                 1  1334  0
+      shr.s32              %s10, %s4, 1;               // dssum.f:1334
+      shr.b32              %b3, %s10, 30;              // dssum.f:1334
+      add.s32              %s11, %s4, %b3;             // dssum.f:1334
+      and.b32              %b4, %s11, 0xfffffffffffffffc;// dssum.f:1334
+      add.s32              %s12, %b4, 3;               // dssum.f:1334
+      shr.b32              %b5, %s12, 2;               // dssum.f:1334
+      neg.s32              %s13, %b5;                  // dssum.f:1334
+      cvt.s64.s32          %sd1, %s13;                 // dssum.f:1334 : $$induc01_s30_t70
+$dssum_acc_$ck_L1329_3__l102__:
+      .loc                 1  1335  0
+      add.s32              %s14, %s6, %s5;             // dssum.f:1335
+      shl.b32              %b6, %s14, 2;               // dssum.f:1335
+      cvt.s64.s32          %sd10, %b6;                 // dssum.f:1335
+      ld.param.s64         %sd11, [$$arg_ptr_acc_ids_lgl1_t27_t76];// dssum.f:1335 : $$arg_ptr_acc_ids_lgl1_t27_t76
+      add.s64              %sd12, %sd11, %sd10;        // dssum.f:1335
+      ld.global.nc.s32     %s15, [%sd12 + 4];          // dssum.f:1335 : 1[$$arg_ptr_acc_ids_lgl1_t27_t76,$$lcs_3_t67,ex]
+      .loc                 1  1336  0
+      shl.b32              %b7, %s15, 3;               // dssum.f:1336
+      cvt.s64.s32          %sd13, %b7;                 // dssum.f:1336
+      ld.param.s64         %sd14, [$$arg_ptr_acc_u_t29_t77];// dssum.f:1336 : $$arg_ptr_acc_u_t29_t77
+      add.s64              %sd15, %sd14, %sd13;        // dssum.f:1336
+      ld.global.nc.f64     %fd2, [%sd15 + -8];         // dssum.f:1336 : -1[$$arg_ptr_acc_u_t29_t77,$il_s10,ex].L
+      add.rn.f64           %fd1, %fd1, %fd2;           // dssum.f:1336 : $sca_ug_i0
+      .loc                 1  1335  0
+      ld.global.nc.s32     %s16, [%sd12 + 8];          // dssum.f:1335 : 2[$$arg_ptr_acc_ids_lgl1_t27_t76,$$lcs_3_t67,ex]
+      .loc                 1  1336  0
+      shl.b32              %b8, %s16, 3;               // dssum.f:1336
+      cvt.s64.s32          %sd16, %b8;                 // dssum.f:1336
+      add.s64              %sd17, %sd14, %sd16;        // dssum.f:1336
+      ld.global.nc.f64     %fd3, [%sd17 + -8];         // dssum.f:1336 : -1[$$arg_ptr_acc_u_t29_t77,$il_s11,ex].L
+      add.rn.f64           %fd1, %fd1, %fd3;           // dssum.f:1336 : $sca_ug_i0
+      .loc                 1  1335  0
+      ld.global.nc.s32     %s17, [%sd12 + 12];         // dssum.f:1335 : 3[$$arg_ptr_acc_ids_lgl1_t27_t76,$$lcs_3_t67,ex]
+      .loc                 1  1336  0
+      shl.b32              %b9, %s17, 3;               // dssum.f:1336
+      cvt.s64.s32          %sd18, %b9;                 // dssum.f:1336
+      add.s64              %sd19, %sd14, %sd18;        // dssum.f:1336
+      ld.global.nc.f64     %fd4, [%sd19 + -8];         // dssum.f:1336 : -1[$$arg_ptr_acc_u_t29_t77,$il_s12,ex].L
+      add.rn.f64           %fd5, %fd1, %fd4;           // dssum.f:1336
+      .loc                 1  1335  0
+      ld.global.nc.s32     %s18, [%sd12 + 16];         // dssum.f:1335 : 4[$$arg_ptr_acc_ids_lgl1_t27_t76,$$lcs_3_t67,ex]
+      .loc                 1  1336  0
+      shl.b32              %b10, %s18, 3;              // dssum.f:1336
+      cvt.s64.s32          %sd20, %b10;                // dssum.f:1336
+      add.s64              %sd21, %sd14, %sd20;        // dssum.f:1336
+      ld.global.nc.f64     %fd6, [%sd21 + -8];         // dssum.f:1336 : -1[$$arg_ptr_acc_u_t29_t77,$sc_il_i1,ex].L
+      add.rn.f64           %fd1, %fd5, %fd6;           // dssum.f:1336 : $sca_ug_i0
+      .loc                 1  1337  0
+      add.s32              %s6, %s6, 4;                // dssum.f:1337 : $$i_l1334_64_t55
+      .loc                 1  1334  0
+      add.s64              %sd1, %sd1, 1;              // dssum.f:1334 : $$induc01_s30_t70
+      setp.lt.s64          %p5, %sd1, 0;               // dssum.f:1334
+      @%p5 bra             $dssum_acc_$ck_L1329_3__l102__;// dssum.f:1334
+$dssum_acc_$ck_L1329_3__l106__:
+      .loc                 1  1334  0
+      cvt.s64.s32          %sd22, %s6;                 // dssum.f:1334
+      cvt.s64.s32          %sd23, %s4;                 // dssum.f:1334
+      setp.ge.s64          %p6, %sd22, %sd23;          // dssum.f:1334
+      @%p6 bra             $dssum_acc_$ck_L1329_3__l113__;// dssum.f:1334
+      .loc                 1  1334  0
+      sub.s32              %s19, %s6, %s4;             // dssum.f:1334
+      cvt.s64.s32          %sd2, %s19;                 // dssum.f:1334 : $$induc01_s33_t73
+$dssum_acc_$ck_L1329_3__l109__:
+      .loc                 1  1335  0
+      add.s32              %s20, %s6, %s5;             // dssum.f:1335
+      shl.b32              %b11, %s20, 2;              // dssum.f:1335
+      cvt.s64.s32          %sd24, %b11;                // dssum.f:1335
+      ld.param.s64         %sd25, [$$arg_ptr_acc_ids_lgl1_t27_t76];// dssum.f:1335 : $$arg_ptr_acc_ids_lgl1_t27_t76
+      add.s64              %sd26, %sd25, %sd24;        // dssum.f:1335
+      ld.global.nc.s32     %s21, [%sd26 + 4];          // dssum.f:1335 : 1[$$arg_ptr_acc_ids_lgl1_t27_t76,$$i_l1334_64_t55 + $$lis_b0_t56,ex]
+      .loc                 1  1336  0
+      shl.b32              %b12, %s21, 3;              // dssum.f:1336
+      cvt.s64.s32          %sd27, %b12;                // dssum.f:1336
+      ld.param.s64         %sd28, [$$arg_ptr_acc_u_t29_t77];// dssum.f:1336 : $$arg_ptr_acc_u_t29_t77
+      add.s64              %sd29, %sd28, %sd27;        // dssum.f:1336
+      ld.global.nc.f64     %fd7, [%sd29 + -8];         // dssum.f:1336 : -1[$$arg_ptr_acc_u_t29_t77,$sc_il_i1,ex].L
+      add.rn.f64           %fd1, %fd1, %fd7;           // dssum.f:1336 : $sca_ug_i0
+      .loc                 1  1337  0
+      add.s32              %s6, %s6, 1;                // dssum.f:1337 : $$i_l1334_64_t55
+      .loc                 1  1334  0
+      add.s64              %sd2, %sd2, 1;              // dssum.f:1334 : $$induc01_s33_t73
+      .loc                 1  1337  0
+      setp.lt.s64          %p7, %sd2, 0;               // dssum.f:1337
+      @%p7 bra             $dssum_acc_$ck_L1329_3__l109__;// dssum.f:1337
+$dssum_acc_$ck_L1329_3__l113__:
+      .loc                 1  1334  0
+      shl.b32              %b13, %s2, 3;               // dssum.f:1334
+      cvt.s64.s32          %sd30, %b13;                // dssum.f:1334
+      ld.param.s64         %sd31, [$$arg_ptr_acc_ug_t25_t75];// dssum.f:1334 : $$arg_ptr_acc_ug_t25_t75
+      add.s64              %sd32, %sd31, %sd30;        // dssum.f:1334
+      st.global.f64        [%sd32], %fd1;              // dssum.f:1334 : 0[$$arg_ptr_acc_ug_t25_t75,$$id_t34].L
+$dssum_acc_$ck_L1329_3__l114__:
+      exit;
+      } // dssum_acc_$ck_L1329_3
+
+
+      .entry dssum_acc_$ck_L1350_4(
+               .param .s32 $$_arg_nglobl_t79,
+               .param .s64 $$arg_ptr_acc_ug_t25_t80,
+               .param .s64 $$arg_ptr_acc_ids_lgl1_t27_t81,
+               .param .s64 $$arg_ptr_acc_u_t29_t82,
+               .param .s64 $$arg_ptr_acc_ids_ptr_t31_t83 )
+      {
+      .reg .pred %p<8>;
+      .reg .b32  %b<13>;
+      .reg .s32  %s<21>;
+      .reg .s64  %sd<30>;
+      .reg .u32  %u<4>;
+      .reg .f64  %fd<2>;
+      //
+      .loc                 1  1350  0
+      .loc                 1  1351  0
+      ld.param.s32         %s1, [$$_arg_nglobl_t79];   // dssum.f:1351 : $$mr_nglobl_54_t58
+      setp.le.s32          %p1, %s1, 0;                // dssum.f:1351
+      @%p1 bra             $dssum_acc_$ck_L1350_4__l138__;// dssum.f:1351
+      .loc                 1  1351  0
+      mov.u32              %u1, %ntid.x;               // dssum.f:1351
+      mov.u32              %u2, %ctaid.x;              // dssum.f:1351
+      mov.u32              %u3, %tid.x;                // dssum.f:1351
+      mad.lo.u32           %s2, %u1, %u2, %u3;         // dssum.f:1351 : $$id_t36
+      setp.ge.s32          %p2, %s2, %s1;              // dssum.f:1351
+      @%p2 bra             $dssum_acc_$ck_L1350_4__l138__;// dssum.f:1351
+      .loc                 1  1354  0
+      shl.b32              %b1, %s2, 2;                // dssum.f:1354
+      cvt.s64.s32          %sd3, %b1;                  // dssum.f:1354
+      ld.param.s64         %sd4, [$$arg_ptr_acc_ids_ptr_t31_t83];// dssum.f:1354 : $$arg_ptr_acc_ids_ptr_t31_t83
+      add.s64              %sd5, %sd4, %sd3;           // dssum.f:1354
+      ld.global.nc.s32     %s5, [%sd5];                // dssum.f:1354 : $$lis_b2_t50
+      ld.global.nc.s32     %s7, [%sd5 + 4];            // dssum.f:1354 : 1[$$arg_ptr_acc_ids_ptr_t31_t83,$$id_t36,ex]
+      add.s32              %s8, %s7, -1;               // dssum.f:1354
+      sub.s32              %s3, %s8, %s5;              // dssum.f:1354 : $$lcs_t_4_t59
+      setp.lt.s32          %p3, %s3, 0;                // dssum.f:1354
+      @%p3 bra             $dssum_acc_$ck_L1350_4__l138__;// dssum.f:1354
+      .loc                 1  1354  0
+      mov.s32              %s6, 0;                     // dssum.f:1354 : $$i_l1354_66_t49
+      .loc                 1  1357  0
+      add.s32              %s4, %s3, 1;                // dssum.f:1357 : $$lis_b4_t52
+      .loc                 1  1356  0
+      shl.b32              %b2, %s2, 3;                // dssum.f:1356
+      cvt.s64.s32          %sd6, %b2;                  // dssum.f:1356
+      ld.param.s64         %sd7, [$$arg_ptr_acc_ug_t25_t80];// dssum.f:1356 : $$arg_ptr_acc_ug_t25_t80
+      add.s64              %sd8, %sd7, %sd6;           // dssum.f:1356
+      ld.global.nc.f64     %fd1, [%sd8];               // dssum.f:1356 : $$lis_b3_t51
+      .loc                 1  1357  0
+      cvt.s64.s32          %sd9, %s4;                  // dssum.f:1357
+      setp.gt.s64          %p4, 4, %sd9;               // dssum.f:1357
+      @%p4 bra             $dssum_acc_$ck_L1350_4__l131__;// dssum.f:1357
+      .loc                 1  1354  0
+      shr.s32              %s9, %s4, 1;                // dssum.f:1354
+      shr.b32              %b3, %s9, 30;               // dssum.f:1354
+      add.s32              %s10, %s4, %b3;             // dssum.f:1354
+      and.b32              %b4, %s10, 0xfffffffffffffffc;// dssum.f:1354
+      add.s32              %s11, %b4, 3;               // dssum.f:1354
+      shr.b32              %b5, %s11, 2;               // dssum.f:1354
+      neg.s32              %s12, %b5;                  // dssum.f:1354
+      cvt.s64.s32          %sd1, %s12;                 // dssum.f:1354 : $$induc01_s35_t62
+$dssum_acc_$ck_L1350_4__l127__:
+      .loc                 1  1355  0
+      add.s32              %s13, %s6, %s5;             // dssum.f:1355
+      ld.param.s64         %sd10, [$$arg_ptr_acc_ids_lgl1_t27_t81];// dssum.f:1355 : $$arg_ptr_acc_ids_lgl1_t27_t81
+      shl.b32              %b6, %s13, 2;               // dssum.f:1355
+      cvt.s64.s32          %sd11, %b6;                 // dssum.f:1355
+      add.s64              %sd12, %sd10, %sd11;        // dssum.f:1355
+      ld.global.nc.s32     %s14, [%sd12 + 4];          // dssum.f:1355 : 1[$$arg_ptr_acc_ids_lgl1_t27_t81,$$lcs_5_t60,ex]
+      ld.global.nc.s32     %s15, [%sd12 + 8];          // dssum.f:1355 : 2[$$arg_ptr_acc_ids_lgl1_t27_t81,$$lcs_5_t60,ex]
+      ld.global.nc.s32     %s16, [%sd12 + 12];         // dssum.f:1355 : 3[$$arg_ptr_acc_ids_lgl1_t27_t81,$$lcs_5_t60,ex]
+      ld.global.nc.s32     %s17, [%sd12 + 16];         // dssum.f:1355 : 4[$$arg_ptr_acc_ids_lgl1_t27_t81,$$lcs_5_t60,ex]
+      .loc                 1  1356  0
+      ld.param.s64         %sd13, [$$arg_ptr_acc_u_t29_t82];// dssum.f:1356 : $$arg_ptr_acc_u_t29_t82
+      shl.b32              %b7, %s14, 3;               // dssum.f:1356
+      cvt.s64.s32          %sd14, %b7;                 // dssum.f:1356
+      add.s64              %sd15, %sd13, %sd14;        // dssum.f:1356
+      st.global.f64        [%sd15 + -8], %fd1;         // dssum.f:1356 : -1[$$arg_ptr_acc_u_t29_t82,$il_s13,na].L
+      shl.b32              %b8, %s15, 3;               // dssum.f:1356
+      cvt.s64.s32          %sd16, %b8;                 // dssum.f:1356
+      add.s64              %sd17, %sd13, %sd16;        // dssum.f:1356
+      st.global.f64        [%sd17 + -8], %fd1;         // dssum.f:1356 : -1[$$arg_ptr_acc_u_t29_t82,$il_s14,na].L
+      shl.b32              %b9, %s16, 3;               // dssum.f:1356
+      cvt.s64.s32          %sd18, %b9;                 // dssum.f:1356
+      add.s64              %sd19, %sd13, %sd18;        // dssum.f:1356
+      st.global.f64        [%sd19 + -8], %fd1;         // dssum.f:1356 : -1[$$arg_ptr_acc_u_t29_t82,$il_s15,na].L
+      shl.b32              %b10, %s17, 3;              // dssum.f:1356
+      cvt.s64.s32          %sd20, %b10;                // dssum.f:1356
+      add.s64              %sd21, %sd13, %sd20;        // dssum.f:1356
+      st.global.f64        [%sd21 + -8], %fd1;         // dssum.f:1356 : -1[$$arg_ptr_acc_u_t29_t82,$sc_il_i2,na].L
+      .loc                 1  1357  0
+      add.s32              %s6, %s6, 4;                // dssum.f:1357 : $$i_l1354_66_t49
+      .loc                 1  1354  0
+      add.s64              %sd1, %sd1, 1;              // dssum.f:1354 : $$induc01_s35_t62
+      setp.lt.s64          %p5, %sd1, 0;               // dssum.f:1354
+      @%p5 bra             $dssum_acc_$ck_L1350_4__l127__;// dssum.f:1354
+$dssum_acc_$ck_L1350_4__l131__:
+      .loc                 1  1354  0
+      cvt.s64.s32          %sd22, %s6;                 // dssum.f:1354
+      cvt.s64.s32          %sd23, %s4;                 // dssum.f:1354
+      setp.ge.s64          %p6, %sd22, %sd23;          // dssum.f:1354
+      @%p6 bra             $dssum_acc_$ck_L1350_4__l138__;// dssum.f:1354
+      .loc                 1  1354  0
+      sub.s32              %s18, %s6, %s4;             // dssum.f:1354
+      cvt.s64.s32          %sd2, %s18;                 // dssum.f:1354 : $$induc01_s37_t64
+$dssum_acc_$ck_L1350_4__l134__:
+      .loc                 1  1355  0
+      add.s32              %s19, %s6, %s5;             // dssum.f:1355
+      shl.b32              %b11, %s19, 2;              // dssum.f:1355
+      cvt.s64.s32          %sd24, %b11;                // dssum.f:1355
+      ld.param.s64         %sd25, [$$arg_ptr_acc_ids_lgl1_t27_t81];// dssum.f:1355 : $$arg_ptr_acc_ids_lgl1_t27_t81
+      add.s64              %sd26, %sd25, %sd24;        // dssum.f:1355
+      ld.global.nc.s32     %s20, [%sd26 + 4];          // dssum.f:1355 : 1[$$arg_ptr_acc_ids_lgl1_t27_t81,$$i_l1354_66_t49 + $$lis_b2_t50,ex]
+      .loc                 1  1356  0
+      shl.b32              %b12, %s20, 3;              // dssum.f:1356
+      cvt.s64.s32          %sd27, %b12;                // dssum.f:1356
+      ld.param.s64         %sd28, [$$arg_ptr_acc_u_t29_t82];// dssum.f:1356 : $$arg_ptr_acc_u_t29_t82
+      add.s64              %sd29, %sd28, %sd27;        // dssum.f:1356
+      st.global.f64        [%sd29 + -8], %fd1;         // dssum.f:1356 : -1[$$arg_ptr_acc_u_t29_t82,$sc_il_i2,na].L
+      .loc                 1  1357  0
+      add.s32              %s6, %s6, 1;                // dssum.f:1357 : $$i_l1354_66_t49
+      .loc                 1  1354  0
+      add.s64              %sd2, %sd2, 1;              // dssum.f:1354 : $$induc01_s37_t64
+      .loc                 1  1357  0
+      setp.lt.s64          %p7, %sd2, 0;               // dssum.f:1357
+      @%p7 bra             $dssum_acc_$ck_L1350_4__l134__;// dssum.f:1357
+$dssum_acc_$ck_L1350_4__l138__:
+      exit;
+      } // dssum_acc_$ck_L1350_4
+

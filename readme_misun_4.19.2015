@@ -1,0 +1,110 @@
+
+
+============================================
+PGI Compiler: Compile & Runs
+============================================
+
+ Step 1:
+
+    cd nek5_r1039_acc/pipe_r1039_acc
+
+ Step 2: Just one time edits  
+
+    Edit pgi.makenek: set SOURCE_ROOT correctly.
+       (eg, SOURCE_ROOT="/lustre/atlas2/nti104/scratch/mmin/nek5_r1039_acc/nek5_r1039_acc")
+    Edit nekgpu: set PROJECT name correctly
+       (eg, PROJECT="NTI104" ---> PROJECT="your project name")
+
+ Step 3: Do the following just each time after switching your compiler
+
+    Grab the whole following linux commands and paste:
+
+    module load cudatoolkit
+    module unload PrgEnv-cray
+    module unload cce
+    module load pgi
+    module load PrgEnv-pgi
+    module load craype-accel-nvidia35
+    module load perftools
+    module sw pgi pgi/14.7.0
+    module unload cray-libsci_acc/3.0.2
+    cp pgi.makenek makenek   
+    cp pgi.makefile makefile 
+
+  
+ Step 4:
+
+     ./makenek clean
+     ./makenek stenosis
+     ./nekgpu stenosis $1 $2   
+       (eg, ./nekgpu stenosis 4 4) : 4 gpu runs on 4 nodes
+       (eg, ./nekgpu stenosis 1 1) : 1 gpu run  on 1 node 
+    
+     (./nekmpi stenosis 32 2 --> mpi run script on 32 MPI ranks on 2 nodes)
+   
+ Step 5:
+      qstat -u username: shows your job submitted 
+      
+      The following 3 output files are generated (they are same files in different names)
+           stenosis.np=4.output
+           stenosis.np=4-cray-2015-04-19_15_17_42.output
+           logfile
+
+============================================
+Cray CCE compiler: Compile & Runs
+============================================
+
+ Step 1: 
+  
+    cd nek5_r1039_acc/pipe_r1039_acc
+
+ Step 2: Just one time edits   
+ 
+    Edit cce.makenek: set SOURCE_ROOT correctly. 
+       (eg, SOURCE_ROOT="/lustre/atlas2/nti104/scratch/mmin/nek5_r1039_acc/nek5_r1039_acc")       
+    Edit nekgpu: set PROJECT name correctly
+       (eg, PROJECT="NTI104" ---> PROJECT="your project name")
+
+ Step 3: Do the following just each time after switching your compiler
+
+    Grab the whole following linux commands and paste:
+
+    module load cudatoolkit
+    module unload PrgEnv-pgi/5.2.40
+    module unload pgi/14.7.0
+    module load PrgEnv-cray
+    module unload cce/8.2.5
+    module load cray-libsci_acc/3.0.2
+    module load cce/8.3.4
+    module load craype-accel-nvidia35
+    module load perftools
+    cp cce.makenek makenek   
+    cp cce.makefile makefile 
+
+ Step 4:
+
+     ./makenek clean
+     ./makenek stenosis
+     ./nekgpu stenosis $1 $2
+       (eg, ./nekgpu stenosis 4 4) : 4 gpu runs on 4 nodes
+       (eg, ./nekgpu stenosis 1 1) : 1 gpu run  on 1 node
+
+     (./nekmpi stenosis 32 2 --> mpi run script on 32 MPI ranks on 2 nodes)
+
+ Step 5:
+      qstat -u username: shows your job submitted
+
+      The following 3 output files are generated (they are same files in different names)
+           stenosis.np=4.output
+           stenosis.np=4-cray-2015-04-19_15_17_42.output
+           logfile
+
+==========
+
+
+NOTE that timings are (PGI, CCE)= (7.05 sec, 5.62 sec) for the current version:
+
+      nek5_r1039_acc/pipe_r1039_acc> grep 'total elapse' *output
+           cce_stenosis.np=4-cray-2015-04-19_13_08_14.output:total elapsed time             :   5.62737E+00 sec
+           pgi_stenosis.np=4-cray-2015-04-19_14_38_14.output:total elapsed time             :   7.05015E+00 sec
+

@@ -1,0 +1,56 @@
+      .version 3.1
+      .target sm_35
+      .address_size 64
+
+      // Cray Fortran : Version 8.3.4  (u83056f83186i83169p83291a83009z83291)
+
+      .file	1	"/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gmres.f"
+
+      .entry uzawa_gmres_split_acc_$ck_L1347_1(
+               .param .s64 $$arg_ptr_acc_u_t10_t30,
+               .param .s64 $$arg_ptr_acc_l_t12_t31,
+               .param .s32 $$_arg_acc_seat_n_t16_t32 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      //
+      .loc                 1  1347  0
+      .loc                 1  1348  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t16_t32];// gmres.f:1348 : $$mr_n_23_t27
+      setp.le.s32          %p1, %s1, 0;                // gmres.f:1348
+      @%p1 bra             $uzawa_gmres_split_acc_$ck_L1347_1__l42__;// gmres.f:1348
+      .loc                 1  1348  0
+      mov.u32              %u1, %ntid.x;               // gmres.f:1348
+      mov.u32              %u2, %nctaid.x;             // gmres.f:1348
+      mul.lo.u32           %s3, %u1, %u2;              // gmres.f:1348 : $$numthrds_t14
+      mov.u32              %u3, %ctaid.x;              // gmres.f:1348
+      mov.u32              %u4, %tid.x;                // gmres.f:1348
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // gmres.f:1348
+      mov.s32              %s2, %u5;                   // gmres.f:1348 : $$i_l1348_18_t24
+      mov.s32              %s4, %s1;                   // gmres.f:1348 : $$lis_b1_t26
+      setp.ge.s32          %p2, %u5, %s1;              // gmres.f:1348
+      @%p2 bra             $uzawa_gmres_split_acc_$ck_L1347_1__l42__;// gmres.f:1348
+$uzawa_gmres_split_acc_$ck_L1347_1__l9__:
+      .loc                 1  1356  0
+      ld.param.s64         %sd1, [$$arg_ptr_acc_l_t12_t31];// gmres.f:1356 : $$arg_ptr_acc_l_t12_t31
+      shl.b32              %b1, %s2, 3;                // gmres.f:1356
+      cvt.s64.s32          %sd2, %b1;                  // gmres.f:1356
+      add.s64              %sd3, %sd1, %sd2;           // gmres.f:1356
+      .loc                 1  1361  0
+      add.s32              %s2, %s3, %s2;              // gmres.f:1361 : $$i_l1348_18_t24
+      setp.lt.s32          %p3, %s2, %s4;              // gmres.f:1361
+      .loc                 1  1356  0
+      st.global.f64        [%sd3], 0d3ff0000000000000; // gmres.f:1356 : 0[$$arg_ptr_acc_l_t12_t31,$$i_l1348_18_t24].L
+      .loc                 1  1357  0
+      ld.param.s64         %sd4, [$$arg_ptr_acc_u_t10_t30];// gmres.f:1357 : $$arg_ptr_acc_u_t10_t30
+      add.s64              %sd5, %sd4, %sd2;           // gmres.f:1357
+      st.global.f64        [%sd5], 0d3ff0000000000000; // gmres.f:1357 : 0[$$arg_ptr_acc_u_t10_t30,$$i_l1348_18_t24].L
+      .loc                 1  1361  0
+      @%p3 bra             $uzawa_gmres_split_acc_$ck_L1347_1__l9__;// gmres.f:1361
+$uzawa_gmres_split_acc_$ck_L1347_1__l42__:
+      exit;
+      } // uzawa_gmres_split_acc_$ck_L1347_1
+

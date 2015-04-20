@@ -1,0 +1,2569 @@
+      .version 3.1
+      .target sm_35
+      .address_size 64
+
+      // Cray Fortran : Version 8.3.4  (u83056f83186i83169p83291a83009z83291)
+
+      .file	1	"/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/math.f"
+
+      .entry i8copy_acc_$ck_L1891_1(
+               .param .s64 $$arg_ptr_acc_b_t6_t23,
+               .param .s64 $$arg_ptr_acc_a_t8_t24,
+               .param .s32 $$_arg_acc_seat_n_t12_t25 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<7>;
+      .reg .u32  %u<6>;
+      //
+      .loc                 1  1891  0
+      .loc                 1  1892  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t25];// math.f:1892 : $$mr_n_14_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:1892
+      @%p1 bra             $i8copy_acc_$ck_L1891_1__l42__;// math.f:1892
+      .loc                 1  1892  0
+      mov.u32              %u1, %ntid.x;               // math.f:1892
+      mov.u32              %u2, %nctaid.x;             // math.f:1892
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1892 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:1892
+      mov.u32              %u4, %tid.x;                // math.f:1892
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1892
+      mov.s32              %s2, %u5;                   // math.f:1892 : $$i_l1892_18_t18
+      mov.s32              %s4, %s1;                   // math.f:1892 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1892
+      @%p2 bra             $i8copy_acc_$ck_L1891_1__l42__;// math.f:1892
+$i8copy_acc_$ck_L1891_1__l9__:
+      .loc                 1  1893  0
+      shl.b32              %b1, %s2, 3;                // math.f:1893
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1893
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t23];// math.f:1893 : $$arg_ptr_acc_b_t6_t23
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1893
+      ld.global.nc.s64     %sd4, [%sd3];               // math.f:1893 : 0[$$arg_ptr_acc_b_t6_t23,$$i_l1892_18_t18,ex].L
+      ld.param.s64         %sd5, [$$arg_ptr_acc_a_t8_t24];// math.f:1893 : $$arg_ptr_acc_a_t8_t24
+      add.s64              %sd6, %sd5, %sd1;           // math.f:1893
+      st.global.s64        [%sd6], %sd4;               // math.f:1893 : 0[$$arg_ptr_acc_a_t8_t24,$$i_l1892_18_t18].L
+      add.s32              %s2, %s3, %s2;              // math.f:1893 : $$i_l1892_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:1893
+      @%p3 bra             $i8copy_acc_$ck_L1891_1__l9__;// math.f:1893
+$i8copy_acc_$ck_L1891_1__l42__:
+      exit;
+      } // i8copy_acc_$ck_L1891_1
+
+
+      .entry rzero_acc_$ck_L1905_2(
+               .param .s64 $$arg_ptr_acc_a_t6_t20,
+               .param .s32 $$_arg_acc_seat_n_t10_t21 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      //
+      .loc                 1  1905  0
+      .loc                 1  1906  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t21];// math.f:1906 : $$mr_n_8_t17
+      setp.le.s32          %p1, %s1, 0;                // math.f:1906
+      @%p1 bra             $rzero_acc_$ck_L1905_2__l42__;// math.f:1906
+      .loc                 1  1906  0
+      mov.u32              %u1, %ntid.x;               // math.f:1906
+      mov.u32              %u2, %nctaid.x;             // math.f:1906
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1906 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:1906
+      mov.u32              %u4, %tid.x;                // math.f:1906
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1906
+      mov.s32              %s2, %u5;                   // math.f:1906 : $$i_l1906_18_t15
+      mov.s32              %s4, %s1;                   // math.f:1906 : $$lis_b0_t16
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1906
+      @%p2 bra             $rzero_acc_$ck_L1905_2__l42__;// math.f:1906
+$rzero_acc_$ck_L1905_2__l9__:
+      .loc                 1  1907  0
+      shl.b32              %b1, %s2, 3;                // math.f:1907
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1907
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t20];// math.f:1907 : $$arg_ptr_acc_a_t6_t20
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1907
+      st.global.f64        [%sd3], 0d0000000000000000; // math.f:1907 : 0[$$arg_ptr_acc_a_t6_t20,$$i_l1906_18_t15].L
+      add.s32              %s2, %s3, %s2;              // math.f:1907 : $$i_l1906_18_t15
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:1907
+      @%p3 bra             $rzero_acc_$ck_L1905_2__l9__;// math.f:1907
+$rzero_acc_$ck_L1905_2__l42__:
+      exit;
+      } // rzero_acc_$ck_L1905_2
+
+
+      .entry rone_acc_$ck_L1920_3(
+               .param .s64 $$arg_ptr_acc_a_t6_t21,
+               .param .s32 $$_arg_acc_seat_n_t10_t22 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      //
+      .loc                 1  1920  0
+      .loc                 1  1921  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t22];// math.f:1921 : $$mr_n_8_t18
+      setp.le.s32          %p1, %s1, 0;                // math.f:1921
+      @%p1 bra             $rone_acc_$ck_L1920_3__l42__;// math.f:1921
+      .loc                 1  1921  0
+      mov.u32              %u1, %ntid.x;               // math.f:1921
+      mov.u32              %u2, %nctaid.x;             // math.f:1921
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1921 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:1921
+      mov.u32              %u4, %tid.x;                // math.f:1921
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1921
+      mov.s32              %s2, %u5;                   // math.f:1921 : $$i_l1921_18_t15
+      mov.s32              %s4, %s1;                   // math.f:1921 : $$lis_b1_t17
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1921
+      @%p2 bra             $rone_acc_$ck_L1920_3__l42__;// math.f:1921
+$rone_acc_$ck_L1920_3__l9__:
+      .loc                 1  1922  0
+      shl.b32              %b1, %s2, 3;                // math.f:1922
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1922
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t21];// math.f:1922 : $$arg_ptr_acc_a_t6_t21
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1922
+      st.global.f64        [%sd3], 0d3ff0000000000000; // math.f:1922 : 0[$$arg_ptr_acc_a_t6_t21,$$i_l1921_18_t15].L
+      add.s32              %s2, %s3, %s2;              // math.f:1922 : $$i_l1921_18_t15
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:1922
+      @%p3 bra             $rone_acc_$ck_L1920_3__l9__;// math.f:1922
+$rone_acc_$ck_L1920_3__l42__:
+      exit;
+      } // rone_acc_$ck_L1920_3
+
+
+      .entry copy_acc_$ck_L1935_4(
+               .param .s64 $$arg_ptr_acc_b_t6_t23,
+               .param .s64 $$arg_ptr_acc_a_t8_t24,
+               .param .s32 $$_arg_acc_seat_n_t12_t25 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<2>;
+      //
+      .loc                 1  1935  0
+      .loc                 1  1936  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t25];// math.f:1936 : $$mr_n_14_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:1936
+      @%p1 bra             $copy_acc_$ck_L1935_4__l42__;// math.f:1936
+      .loc                 1  1936  0
+      mov.u32              %u1, %ntid.x;               // math.f:1936
+      mov.u32              %u2, %nctaid.x;             // math.f:1936
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1936 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:1936
+      mov.u32              %u4, %tid.x;                // math.f:1936
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1936
+      mov.s32              %s2, %u5;                   // math.f:1936 : $$i_l1936_18_t18
+      mov.s32              %s4, %s1;                   // math.f:1936 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1936
+      @%p2 bra             $copy_acc_$ck_L1935_4__l42__;// math.f:1936
+$copy_acc_$ck_L1935_4__l9__:
+      .loc                 1  1937  0
+      shl.b32              %b1, %s2, 3;                // math.f:1937
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1937
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t23];// math.f:1937 : $$arg_ptr_acc_b_t6_t23
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1937
+      ld.global.nc.f64     %fd1, [%sd3];               // math.f:1937 : 0[$$arg_ptr_acc_b_t6_t23,$$i_l1936_18_t18,ex].L
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t24];// math.f:1937 : $$arg_ptr_acc_a_t8_t24
+      add.s64              %sd5, %sd4, %sd1;           // math.f:1937
+      st.global.f64        [%sd5], %fd1;               // math.f:1937 : 0[$$arg_ptr_acc_a_t8_t24,$$i_l1936_18_t18].L
+      .loc                 1  1938  0
+      add.s32              %s2, %s3, %s2;              // math.f:1938 : $$i_l1936_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:1938
+      @%p3 bra             $copy_acc_$ck_L1935_4__l9__;// math.f:1938
+$copy_acc_$ck_L1935_4__l42__:
+      exit;
+      } // copy_acc_$ck_L1935_4
+
+
+      .entry invers2_acc_$ck_L1967_5(
+               .param .s64 $$arg_ptr_acc_b_t6_t24,
+               .param .s64 $$arg_ptr_acc_a_t8_t25,
+               .param .s32 $$_arg_acc_seat_n_t12_t26 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<3>;
+      //
+      .loc                 1  1967  0
+      .loc                 1  1968  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t26];// math.f:1968 : $$mr_n_20_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:1968
+      @%p1 bra             $invers2_acc_$ck_L1967_5__l45__;// math.f:1968
+      .loc                 1  1968  0
+      mov.u32              %u1, %ntid.x;               // math.f:1968
+      mov.u32              %u2, %nctaid.x;             // math.f:1968
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1968 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:1968
+      mov.u32              %u4, %tid.x;                // math.f:1968
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1968
+      mov.s32              %s2, %u5;                   // math.f:1968 : $$i_l1968_18_t18
+      mov.s32              %s4, %s1;                   // math.f:1968 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1968
+      @%p2 bra             $invers2_acc_$ck_L1967_5__l45__;// math.f:1968
+$invers2_acc_$ck_L1967_5__l12__:
+      .loc                 1  1969  0
+      shl.b32              %b1, %s2, 3;                // math.f:1969
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1969
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t24];// math.f:1969 : $$arg_ptr_acc_b_t6_t24
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1969
+      ld.global.nc.f64     %fd1, [%sd3];               // math.f:1969 : 0[$$arg_ptr_acc_b_t6_t24,$$i_l1968_18_t18,ex].L
+      rcp.rn.f64           %fd2, %fd1;                 // math.f:1969
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t25];// math.f:1969 : $$arg_ptr_acc_a_t8_t25
+      add.s64              %sd5, %sd4, %sd1;           // math.f:1969
+      st.global.f64        [%sd5], %fd2;               // math.f:1969 : 0[$$arg_ptr_acc_a_t8_t25,$$i_l1968_18_t18].L
+      .loc                 1  1970  0
+      add.s32              %s2, %s3, %s2;              // math.f:1970 : $$i_l1968_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:1970
+      @%p3 bra             $invers2_acc_$ck_L1967_5__l12__;// math.f:1970
+$invers2_acc_$ck_L1967_5__l45__:
+      exit;
+      } // invers2_acc_$ck_L1967_5
+
+
+      .entry add2_acc_$ck_L1997_6(
+               .param .s64 $$arg_ptr_acc_b_t6_t26,
+               .param .s64 $$arg_ptr_acc_a_t8_t27,
+               .param .s32 $$_arg_acc_seat_n_t12_t28 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  1997  0
+      .loc                 1  1998  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t28];// math.f:1998 : $$mr_n_20_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:1998
+      @%p1 bra             $add2_acc_$ck_L1997_6__l45__;// math.f:1998
+      .loc                 1  1998  0
+      mov.u32              %u1, %ntid.x;               // math.f:1998
+      mov.u32              %u2, %nctaid.x;             // math.f:1998
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:1998 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:1998
+      mov.u32              %u4, %tid.x;                // math.f:1998
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:1998
+      mov.s32              %s2, %u5;                   // math.f:1998 : $$i_l1998_18_t18
+      mov.s32              %s4, %s1;                   // math.f:1998 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:1998
+      @%p2 bra             $add2_acc_$ck_L1997_6__l45__;// math.f:1998
+$add2_acc_$ck_L1997_6__l12__:
+      .loc                 1  1999  0
+      shl.b32              %b1, %s2, 3;                // math.f:1999
+      cvt.s64.s32          %sd1, %b1;                  // math.f:1999
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t26];// math.f:1999 : $$arg_ptr_acc_b_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:1999
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t27];// math.f:1999 : $$arg_ptr_acc_a_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:1999
+      ld.global.f64        %fd1, [%sd5];               // math.f:1999 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l1998_18_t18].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:1999 : 0[$$arg_ptr_acc_b_t6_t26,$$i_l1998_18_t18,ex].L
+      add.rn.f64           %fd3, %fd1, %fd2;           // math.f:1999
+      st.global.f64        [%sd5], %fd3;               // math.f:1999 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l1998_18_t18].L
+      .loc                 1  2000  0
+      add.s32              %s2, %s3, %s2;              // math.f:2000 : $$i_l1998_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2000
+      @%p3 bra             $add2_acc_$ck_L1997_6__l12__;// math.f:2000
+$add2_acc_$ck_L1997_6__l45__:
+      exit;
+      } // add2_acc_$ck_L1997_6
+
+
+      .entry col2_acc_$ck_L2027_7(
+               .param .s64 $$arg_ptr_acc_b_t6_t26,
+               .param .s64 $$arg_ptr_acc_a_t8_t27,
+               .param .s32 $$_arg_acc_seat_n_t12_t28 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2027  0
+      .loc                 1  2028  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t28];// math.f:2028 : $$mr_n_20_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:2028
+      @%p1 bra             $col2_acc_$ck_L2027_7__l45__;// math.f:2028
+      .loc                 1  2028  0
+      mov.u32              %u1, %ntid.x;               // math.f:2028
+      mov.u32              %u2, %nctaid.x;             // math.f:2028
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2028 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:2028
+      mov.u32              %u4, %tid.x;                // math.f:2028
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2028
+      mov.s32              %s2, %u5;                   // math.f:2028 : $$i_l2028_18_t18
+      mov.s32              %s4, %s1;                   // math.f:2028 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2028
+      @%p2 bra             $col2_acc_$ck_L2027_7__l45__;// math.f:2028
+$col2_acc_$ck_L2027_7__l12__:
+      .loc                 1  2029  0
+      shl.b32              %b1, %s2, 3;                // math.f:2029
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2029
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t26];// math.f:2029 : $$arg_ptr_acc_b_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2029
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t27];// math.f:2029 : $$arg_ptr_acc_a_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2029
+      ld.global.f64        %fd1, [%sd5];               // math.f:2029 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2028_18_t18].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2029 : 0[$$arg_ptr_acc_b_t6_t26,$$i_l2028_18_t18,ex].L
+      mul.rn.f64           %fd3, %fd1, %fd2;           // math.f:2029
+      st.global.f64        [%sd5], %fd3;               // math.f:2029 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2028_18_t18].L
+      .loc                 1  2030  0
+      add.s32              %s2, %s3, %s2;              // math.f:2030 : $$i_l2028_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2030
+      @%p3 bra             $col2_acc_$ck_L2027_7__l12__;// math.f:2030
+$col2_acc_$ck_L2027_7__l45__:
+      exit;
+      } // col2_acc_$ck_L2027_7
+
+
+      .entry invcol2_acc_$ck_L2064_8(
+               .param .s64 $$arg_ptr_acc_b_t6_t26,
+               .param .s64 $$arg_ptr_acc_a_t8_t27,
+               .param .s32 $$_arg_acc_seat_n_t12_t28 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2064  0
+      .loc                 1  2065  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t28];// math.f:2065 : $$mr_n_23_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:2065
+      @%p1 bra             $invcol2_acc_$ck_L2064_8__l45__;// math.f:2065
+      .loc                 1  2065  0
+      mov.u32              %u1, %ntid.x;               // math.f:2065
+      mov.u32              %u2, %nctaid.x;             // math.f:2065
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2065 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:2065
+      mov.u32              %u4, %tid.x;                // math.f:2065
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2065
+      mov.s32              %s2, %u5;                   // math.f:2065 : $$i_l2065_18_t18
+      mov.s32              %s4, %s1;                   // math.f:2065 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2065
+      @%p2 bra             $invcol2_acc_$ck_L2064_8__l45__;// math.f:2065
+$invcol2_acc_$ck_L2064_8__l12__:
+      .loc                 1  2066  0
+      shl.b32              %b1, %s2, 3;                // math.f:2066
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2066
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t26];// math.f:2066 : $$arg_ptr_acc_b_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2066
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t27];// math.f:2066 : $$arg_ptr_acc_a_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2066
+      ld.global.f64        %fd1, [%sd5];               // math.f:2066 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2065_18_t18].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2066 : 0[$$arg_ptr_acc_b_t6_t26,$$i_l2065_18_t18,ex].L
+      div.rn.f64           %fd3, %fd1, %fd2;           // math.f:2066
+      st.global.f64        [%sd5], %fd3;               // math.f:2066 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2065_18_t18].L
+      .loc                 1  2067  0
+      add.s32              %s2, %s3, %s2;              // math.f:2067 : $$i_l2065_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2067
+      @%p3 bra             $invcol2_acc_$ck_L2064_8__l12__;// math.f:2067
+$invcol2_acc_$ck_L2064_8__l45__:
+      exit;
+      } // invcol2_acc_$ck_L2064_8
+
+
+      .entry addcol3_acc_$ck_L2099_9(
+               .param .s64 $$arg_ptr_acc_c_t6_t30,
+               .param .s64 $$arg_ptr_acc_b_t8_t31,
+               .param .s64 $$arg_ptr_acc_a_t10_t32,
+               .param .s32 $$_arg_acc_seat_n_t14_t33 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<5>;
+      //
+      .loc                 1  2099  0
+      .loc                 1  2100  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t33];// math.f:2100 : $$mr_n_26_t23
+      setp.le.s32          %p1, %s1, 0;                // math.f:2100
+      @%p1 bra             $addcol3_acc_$ck_L2099_9__l45__;// math.f:2100
+      .loc                 1  2100  0
+      mov.u32              %u1, %ntid.x;               // math.f:2100
+      mov.u32              %u2, %nctaid.x;             // math.f:2100
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2100 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2100
+      mov.u32              %u4, %tid.x;                // math.f:2100
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2100
+      mov.s32              %s2, %u5;                   // math.f:2100 : $$i_l2100_18_t21
+      mov.s32              %s4, %s1;                   // math.f:2100 : $$lis_b0_t22
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2100
+      @%p2 bra             $addcol3_acc_$ck_L2099_9__l45__;// math.f:2100
+$addcol3_acc_$ck_L2099_9__l12__:
+      .loc                 1  2101  0
+      shl.b32              %b1, %s2, 3;                // math.f:2101
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2101
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t6_t30];// math.f:2101 : $$arg_ptr_acc_c_t6_t30
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2101
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t8_t31];// math.f:2101 : $$arg_ptr_acc_b_t8_t31
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2101
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t32];// math.f:2101 : $$arg_ptr_acc_a_t10_t32
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2101
+      ld.global.f64        %fd1, [%sd7];               // math.f:2101 : 0[$$arg_ptr_acc_a_t10_t32,$$i_l2100_18_t21].L
+      ld.global.nc.f64     %fd2, [%sd5];               // math.f:2101 : 0[$$arg_ptr_acc_b_t8_t31,$$i_l2100_18_t21,ex].L
+      ld.global.nc.f64     %fd3, [%sd3];               // math.f:2101 : 0[$$arg_ptr_acc_c_t6_t30,$$i_l2100_18_t21,ex].L
+      mad.rn.f64           %fd4, %fd2, %fd3, %fd1;     // math.f:2101
+      st.global.f64        [%sd7], %fd4;               // math.f:2101 : 0[$$arg_ptr_acc_a_t10_t32,$$i_l2100_18_t21].L
+      .loc                 1  2102  0
+      add.s32              %s2, %s3, %s2;              // math.f:2102 : $$i_l2100_18_t21
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2102
+      @%p3 bra             $addcol3_acc_$ck_L2099_9__l12__;// math.f:2102
+$addcol3_acc_$ck_L2099_9__l45__:
+      exit;
+      } // addcol3_acc_$ck_L2099_9
+
+
+      .entry cmult_acc_$ck_L2129_10(
+               .param .s64 $$arg_ptr_acc_a_t6_t24,
+               .param .s32 $$_arg_acc_seat_n_t10_t25,
+               .param .f64 $$_arg_acc_seat_const_t11_t26 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2129  0
+      .loc                 1  2130  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t25];// math.f:2130 : $$mr_n_17_t19
+      setp.le.s32          %p1, %s1, 0;                // math.f:2130
+      @%p1 bra             $cmult_acc_$ck_L2129_10__l45__;// math.f:2130
+      .loc                 1  2130  0
+      mov.u32              %u1, %ntid.x;               // math.f:2130
+      mov.u32              %u2, %nctaid.x;             // math.f:2130
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2130 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:2130
+      mov.u32              %u4, %tid.x;                // math.f:2130
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2130
+      mov.s32              %s2, %u5;                   // math.f:2130 : $$i_l2130_18_t16
+      mov.s32              %s4, %s1;                   // math.f:2130 : $$lis_b1_t18
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2130
+      @%p2 bra             $cmult_acc_$ck_L2129_10__l45__;// math.f:2130
+      .loc                 1  2131  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_const_t11_t26];// math.f:2131 : $$lis_b0_t17
+$cmult_acc_$ck_L2129_10__l12__:
+      .loc                 1  2131  0
+      shl.b32              %b1, %s2, 3;                // math.f:2131
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2131
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t24];// math.f:2131 : $$arg_ptr_acc_a_t6_t24
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2131
+      ld.global.f64        %fd2, [%sd3];               // math.f:2131 : 0[$$arg_ptr_acc_a_t6_t24,$$i_l2130_18_t16].L
+      mul.rn.f64           %fd3, %fd2, %fd1;           // math.f:2131
+      st.global.f64        [%sd3], %fd3;               // math.f:2131 : 0[$$arg_ptr_acc_a_t6_t24,$$i_l2130_18_t16].L
+      .loc                 1  2132  0
+      add.s32              %s2, %s3, %s2;              // math.f:2132 : $$i_l2130_18_t16
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2132
+      @%p3 bra             $cmult_acc_$ck_L2129_10__l12__;// math.f:2132
+$cmult_acc_$ck_L2129_10__l45__:
+      exit;
+      } // cmult_acc_$ck_L2129_10
+
+
+      .entry add2col2_acc_$ck_L2144_11(
+               .param .s64 $$arg_ptr_acc_c_t6_t30,
+               .param .s64 $$arg_ptr_acc_b_t8_t31,
+               .param .s64 $$arg_ptr_acc_a_t10_t32,
+               .param .s32 $$_arg_acc_seat_n_t14_t33 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<5>;
+      //
+      .loc                 1  2144  0
+      .loc                 1  2145  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t33];// math.f:2145 : $$mr_n_20_t23
+      setp.le.s32          %p1, %s1, 0;                // math.f:2145
+      @%p1 bra             $add2col2_acc_$ck_L2144_11__l42__;// math.f:2145
+      .loc                 1  2145  0
+      mov.u32              %u1, %ntid.x;               // math.f:2145
+      mov.u32              %u2, %nctaid.x;             // math.f:2145
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2145 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2145
+      mov.u32              %u4, %tid.x;                // math.f:2145
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2145
+      mov.s32              %s2, %u5;                   // math.f:2145 : $$i_l2145_18_t21
+      mov.s32              %s4, %s1;                   // math.f:2145 : $$lis_b0_t22
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2145
+      @%p2 bra             $add2col2_acc_$ck_L2144_11__l42__;// math.f:2145
+$add2col2_acc_$ck_L2144_11__l9__:
+      .loc                 1  2146  0
+      shl.b32              %b1, %s2, 3;                // math.f:2146
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2146
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t6_t30];// math.f:2146 : $$arg_ptr_acc_c_t6_t30
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2146
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t8_t31];// math.f:2146 : $$arg_ptr_acc_b_t8_t31
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2146
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t32];// math.f:2146 : $$arg_ptr_acc_a_t10_t32
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2146
+      ld.global.f64        %fd1, [%sd7];               // math.f:2146 : 0[$$arg_ptr_acc_a_t10_t32,$$i_l2145_18_t21].L
+      ld.global.nc.f64     %fd2, [%sd5];               // math.f:2146 : 0[$$arg_ptr_acc_b_t8_t31,$$i_l2145_18_t21,ex].L
+      ld.global.nc.f64     %fd3, [%sd3];               // math.f:2146 : 0[$$arg_ptr_acc_c_t6_t30,$$i_l2145_18_t21,ex].L
+      mad.rn.f64           %fd4, %fd2, %fd3, %fd1;     // math.f:2146
+      st.global.f64        [%sd7], %fd4;               // math.f:2146 : 0[$$arg_ptr_acc_a_t10_t32,$$i_l2145_18_t21].L
+      .loc                 1  2147  0
+      add.s32              %s2, %s3, %s2;              // math.f:2147 : $$i_l2145_18_t21
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2147
+      @%p3 bra             $add2col2_acc_$ck_L2144_11__l9__;// math.f:2147
+$add2col2_acc_$ck_L2144_11__l42__:
+      exit;
+      } // add2col2_acc_$ck_L2144_11
+
+
+      .entry cadd_acc_$ck_L2174_12(
+               .param .s64 $$arg_ptr_acc_a_t6_t24,
+               .param .s32 $$_arg_acc_seat_n_t10_t25,
+               .param .f64 $$_arg_acc_seat_const_t11_t26 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2174  0
+      .loc                 1  2175  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t25];// math.f:2175 : $$mr_n_17_t19
+      setp.le.s32          %p1, %s1, 0;                // math.f:2175
+      @%p1 bra             $cadd_acc_$ck_L2174_12__l45__;// math.f:2175
+      .loc                 1  2175  0
+      mov.u32              %u1, %ntid.x;               // math.f:2175
+      mov.u32              %u2, %nctaid.x;             // math.f:2175
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2175 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:2175
+      mov.u32              %u4, %tid.x;                // math.f:2175
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2175
+      mov.s32              %s2, %u5;                   // math.f:2175 : $$i_l2175_18_t16
+      mov.s32              %s4, %s1;                   // math.f:2175 : $$lis_b1_t18
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2175
+      @%p2 bra             $cadd_acc_$ck_L2174_12__l45__;// math.f:2175
+      .loc                 1  2176  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_const_t11_t26];// math.f:2176 : $$lis_b0_t17
+$cadd_acc_$ck_L2174_12__l12__:
+      .loc                 1  2176  0
+      shl.b32              %b1, %s2, 3;                // math.f:2176
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2176
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t24];// math.f:2176 : $$arg_ptr_acc_a_t6_t24
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2176
+      ld.global.f64        %fd2, [%sd3];               // math.f:2176 : 0[$$arg_ptr_acc_a_t6_t24,$$i_l2175_18_t16].L
+      add.rn.f64           %fd3, %fd2, %fd1;           // math.f:2176
+      st.global.f64        [%sd3], %fd3;               // math.f:2176 : 0[$$arg_ptr_acc_a_t6_t24,$$i_l2175_18_t16].L
+      .loc                 1  2177  0
+      add.s32              %s2, %s3, %s2;              // math.f:2177 : $$i_l2175_18_t16
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2177
+      @%p3 bra             $cadd_acc_$ck_L2174_12__l12__;// math.f:2177
+$cadd_acc_$ck_L2174_12__l45__:
+      exit;
+      } // cadd_acc_$ck_L2174_12
+
+
+      .entry col3_acc_$ck_L2205_13(
+               .param .s64 $$arg_ptr_acc_c_t6_t26,
+               .param .s64 $$arg_ptr_acc_b_t8_t27,
+               .param .s64 $$arg_ptr_acc_a_t10_t28,
+               .param .s32 $$_arg_acc_seat_n_t14_t29 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2205  0
+      .loc                 1  2206  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t29];// math.f:2206 : $$mr_n_26_t23
+      setp.le.s32          %p1, %s1, 0;                // math.f:2206
+      @%p1 bra             $col3_acc_$ck_L2205_13__l45__;// math.f:2206
+      .loc                 1  2206  0
+      mov.u32              %u1, %ntid.x;               // math.f:2206
+      mov.u32              %u2, %nctaid.x;             // math.f:2206
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2206 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2206
+      mov.u32              %u4, %tid.x;                // math.f:2206
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2206
+      mov.s32              %s2, %u5;                   // math.f:2206 : $$i_l2206_18_t21
+      mov.s32              %s4, %s1;                   // math.f:2206 : $$lis_b0_t22
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2206
+      @%p2 bra             $col3_acc_$ck_L2205_13__l45__;// math.f:2206
+$col3_acc_$ck_L2205_13__l12__:
+      .loc                 1  2207  0
+      shl.b32              %b1, %s2, 3;                // math.f:2207
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2207
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t6_t26];// math.f:2207 : $$arg_ptr_acc_c_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2207
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t8_t27];// math.f:2207 : $$arg_ptr_acc_b_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2207
+      ld.global.nc.f64     %fd1, [%sd5];               // math.f:2207 : 0[$$arg_ptr_acc_b_t8_t27,$$i_l2206_18_t21,ex].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2207 : 0[$$arg_ptr_acc_c_t6_t26,$$i_l2206_18_t21,ex].L
+      mul.rn.f64           %fd3, %fd1, %fd2;           // math.f:2207
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t28];// math.f:2207 : $$arg_ptr_acc_a_t10_t28
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2207
+      st.global.f64        [%sd7], %fd3;               // math.f:2207 : 0[$$arg_ptr_acc_a_t10_t28,$$i_l2206_18_t21].L
+      .loc                 1  2208  0
+      add.s32              %s2, %s3, %s2;              // math.f:2208 : $$i_l2206_18_t21
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2208
+      @%p3 bra             $col3_acc_$ck_L2205_13__l12__;// math.f:2208
+$col3_acc_$ck_L2205_13__l45__:
+      exit;
+      } // col3_acc_$ck_L2205_13
+
+
+      .entry add2s2_acc_$ck_L2236_14(
+               .param .s64 $$arg_ptr_acc_b_t6_t28,
+               .param .s64 $$arg_ptr_acc_a_t8_t29,
+               .param .s32 $$_arg_acc_seat_n_t12_t30,
+               .param .f64 $$_arg_acc_seat_c1_t13_t31 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<5>;
+      //
+      .loc                 1  2236  0
+      .loc                 1  2237  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t30];// math.f:2237 : $$mr_n_23_t22
+      setp.le.s32          %p1, %s1, 0;                // math.f:2237
+      @%p1 bra             $add2s2_acc_$ck_L2236_14__l45__;// math.f:2237
+      .loc                 1  2237  0
+      mov.u32              %u1, %ntid.x;               // math.f:2237
+      mov.u32              %u2, %nctaid.x;             // math.f:2237
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2237 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:2237
+      mov.u32              %u4, %tid.x;                // math.f:2237
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2237
+      mov.s32              %s2, %u5;                   // math.f:2237 : $$i_l2237_18_t19
+      mov.s32              %s4, %s1;                   // math.f:2237 : $$lis_b1_t21
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2237
+      @%p2 bra             $add2s2_acc_$ck_L2236_14__l45__;// math.f:2237
+      .loc                 1  2238  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_c1_t13_t31];// math.f:2238 : $$lis_b0_t20
+$add2s2_acc_$ck_L2236_14__l12__:
+      .loc                 1  2238  0
+      shl.b32              %b1, %s2, 3;                // math.f:2238
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2238
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t28];// math.f:2238 : $$arg_ptr_acc_b_t6_t28
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2238
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t29];// math.f:2238 : $$arg_ptr_acc_a_t8_t29
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2238
+      ld.global.f64        %fd2, [%sd5];               // math.f:2238 : 0[$$arg_ptr_acc_a_t8_t29,$$i_l2237_18_t19].L
+      ld.global.nc.f64     %fd3, [%sd3];               // math.f:2238 : 0[$$arg_ptr_acc_b_t6_t28,$$i_l2237_18_t19,ex].L
+      mad.rn.f64           %fd4, %fd1, %fd3, %fd2;     // math.f:2238
+      st.global.f64        [%sd5], %fd4;               // math.f:2238 : 0[$$arg_ptr_acc_a_t8_t29,$$i_l2237_18_t19].L
+      .loc                 1  2239  0
+      add.s32              %s2, %s3, %s2;              // math.f:2239 : $$i_l2237_18_t19
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2239
+      @%p3 bra             $add2s2_acc_$ck_L2236_14__l12__;// math.f:2239
+$add2s2_acc_$ck_L2236_14__l45__:
+      exit;
+      } // add2s2_acc_$ck_L2236_14
+
+
+      .entry vlsc2_acc_$ck_L2269_15(
+               .param .s64 $$arg_ptr_acc_y_t7_t56,
+               .param .s64 $$arg_ptr_acc_x_t9_t57,
+               .param .s64 $$arg_ptr_reduc_ctl_t14_t58,
+               .param .s64 $$arg_ptr_reduc_val_t17_t59,
+               .param .s32 $$_arg_acc_seat_n_t19_t60,
+               .param .s64 $$arg_ptr_accshare_t21_t61 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f15s150;
+      .shared .u64 $$_redfold_t39__f15s223[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<32>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<29>;
+      //
+      .loc                 1  2269  0
+      .loc                 1  2270  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t19_t60];// math.f:2270 : $$mr_n_36_t46
+      setp.le.s32          %p1, %s1, 0;                // math.f:2270
+      @%p1 bra             $vlsc2_acc_$ck_L2269_15__l116__;// math.f:2270
+      .loc                 1  2269  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2269 : $$_s_t5
+      .loc                 1  2270  0
+      mov.u32              %u7, %ntid.x;               // math.f:2270
+      mov.u32              %u8, %nctaid.x;             // math.f:2270
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2270 : $$numthrds_t11
+      mov.u32              %u9, %ctaid.x;              // math.f:2270
+      mov.u32              %u10, %tid.x;               // math.f:2270
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2270
+      mov.s32              %s2, %u11;                  // math.f:2270 : $$i_l2270_18_t34
+      mov.s32              %s4, %s1;                   // math.f:2270 : $$lis_b0_t36
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2270
+      @%p2 bra             $vlsc2_acc_$ck_L2269_15__l84__;// math.f:2270
+      .loc                 1  2271  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2271 : $sc_s_i0
+$vlsc2_acc_$ck_L2269_15__l79__:
+      .loc                 1  2271  0
+      shl.b32              %b1, %s2, 3;                // math.f:2271
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2271
+      ld.param.s64         %sd2, [$$arg_ptr_acc_x_t9_t57];// math.f:2271 : $$arg_ptr_acc_x_t9_t57
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2271
+      ld.param.s64         %sd4, [$$arg_ptr_acc_y_t7_t56];// math.f:2271 : $$arg_ptr_acc_y_t7_t56
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2271
+      ld.global.nc.f64     %fd8, [%sd5];               // math.f:2271 : 0[$$arg_ptr_acc_y_t7_t56,$$i_l2270_18_t34,ex].L
+      ld.global.nc.f64     %fd9, [%sd3];               // math.f:2271 : 0[$$arg_ptr_acc_x_t9_t57,$$i_l2270_18_t34,ex].L
+      mad.rn.f64           %fd1, %fd9, %fd8, %fd1;     // math.f:2271 : $sc_s_i0
+      .loc                 1  2272  0
+      add.s32              %s2, %s3, %s2;              // math.f:2272 : $$i_l2270_18_t34
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2272
+      @%p3 bra             $vlsc2_acc_$ck_L2269_15__l79__;// math.f:2272
+      .loc                 1  2271  0
+      mov.f64              %fd2, %fd1;                 // math.f:2271 : $$_s_t5
+$vlsc2_acc_$ck_L2269_15__l84__:
+      .loc                 1  2273  0
+      mov.u32              %u12, %tid.x;               // math.f:2273
+      mov.u32              %u1, %tid.x;                // math.f:2273 : $$lcs_7_t50
+      cvt.s64.u32          %sd6, %tid.x;               // math.f:2273
+      shl.b64              %bd1, %sd6, 3;              // math.f:2273
+      mov.s64              %sd7, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd8, %bd1, %sd7;           // math.f:2273
+      st.volatile.shared.f64 [%sd8], %fd2;             // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_7_t50].L
+      bar.sync             0;                          // math.f:2273
+      ld.volatile.shared.f64 %fd3, [%sd8];             // math.f:2273 : $redfold_left_temp_t40
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2273
+      @%p4 bra             $vlsc2_acc_$ck_L2269_15__l87__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s64.u32          %sd9, %u1;                  // math.f:2273
+      shl.b64              %bd2, %sd9, 3;              // math.f:2273
+      mov.s64              %sd10, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd11, %bd2, %sd10;         // math.f:2273
+      ld.volatile.shared.f64 %fd10, [%sd11 + 512];     // math.f:2273 : 64[ _&$$_redfold_t39,$$lcs_7_t50].L
+      add.rn.f64           %fd3, %fd3, %fd10;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd11], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_7_t50].L
+$vlsc2_acc_$ck_L2269_15__l87__:
+      .loc                 1  2273  0
+      bar.sync             0;                          // math.f:2273
+      mov.u32              %u13, %tid.x;               // math.f:2273
+      mov.u32              %u2, %tid.x;                // math.f:2273 : $$lcs_8_t51
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2273
+      @%p5 bra             $vlsc2_acc_$ck_L2269_15__l90__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s64.u32          %sd12, %u2;                 // math.f:2273
+      shl.b64              %bd3, %sd12, 3;             // math.f:2273
+      mov.s64              %sd13, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd14, %bd3, %sd13;         // math.f:2273
+      ld.volatile.shared.f64 %fd11, [%sd14 + 256];     // math.f:2273 : 32[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd11;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd12, [%sd14 + 128];     // math.f:2273 : 16[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd12;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd13, [%sd14 + 64];      // math.f:2273 : 8[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd14, [%sd14 + 32];      // math.f:2273 : 4[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd15, [%sd14 + 16];      // math.f:2273 : 2[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd15;          // math.f:2273 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd16, [%sd14 + 8];       // math.f:2273 : 1[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd17, %fd3, %fd16;         // math.f:2273
+      st.volatile.shared.f64 [%sd14], %fd17;           // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      mov.f64              %fd3, %fd17;                // math.f:2273 : $redfold_left_temp_t40
+$vlsc2_acc_$ck_L2269_15__l90__:
+      .loc                 1  2273  0
+      bar.sync             0;                          // math.f:2273
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t39__f15s223];// math.f:2273 : $$reduc_pvt_t16
+      mov.f64              %fd4, %fd5;                 // math.f:2273 : $redfinal_t42
+      bar.sync             0;                          // math.f:2273
+      mov.u32              %u14, %tid.x;               // math.f:2273
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2273
+      @%p6 bra             $vlsc2_acc_$ck_L2269_15__l93__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s64.u32          %sd15, %ctaid.x;            // math.f:2273
+      shl.b64              %bd4, %sd15, 3;             // math.f:2273
+      ld.param.s64         %sd16, [$$arg_ptr_reduc_val_t17_t59];// math.f:2273 : $$arg_ptr_reduc_val_t17_t59
+      add.s64              %sd17, %sd16, %bd4;         // math.f:2273
+      st.global.f64        [%sd17], %fd4;              // math.f:2273 : 0[$$arg_ptr_reduc_val_t17_t59,_acc_read_hw_reg(%ctaid.x)].L
+$vlsc2_acc_$ck_L2269_15__l93__:
+      .loc                 1  2273  0
+      membar.gl;                                       // math.f:2273
+      mov.u32              %u15, %tid.x;               // math.f:2273
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2273
+      @%p7 bra             $vlsc2_acc_$ck_L2269_15__l96__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2273
+      sub.s32              %s7, 1, %s6;                // math.f:2273
+      mov.u32              %u16, %ctaid.x;             // math.f:2273
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2273
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2273
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_ctl_t14_t58];// math.f:2273 : $$arg_ptr_reduc_ctl_t14_t58
+      atom.global.add.s32  %s9, [%sd18], %s8;          // math.f:2273
+      add.s32              %s10, %s8, %s9;             // math.f:2273
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f15s150], %s10;// math.f:2273 : reduc_share_ctl_c3
+$vlsc2_acc_$ck_L2269_15__l96__:
+      .loc                 1  2273  0
+      bar.sync             0;                          // math.f:2273
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f15s150];// math.f:2273 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2273
+      @%p9 bra             $vlsc2_acc_$ck_L2269_15__l116__;// math.f:2273
+      .loc                 1  2273  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2273 : $$reduc_pvt_t16
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2273 : $$induc_p2_t35
+      mov.u32              %u17, %nctaid.x;            // math.f:2273
+      mov.u32              %u4, %nctaid.x;             // math.f:2273 : $$lis_b2_t38
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2273
+      @%p10 bra            $vlsc2_acc_$ck_L2269_15__l107__;// math.f:2273
+      .loc                 1  2273  0
+      mov.u32              %u3, %ntid.x;               // math.f:2273 : $$lis_b1_t37
+$vlsc2_acc_$ck_L2269_15__l103__:
+      .loc                 1  2273  0
+      shl.b32              %b2, %s5, 3;                // math.f:2273
+      cvt.s64.s32          %sd19, %b2;                 // math.f:2273
+      ld.param.s64         %sd20, [$$arg_ptr_reduc_val_t17_t59];// math.f:2273 : $$arg_ptr_reduc_val_t17_t59
+      add.s64              %sd21, %sd20, %sd19;        // math.f:2273
+      ld.global.f64        %fd18, [%sd21];             // math.f:2273 : 0[$$arg_ptr_reduc_val_t17_t59,$$induc_p2_t35].L
+      add.rn.f64           %fd5, %fd5, %fd18;          // math.f:2273 : $$reduc_pvt_t16
+      add.u32              %s5, %s5, %u3;              // math.f:2273 : $$induc_p2_t35
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2273
+      @%p11 bra            $vlsc2_acc_$ck_L2269_15__l103__;// math.f:2273
+$vlsc2_acc_$ck_L2269_15__l107__:
+      .loc                 1  2273  0
+      mov.u32              %u18, %tid.x;               // math.f:2273
+      mov.u32              %u5, %tid.x;                // math.f:2273 : $$lcs_11_t54
+      cvt.s64.u32          %sd22, %tid.x;              // math.f:2273
+      shl.b64              %bd5, %sd22, 3;             // math.f:2273
+      mov.s64              %sd23, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd24, %bd5, %sd23;         // math.f:2273
+      st.volatile.shared.f64 [%sd24], %fd5;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_11_t54].L
+      bar.sync             0;                          // math.f:2273
+      ld.volatile.shared.f64 %fd6, [%sd24];            // math.f:2273 : $redfold_left_temp_t43
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2273
+      @%p12 bra            $vlsc2_acc_$ck_L2269_15__l110__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s64.u32          %sd25, %u5;                 // math.f:2273
+      shl.b64              %bd6, %sd25, 3;             // math.f:2273
+      mov.s64              %sd26, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd27, %bd6, %sd26;         // math.f:2273
+      ld.volatile.shared.f64 %fd19, [%sd27 + 512];     // math.f:2273 : 64[ _&$$_redfold_t39,$$lcs_11_t54].L
+      add.rn.f64           %fd6, %fd6, %fd19;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd27], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_11_t54].L
+$vlsc2_acc_$ck_L2269_15__l110__:
+      .loc                 1  2273  0
+      bar.sync             0;                          // math.f:2273
+      mov.u32              %u19, %tid.x;               // math.f:2273
+      mov.u32              %u6, %tid.x;                // math.f:2273 : $$lcs_12_t55
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2273
+      @%p13 bra            $vlsc2_acc_$ck_L2269_15__l113__;// math.f:2273
+      .loc                 1  2273  0
+      cvt.s64.u32          %sd28, %u6;                 // math.f:2273
+      shl.b64              %bd7, %sd28, 3;             // math.f:2273
+      mov.s64              %sd29, $$_redfold_t39__f15s223;// math.f:2273
+      add.s64              %sd30, %bd7, %sd29;         // math.f:2273
+      ld.volatile.shared.f64 %fd20, [%sd30 + 256];     // math.f:2273 : 32[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd20;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd21, [%sd30 + 128];     // math.f:2273 : 16[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd21;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd22, [%sd30 + 64];      // math.f:2273 : 8[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd23, [%sd30 + 32];      // math.f:2273 : 4[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd24, [%sd30 + 16];      // math.f:2273 : 2[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd24;          // math.f:2273 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd25, [%sd30 + 8];       // math.f:2273 : 1[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd26, %fd6, %fd25;         // math.f:2273
+      st.volatile.shared.f64 [%sd30], %fd26;           // math.f:2273 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      mov.f64              %fd6, %fd26;                // math.f:2273 : $redfold_left_temp_t43
+$vlsc2_acc_$ck_L2269_15__l113__:
+      .loc                 1  2273  0
+      bar.sync             0;                          // math.f:2273
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t39__f15s223];// math.f:2273 : $$reduc_pvt_t16
+      mov.f64              %fd7, %fd5;                 // math.f:2273 : $redfinal_t45
+      bar.sync             0;                          // math.f:2273
+      mov.u32              %u20, %tid.x;               // math.f:2273
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2273
+      @%p14 bra            $vlsc2_acc_$ck_L2269_15__l116__;// math.f:2273
+      .loc                 1  2273  0
+      ld.param.s64         %sd31, [$$arg_ptr_accshare_t21_t61];// math.f:2273 : $$arg_ptr_accshare_t21_t61
+      ld.global.f64        %fd27, [%sd31];             // math.f:2273 : 0[$$arg_ptr_accshare_t21_t61,0].L
+      add.rn.f64           %fd28, %fd27, %fd7;         // math.f:2273
+      st.global.f64        [%sd31], %fd28;             // math.f:2273 : 0[$$arg_ptr_accshare_t21_t61,0].L
+$vlsc2_acc_$ck_L2269_15__l116__:
+      exit;
+      } // vlsc2_acc_$ck_L2269_15
+
+
+      .entry glsum_acc_$ck_L2288_16(
+               .param .s64 $$arg_ptr_acc_x_t7_t53,
+               .param .s64 $$arg_ptr_reduc_ctl_t12_t54,
+               .param .s64 $$arg_ptr_reduc_val_t15_t55,
+               .param .s32 $$_arg_acc_seat_n_t17_t56,
+               .param .s64 $$arg_ptr_accshare_t19_t57 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f16s96;
+      .shared .u64 $$_redfold_t36__f16s156[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<30>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<28>;
+      //
+      .loc                 1  2288  0
+      .loc                 1  2289  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t17_t56];// math.f:2289 : $$mr_n_25_t43
+      setp.le.s32          %p1, %s1, 0;                // math.f:2289
+      @%p1 bra             $glsum_acc_$ck_L2288_16__l113__;// math.f:2289
+      .loc                 1  2288  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2288 : $$_tsum_t5
+      .loc                 1  2289  0
+      mov.u32              %u7, %ntid.x;               // math.f:2289
+      mov.u32              %u8, %nctaid.x;             // math.f:2289
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2289 : $$numthrds_t9
+      mov.u32              %u9, %ctaid.x;              // math.f:2289
+      mov.u32              %u10, %tid.x;               // math.f:2289
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2289
+      mov.s32              %s2, %u11;                  // math.f:2289 : $$i_l2289_18_t31
+      mov.s32              %s4, %s1;                   // math.f:2289 : $$lis_b0_t33
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2289
+      @%p2 bra             $glsum_acc_$ck_L2288_16__l81__;// math.f:2289
+      .loc                 1  2290  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2290 : $sc_tsum_i0
+$glsum_acc_$ck_L2288_16__l76__:
+      .loc                 1  2290  0
+      shl.b32              %b1, %s2, 3;                // math.f:2290
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2290
+      ld.param.s64         %sd2, [$$arg_ptr_acc_x_t7_t53];// math.f:2290 : $$arg_ptr_acc_x_t7_t53
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2290
+      ld.global.nc.f64     %fd8, [%sd3];               // math.f:2290 : 0[$$arg_ptr_acc_x_t7_t53,$$i_l2289_18_t31,ex].L
+      add.rn.f64           %fd1, %fd1, %fd8;           // math.f:2290 : $sc_tsum_i0
+      .loc                 1  2291  0
+      add.s32              %s2, %s3, %s2;              // math.f:2291 : $$i_l2289_18_t31
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2291
+      @%p3 bra             $glsum_acc_$ck_L2288_16__l76__;// math.f:2291
+      .loc                 1  2290  0
+      mov.f64              %fd2, %fd1;                 // math.f:2290 : $$_tsum_t5
+$glsum_acc_$ck_L2288_16__l81__:
+      .loc                 1  2292  0
+      mov.u32              %u12, %tid.x;               // math.f:2292
+      mov.u32              %u1, %tid.x;                // math.f:2292 : $$lcs_5_t47
+      cvt.s64.u32          %sd4, %tid.x;               // math.f:2292
+      shl.b64              %bd1, %sd4, 3;              // math.f:2292
+      mov.s64              %sd5, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd6, %bd1, %sd5;           // math.f:2292
+      st.volatile.shared.f64 [%sd6], %fd2;             // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_5_t47].L
+      bar.sync             0;                          // math.f:2292
+      ld.volatile.shared.f64 %fd3, [%sd6];             // math.f:2292 : $redfold_left_temp_t37
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2292
+      @%p4 bra             $glsum_acc_$ck_L2288_16__l84__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s64.u32          %sd7, %u1;                  // math.f:2292
+      shl.b64              %bd2, %sd7, 3;              // math.f:2292
+      mov.s64              %sd8, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd9, %bd2, %sd8;           // math.f:2292
+      ld.volatile.shared.f64 %fd9, [%sd9 + 512];       // math.f:2292 : 64[ _&$$_redfold_t36,$$lcs_5_t47].L
+      add.rn.f64           %fd3, %fd3, %fd9;           // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd9], %fd3;             // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_5_t47].L
+$glsum_acc_$ck_L2288_16__l84__:
+      .loc                 1  2292  0
+      bar.sync             0;                          // math.f:2292
+      mov.u32              %u13, %tid.x;               // math.f:2292
+      mov.u32              %u2, %tid.x;                // math.f:2292 : $$lcs_6_t48
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2292
+      @%p5 bra             $glsum_acc_$ck_L2288_16__l87__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s64.u32          %sd10, %u2;                 // math.f:2292
+      shl.b64              %bd3, %sd10, 3;             // math.f:2292
+      mov.s64              %sd11, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd12, %bd3, %sd11;         // math.f:2292
+      ld.volatile.shared.f64 %fd10, [%sd12 + 256];     // math.f:2292 : 32[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd3, %fd3, %fd10;          // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      ld.volatile.shared.f64 %fd11, [%sd12 + 128];     // math.f:2292 : 16[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd3, %fd3, %fd11;          // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      ld.volatile.shared.f64 %fd12, [%sd12 + 64];      // math.f:2292 : 8[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd3, %fd3, %fd12;          // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      ld.volatile.shared.f64 %fd13, [%sd12 + 32];      // math.f:2292 : 4[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      ld.volatile.shared.f64 %fd14, [%sd12 + 16];      // math.f:2292 : 2[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2292 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      ld.volatile.shared.f64 %fd15, [%sd12 + 8];       // math.f:2292 : 1[ _&$$_redfold_t36,$$lcs_6_t48].L
+      add.rn.f64           %fd16, %fd3, %fd15;         // math.f:2292
+      st.volatile.shared.f64 [%sd12], %fd16;           // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_6_t48].L
+      mov.f64              %fd3, %fd16;                // math.f:2292 : $redfold_left_temp_t37
+$glsum_acc_$ck_L2288_16__l87__:
+      .loc                 1  2292  0
+      bar.sync             0;                          // math.f:2292
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t36__f16s156];// math.f:2292 : $$reduc_pvt_t14
+      mov.f64              %fd4, %fd5;                 // math.f:2292 : $redfinal_t39
+      bar.sync             0;                          // math.f:2292
+      mov.u32              %u14, %tid.x;               // math.f:2292
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2292
+      @%p6 bra             $glsum_acc_$ck_L2288_16__l90__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s64.u32          %sd13, %ctaid.x;            // math.f:2292
+      shl.b64              %bd4, %sd13, 3;             // math.f:2292
+      ld.param.s64         %sd14, [$$arg_ptr_reduc_val_t15_t55];// math.f:2292 : $$arg_ptr_reduc_val_t15_t55
+      add.s64              %sd15, %sd14, %bd4;         // math.f:2292
+      st.global.f64        [%sd15], %fd4;              // math.f:2292 : 0[$$arg_ptr_reduc_val_t15_t55,_acc_read_hw_reg(%ctaid.x)].L
+$glsum_acc_$ck_L2288_16__l90__:
+      .loc                 1  2292  0
+      membar.gl;                                       // math.f:2292
+      mov.u32              %u15, %tid.x;               // math.f:2292
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2292
+      @%p7 bra             $glsum_acc_$ck_L2288_16__l93__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2292
+      sub.s32              %s7, 1, %s6;                // math.f:2292
+      mov.u32              %u16, %ctaid.x;             // math.f:2292
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2292
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2292
+      ld.param.s64         %sd16, [$$arg_ptr_reduc_ctl_t12_t54];// math.f:2292 : $$arg_ptr_reduc_ctl_t12_t54
+      atom.global.add.s32  %s9, [%sd16], %s8;          // math.f:2292
+      add.s32              %s10, %s8, %s9;             // math.f:2292
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f16s96], %s10;// math.f:2292 : reduc_share_ctl_c3
+$glsum_acc_$ck_L2288_16__l93__:
+      .loc                 1  2292  0
+      bar.sync             0;                          // math.f:2292
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f16s96];// math.f:2292 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2292
+      @%p9 bra             $glsum_acc_$ck_L2288_16__l113__;// math.f:2292
+      .loc                 1  2292  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2292 : $$reduc_pvt_t14
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2292 : $$induc_p1_t32
+      mov.u32              %u17, %nctaid.x;            // math.f:2292
+      mov.u32              %u4, %nctaid.x;             // math.f:2292 : $$lis_b2_t35
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2292
+      @%p10 bra            $glsum_acc_$ck_L2288_16__l104__;// math.f:2292
+      .loc                 1  2292  0
+      mov.u32              %u3, %ntid.x;               // math.f:2292 : $$lis_b1_t34
+$glsum_acc_$ck_L2288_16__l100__:
+      .loc                 1  2292  0
+      shl.b32              %b2, %s5, 3;                // math.f:2292
+      cvt.s64.s32          %sd17, %b2;                 // math.f:2292
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_val_t15_t55];// math.f:2292 : $$arg_ptr_reduc_val_t15_t55
+      add.s64              %sd19, %sd18, %sd17;        // math.f:2292
+      ld.global.f64        %fd17, [%sd19];             // math.f:2292 : 0[$$arg_ptr_reduc_val_t15_t55,$$induc_p1_t32].L
+      add.rn.f64           %fd5, %fd5, %fd17;          // math.f:2292 : $$reduc_pvt_t14
+      add.u32              %s5, %s5, %u3;              // math.f:2292 : $$induc_p1_t32
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2292
+      @%p11 bra            $glsum_acc_$ck_L2288_16__l100__;// math.f:2292
+$glsum_acc_$ck_L2288_16__l104__:
+      .loc                 1  2292  0
+      mov.u32              %u18, %tid.x;               // math.f:2292
+      mov.u32              %u5, %tid.x;                // math.f:2292 : $$lcs_9_t51
+      cvt.s64.u32          %sd20, %tid.x;              // math.f:2292
+      shl.b64              %bd5, %sd20, 3;             // math.f:2292
+      mov.s64              %sd21, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd22, %bd5, %sd21;         // math.f:2292
+      st.volatile.shared.f64 [%sd22], %fd5;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_9_t51].L
+      bar.sync             0;                          // math.f:2292
+      ld.volatile.shared.f64 %fd6, [%sd22];            // math.f:2292 : $redfold_left_temp_t40
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2292
+      @%p12 bra            $glsum_acc_$ck_L2288_16__l107__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s64.u32          %sd23, %u5;                 // math.f:2292
+      shl.b64              %bd6, %sd23, 3;             // math.f:2292
+      mov.s64              %sd24, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd25, %bd6, %sd24;         // math.f:2292
+      ld.volatile.shared.f64 %fd18, [%sd25 + 512];     // math.f:2292 : 64[ _&$$_redfold_t36,$$lcs_9_t51].L
+      add.rn.f64           %fd6, %fd6, %fd18;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd25], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_9_t51].L
+$glsum_acc_$ck_L2288_16__l107__:
+      .loc                 1  2292  0
+      bar.sync             0;                          // math.f:2292
+      mov.u32              %u19, %tid.x;               // math.f:2292
+      mov.u32              %u6, %tid.x;                // math.f:2292 : $$lcs_10_t52
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2292
+      @%p13 bra            $glsum_acc_$ck_L2288_16__l110__;// math.f:2292
+      .loc                 1  2292  0
+      cvt.s64.u32          %sd26, %u6;                 // math.f:2292
+      shl.b64              %bd7, %sd26, 3;             // math.f:2292
+      mov.s64              %sd27, $$_redfold_t36__f16s156;// math.f:2292
+      add.s64              %sd28, %bd7, %sd27;         // math.f:2292
+      ld.volatile.shared.f64 %fd19, [%sd28 + 256];     // math.f:2292 : 32[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd6, %fd6, %fd19;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      ld.volatile.shared.f64 %fd20, [%sd28 + 128];     // math.f:2292 : 16[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd6, %fd6, %fd20;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      ld.volatile.shared.f64 %fd21, [%sd28 + 64];      // math.f:2292 : 8[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd6, %fd6, %fd21;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      ld.volatile.shared.f64 %fd22, [%sd28 + 32];      // math.f:2292 : 4[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      ld.volatile.shared.f64 %fd23, [%sd28 + 16];      // math.f:2292 : 2[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2292 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      ld.volatile.shared.f64 %fd24, [%sd28 + 8];       // math.f:2292 : 1[ _&$$_redfold_t36,$$lcs_10_t52].L
+      add.rn.f64           %fd25, %fd6, %fd24;         // math.f:2292
+      st.volatile.shared.f64 [%sd28], %fd25;           // math.f:2292 : 0[ _&$$_redfold_t36,$$lcs_10_t52].L
+      mov.f64              %fd6, %fd25;                // math.f:2292 : $redfold_left_temp_t40
+$glsum_acc_$ck_L2288_16__l110__:
+      .loc                 1  2292  0
+      bar.sync             0;                          // math.f:2292
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t36__f16s156];// math.f:2292 : $$reduc_pvt_t14
+      mov.f64              %fd7, %fd5;                 // math.f:2292 : $redfinal_t42
+      bar.sync             0;                          // math.f:2292
+      mov.u32              %u20, %tid.x;               // math.f:2292
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2292
+      @%p14 bra            $glsum_acc_$ck_L2288_16__l113__;// math.f:2292
+      .loc                 1  2292  0
+      ld.param.s64         %sd29, [$$arg_ptr_accshare_t19_t57];// math.f:2292 : $$arg_ptr_accshare_t19_t57
+      ld.global.f64        %fd26, [%sd29];             // math.f:2292 : 0[$$arg_ptr_accshare_t19_t57,0].L
+      add.rn.f64           %fd27, %fd26, %fd7;         // math.f:2292
+      st.global.f64        [%sd29], %fd27;             // math.f:2292 : 0[$$arg_ptr_accshare_t19_t57,0].L
+$glsum_acc_$ck_L2288_16__l113__:
+      exit;
+      } // glsum_acc_$ck_L2288_16
+
+
+      .entry glsc2_acc_$ck_L2328_17(
+               .param .s64 $$arg_ptr_acc_y_t7_t56,
+               .param .s64 $$arg_ptr_acc_x_t9_t57,
+               .param .s64 $$arg_ptr_reduc_ctl_t14_t58,
+               .param .s64 $$arg_ptr_reduc_val_t17_t59,
+               .param .s32 $$_arg_acc_seat_n_t19_t60,
+               .param .s64 $$arg_ptr_accshare_t21_t61 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f17s111;
+      .shared .u64 $$_redfold_t39__f17s184[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<32>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<29>;
+      //
+      .loc                 1  2328  0
+      .loc                 1  2329  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t19_t60];// math.f:2329 : $$mr_n_36_t46
+      setp.le.s32          %p1, %s1, 0;                // math.f:2329
+      @%p1 bra             $glsc2_acc_$ck_L2328_17__l65__;// math.f:2329
+      .loc                 1  2328  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2328 : $$_tmp_t5
+      .loc                 1  2329  0
+      mov.u32              %u7, %ntid.x;               // math.f:2329
+      mov.u32              %u8, %nctaid.x;             // math.f:2329
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2329 : $$numthrds_t11
+      mov.u32              %u9, %ctaid.x;              // math.f:2329
+      mov.u32              %u10, %tid.x;               // math.f:2329
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2329
+      mov.s32              %s2, %u11;                  // math.f:2329 : $$i_l2329_18_t34
+      mov.s32              %s4, %s1;                   // math.f:2329 : $$lis_b0_t36
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2329
+      @%p2 bra             $glsc2_acc_$ck_L2328_17__l17__;// math.f:2329
+      .loc                 1  2330  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2330 : $sc_tmp_i0
+$glsc2_acc_$ck_L2328_17__l12__:
+      .loc                 1  2330  0
+      shl.b32              %b1, %s2, 3;                // math.f:2330
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2330
+      ld.param.s64         %sd2, [$$arg_ptr_acc_x_t9_t57];// math.f:2330 : $$arg_ptr_acc_x_t9_t57
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2330
+      ld.param.s64         %sd4, [$$arg_ptr_acc_y_t7_t56];// math.f:2330 : $$arg_ptr_acc_y_t7_t56
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2330
+      ld.global.nc.f64     %fd8, [%sd5];               // math.f:2330 : 0[$$arg_ptr_acc_y_t7_t56,$$i_l2329_18_t34,ex].L
+      ld.global.nc.f64     %fd9, [%sd3];               // math.f:2330 : 0[$$arg_ptr_acc_x_t9_t57,$$i_l2329_18_t34,ex].L
+      mad.rn.f64           %fd1, %fd9, %fd8, %fd1;     // math.f:2330 : $sc_tmp_i0
+      .loc                 1  2331  0
+      add.s32              %s2, %s3, %s2;              // math.f:2331 : $$i_l2329_18_t34
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2331
+      @%p3 bra             $glsc2_acc_$ck_L2328_17__l12__;// math.f:2331
+      .loc                 1  2330  0
+      mov.f64              %fd2, %fd1;                 // math.f:2330 : $$_tmp_t5
+$glsc2_acc_$ck_L2328_17__l17__:
+      .loc                 1  2332  0
+      mov.u32              %u12, %tid.x;               // math.f:2332
+      mov.u32              %u1, %tid.x;                // math.f:2332 : $$lcs_7_t50
+      cvt.s64.u32          %sd6, %tid.x;               // math.f:2332
+      shl.b64              %bd1, %sd6, 3;              // math.f:2332
+      mov.s64              %sd7, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd8, %bd1, %sd7;           // math.f:2332
+      st.volatile.shared.f64 [%sd8], %fd2;             // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_7_t50].L
+      bar.sync             0;                          // math.f:2332
+      ld.volatile.shared.f64 %fd3, [%sd8];             // math.f:2332 : $redfold_left_temp_t40
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2332
+      @%p4 bra             $glsc2_acc_$ck_L2328_17__l20__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s64.u32          %sd9, %u1;                  // math.f:2332
+      shl.b64              %bd2, %sd9, 3;              // math.f:2332
+      mov.s64              %sd10, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd11, %bd2, %sd10;         // math.f:2332
+      ld.volatile.shared.f64 %fd10, [%sd11 + 512];     // math.f:2332 : 64[ _&$$_redfold_t39,$$lcs_7_t50].L
+      add.rn.f64           %fd3, %fd3, %fd10;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd11], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_7_t50].L
+$glsc2_acc_$ck_L2328_17__l20__:
+      .loc                 1  2332  0
+      bar.sync             0;                          // math.f:2332
+      mov.u32              %u13, %tid.x;               // math.f:2332
+      mov.u32              %u2, %tid.x;                // math.f:2332 : $$lcs_8_t51
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2332
+      @%p5 bra             $glsc2_acc_$ck_L2328_17__l23__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s64.u32          %sd12, %u2;                 // math.f:2332
+      shl.b64              %bd3, %sd12, 3;             // math.f:2332
+      mov.s64              %sd13, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd14, %bd3, %sd13;         // math.f:2332
+      ld.volatile.shared.f64 %fd11, [%sd14 + 256];     // math.f:2332 : 32[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd11;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd12, [%sd14 + 128];     // math.f:2332 : 16[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd12;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd13, [%sd14 + 64];      // math.f:2332 : 8[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd14, [%sd14 + 32];      // math.f:2332 : 4[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd15, [%sd14 + 16];      // math.f:2332 : 2[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd3, %fd3, %fd15;          // math.f:2332 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd14], %fd3;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      ld.volatile.shared.f64 %fd16, [%sd14 + 8];       // math.f:2332 : 1[ _&$$_redfold_t39,$$lcs_8_t51].L
+      add.rn.f64           %fd17, %fd3, %fd16;         // math.f:2332
+      st.volatile.shared.f64 [%sd14], %fd17;           // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_8_t51].L
+      mov.f64              %fd3, %fd17;                // math.f:2332 : $redfold_left_temp_t40
+$glsc2_acc_$ck_L2328_17__l23__:
+      .loc                 1  2332  0
+      bar.sync             0;                          // math.f:2332
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t39__f17s184];// math.f:2332 : $$reduc_pvt_t16
+      mov.f64              %fd4, %fd5;                 // math.f:2332 : $redfinal_t42
+      bar.sync             0;                          // math.f:2332
+      mov.u32              %u14, %tid.x;               // math.f:2332
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2332
+      @%p6 bra             $glsc2_acc_$ck_L2328_17__l26__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s64.u32          %sd15, %ctaid.x;            // math.f:2332
+      shl.b64              %bd4, %sd15, 3;             // math.f:2332
+      ld.param.s64         %sd16, [$$arg_ptr_reduc_val_t17_t59];// math.f:2332 : $$arg_ptr_reduc_val_t17_t59
+      add.s64              %sd17, %sd16, %bd4;         // math.f:2332
+      st.global.f64        [%sd17], %fd4;              // math.f:2332 : 0[$$arg_ptr_reduc_val_t17_t59,_acc_read_hw_reg(%ctaid.x)].L
+$glsc2_acc_$ck_L2328_17__l26__:
+      .loc                 1  2332  0
+      membar.gl;                                       // math.f:2332
+      mov.u32              %u15, %tid.x;               // math.f:2332
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2332
+      @%p7 bra             $glsc2_acc_$ck_L2328_17__l29__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2332
+      sub.s32              %s7, 1, %s6;                // math.f:2332
+      mov.u32              %u16, %ctaid.x;             // math.f:2332
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2332
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2332
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_ctl_t14_t58];// math.f:2332 : $$arg_ptr_reduc_ctl_t14_t58
+      atom.global.add.s32  %s9, [%sd18], %s8;          // math.f:2332
+      add.s32              %s10, %s8, %s9;             // math.f:2332
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f17s111], %s10;// math.f:2332 : reduc_share_ctl_c3
+$glsc2_acc_$ck_L2328_17__l29__:
+      .loc                 1  2332  0
+      bar.sync             0;                          // math.f:2332
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f17s111];// math.f:2332 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2332
+      @%p9 bra             $glsc2_acc_$ck_L2328_17__l65__;// math.f:2332
+      .loc                 1  2332  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2332 : $$reduc_pvt_t16
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2332 : $$induc_p2_t35
+      mov.u32              %u17, %nctaid.x;            // math.f:2332
+      mov.u32              %u4, %nctaid.x;             // math.f:2332 : $$lis_b2_t38
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2332
+      @%p10 bra            $glsc2_acc_$ck_L2328_17__l40__;// math.f:2332
+      .loc                 1  2332  0
+      mov.u32              %u3, %ntid.x;               // math.f:2332 : $$lis_b1_t37
+$glsc2_acc_$ck_L2328_17__l36__:
+      .loc                 1  2332  0
+      shl.b32              %b2, %s5, 3;                // math.f:2332
+      cvt.s64.s32          %sd19, %b2;                 // math.f:2332
+      ld.param.s64         %sd20, [$$arg_ptr_reduc_val_t17_t59];// math.f:2332 : $$arg_ptr_reduc_val_t17_t59
+      add.s64              %sd21, %sd20, %sd19;        // math.f:2332
+      ld.global.f64        %fd18, [%sd21];             // math.f:2332 : 0[$$arg_ptr_reduc_val_t17_t59,$$induc_p2_t35].L
+      add.rn.f64           %fd5, %fd5, %fd18;          // math.f:2332 : $$reduc_pvt_t16
+      add.u32              %s5, %s5, %u3;              // math.f:2332 : $$induc_p2_t35
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2332
+      @%p11 bra            $glsc2_acc_$ck_L2328_17__l36__;// math.f:2332
+$glsc2_acc_$ck_L2328_17__l40__:
+      .loc                 1  2332  0
+      mov.u32              %u18, %tid.x;               // math.f:2332
+      mov.u32              %u5, %tid.x;                // math.f:2332 : $$lcs_11_t54
+      cvt.s64.u32          %sd22, %tid.x;              // math.f:2332
+      shl.b64              %bd5, %sd22, 3;             // math.f:2332
+      mov.s64              %sd23, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd24, %bd5, %sd23;         // math.f:2332
+      st.volatile.shared.f64 [%sd24], %fd5;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_11_t54].L
+      bar.sync             0;                          // math.f:2332
+      ld.volatile.shared.f64 %fd6, [%sd24];            // math.f:2332 : $redfold_left_temp_t43
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2332
+      @%p12 bra            $glsc2_acc_$ck_L2328_17__l43__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s64.u32          %sd25, %u5;                 // math.f:2332
+      shl.b64              %bd6, %sd25, 3;             // math.f:2332
+      mov.s64              %sd26, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd27, %bd6, %sd26;         // math.f:2332
+      ld.volatile.shared.f64 %fd19, [%sd27 + 512];     // math.f:2332 : 64[ _&$$_redfold_t39,$$lcs_11_t54].L
+      add.rn.f64           %fd6, %fd6, %fd19;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd27], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_11_t54].L
+$glsc2_acc_$ck_L2328_17__l43__:
+      .loc                 1  2332  0
+      bar.sync             0;                          // math.f:2332
+      mov.u32              %u19, %tid.x;               // math.f:2332
+      mov.u32              %u6, %tid.x;                // math.f:2332 : $$lcs_12_t55
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2332
+      @%p13 bra            $glsc2_acc_$ck_L2328_17__l46__;// math.f:2332
+      .loc                 1  2332  0
+      cvt.s64.u32          %sd28, %u6;                 // math.f:2332
+      shl.b64              %bd7, %sd28, 3;             // math.f:2332
+      mov.s64              %sd29, $$_redfold_t39__f17s184;// math.f:2332
+      add.s64              %sd30, %bd7, %sd29;         // math.f:2332
+      ld.volatile.shared.f64 %fd20, [%sd30 + 256];     // math.f:2332 : 32[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd20;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd21, [%sd30 + 128];     // math.f:2332 : 16[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd21;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd22, [%sd30 + 64];      // math.f:2332 : 8[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd23, [%sd30 + 32];      // math.f:2332 : 4[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd24, [%sd30 + 16];      // math.f:2332 : 2[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd6, %fd6, %fd24;          // math.f:2332 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd30], %fd6;            // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      ld.volatile.shared.f64 %fd25, [%sd30 + 8];       // math.f:2332 : 1[ _&$$_redfold_t39,$$lcs_12_t55].L
+      add.rn.f64           %fd26, %fd6, %fd25;         // math.f:2332
+      st.volatile.shared.f64 [%sd30], %fd26;           // math.f:2332 : 0[ _&$$_redfold_t39,$$lcs_12_t55].L
+      mov.f64              %fd6, %fd26;                // math.f:2332 : $redfold_left_temp_t43
+$glsc2_acc_$ck_L2328_17__l46__:
+      .loc                 1  2332  0
+      bar.sync             0;                          // math.f:2332
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t39__f17s184];// math.f:2332 : $$reduc_pvt_t16
+      mov.f64              %fd7, %fd5;                 // math.f:2332 : $redfinal_t45
+      bar.sync             0;                          // math.f:2332
+      mov.u32              %u20, %tid.x;               // math.f:2332
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2332
+      @%p14 bra            $glsc2_acc_$ck_L2328_17__l65__;// math.f:2332
+      .loc                 1  2332  0
+      ld.param.s64         %sd31, [$$arg_ptr_accshare_t21_t61];// math.f:2332 : $$arg_ptr_accshare_t21_t61
+      ld.global.f64        %fd27, [%sd31];             // math.f:2332 : 0[$$arg_ptr_accshare_t21_t61,0].L
+      add.rn.f64           %fd28, %fd27, %fd7;         // math.f:2332
+      st.global.f64        [%sd31], %fd28;             // math.f:2332 : 0[$$arg_ptr_accshare_t21_t61,0].L
+$glsc2_acc_$ck_L2328_17__l65__:
+      exit;
+      } // glsc2_acc_$ck_L2328_17
+
+
+      .entry glsc3_acc_$ck_L2374_18(
+               .param .s64 $$arg_ptr_acc_mult_t7_t59,
+               .param .s64 $$arg_ptr_acc_b_t9_t60,
+               .param .s64 $$arg_ptr_acc_a_t11_t61,
+               .param .s64 $$arg_ptr_reduc_ctl_t16_t62,
+               .param .s64 $$arg_ptr_reduc_val_t19_t63,
+               .param .s32 $$_arg_acc_seat_n_t21_t64,
+               .param .s64 $$arg_ptr_accshare_t23_t65 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f18s117;
+      .shared .u64 $$_redfold_t42__f18s198[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<34>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<31>;
+      //
+      .loc                 1  2374  0
+      .loc                 1  2375  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t21_t64];// math.f:2375 : $$mr_n_42_t49
+      setp.le.s32          %p1, %s1, 0;                // math.f:2375
+      @%p1 bra             $glsc3_acc_$ck_L2374_18__l65__;// math.f:2375
+      .loc                 1  2374  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2374 : $$_tmp_t5
+      .loc                 1  2375  0
+      mov.u32              %u7, %ntid.x;               // math.f:2375
+      mov.u32              %u8, %nctaid.x;             // math.f:2375
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2375 : $$numthrds_t13
+      mov.u32              %u9, %ctaid.x;              // math.f:2375
+      mov.u32              %u10, %tid.x;               // math.f:2375
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2375
+      mov.s32              %s2, %u11;                  // math.f:2375 : $$i_l2375_18_t37
+      mov.s32              %s4, %s1;                   // math.f:2375 : $$lis_b0_t39
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2375
+      @%p2 bra             $glsc3_acc_$ck_L2374_18__l17__;// math.f:2375
+      .loc                 1  2376  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2376 : $sc_tmp_i0
+$glsc3_acc_$ck_L2374_18__l12__:
+      .loc                 1  2376  0
+      shl.b32              %b1, %s2, 3;                // math.f:2376
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2376
+      ld.param.s64         %sd2, [$$arg_ptr_acc_mult_t7_t59];// math.f:2376 : $$arg_ptr_acc_mult_t7_t59
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2376
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t9_t60];// math.f:2376 : $$arg_ptr_acc_b_t9_t60
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2376
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t11_t61];// math.f:2376 : $$arg_ptr_acc_a_t11_t61
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2376
+      ld.global.nc.f64     %fd8, [%sd7];               // math.f:2376 : 0[$$arg_ptr_acc_a_t11_t61,$$i_l2375_18_t37,ex].L
+      ld.global.nc.f64     %fd9, [%sd5];               // math.f:2376 : 0[$$arg_ptr_acc_b_t9_t60,$$i_l2375_18_t37,ex].L
+      mul.rn.f64           %fd10, %fd8, %fd9;          // math.f:2376
+      ld.global.nc.f64     %fd11, [%sd3];              // math.f:2376 : 0[$$arg_ptr_acc_mult_t7_t59,$$i_l2375_18_t37,ex].L
+      mad.rn.f64           %fd1, %fd11, %fd10, %fd1;   // math.f:2376 : $sc_tmp_i0
+      .loc                 1  2377  0
+      add.s32              %s2, %s3, %s2;              // math.f:2377 : $$i_l2375_18_t37
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2377
+      @%p3 bra             $glsc3_acc_$ck_L2374_18__l12__;// math.f:2377
+      .loc                 1  2376  0
+      mov.f64              %fd2, %fd1;                 // math.f:2376 : $$_tmp_t5
+$glsc3_acc_$ck_L2374_18__l17__:
+      .loc                 1  2378  0
+      mov.u32              %u12, %tid.x;               // math.f:2378
+      mov.u32              %u1, %tid.x;                // math.f:2378 : $$lcs_7_t53
+      cvt.s64.u32          %sd8, %tid.x;               // math.f:2378
+      shl.b64              %bd1, %sd8, 3;              // math.f:2378
+      mov.s64              %sd9, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd10, %bd1, %sd9;          // math.f:2378
+      st.volatile.shared.f64 [%sd10], %fd2;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_7_t53].L
+      bar.sync             0;                          // math.f:2378
+      ld.volatile.shared.f64 %fd3, [%sd10];            // math.f:2378 : $redfold_left_temp_t43
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2378
+      @%p4 bra             $glsc3_acc_$ck_L2374_18__l20__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s64.u32          %sd11, %u1;                 // math.f:2378
+      shl.b64              %bd2, %sd11, 3;             // math.f:2378
+      mov.s64              %sd12, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd13, %bd2, %sd12;         // math.f:2378
+      ld.volatile.shared.f64 %fd12, [%sd13 + 512];     // math.f:2378 : 64[ _&$$_redfold_t42,$$lcs_7_t53].L
+      add.rn.f64           %fd3, %fd3, %fd12;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd13], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_7_t53].L
+$glsc3_acc_$ck_L2374_18__l20__:
+      .loc                 1  2378  0
+      bar.sync             0;                          // math.f:2378
+      mov.u32              %u13, %tid.x;               // math.f:2378
+      mov.u32              %u2, %tid.x;                // math.f:2378 : $$lcs_8_t54
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2378
+      @%p5 bra             $glsc3_acc_$ck_L2374_18__l23__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s64.u32          %sd14, %u2;                 // math.f:2378
+      shl.b64              %bd3, %sd14, 3;             // math.f:2378
+      mov.s64              %sd15, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd16, %bd3, %sd15;         // math.f:2378
+      ld.volatile.shared.f64 %fd13, [%sd16 + 256];     // math.f:2378 : 32[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      ld.volatile.shared.f64 %fd14, [%sd16 + 128];     // math.f:2378 : 16[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      ld.volatile.shared.f64 %fd15, [%sd16 + 64];      // math.f:2378 : 8[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd3, %fd3, %fd15;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      ld.volatile.shared.f64 %fd16, [%sd16 + 32];      // math.f:2378 : 4[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd3, %fd3, %fd16;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      ld.volatile.shared.f64 %fd17, [%sd16 + 16];      // math.f:2378 : 2[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd3, %fd3, %fd17;          // math.f:2378 : $redfold_left_temp_t43
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      ld.volatile.shared.f64 %fd18, [%sd16 + 8];       // math.f:2378 : 1[ _&$$_redfold_t42,$$lcs_8_t54].L
+      add.rn.f64           %fd19, %fd3, %fd18;         // math.f:2378
+      st.volatile.shared.f64 [%sd16], %fd19;           // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_8_t54].L
+      mov.f64              %fd3, %fd19;                // math.f:2378 : $redfold_left_temp_t43
+$glsc3_acc_$ck_L2374_18__l23__:
+      .loc                 1  2378  0
+      bar.sync             0;                          // math.f:2378
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t42__f18s198];// math.f:2378 : $$reduc_pvt_t18
+      mov.f64              %fd4, %fd5;                 // math.f:2378 : $redfinal_t45
+      bar.sync             0;                          // math.f:2378
+      mov.u32              %u14, %tid.x;               // math.f:2378
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2378
+      @%p6 bra             $glsc3_acc_$ck_L2374_18__l26__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s64.u32          %sd17, %ctaid.x;            // math.f:2378
+      shl.b64              %bd4, %sd17, 3;             // math.f:2378
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_val_t19_t63];// math.f:2378 : $$arg_ptr_reduc_val_t19_t63
+      add.s64              %sd19, %sd18, %bd4;         // math.f:2378
+      st.global.f64        [%sd19], %fd4;              // math.f:2378 : 0[$$arg_ptr_reduc_val_t19_t63,_acc_read_hw_reg(%ctaid.x)].L
+$glsc3_acc_$ck_L2374_18__l26__:
+      .loc                 1  2378  0
+      membar.gl;                                       // math.f:2378
+      mov.u32              %u15, %tid.x;               // math.f:2378
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2378
+      @%p7 bra             $glsc3_acc_$ck_L2374_18__l29__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2378
+      sub.s32              %s7, 1, %s6;                // math.f:2378
+      mov.u32              %u16, %ctaid.x;             // math.f:2378
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2378
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2378
+      ld.param.s64         %sd20, [$$arg_ptr_reduc_ctl_t16_t62];// math.f:2378 : $$arg_ptr_reduc_ctl_t16_t62
+      atom.global.add.s32  %s9, [%sd20], %s8;          // math.f:2378
+      add.s32              %s10, %s8, %s9;             // math.f:2378
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f18s117], %s10;// math.f:2378 : reduc_share_ctl_c3
+$glsc3_acc_$ck_L2374_18__l29__:
+      .loc                 1  2378  0
+      bar.sync             0;                          // math.f:2378
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f18s117];// math.f:2378 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2378
+      @%p9 bra             $glsc3_acc_$ck_L2374_18__l65__;// math.f:2378
+      .loc                 1  2378  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2378 : $$reduc_pvt_t18
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2378 : $$induc_p3_t38
+      mov.u32              %u17, %nctaid.x;            // math.f:2378
+      mov.u32              %u4, %nctaid.x;             // math.f:2378 : $$lis_b2_t41
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2378
+      @%p10 bra            $glsc3_acc_$ck_L2374_18__l40__;// math.f:2378
+      .loc                 1  2378  0
+      mov.u32              %u3, %ntid.x;               // math.f:2378 : $$lis_b1_t40
+$glsc3_acc_$ck_L2374_18__l36__:
+      .loc                 1  2378  0
+      shl.b32              %b2, %s5, 3;                // math.f:2378
+      cvt.s64.s32          %sd21, %b2;                 // math.f:2378
+      ld.param.s64         %sd22, [$$arg_ptr_reduc_val_t19_t63];// math.f:2378 : $$arg_ptr_reduc_val_t19_t63
+      add.s64              %sd23, %sd22, %sd21;        // math.f:2378
+      ld.global.f64        %fd20, [%sd23];             // math.f:2378 : 0[$$arg_ptr_reduc_val_t19_t63,$$induc_p3_t38].L
+      add.rn.f64           %fd5, %fd5, %fd20;          // math.f:2378 : $$reduc_pvt_t18
+      add.u32              %s5, %s5, %u3;              // math.f:2378 : $$induc_p3_t38
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2378
+      @%p11 bra            $glsc3_acc_$ck_L2374_18__l36__;// math.f:2378
+$glsc3_acc_$ck_L2374_18__l40__:
+      .loc                 1  2378  0
+      mov.u32              %u18, %tid.x;               // math.f:2378
+      mov.u32              %u5, %tid.x;                // math.f:2378 : $$lcs_11_t57
+      cvt.s64.u32          %sd24, %tid.x;              // math.f:2378
+      shl.b64              %bd5, %sd24, 3;             // math.f:2378
+      mov.s64              %sd25, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd26, %bd5, %sd25;         // math.f:2378
+      st.volatile.shared.f64 [%sd26], %fd5;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_11_t57].L
+      bar.sync             0;                          // math.f:2378
+      ld.volatile.shared.f64 %fd6, [%sd26];            // math.f:2378 : $redfold_left_temp_t46
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2378
+      @%p12 bra            $glsc3_acc_$ck_L2374_18__l43__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s64.u32          %sd27, %u5;                 // math.f:2378
+      shl.b64              %bd6, %sd27, 3;             // math.f:2378
+      mov.s64              %sd28, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd29, %bd6, %sd28;         // math.f:2378
+      ld.volatile.shared.f64 %fd21, [%sd29 + 512];     // math.f:2378 : 64[ _&$$_redfold_t42,$$lcs_11_t57].L
+      add.rn.f64           %fd6, %fd6, %fd21;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd29], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_11_t57].L
+$glsc3_acc_$ck_L2374_18__l43__:
+      .loc                 1  2378  0
+      bar.sync             0;                          // math.f:2378
+      mov.u32              %u19, %tid.x;               // math.f:2378
+      mov.u32              %u6, %tid.x;                // math.f:2378 : $$lcs_12_t58
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2378
+      @%p13 bra            $glsc3_acc_$ck_L2374_18__l46__;// math.f:2378
+      .loc                 1  2378  0
+      cvt.s64.u32          %sd30, %u6;                 // math.f:2378
+      shl.b64              %bd7, %sd30, 3;             // math.f:2378
+      mov.s64              %sd31, $$_redfold_t42__f18s198;// math.f:2378
+      add.s64              %sd32, %bd7, %sd31;         // math.f:2378
+      ld.volatile.shared.f64 %fd22, [%sd32 + 256];     // math.f:2378 : 32[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      ld.volatile.shared.f64 %fd23, [%sd32 + 128];     // math.f:2378 : 16[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      ld.volatile.shared.f64 %fd24, [%sd32 + 64];      // math.f:2378 : 8[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd6, %fd6, %fd24;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      ld.volatile.shared.f64 %fd25, [%sd32 + 32];      // math.f:2378 : 4[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd6, %fd6, %fd25;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      ld.volatile.shared.f64 %fd26, [%sd32 + 16];      // math.f:2378 : 2[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd6, %fd6, %fd26;          // math.f:2378 : $redfold_left_temp_t46
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      ld.volatile.shared.f64 %fd27, [%sd32 + 8];       // math.f:2378 : 1[ _&$$_redfold_t42,$$lcs_12_t58].L
+      add.rn.f64           %fd28, %fd6, %fd27;         // math.f:2378
+      st.volatile.shared.f64 [%sd32], %fd28;           // math.f:2378 : 0[ _&$$_redfold_t42,$$lcs_12_t58].L
+      mov.f64              %fd6, %fd28;                // math.f:2378 : $redfold_left_temp_t46
+$glsc3_acc_$ck_L2374_18__l46__:
+      .loc                 1  2378  0
+      bar.sync             0;                          // math.f:2378
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t42__f18s198];// math.f:2378 : $$reduc_pvt_t18
+      mov.f64              %fd7, %fd5;                 // math.f:2378 : $redfinal_t48
+      bar.sync             0;                          // math.f:2378
+      mov.u32              %u20, %tid.x;               // math.f:2378
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2378
+      @%p14 bra            $glsc3_acc_$ck_L2374_18__l65__;// math.f:2378
+      .loc                 1  2378  0
+      ld.param.s64         %sd33, [$$arg_ptr_accshare_t23_t65];// math.f:2378 : $$arg_ptr_accshare_t23_t65
+      ld.global.f64        %fd29, [%sd33];             // math.f:2378 : 0[$$arg_ptr_accshare_t23_t65,0].L
+      add.rn.f64           %fd30, %fd29, %fd7;         // math.f:2378
+      st.global.f64        [%sd33], %fd30;             // math.f:2378 : 0[$$arg_ptr_accshare_t23_t65,0].L
+$glsc3_acc_$ck_L2374_18__l65__:
+      exit;
+      } // glsc3_acc_$ck_L2374_18
+
+
+      .entry sub2_acc_$ck_L2406_19(
+               .param .s64 $$arg_ptr_acc_b_t6_t26,
+               .param .s64 $$arg_ptr_acc_a_t8_t27,
+               .param .s32 $$_arg_acc_seat_n_t12_t28 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2406  0
+      .loc                 1  2407  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t28];// math.f:2407 : $$mr_n_20_t20
+      setp.le.s32          %p1, %s1, 0;                // math.f:2407
+      @%p1 bra             $sub2_acc_$ck_L2406_19__l45__;// math.f:2407
+      .loc                 1  2407  0
+      mov.u32              %u1, %ntid.x;               // math.f:2407
+      mov.u32              %u2, %nctaid.x;             // math.f:2407
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2407 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:2407
+      mov.u32              %u4, %tid.x;                // math.f:2407
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2407
+      mov.s32              %s2, %u5;                   // math.f:2407 : $$i_l2407_18_t18
+      mov.s32              %s4, %s1;                   // math.f:2407 : $$lis_b0_t19
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2407
+      @%p2 bra             $sub2_acc_$ck_L2406_19__l45__;// math.f:2407
+$sub2_acc_$ck_L2406_19__l12__:
+      .loc                 1  2408  0
+      shl.b32              %b1, %s2, 3;                // math.f:2408
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2408
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t26];// math.f:2408 : $$arg_ptr_acc_b_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2408
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t27];// math.f:2408 : $$arg_ptr_acc_a_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2408
+      ld.global.f64        %fd1, [%sd5];               // math.f:2408 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2407_18_t18].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2408 : 0[$$arg_ptr_acc_b_t6_t26,$$i_l2407_18_t18,ex].L
+      sub.rn.f64           %fd3, %fd1, %fd2;           // math.f:2408
+      st.global.f64        [%sd5], %fd3;               // math.f:2408 : 0[$$arg_ptr_acc_a_t8_t27,$$i_l2407_18_t18].L
+      .loc                 1  2409  0
+      add.s32              %s2, %s3, %s2;              // math.f:2409 : $$i_l2407_18_t18
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2409
+      @%p3 bra             $sub2_acc_$ck_L2406_19__l12__;// math.f:2409
+$sub2_acc_$ck_L2406_19__l45__:
+      exit;
+      } // sub2_acc_$ck_L2406_19
+
+
+      .entry add3s2_acc_$ck_L2435_20(
+               .param .s64 $$arg_ptr_acc_c_t6_t30,
+               .param .s64 $$arg_ptr_acc_b_t8_t31,
+               .param .s64 $$arg_ptr_acc_a_t10_t32,
+               .param .s32 $$_arg_acc_seat_n_t14_t33,
+               .param .f64 $$_arg_acc_seat_c1_t15_t34,
+               .param .f64 $$_arg_acc_seat_c2_t16_t35 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<7>;
+      //
+      .loc                 1  2435  0
+      .loc                 1  2436  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t33];// math.f:2436 : $$mr_n_32_t27
+      setp.le.s32          %p1, %s1, 0;                // math.f:2436
+      @%p1 bra             $add3s2_acc_$ck_L2435_20__l45__;// math.f:2436
+      .loc                 1  2436  0
+      mov.u32              %u1, %ntid.x;               // math.f:2436
+      mov.u32              %u2, %nctaid.x;             // math.f:2436
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2436 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2436
+      mov.u32              %u4, %tid.x;                // math.f:2436
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2436
+      mov.s32              %s2, %u5;                   // math.f:2436 : $$i_l2436_18_t23
+      mov.s32              %s4, %s1;                   // math.f:2436 : $$lis_b2_t26
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2436
+      @%p2 bra             $add3s2_acc_$ck_L2435_20__l45__;// math.f:2436
+      .loc                 1  2437  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_c1_t15_t34];// math.f:2437 : $$lis_b0_t24
+      ld.param.f64         %fd2, [$$_arg_acc_seat_c2_t16_t35];// math.f:2437 : $$lis_b1_t25
+$add3s2_acc_$ck_L2435_20__l12__:
+      .loc                 1  2437  0
+      shl.b32              %b1, %s2, 3;                // math.f:2437
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2437
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t8_t31];// math.f:2437 : $$arg_ptr_acc_b_t8_t31
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2437
+      ld.param.s64         %sd4, [$$arg_ptr_acc_c_t6_t30];// math.f:2437 : $$arg_ptr_acc_c_t6_t30
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2437
+      ld.global.nc.f64     %fd3, [%sd5];               // math.f:2437 : 0[$$arg_ptr_acc_c_t6_t30,$$i_l2436_18_t23,ex].L
+      mul.rn.f64           %fd4, %fd2, %fd3;           // math.f:2437
+      ld.global.nc.f64     %fd5, [%sd3];               // math.f:2437 : 0[$$arg_ptr_acc_b_t8_t31,$$i_l2436_18_t23,ex].L
+      mad.rn.f64           %fd6, %fd1, %fd5, %fd4;     // math.f:2437
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t32];// math.f:2437 : $$arg_ptr_acc_a_t10_t32
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2437
+      st.global.f64        [%sd7], %fd6;               // math.f:2437 : 0[$$arg_ptr_acc_a_t10_t32,$$i_l2436_18_t23].L
+      .loc                 1  2438  0
+      add.s32              %s2, %s3, %s2;              // math.f:2438 : $$i_l2436_18_t23
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2438
+      @%p3 bra             $add3s2_acc_$ck_L2435_20__l12__;// math.f:2438
+$add3s2_acc_$ck_L2435_20__l45__:
+      exit;
+      } // add3s2_acc_$ck_L2435_20
+
+
+      .entry addcol4_acc_$ck_L2465_21(
+               .param .s64 $$arg_ptr_acc_d_t6_t34,
+               .param .s64 $$arg_ptr_acc_c_t8_t35,
+               .param .s64 $$arg_ptr_acc_b_t10_t36,
+               .param .s64 $$arg_ptr_acc_a_t12_t37,
+               .param .s32 $$_arg_acc_seat_n_t16_t38 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<10>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<7>;
+      //
+      .loc                 1  2465  0
+      .loc                 1  2466  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t16_t38];// math.f:2466 : $$mr_n_32_t26
+      setp.le.s32          %p1, %s1, 0;                // math.f:2466
+      @%p1 bra             $addcol4_acc_$ck_L2465_21__l45__;// math.f:2466
+      .loc                 1  2466  0
+      mov.u32              %u1, %ntid.x;               // math.f:2466
+      mov.u32              %u2, %nctaid.x;             // math.f:2466
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2466 : $$numthrds_t14
+      mov.u32              %u3, %ctaid.x;              // math.f:2466
+      mov.u32              %u4, %tid.x;                // math.f:2466
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2466
+      mov.s32              %s2, %u5;                   // math.f:2466 : $$i_l2466_18_t24
+      mov.s32              %s4, %s1;                   // math.f:2466 : $$lis_b0_t25
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2466
+      @%p2 bra             $addcol4_acc_$ck_L2465_21__l45__;// math.f:2466
+$addcol4_acc_$ck_L2465_21__l12__:
+      .loc                 1  2467  0
+      shl.b32              %b1, %s2, 3;                // math.f:2467
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2467
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t8_t35];// math.f:2467 : $$arg_ptr_acc_c_t8_t35
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2467
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t10_t36];// math.f:2467 : $$arg_ptr_acc_b_t10_t36
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2467
+      ld.param.s64         %sd6, [$$arg_ptr_acc_d_t6_t34];// math.f:2467 : $$arg_ptr_acc_d_t6_t34
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2467
+      ld.param.s64         %sd8, [$$arg_ptr_acc_a_t12_t37];// math.f:2467 : $$arg_ptr_acc_a_t12_t37
+      add.s64              %sd9, %sd8, %sd1;           // math.f:2467
+      ld.global.nc.f64     %fd1, [%sd5];               // math.f:2467 : 0[$$arg_ptr_acc_b_t10_t36,$$i_l2466_18_t24,ex].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2467 : 0[$$arg_ptr_acc_c_t8_t35,$$i_l2466_18_t24,ex].L
+      mul.rn.f64           %fd3, %fd1, %fd2;           // math.f:2467
+      ld.global.nc.f64     %fd4, [%sd7];               // math.f:2467 : 0[$$arg_ptr_acc_d_t6_t34,$$i_l2466_18_t24,ex].L
+      ld.global.f64        %fd5, [%sd9];               // math.f:2467 : 0[$$arg_ptr_acc_a_t12_t37,$$i_l2466_18_t24].L
+      mad.rn.f64           %fd6, %fd4, %fd3, %fd5;     // math.f:2467
+      st.global.f64        [%sd9], %fd6;               // math.f:2467 : 0[$$arg_ptr_acc_a_t12_t37,$$i_l2466_18_t24].L
+      .loc                 1  2468  0
+      add.s32              %s2, %s3, %s2;              // math.f:2468 : $$i_l2466_18_t24
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2468
+      @%p3 bra             $addcol4_acc_$ck_L2465_21__l12__;// math.f:2468
+$addcol4_acc_$ck_L2465_21__l45__:
+      exit;
+      } // addcol4_acc_$ck_L2465_21
+
+
+      .entry chsign_acc_$ck_L2480_22(
+               .param .s64 $$arg_ptr_acc_a_t6_t22,
+               .param .s32 $$_arg_acc_seat_n_t10_t23 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<3>;
+      //
+      .loc                 1  2480  0
+      .loc                 1  2481  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t23];// math.f:2481 : $$mr_n_8_t17
+      setp.le.s32          %p1, %s1, 0;                // math.f:2481
+      @%p1 bra             $chsign_acc_$ck_L2480_22__l42__;// math.f:2481
+      .loc                 1  2481  0
+      mov.u32              %u1, %ntid.x;               // math.f:2481
+      mov.u32              %u2, %nctaid.x;             // math.f:2481
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2481 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:2481
+      mov.u32              %u4, %tid.x;                // math.f:2481
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2481
+      mov.s32              %s2, %u5;                   // math.f:2481 : $$i_l2481_18_t15
+      mov.s32              %s4, %s1;                   // math.f:2481 : $$lis_b0_t16
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2481
+      @%p2 bra             $chsign_acc_$ck_L2480_22__l42__;// math.f:2481
+$chsign_acc_$ck_L2480_22__l9__:
+      .loc                 1  2482  0
+      shl.b32              %b1, %s2, 3;                // math.f:2482
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2482
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t22];// math.f:2482 : $$arg_ptr_acc_a_t6_t22
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2482
+      ld.global.f64        %fd1, [%sd3];               // math.f:2482 : 0[$$arg_ptr_acc_a_t6_t22,$$i_l2481_18_t15].L
+      neg.f64              %fd2, %fd1;                 // math.f:2482
+      st.global.f64        [%sd3], %fd2;               // math.f:2482 : 0[$$arg_ptr_acc_a_t6_t22,$$i_l2481_18_t15].L
+      .loc                 1  2483  0
+      add.s32              %s2, %s3, %s2;              // math.f:2483 : $$i_l2481_18_t15
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2483
+      @%p3 bra             $chsign_acc_$ck_L2480_22__l9__;// math.f:2483
+$chsign_acc_$ck_L2480_22__l42__:
+      exit;
+      } // chsign_acc_$ck_L2480_22
+
+
+      .entry add2s1_acc_$ck_L2511_23(
+               .param .s64 $$arg_ptr_acc_b_t6_t28,
+               .param .s64 $$arg_ptr_acc_a_t8_t29,
+               .param .s32 $$_arg_acc_seat_n_t12_t30,
+               .param .f64 $$_arg_acc_seat_c1_t13_t31 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<6>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<5>;
+      //
+      .loc                 1  2511  0
+      .loc                 1  2512  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t12_t30];// math.f:2512 : $$mr_n_23_t22
+      setp.le.s32          %p1, %s1, 0;                // math.f:2512
+      @%p1 bra             $add2s1_acc_$ck_L2511_23__l45__;// math.f:2512
+      .loc                 1  2512  0
+      mov.u32              %u1, %ntid.x;               // math.f:2512
+      mov.u32              %u2, %nctaid.x;             // math.f:2512
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2512 : $$numthrds_t10
+      mov.u32              %u3, %ctaid.x;              // math.f:2512
+      mov.u32              %u4, %tid.x;                // math.f:2512
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2512
+      mov.s32              %s2, %u5;                   // math.f:2512 : $$i_l2512_18_t19
+      mov.s32              %s4, %s1;                   // math.f:2512 : $$lis_b1_t21
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2512
+      @%p2 bra             $add2s1_acc_$ck_L2511_23__l45__;// math.f:2512
+      .loc                 1  2513  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_c1_t13_t31];// math.f:2513 : $$lis_b0_t20
+$add2s1_acc_$ck_L2511_23__l12__:
+      .loc                 1  2513  0
+      shl.b32              %b1, %s2, 3;                // math.f:2513
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2513
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t6_t28];// math.f:2513 : $$arg_ptr_acc_b_t6_t28
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2513
+      ld.param.s64         %sd4, [$$arg_ptr_acc_a_t8_t29];// math.f:2513 : $$arg_ptr_acc_a_t8_t29
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2513
+      ld.global.f64        %fd2, [%sd5];               // math.f:2513 : 0[$$arg_ptr_acc_a_t8_t29,$$i_l2512_18_t19].L
+      ld.global.nc.f64     %fd3, [%sd3];               // math.f:2513 : 0[$$arg_ptr_acc_b_t6_t28,$$i_l2512_18_t19,ex].L
+      mad.rn.f64           %fd4, %fd1, %fd2, %fd3;     // math.f:2513
+      st.global.f64        [%sd5], %fd4;               // math.f:2513 : 0[$$arg_ptr_acc_a_t8_t29,$$i_l2512_18_t19].L
+      .loc                 1  2514  0
+      add.s32              %s2, %s3, %s2;              // math.f:2514 : $$i_l2512_18_t19
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2514
+      @%p3 bra             $add2s1_acc_$ck_L2511_23__l12__;// math.f:2514
+$add2s1_acc_$ck_L2511_23__l45__:
+      exit;
+      } // add2s1_acc_$ck_L2511_23
+
+
+      .entry sub3_acc_$ck_L2542_24(
+               .param .s64 $$arg_ptr_acc_c_t6_t26,
+               .param .s64 $$arg_ptr_acc_b_t8_t27,
+               .param .s64 $$arg_ptr_acc_a_t10_t28,
+               .param .s32 $$_arg_acc_seat_n_t14_t29 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2542  0
+      .loc                 1  2543  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t29];// math.f:2543 : $$mr_n_26_t23
+      setp.le.s32          %p1, %s1, 0;                // math.f:2543
+      @%p1 bra             $sub3_acc_$ck_L2542_24__l45__;// math.f:2543
+      .loc                 1  2543  0
+      mov.u32              %u1, %ntid.x;               // math.f:2543
+      mov.u32              %u2, %nctaid.x;             // math.f:2543
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2543 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2543
+      mov.u32              %u4, %tid.x;                // math.f:2543
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2543
+      mov.s32              %s2, %u5;                   // math.f:2543 : $$i_l2543_18_t21
+      mov.s32              %s4, %s1;                   // math.f:2543 : $$lis_b0_t22
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2543
+      @%p2 bra             $sub3_acc_$ck_L2542_24__l45__;// math.f:2543
+$sub3_acc_$ck_L2542_24__l12__:
+      .loc                 1  2544  0
+      shl.b32              %b1, %s2, 3;                // math.f:2544
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2544
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t6_t26];// math.f:2544 : $$arg_ptr_acc_c_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2544
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t8_t27];// math.f:2544 : $$arg_ptr_acc_b_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2544
+      ld.global.nc.f64     %fd1, [%sd5];               // math.f:2544 : 0[$$arg_ptr_acc_b_t8_t27,$$i_l2543_18_t21,ex].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2544 : 0[$$arg_ptr_acc_c_t6_t26,$$i_l2543_18_t21,ex].L
+      sub.rn.f64           %fd3, %fd1, %fd2;           // math.f:2544
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t28];// math.f:2544 : $$arg_ptr_acc_a_t10_t28
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2544
+      st.global.f64        [%sd7], %fd3;               // math.f:2544 : 0[$$arg_ptr_acc_a_t10_t28,$$i_l2543_18_t21].L
+      .loc                 1  2545  0
+      add.s32              %s2, %s3, %s2;              // math.f:2545 : $$i_l2543_18_t21
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2545
+      @%p3 bra             $sub3_acc_$ck_L2542_24__l12__;// math.f:2545
+$sub3_acc_$ck_L2542_24__l45__:
+      exit;
+      } // sub3_acc_$ck_L2542_24
+
+
+      .entry invcol3_acc_$ck_L2581_25(
+               .param .s64 $$arg_ptr_acc_c_t6_t26,
+               .param .s64 $$arg_ptr_acc_b_t8_t27,
+               .param .s64 $$arg_ptr_acc_a_t10_t28,
+               .param .s32 $$_arg_acc_seat_n_t14_t29 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<4>;
+      //
+      .loc                 1  2581  0
+      .loc                 1  2582  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t29];// math.f:2582 : $$mr_n_29_t23
+      setp.le.s32          %p1, %s1, 0;                // math.f:2582
+      @%p1 bra             $invcol3_acc_$ck_L2581_25__l45__;// math.f:2582
+      .loc                 1  2582  0
+      mov.u32              %u1, %ntid.x;               // math.f:2582
+      mov.u32              %u2, %nctaid.x;             // math.f:2582
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2582 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2582
+      mov.u32              %u4, %tid.x;                // math.f:2582
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2582
+      mov.s32              %s2, %u5;                   // math.f:2582 : $$i_l2582_18_t21
+      mov.s32              %s4, %s1;                   // math.f:2582 : $$lis_b0_t22
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2582
+      @%p2 bra             $invcol3_acc_$ck_L2581_25__l45__;// math.f:2582
+$invcol3_acc_$ck_L2581_25__l12__:
+      .loc                 1  2583  0
+      shl.b32              %b1, %s2, 3;                // math.f:2583
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2583
+      ld.param.s64         %sd2, [$$arg_ptr_acc_c_t6_t26];// math.f:2583 : $$arg_ptr_acc_c_t6_t26
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2583
+      ld.param.s64         %sd4, [$$arg_ptr_acc_b_t8_t27];// math.f:2583 : $$arg_ptr_acc_b_t8_t27
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2583
+      ld.global.nc.f64     %fd1, [%sd5];               // math.f:2583 : 0[$$arg_ptr_acc_b_t8_t27,$$i_l2582_18_t21,ex].L
+      ld.global.nc.f64     %fd2, [%sd3];               // math.f:2583 : 0[$$arg_ptr_acc_c_t6_t26,$$i_l2582_18_t21,ex].L
+      div.rn.f64           %fd3, %fd1, %fd2;           // math.f:2583
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t28];// math.f:2583 : $$arg_ptr_acc_a_t10_t28
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2583
+      st.global.f64        [%sd7], %fd3;               // math.f:2583 : 0[$$arg_ptr_acc_a_t10_t28,$$i_l2582_18_t21].L
+      .loc                 1  2584  0
+      add.s32              %s2, %s3, %s2;              // math.f:2584 : $$i_l2582_18_t21
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2584
+      @%p3 bra             $invcol3_acc_$ck_L2581_25__l12__;// math.f:2584
+$invcol3_acc_$ck_L2581_25__l45__:
+      exit;
+      } // invcol3_acc_$ck_L2581_25
+
+
+      .entry admcol3_acc_$ck_L2599_26(
+               .param .s64 $$arg_ptr_acc_c_t6_t32,
+               .param .s64 $$arg_ptr_acc_b_t8_t33,
+               .param .s64 $$arg_ptr_acc_a_t10_t34,
+               .param .s32 $$_arg_acc_seat_n_t14_t35,
+               .param .f64 $$_arg_acc_seat_d_t15_t36 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<8>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<7>;
+      //
+      .loc                 1  2599  0
+      .loc                 1  2600  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t14_t35];// math.f:2600 : $$mr_n_23_t25
+      setp.le.s32          %p1, %s1, 0;                // math.f:2600
+      @%p1 bra             $admcol3_acc_$ck_L2599_26__l42__;// math.f:2600
+      .loc                 1  2600  0
+      mov.u32              %u1, %ntid.x;               // math.f:2600
+      mov.u32              %u2, %nctaid.x;             // math.f:2600
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2600 : $$numthrds_t12
+      mov.u32              %u3, %ctaid.x;              // math.f:2600
+      mov.u32              %u4, %tid.x;                // math.f:2600
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2600
+      mov.s32              %s2, %u5;                   // math.f:2600 : $$i_l2600_18_t22
+      mov.s32              %s4, %s1;                   // math.f:2600 : $$lis_b1_t24
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2600
+      @%p2 bra             $admcol3_acc_$ck_L2599_26__l42__;// math.f:2600
+      .loc                 1  2601  0
+      ld.param.f64         %fd1, [$$_arg_acc_seat_d_t15_t36];// math.f:2601 : $$lis_b0_t23
+$admcol3_acc_$ck_L2599_26__l9__:
+      .loc                 1  2601  0
+      shl.b32              %b1, %s2, 3;                // math.f:2601
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2601
+      ld.param.s64         %sd2, [$$arg_ptr_acc_b_t8_t33];// math.f:2601 : $$arg_ptr_acc_b_t8_t33
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2601
+      ld.param.s64         %sd4, [$$arg_ptr_acc_c_t6_t32];// math.f:2601 : $$arg_ptr_acc_c_t6_t32
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2601
+      ld.param.s64         %sd6, [$$arg_ptr_acc_a_t10_t34];// math.f:2601 : $$arg_ptr_acc_a_t10_t34
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2601
+      ld.global.nc.f64     %fd2, [%sd5];               // math.f:2601 : 0[$$arg_ptr_acc_c_t6_t32,$$i_l2600_18_t22,ex].L
+      ld.global.nc.f64     %fd3, [%sd3];               // math.f:2601 : 0[$$arg_ptr_acc_b_t8_t33,$$i_l2600_18_t22,ex].L
+      mul.rn.f64           %fd4, %fd2, %fd3;           // math.f:2601
+      ld.global.f64        %fd5, [%sd7];               // math.f:2601 : 0[$$arg_ptr_acc_a_t10_t34,$$i_l2600_18_t22].L
+      mad.rn.f64           %fd6, %fd1, %fd4, %fd5;     // math.f:2601
+      st.global.f64        [%sd7], %fd6;               // math.f:2601 : 0[$$arg_ptr_acc_a_t10_t34,$$i_l2600_18_t22].L
+      .loc                 1  2602  0
+      add.s32              %s2, %s3, %s2;              // math.f:2602 : $$i_l2600_18_t22
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2602
+      @%p3 bra             $admcol3_acc_$ck_L2599_26__l9__;// math.f:2602
+$admcol3_acc_$ck_L2599_26__l42__:
+      exit;
+      } // admcol3_acc_$ck_L2599_26
+
+
+      .entry invcol1_acc_$ck_L2630_27(
+               .param .s64 $$arg_ptr_acc_a_t6_t23,
+               .param .s32 $$_arg_acc_seat_n_t10_t24 )
+      {
+      .reg .pred %p<4>;
+      .reg .b32  %b<2>;
+      .reg .s32  %s<5>;
+      .reg .s64  %sd<4>;
+      .reg .u32  %u<6>;
+      .reg .f64  %fd<3>;
+      //
+      .loc                 1  2630  0
+      .loc                 1  2631  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t10_t24];// math.f:2631 : $$mr_n_14_t17
+      setp.le.s32          %p1, %s1, 0;                // math.f:2631
+      @%p1 bra             $invcol1_acc_$ck_L2630_27__l45__;// math.f:2631
+      .loc                 1  2631  0
+      mov.u32              %u1, %ntid.x;               // math.f:2631
+      mov.u32              %u2, %nctaid.x;             // math.f:2631
+      mul.lo.u32           %s3, %u1, %u2;              // math.f:2631 : $$numthrds_t8
+      mov.u32              %u3, %ctaid.x;              // math.f:2631
+      mov.u32              %u4, %tid.x;                // math.f:2631
+      mad.lo.u32           %u5, %u1, %u3, %u4;         // math.f:2631
+      mov.s32              %s2, %u5;                   // math.f:2631 : $$i_l2631_18_t15
+      mov.s32              %s4, %s1;                   // math.f:2631 : $$lis_b0_t16
+      setp.ge.s32          %p2, %u5, %s1;              // math.f:2631
+      @%p2 bra             $invcol1_acc_$ck_L2630_27__l45__;// math.f:2631
+$invcol1_acc_$ck_L2630_27__l12__:
+      .loc                 1  2632  0
+      shl.b32              %b1, %s2, 3;                // math.f:2632
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2632
+      ld.param.s64         %sd2, [$$arg_ptr_acc_a_t6_t23];// math.f:2632 : $$arg_ptr_acc_a_t6_t23
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2632
+      ld.global.f64        %fd1, [%sd3];               // math.f:2632 : 0[$$arg_ptr_acc_a_t6_t23,$$i_l2631_18_t15].L
+      rcp.rn.f64           %fd2, %fd1;                 // math.f:2632
+      st.global.f64        [%sd3], %fd2;               // math.f:2632 : 0[$$arg_ptr_acc_a_t6_t23,$$i_l2631_18_t15].L
+      .loc                 1  2633  0
+      add.s32              %s2, %s3, %s2;              // math.f:2633 : $$i_l2631_18_t15
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2633
+      @%p3 bra             $invcol1_acc_$ck_L2630_27__l12__;// math.f:2633
+$invcol1_acc_$ck_L2630_27__l45__:
+      exit;
+      } // invcol1_acc_$ck_L2630_27
+
+
+      .entry vlsum_acc_$ck_L2661_28(
+               .param .s64 $$arg_ptr_acc_vec_t7_t53,
+               .param .s64 $$arg_ptr_reduc_ctl_t12_t54,
+               .param .s64 $$arg_ptr_reduc_val_t15_t55,
+               .param .s32 $$_arg_acc_seat_n_t17_t56,
+               .param .s64 $$arg_ptr_accshare_t19_t57 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f28s102;
+      .shared .u64 $$_redfold_t36__f28s167[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<30>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<28>;
+      //
+      .loc                 1  2661  0
+      .loc                 1  2662  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t17_t56];// math.f:2662 : $$mr_n_30_t43
+      setp.le.s32          %p1, %s1, 0;                // math.f:2662
+      @%p1 bra             $vlsum_acc_$ck_L2661_28__l116__;// math.f:2662
+      .loc                 1  2661  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2661 : $$_sum_t5
+      .loc                 1  2662  0
+      mov.u32              %u7, %ntid.x;               // math.f:2662
+      mov.u32              %u8, %nctaid.x;             // math.f:2662
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2662 : $$numthrds_t9
+      mov.u32              %u9, %ctaid.x;              // math.f:2662
+      mov.u32              %u10, %tid.x;               // math.f:2662
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2662
+      mov.s32              %s2, %u11;                  // math.f:2662 : $$i_l2662_18_t31
+      mov.s32              %s4, %s1;                   // math.f:2662 : $$lis_b0_t33
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2662
+      @%p2 bra             $vlsum_acc_$ck_L2661_28__l84__;// math.f:2662
+      .loc                 1  2663  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2663 : $sc_sum_i0
+$vlsum_acc_$ck_L2661_28__l79__:
+      .loc                 1  2663  0
+      shl.b32              %b1, %s2, 3;                // math.f:2663
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2663
+      ld.param.s64         %sd2, [$$arg_ptr_acc_vec_t7_t53];// math.f:2663 : $$arg_ptr_acc_vec_t7_t53
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2663
+      ld.global.nc.f64     %fd8, [%sd3];               // math.f:2663 : 0[$$arg_ptr_acc_vec_t7_t53,$$i_l2662_18_t31,ex].L
+      add.rn.f64           %fd1, %fd1, %fd8;           // math.f:2663 : $sc_sum_i0
+      .loc                 1  2664  0
+      add.s32              %s2, %s3, %s2;              // math.f:2664 : $$i_l2662_18_t31
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2664
+      @%p3 bra             $vlsum_acc_$ck_L2661_28__l79__;// math.f:2664
+      .loc                 1  2663  0
+      mov.f64              %fd2, %fd1;                 // math.f:2663 : $$_sum_t5
+$vlsum_acc_$ck_L2661_28__l84__:
+      .loc                 1  2665  0
+      mov.u32              %u12, %tid.x;               // math.f:2665
+      mov.u32              %u1, %tid.x;                // math.f:2665 : $$lcs_6_t47
+      cvt.s64.u32          %sd4, %tid.x;               // math.f:2665
+      shl.b64              %bd1, %sd4, 3;              // math.f:2665
+      mov.s64              %sd5, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd6, %bd1, %sd5;           // math.f:2665
+      st.volatile.shared.f64 [%sd6], %fd2;             // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_6_t47].L
+      bar.sync             0;                          // math.f:2665
+      ld.volatile.shared.f64 %fd3, [%sd6];             // math.f:2665 : $redfold_left_temp_t37
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2665
+      @%p4 bra             $vlsum_acc_$ck_L2661_28__l87__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s64.u32          %sd7, %u1;                  // math.f:2665
+      shl.b64              %bd2, %sd7, 3;              // math.f:2665
+      mov.s64              %sd8, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd9, %bd2, %sd8;           // math.f:2665
+      ld.volatile.shared.f64 %fd9, [%sd9 + 512];       // math.f:2665 : 64[ _&$$_redfold_t36,$$lcs_6_t47].L
+      add.rn.f64           %fd3, %fd3, %fd9;           // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd9], %fd3;             // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_6_t47].L
+$vlsum_acc_$ck_L2661_28__l87__:
+      .loc                 1  2665  0
+      bar.sync             0;                          // math.f:2665
+      mov.u32              %u13, %tid.x;               // math.f:2665
+      mov.u32              %u2, %tid.x;                // math.f:2665 : $$lcs_7_t48
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2665
+      @%p5 bra             $vlsum_acc_$ck_L2661_28__l90__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s64.u32          %sd10, %u2;                 // math.f:2665
+      shl.b64              %bd3, %sd10, 3;             // math.f:2665
+      mov.s64              %sd11, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd12, %bd3, %sd11;         // math.f:2665
+      ld.volatile.shared.f64 %fd10, [%sd12 + 256];     // math.f:2665 : 32[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd3, %fd3, %fd10;          // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      ld.volatile.shared.f64 %fd11, [%sd12 + 128];     // math.f:2665 : 16[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd3, %fd3, %fd11;          // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      ld.volatile.shared.f64 %fd12, [%sd12 + 64];      // math.f:2665 : 8[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd3, %fd3, %fd12;          // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      ld.volatile.shared.f64 %fd13, [%sd12 + 32];      // math.f:2665 : 4[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      ld.volatile.shared.f64 %fd14, [%sd12 + 16];      // math.f:2665 : 2[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2665 : $redfold_left_temp_t37
+      st.volatile.shared.f64 [%sd12], %fd3;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      ld.volatile.shared.f64 %fd15, [%sd12 + 8];       // math.f:2665 : 1[ _&$$_redfold_t36,$$lcs_7_t48].L
+      add.rn.f64           %fd16, %fd3, %fd15;         // math.f:2665
+      st.volatile.shared.f64 [%sd12], %fd16;           // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_7_t48].L
+      mov.f64              %fd3, %fd16;                // math.f:2665 : $redfold_left_temp_t37
+$vlsum_acc_$ck_L2661_28__l90__:
+      .loc                 1  2665  0
+      bar.sync             0;                          // math.f:2665
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t36__f28s167];// math.f:2665 : $$reduc_pvt_t14
+      mov.f64              %fd4, %fd5;                 // math.f:2665 : $redfinal_t39
+      bar.sync             0;                          // math.f:2665
+      mov.u32              %u14, %tid.x;               // math.f:2665
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2665
+      @%p6 bra             $vlsum_acc_$ck_L2661_28__l93__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s64.u32          %sd13, %ctaid.x;            // math.f:2665
+      shl.b64              %bd4, %sd13, 3;             // math.f:2665
+      ld.param.s64         %sd14, [$$arg_ptr_reduc_val_t15_t55];// math.f:2665 : $$arg_ptr_reduc_val_t15_t55
+      add.s64              %sd15, %sd14, %bd4;         // math.f:2665
+      st.global.f64        [%sd15], %fd4;              // math.f:2665 : 0[$$arg_ptr_reduc_val_t15_t55,_acc_read_hw_reg(%ctaid.x)].L
+$vlsum_acc_$ck_L2661_28__l93__:
+      .loc                 1  2665  0
+      membar.gl;                                       // math.f:2665
+      mov.u32              %u15, %tid.x;               // math.f:2665
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2665
+      @%p7 bra             $vlsum_acc_$ck_L2661_28__l96__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2665
+      sub.s32              %s7, 1, %s6;                // math.f:2665
+      mov.u32              %u16, %ctaid.x;             // math.f:2665
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2665
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2665
+      ld.param.s64         %sd16, [$$arg_ptr_reduc_ctl_t12_t54];// math.f:2665 : $$arg_ptr_reduc_ctl_t12_t54
+      atom.global.add.s32  %s9, [%sd16], %s8;          // math.f:2665
+      add.s32              %s10, %s8, %s9;             // math.f:2665
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f28s102], %s10;// math.f:2665 : reduc_share_ctl_c3
+$vlsum_acc_$ck_L2661_28__l96__:
+      .loc                 1  2665  0
+      bar.sync             0;                          // math.f:2665
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f28s102];// math.f:2665 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2665
+      @%p9 bra             $vlsum_acc_$ck_L2661_28__l116__;// math.f:2665
+      .loc                 1  2665  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2665 : $$reduc_pvt_t14
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2665 : $$induc_p1_t32
+      mov.u32              %u17, %nctaid.x;            // math.f:2665
+      mov.u32              %u4, %nctaid.x;             // math.f:2665 : $$lis_b2_t35
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2665
+      @%p10 bra            $vlsum_acc_$ck_L2661_28__l107__;// math.f:2665
+      .loc                 1  2665  0
+      mov.u32              %u3, %ntid.x;               // math.f:2665 : $$lis_b1_t34
+$vlsum_acc_$ck_L2661_28__l103__:
+      .loc                 1  2665  0
+      shl.b32              %b2, %s5, 3;                // math.f:2665
+      cvt.s64.s32          %sd17, %b2;                 // math.f:2665
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_val_t15_t55];// math.f:2665 : $$arg_ptr_reduc_val_t15_t55
+      add.s64              %sd19, %sd18, %sd17;        // math.f:2665
+      ld.global.f64        %fd17, [%sd19];             // math.f:2665 : 0[$$arg_ptr_reduc_val_t15_t55,$$induc_p1_t32].L
+      add.rn.f64           %fd5, %fd5, %fd17;          // math.f:2665 : $$reduc_pvt_t14
+      add.u32              %s5, %s5, %u3;              // math.f:2665 : $$induc_p1_t32
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2665
+      @%p11 bra            $vlsum_acc_$ck_L2661_28__l103__;// math.f:2665
+$vlsum_acc_$ck_L2661_28__l107__:
+      .loc                 1  2665  0
+      mov.u32              %u18, %tid.x;               // math.f:2665
+      mov.u32              %u5, %tid.x;                // math.f:2665 : $$lcs_10_t51
+      cvt.s64.u32          %sd20, %tid.x;              // math.f:2665
+      shl.b64              %bd5, %sd20, 3;             // math.f:2665
+      mov.s64              %sd21, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd22, %bd5, %sd21;         // math.f:2665
+      st.volatile.shared.f64 [%sd22], %fd5;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_10_t51].L
+      bar.sync             0;                          // math.f:2665
+      ld.volatile.shared.f64 %fd6, [%sd22];            // math.f:2665 : $redfold_left_temp_t40
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2665
+      @%p12 bra            $vlsum_acc_$ck_L2661_28__l110__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s64.u32          %sd23, %u5;                 // math.f:2665
+      shl.b64              %bd6, %sd23, 3;             // math.f:2665
+      mov.s64              %sd24, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd25, %bd6, %sd24;         // math.f:2665
+      ld.volatile.shared.f64 %fd18, [%sd25 + 512];     // math.f:2665 : 64[ _&$$_redfold_t36,$$lcs_10_t51].L
+      add.rn.f64           %fd6, %fd6, %fd18;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd25], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_10_t51].L
+$vlsum_acc_$ck_L2661_28__l110__:
+      .loc                 1  2665  0
+      bar.sync             0;                          // math.f:2665
+      mov.u32              %u19, %tid.x;               // math.f:2665
+      mov.u32              %u6, %tid.x;                // math.f:2665 : $$lcs_11_t52
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2665
+      @%p13 bra            $vlsum_acc_$ck_L2661_28__l113__;// math.f:2665
+      .loc                 1  2665  0
+      cvt.s64.u32          %sd26, %u6;                 // math.f:2665
+      shl.b64              %bd7, %sd26, 3;             // math.f:2665
+      mov.s64              %sd27, $$_redfold_t36__f28s167;// math.f:2665
+      add.s64              %sd28, %bd7, %sd27;         // math.f:2665
+      ld.volatile.shared.f64 %fd19, [%sd28 + 256];     // math.f:2665 : 32[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd6, %fd6, %fd19;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      ld.volatile.shared.f64 %fd20, [%sd28 + 128];     // math.f:2665 : 16[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd6, %fd6, %fd20;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      ld.volatile.shared.f64 %fd21, [%sd28 + 64];      // math.f:2665 : 8[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd6, %fd6, %fd21;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      ld.volatile.shared.f64 %fd22, [%sd28 + 32];      // math.f:2665 : 4[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      ld.volatile.shared.f64 %fd23, [%sd28 + 16];      // math.f:2665 : 2[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2665 : $redfold_left_temp_t40
+      st.volatile.shared.f64 [%sd28], %fd6;            // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      ld.volatile.shared.f64 %fd24, [%sd28 + 8];       // math.f:2665 : 1[ _&$$_redfold_t36,$$lcs_11_t52].L
+      add.rn.f64           %fd25, %fd6, %fd24;         // math.f:2665
+      st.volatile.shared.f64 [%sd28], %fd25;           // math.f:2665 : 0[ _&$$_redfold_t36,$$lcs_11_t52].L
+      mov.f64              %fd6, %fd25;                // math.f:2665 : $redfold_left_temp_t40
+$vlsum_acc_$ck_L2661_28__l113__:
+      .loc                 1  2665  0
+      bar.sync             0;                          // math.f:2665
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t36__f28s167];// math.f:2665 : $$reduc_pvt_t14
+      mov.f64              %fd7, %fd5;                 // math.f:2665 : $redfinal_t42
+      bar.sync             0;                          // math.f:2665
+      mov.u32              %u20, %tid.x;               // math.f:2665
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2665
+      @%p14 bra            $vlsum_acc_$ck_L2661_28__l116__;// math.f:2665
+      .loc                 1  2665  0
+      ld.param.s64         %sd29, [$$arg_ptr_accshare_t19_t57];// math.f:2665 : $$arg_ptr_accshare_t19_t57
+      ld.global.f64        %fd26, [%sd29];             // math.f:2665 : 0[$$arg_ptr_accshare_t19_t57,0].L
+      add.rn.f64           %fd27, %fd26, %fd7;         // math.f:2665
+      st.global.f64        [%sd29], %fd27;             // math.f:2665 : 0[$$arg_ptr_accshare_t19_t57,0].L
+$vlsum_acc_$ck_L2661_28__l116__:
+      exit;
+      } // vlsum_acc_$ck_L2661_28
+
+
+      .entry glsc23_acc_$ck_L2689_29(
+               .param .s64 $$arg_ptr_acc_x_t14_t70,
+               .param .s64 $$arg_ptr_acc_y_t16_t71,
+               .param .s64 $$arg_ptr_acc_z_t18_t72,
+               .param .s64 $$arg_ptr_reduc_ctl_t25_t73,
+               .param .s64 $$arg_ptr_reduc_val_t28_t74,
+               .param .s32 $$_arg_acc_seat_n_t30_t75,
+               .param .s64 $$arg_ptr_accshare_t32_t76 )
+      {
+      .shared .s32 reduc_share_ctl_c3__f29s285;
+      .shared .u64 $$_redfold_t52__f29s407[128];
+      //
+      .reg .pred %p<15>;
+      .reg .b32  %b<3>;
+      .reg .b64  %bd<8>;
+      .reg .s32  %s<12>;
+      .reg .s64  %sd<34>;
+      .reg .u32  %u<21>;
+      .reg .f64  %fd<32>;
+      //
+      .loc                 1  2689  0
+      .loc                 1  2690  0
+      ld.param.s32         %s1, [$$_arg_acc_seat_n_t30_t75];// math.f:2690 : $$mr_n_62_t59
+      setp.le.s32          %p1, %s1, 0;                // math.f:2690
+      @%p1 bra             $glsc23_acc_$ck_L2689_29__l137__;// math.f:2690
+      .loc                 1  2689  0
+      mov.f64              %fd2, 0d0000000000000000;   // math.f:2689 : $$_ds_t6
+      .loc                 1  2690  0
+      mov.u32              %u7, %ntid.x;               // math.f:2690
+      mov.u32              %u8, %nctaid.x;             // math.f:2690
+      mul.lo.u32           %s3, %u7, %u8;              // math.f:2690 : $$numthrds_t22
+      mov.u32              %u9, %ctaid.x;              // math.f:2690
+      mov.u32              %u10, %tid.x;               // math.f:2690
+      mad.lo.u32           %u11, %u7, %u9, %u10;       // math.f:2690
+      mov.s32              %s2, %u11;                  // math.f:2690 : $$i_l2690_34_t47
+      mov.s32              %s4, %s1;                   // math.f:2690 : $$lis_b7_t49
+      setp.ge.s32          %p2, %u11, %s1;             // math.f:2690
+      @%p2 bra             $glsc23_acc_$ck_L2689_29__l105__;// math.f:2690
+      .loc                 1  2691  0
+      mov.f64              %fd1, 0d0000000000000000;   // math.f:2691 : $sc_ds_i1
+$glsc23_acc_$ck_L2689_29__l100__:
+      .loc                 1  2691  0
+      shl.b32              %b1, %s2, 3;                // math.f:2691
+      cvt.s64.s32          %sd1, %b1;                  // math.f:2691
+      ld.param.s64         %sd2, [$$arg_ptr_acc_x_t14_t70];// math.f:2691 : $$arg_ptr_acc_x_t14_t70
+      add.s64              %sd3, %sd2, %sd1;           // math.f:2691
+      ld.param.s64         %sd4, [$$arg_ptr_acc_z_t18_t72];// math.f:2691 : $$arg_ptr_acc_z_t18_t72
+      add.s64              %sd5, %sd4, %sd1;           // math.f:2691
+      ld.global.nc.f64     %fd8, [%sd3];               // math.f:2691 : 0[$$arg_ptr_acc_x_t14_t70,$$i_l2690_34_t47,ex].L
+      mul.rn.f64           %fd9, %fd8, %fd8;           // math.f:2691
+      ld.param.s64         %sd6, [$$arg_ptr_acc_y_t16_t71];// math.f:2691 : $$arg_ptr_acc_y_t16_t71
+      add.s64              %sd7, %sd6, %sd1;           // math.f:2691
+      ld.global.nc.f64     %fd10, [%sd7];              // math.f:2691 : 0[$$arg_ptr_acc_y_t16_t71,$$i_l2690_34_t47,ex].L
+      mul.rn.f64           %fd11, %fd10, %fd9;         // math.f:2691
+      ld.global.nc.f64     %fd12, [%sd5];              // math.f:2691 : 0[$$arg_ptr_acc_z_t18_t72,$$i_l2690_34_t47,ex].L
+      mad.rn.f64           %fd1, %fd12, %fd11, %fd1;   // math.f:2691 : $sc_ds_i1
+      .loc                 1  2692  0
+      add.s32              %s2, %s3, %s2;              // math.f:2692 : $$i_l2690_34_t47
+      setp.lt.s32          %p3, %s2, %s4;              // math.f:2692
+      @%p3 bra             $glsc23_acc_$ck_L2689_29__l100__;// math.f:2692
+      .loc                 1  2691  0
+      mov.f64              %fd2, %fd1;                 // math.f:2691 : $$_ds_t6
+$glsc23_acc_$ck_L2689_29__l105__:
+      .loc                 1  2693  0
+      mov.u32              %u12, %tid.x;               // math.f:2693
+      mov.u32              %u1, %tid.x;                // math.f:2693 : $$lcs_23_t64
+      cvt.s64.u32          %sd8, %tid.x;               // math.f:2693
+      shl.b64              %bd1, %sd8, 3;              // math.f:2693
+      mov.s64              %sd9, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd10, %bd1, %sd9;          // math.f:2693
+      st.volatile.shared.f64 [%sd10], %fd2;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_23_t64].L
+      bar.sync             0;                          // math.f:2693
+      ld.volatile.shared.f64 %fd3, [%sd10];            // math.f:2693 : $redfold_left_temp_t53
+      setp.ge.u32          %p4, %u12, 64;              // math.f:2693
+      @%p4 bra             $glsc23_acc_$ck_L2689_29__l108__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s64.u32          %sd11, %u1;                 // math.f:2693
+      shl.b64              %bd2, %sd11, 3;             // math.f:2693
+      mov.s64              %sd12, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd13, %bd2, %sd12;         // math.f:2693
+      ld.volatile.shared.f64 %fd13, [%sd13 + 512];     // math.f:2693 : 64[ _&$$_redfold_t52,$$lcs_23_t64].L
+      add.rn.f64           %fd3, %fd3, %fd13;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd13], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_23_t64].L
+$glsc23_acc_$ck_L2689_29__l108__:
+      .loc                 1  2693  0
+      bar.sync             0;                          // math.f:2693
+      mov.u32              %u13, %tid.x;               // math.f:2693
+      mov.u32              %u2, %tid.x;                // math.f:2693 : $$lcs_24_t65
+      setp.ge.u32          %p5, %u13, 32;              // math.f:2693
+      @%p5 bra             $glsc23_acc_$ck_L2689_29__l111__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s64.u32          %sd14, %u2;                 // math.f:2693
+      shl.b64              %bd3, %sd14, 3;             // math.f:2693
+      mov.s64              %sd15, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd16, %bd3, %sd15;         // math.f:2693
+      ld.volatile.shared.f64 %fd14, [%sd16 + 256];     // math.f:2693 : 32[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd3, %fd3, %fd14;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      ld.volatile.shared.f64 %fd15, [%sd16 + 128];     // math.f:2693 : 16[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd3, %fd3, %fd15;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      ld.volatile.shared.f64 %fd16, [%sd16 + 64];      // math.f:2693 : 8[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd3, %fd3, %fd16;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      ld.volatile.shared.f64 %fd17, [%sd16 + 32];      // math.f:2693 : 4[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd3, %fd3, %fd17;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      ld.volatile.shared.f64 %fd18, [%sd16 + 16];      // math.f:2693 : 2[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd3, %fd3, %fd18;          // math.f:2693 : $redfold_left_temp_t53
+      st.volatile.shared.f64 [%sd16], %fd3;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      ld.volatile.shared.f64 %fd19, [%sd16 + 8];       // math.f:2693 : 1[ _&$$_redfold_t52,$$lcs_24_t65].L
+      add.rn.f64           %fd20, %fd3, %fd19;         // math.f:2693
+      st.volatile.shared.f64 [%sd16], %fd20;           // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_24_t65].L
+      mov.f64              %fd3, %fd20;                // math.f:2693 : $redfold_left_temp_t53
+$glsc23_acc_$ck_L2689_29__l111__:
+      .loc                 1  2693  0
+      bar.sync             0;                          // math.f:2693
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t52__f29s407];// math.f:2693 : $$reduc_pvt_t27
+      mov.f64              %fd4, %fd5;                 // math.f:2693 : $redfinal_t55
+      bar.sync             0;                          // math.f:2693
+      mov.u32              %u14, %tid.x;               // math.f:2693
+      setp.ne.u32          %p6, %u14, 0;               // math.f:2693
+      @%p6 bra             $glsc23_acc_$ck_L2689_29__l114__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s64.u32          %sd17, %ctaid.x;            // math.f:2693
+      shl.b64              %bd4, %sd17, 3;             // math.f:2693
+      ld.param.s64         %sd18, [$$arg_ptr_reduc_val_t28_t74];// math.f:2693 : $$arg_ptr_reduc_val_t28_t74
+      add.s64              %sd19, %sd18, %bd4;         // math.f:2693
+      st.global.f64        [%sd19], %fd4;              // math.f:2693 : 0[$$arg_ptr_reduc_val_t28_t74,_acc_read_hw_reg(%ctaid.x)].L
+$glsc23_acc_$ck_L2689_29__l114__:
+      .loc                 1  2693  0
+      membar.gl;                                       // math.f:2693
+      mov.u32              %u15, %tid.x;               // math.f:2693
+      setp.ne.u32          %p7, %u15, 0;               // math.f:2693
+      @%p7 bra             $glsc23_acc_$ck_L2689_29__l117__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s32.u32          %s6, %nctaid.x;             // math.f:2693
+      sub.s32              %s7, 1, %s6;                // math.f:2693
+      mov.u32              %u16, %ctaid.x;             // math.f:2693
+      setp.eq.u32          %p8, %u16, 0;               // math.f:2693
+      selp.s32             %s8, %s7, 1, %p8;           // math.f:2693
+      ld.param.s64         %sd20, [$$arg_ptr_reduc_ctl_t25_t73];// math.f:2693 : $$arg_ptr_reduc_ctl_t25_t73
+      atom.global.add.s32  %s9, [%sd20], %s8;          // math.f:2693
+      add.s32              %s10, %s8, %s9;             // math.f:2693
+      st.volatile.shared.s32 [reduc_share_ctl_c3__f29s285], %s10;// math.f:2693 : reduc_share_ctl_c3
+$glsc23_acc_$ck_L2689_29__l117__:
+      .loc                 1  2693  0
+      bar.sync             0;                          // math.f:2693
+      ld.volatile.shared.s32 %s11, [reduc_share_ctl_c3__f29s285];// math.f:2693 : reduc_share_ctl_c3
+      setp.ne.s32          %p9, %s11, 0;               // math.f:2693
+      @%p9 bra             $glsc23_acc_$ck_L2689_29__l137__;// math.f:2693
+      .loc                 1  2693  0
+      mov.f64              %fd5, 0d0000000000000000;   // math.f:2693 : $$reduc_pvt_t27
+      cvt.s32.u32          %s5, %tid.x;                // math.f:2693 : $$induc_p3_t48
+      mov.u32              %u17, %nctaid.x;            // math.f:2693
+      mov.u32              %u4, %nctaid.x;             // math.f:2693 : $$lis_b9_t51
+      setp.ge.u32          %p10, %s5, %u17;            // math.f:2693
+      @%p10 bra            $glsc23_acc_$ck_L2689_29__l128__;// math.f:2693
+      .loc                 1  2693  0
+      mov.u32              %u3, %ntid.x;               // math.f:2693 : $$lis_b8_t50
+$glsc23_acc_$ck_L2689_29__l124__:
+      .loc                 1  2693  0
+      shl.b32              %b2, %s5, 3;                // math.f:2693
+      cvt.s64.s32          %sd21, %b2;                 // math.f:2693
+      ld.param.s64         %sd22, [$$arg_ptr_reduc_val_t28_t74];// math.f:2693 : $$arg_ptr_reduc_val_t28_t74
+      add.s64              %sd23, %sd22, %sd21;        // math.f:2693
+      ld.global.f64        %fd21, [%sd23];             // math.f:2693 : 0[$$arg_ptr_reduc_val_t28_t74,$$induc_p3_t48].L
+      add.rn.f64           %fd5, %fd5, %fd21;          // math.f:2693 : $$reduc_pvt_t27
+      add.u32              %s5, %s5, %u3;              // math.f:2693 : $$induc_p3_t48
+      setp.lt.u32          %p11, %s5, %u4;             // math.f:2693
+      @%p11 bra            $glsc23_acc_$ck_L2689_29__l124__;// math.f:2693
+$glsc23_acc_$ck_L2689_29__l128__:
+      .loc                 1  2693  0
+      mov.u32              %u18, %tid.x;               // math.f:2693
+      mov.u32              %u5, %tid.x;                // math.f:2693 : $$lcs_27_t68
+      cvt.s64.u32          %sd24, %tid.x;              // math.f:2693
+      shl.b64              %bd5, %sd24, 3;             // math.f:2693
+      mov.s64              %sd25, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd26, %bd5, %sd25;         // math.f:2693
+      st.volatile.shared.f64 [%sd26], %fd5;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_27_t68].L
+      bar.sync             0;                          // math.f:2693
+      ld.volatile.shared.f64 %fd6, [%sd26];            // math.f:2693 : $redfold_left_temp_t56
+      setp.ge.u32          %p12, %u18, 64;             // math.f:2693
+      @%p12 bra            $glsc23_acc_$ck_L2689_29__l131__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s64.u32          %sd27, %u5;                 // math.f:2693
+      shl.b64              %bd6, %sd27, 3;             // math.f:2693
+      mov.s64              %sd28, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd29, %bd6, %sd28;         // math.f:2693
+      ld.volatile.shared.f64 %fd22, [%sd29 + 512];     // math.f:2693 : 64[ _&$$_redfold_t52,$$lcs_27_t68].L
+      add.rn.f64           %fd6, %fd6, %fd22;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd29], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_27_t68].L
+$glsc23_acc_$ck_L2689_29__l131__:
+      .loc                 1  2693  0
+      bar.sync             0;                          // math.f:2693
+      mov.u32              %u19, %tid.x;               // math.f:2693
+      mov.u32              %u6, %tid.x;                // math.f:2693 : $$lcs_28_t69
+      setp.ge.u32          %p13, %u19, 32;             // math.f:2693
+      @%p13 bra            $glsc23_acc_$ck_L2689_29__l134__;// math.f:2693
+      .loc                 1  2693  0
+      cvt.s64.u32          %sd30, %u6;                 // math.f:2693
+      shl.b64              %bd7, %sd30, 3;             // math.f:2693
+      mov.s64              %sd31, $$_redfold_t52__f29s407;// math.f:2693
+      add.s64              %sd32, %bd7, %sd31;         // math.f:2693
+      ld.volatile.shared.f64 %fd23, [%sd32 + 256];     // math.f:2693 : 32[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd6, %fd6, %fd23;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      ld.volatile.shared.f64 %fd24, [%sd32 + 128];     // math.f:2693 : 16[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd6, %fd6, %fd24;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      ld.volatile.shared.f64 %fd25, [%sd32 + 64];      // math.f:2693 : 8[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd6, %fd6, %fd25;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      ld.volatile.shared.f64 %fd26, [%sd32 + 32];      // math.f:2693 : 4[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd6, %fd6, %fd26;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      ld.volatile.shared.f64 %fd27, [%sd32 + 16];      // math.f:2693 : 2[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd6, %fd6, %fd27;          // math.f:2693 : $redfold_left_temp_t56
+      st.volatile.shared.f64 [%sd32], %fd6;            // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      ld.volatile.shared.f64 %fd28, [%sd32 + 8];       // math.f:2693 : 1[ _&$$_redfold_t52,$$lcs_28_t69].L
+      add.rn.f64           %fd29, %fd6, %fd28;         // math.f:2693
+      st.volatile.shared.f64 [%sd32], %fd29;           // math.f:2693 : 0[ _&$$_redfold_t52,$$lcs_28_t69].L
+      mov.f64              %fd6, %fd29;                // math.f:2693 : $redfold_left_temp_t56
+$glsc23_acc_$ck_L2689_29__l134__:
+      .loc                 1  2693  0
+      bar.sync             0;                          // math.f:2693
+      ld.volatile.shared.f64 %fd5, [$$_redfold_t52__f29s407];// math.f:2693 : $$reduc_pvt_t27
+      mov.f64              %fd7, %fd5;                 // math.f:2693 : $redfinal_t58
+      bar.sync             0;                          // math.f:2693
+      mov.u32              %u20, %tid.x;               // math.f:2693
+      setp.ne.u32          %p14, %u20, 0;              // math.f:2693
+      @%p14 bra            $glsc23_acc_$ck_L2689_29__l137__;// math.f:2693
+      .loc                 1  2693  0
+      ld.param.s64         %sd33, [$$arg_ptr_accshare_t32_t76];// math.f:2693 : $$arg_ptr_accshare_t32_t76
+      ld.global.f64        %fd30, [%sd33];             // math.f:2693 : 0[$$arg_ptr_accshare_t32_t76,0].L
+      add.rn.f64           %fd31, %fd30, %fd7;         // math.f:2693
+      st.global.f64        [%sd33], %fd31;             // math.f:2693 : 0[$$arg_ptr_accshare_t32_t76,0].L
+$glsc23_acc_$ck_L2689_29__l137__:
+      exit;
+      } // glsc23_acc_$ck_L2689_29
+

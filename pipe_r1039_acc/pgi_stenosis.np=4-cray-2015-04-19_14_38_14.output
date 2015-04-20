@@ -1,0 +1,806 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+/----------------------------------------------------------\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \ / __ \ / __ \ |
+|    /  |/ // __/  / ,<   /___ \  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \____/ \____/ \____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1036                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\----------------------------------------------------------/
+                                                              
+
+ Number of processors:            4
+ REAL    wdsize      :            8
+ INTEGER wdsize      :            4
+
+
+  Beginning session:
+  /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.rea  
+
+ 
+ timer accuracy:   2.1457672E-07 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:         400         400         410
+ lx1  /lx2  /lx3 :           8           8           8
+
+ mapping elements to processors
+            0          100          100          400          400  NELV
+            1          100          100          400          400  NELV
+            2          100          100          400          400  NELV
+            3          100          100          400          400  NELV
+ RANK     0 IEG     301     302     303     304     305     306     307     308
+                    309     310     311     312     313     314     315     316
+                    317     318     319     320     321     322     323     324
+                    325     326     327     328     329     330     331     332
+                    333     334     335     336     337     338     339     340
+                    341     342     343     344     345     346     347     348
+                    349     350     351     352     353     354     355     356
+                    357     358     359     360     361     362     363     364
+                    365     366     367     368     369     370     371     372
+                    373     374     375     376     377     378     379     380
+                    381     382     383     384     385     386     387     388
+                    389     390     391     392     393     394     395     396
+                    397     398     399     400
+ element load imbalance:             0          100          100
+ done :: mapping elements to processors
+  
+            0  objects found
+ done :: read .rea file   0.13921     sec
+
+ setup mesh topology
+   Right-handed check complete for     400 elements. OK.
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.02222e-05 9.799e-06 1.03951e-05
+   crystal router                : 0.0002258 0.000225687 0.000225902
+   all reduce                    : 5.8496e-05 5.83887e-05 5.86033e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 343532 331412 355652
+   buffer bytes (avg, min, max): 24216 16144 32288
+   setupds time 3.6658E-02 seconds   0  8       55869         400
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.04308e-05 1.00851e-05 1.06096e-05
+   crystal router                : 0.000224751 0.00022471 0.000224805
+   all reduce                    : 5.88715e-05 5.8794e-05 5.89132e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 343532 331412 355652
+   buffer bytes (avg, min, max): 24216 16144 32288
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.05202e-05 1.02043e-05 1.08004e-05
+   crystal router                : 0.000224876 0.00022471 0.000224996
+   all reduce                    : 5.81741e-05 5.76973e-05 5.86033e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 36556 24436 48676
+   buffer bytes (avg, min, max): 24216 16144 32288
+                    12516        27392        12516                     1009
+                    12516        27392        12516                     1009
+                    13284        28160        13284                     2018
+                    13284        28160        13284                     2018
+            8  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:    31.41593180650115         31.41593180650115     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data            1
+ vol_t,vol_v:    9.571995966681740         9.571995966681740     
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data            1
+  
+ verify mesh topology
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
+ done :: verify mesh topology
+  
+ 103   Parameters from file:/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.rea
+   1      1.00000         p1  DENSITY
+   2     -100.000         p2  VISCOS
+   7      1.00000         p7  RHOCP
+   8      1.00000         p8  CONDUCT
+  11      10.             p11 NSTEPS
+  12     -0.2000E-03      p12 DT
+  15      1000.             p15 IOSTEP
+  18     -20.00000        p18 GRID
+  19     -1.00000         p19 INTYPE
+  20      10.0000         p20 NORDER
+  21      0.100000E-05    p21 DIVERGENCE
+  22      0.100000E-06    p22 HELMHOLTZ
+  24      0.100000E-01    p24 TOLREL
+  25      0.100000E-01    p25 TOLABS
+  26      1.00000         p26 COURANT/NTAU
+  27      2.00000         p27 TORDER
+  28      0.              p28 TORDER: mesh velocity (0: p28=p27)
+  34      1.
+  59      0.              p59 !=0 --> full Jac. eval. for each el.
+  65      1.00000         p65 #iofiles (eg, 0 or 64); <0 --> sep. dirs
+  93      20.0000           p93 Number of previous pressure solns saved
+  95      5.00000          p95 start projecting pressure after p95 step
+  99      0.               p99   dealiasing: <0--> off/3--> old/4--> new
+ 102      1.00000          p102   Dump out divergence at each time step
+ 103     -1.00000          p103   weight of stabilizing filter (.01)
+  
+ IFTRAN   =  T
+ IFFLOW   =  T
+ IFHEAT   =  F
+ IFSPLIT  =  T
+ IFLOMACH =  F
+ IFUSERVP =  F
+ IFUSERMV =  F
+ IFSTRS   =  F
+ IFCHAR   =  T
+ IFCYCLIC =  F
+ IFAXIS   =  F
+ IFMVBD   =  F
+ IFMELT   =  F
+ IFMODEL  =  F
+ IFKEPS   =  F
+ IFMOAB   =  F
+ IFNEKNEK =  F
+ IFSYNC   =  T
+   
+ IFVCOR   =  F
+ IFINTQ   =  F
+ IFCWUZ   =  F
+ IFSWALL  =  F
+ IFGEOM   =  F
+ IFSURT   =  F
+ IFWCNO   =  F
+   
+ IFTMSH for field            1    =   F
+ IFADVC for field            1    =   T
+ IFNONL for field            1    =   F
+   
+ Dealiasing enabled, lxd=            8
+  
+ Estimated eigenvalues
+ EIGAA =     6.599202942740221     
+ EIGGA =     1076720.136288884     
+ EIGAE =    5.8400026041948862E-002
+ EIGAS =    7.3746312684365792E-004
+ EIGGE =     1076720.136288884     
+ EIGGS =     2.000000000000000     
+  
+ verify mesh topology
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:            1            3            7
+ mg_ny:            1            3            7
+ mg_nz:            1            3            7
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 75 unique labels shared
+   pairwise times (avg, min, max): 4.24981e-06 4.1008e-06 4.50611e-06
+   crystal router                : 1.16229e-05 1.15871e-05 1.16825e-05
+   all reduce                    : 7.22408e-06 7.20024e-06 7.29561e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 8732 8420 9044
+   buffer bytes (avg, min, max): 600 400 800
+   setupds time 9.8705E-04 seconds   3  2         525         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.19753e-06 5.00679e-06 5.29289e-06
+   crystal router                : 4.74811e-05 4.73976e-05 4.75168e-05
+   all reduce                    : 1.73271e-05 1.72853e-05 1.74046e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+   setupds time 1.0325E-02 seconds   4  4        8573         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.19753e-06 4.98295e-06 5.4121e-06
+   crystal router                : 4.81486e-05 4.8089e-05 4.82082e-05
+   all reduce                    : 1.71483e-05 1.70946e-05 1.72138e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+   setupds time 6.0999E-03 seconds   5  4        8573         400
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1563 unique labels shared
+   pairwise times (avg, min, max): 7.64728e-06 7.39098e-06 7.89165e-06
+   crystal router                : 0.000118822 0.00011878 0.000118899
+   all reduce                    : 2.74718e-05 2.73943e-05 2.75135e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 176252 169988 182516
+   buffer bytes (avg, min, max): 12504 8336 16672
+   setupds time 1.8530E-02 seconds   6  6       27021         400
+ regenerate geometry data            1
+ vol_t,vol_v:    9.571995966681740         9.571995966681740     
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data            1
+  
+ h1_mg_nx:            1            3            7
+ h1_mg_ny:            1            3            7
+ h1_mg_nz:            1            3            7
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 75 unique labels shared
+   pairwise times (avg, min, max): 4.12464e-06 4.00543e-06 4.19617e-06
+   crystal router                : 1.06752e-05 1.06096e-05 1.0705e-05
+   all reduce                    : 7.35521e-06 7.29561e-06 7.41482e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 8732 8420 9044
+   buffer bytes (avg, min, max): 600 400 800
+   setupds time 1.0090E-03 seconds   7  2         525         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.22137e-06 5.10216e-06 5.38826e-06
+   crystal router                : 4.74513e-05 4.73976e-05 4.75168e-05
+   all reduce                    : 1.76251e-05 1.75953e-05 1.76907e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+   setupds time 8.2951E-03 seconds   8  4        8573         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.53131e-06 5.31673e-06 5.60284e-06
+   crystal router                : 4.75287e-05 4.7493e-05 4.76122e-05
+   all reduce                    : 1.74761e-05 1.74046e-05 1.74999e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+   setupds time 6.1760E-03 seconds   9  4        8573         400
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1563 unique labels shared
+   pairwise times (avg, min, max): 8.04067e-06 7.89165e-06 8.29697e-06
+   crystal router                : 0.000119174 0.00011909 0.000119209
+   all reduce                    : 2.61784e-05 2.61068e-05 2.62022e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 176252 169988 182516
+   buffer bytes (avg, min, max): 12504 8336 16672
+   setupds time 1.4397E-02 seconds  10  6       27021         400
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.00672e-05 9.89437e-06 1.02997e-05
+   crystal router                : 0.000228524 0.0002285 0.000228596
+   all reduce                    : 6.07491e-05 6.07014e-05 6.07967e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 343532 331412 355652
+   buffer bytes (avg, min, max): 24216 16144 32288
+   setupds time 2.3925E-02 seconds  11  8       55869         400
+   setvert3d:  10       95117      299917       95117       95117
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 4971 unique labels shared
+   pairwise times (avg, min, max): 8.87215e-05 8.85963e-05 8.88109e-05
+   crystal router                : 0.000385195 0.000384998 0.000385404
+   all reduce                    : 9.49204e-05 9.48906e-05 9.4986e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 566492 546596 586388
+   buffer bytes (avg, min, max): 39768 26512 53024
+   setupds time 4.8908E-02 seconds  12 10       95117         400
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 75 unique labels shared
+   pairwise times (avg, min, max): 4.12464e-06 3.98159e-06 4.22001e-06
+   crystal router                : 1.0705e-05 1.06096e-05 1.08004e-05
+   all reduce                    : 7.32541e-06 7.29561e-06 7.39098e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 8732 8420 9044
+   buffer bytes (avg, min, max): 600 400 800
+gs_setup: 75 unique labels shared
+   pairwise times (avg, min, max): 4.50015e-06 4.19617e-06 4.79221e-06
+   crystal router                : 1.09255e-05 1.08004e-05 1.10149e-05
+   all reduce                    : 7.09295e-06 7.08103e-06 7.10487e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1132 820 1444
+   buffer bytes (avg, min, max): 600 400 800
+                      150          800          150                       25
+   setupds time 2.0809E-03 seconds  14  2         525         400
+                      150          800          150                       25
+                      150          800          150                       50
+                      150          800          150                       50
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.90086e-06 5.57899e-06 6.10352e-06
+   crystal router                : 4.78208e-05 4.77791e-05 4.78983e-05
+   all reduce                    : 1.82033e-05 1.81913e-05 1.82152e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.90086e-06 5.6982e-06 6.00815e-06
+   crystal router                : 4.75764e-05 4.7493e-05 4.76837e-05
+   all reduce                    : 1.8245e-05 1.81913e-05 1.83105e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 7180 4852 9508
+   buffer bytes (avg, min, max): 4632 3088 6176
+                     2032         5344         2032                      193
+   setupds time 1.2409E-02 seconds  16  4        8573         400
+                     2032         5344         2032                      193
+                     2128         5440         2128                      386
+                     2128         5440         2128                      386
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 6.14524e-06 5.88894e-06 6.29425e-06
+   crystal router                : 4.82559e-05 4.81129e-05 4.83036e-05
+   all reduce                    : 1.93834e-05 1.93119e-05 1.94073e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 64652 62324 66980
+   buffer bytes (avg, min, max): 4632 3088 6176
+gs_setup: 579 unique labels shared
+   pairwise times (avg, min, max): 5.39422e-06 5.29289e-06 5.60284e-06
+   crystal router                : 4.76599e-05 4.76122e-05 4.77076e-05
+   all reduce                    : 1.87993e-05 1.87874e-05 1.88112e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 7180 4852 9508
+   buffer bytes (avg, min, max): 4632 3088 6176
+                     2032         5344         2032                      193
+   setupds time 1.0074E-02 seconds  18  4        8573         400
+                     2032         5344         2032                      193
+                     2128         5440         2128                      386
+                     2128         5440         2128                      386
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1563 unique labels shared
+   pairwise times (avg, min, max): 7.4029e-06 7.20024e-06 7.60555e-06
+   crystal router                : 0.000118876 0.000118804 0.000118899
+   all reduce                    : 2.66254e-05 2.65837e-05 2.67029e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 176252 169988 182516
+   buffer bytes (avg, min, max): 12504 8336 16672
+gs_setup: 1563 unique labels shared
+   pairwise times (avg, min, max): 8.1718e-06 7.79629e-06 8.39233e-06
+   crystal router                : 0.000122052 0.000121999 0.000122118
+   all reduce                    : 2.5773e-05 2.57015e-05 2.57969e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 18988 12724 25252
+   buffer bytes (avg, min, max): 12504 8336 16672
+                     6154        14208         6154                      521
+   setupds time 2.4836E-02 seconds  20  6       27021         400
+                     6154        14208         6154                      521
+                     6506        14560         6506                     1042
+                     6506        14560         6506                     1042
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.1158e-05 1.0705e-05 1.14202e-05
+   crystal router                : 0.000224924 0.0002249 0.000224996
+   all reduce                    : 6.19113e-05 6.17981e-05 6.20127e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 343532 331412 355652
+   buffer bytes (avg, min, max): 24216 16144 32288
+gs_setup: 3027 unique labels shared
+   pairwise times (avg, min, max): 1.04547e-05 1.02043e-05 1.06096e-05
+   crystal router                : 0.000225818 0.000225782 0.000225878
+   all reduce                    : 6.12319e-05 6.11067e-05 6.13213e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 36556 24436 48676
+   buffer bytes (avg, min, max): 24216 16144 32288
+                    12516        27392        12516                     1009
+                    13284        28160        13284                     2018
+                    13284        28160        13284                     2018
+                    12516        27392        12516                     1009
+   setupds time 4.6019E-02 seconds  22  8       55869         400
+   setvert3d:  10       95117      299917       95117       95117
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 4971 unique labels shared
+   pairwise times (avg, min, max): 2.82288e-05 2.75135e-05 2.88963e-05
+   crystal router                : 0.000388122 0.000388098 0.000388193
+   all reduce                    : 9.69052e-05 9.68933e-05 9.69172e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 566492 546596 586388
+   buffer bytes (avg, min, max): 39768 26512 53024
+gs_setup: 4971 unique labels shared
+   pairwise times (avg, min, max): 2.77758e-05 2.70844e-05 2.83003e-05
+   crystal router                : 0.000387847 0.000387788 0.000387907
+   all reduce                    : 9.9504e-05 9.93967e-05 9.95874e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 59884 39988 79780
+   buffer bytes (avg, min, max): 39768 26512 53024
+                    21118        44896        21118                     1657
+                    21118        44896        21118                     1657
+                    22462        46240        22462                     3314
+                    22462        46240        22462                     3314
+   setupds time 8.8672E-02 seconds  24 10       95117         400
+ setup h1 coarse grid, nx_crs=            2
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 75 unique labels shared
+   pairwise times (avg, min, max): 4.62532e-06 4.00543e-06 4.88758e-06
+   crystal router                : 1.06037e-05 1.04904e-05 1.0705e-05
+   all reduce                    : 7.7486e-06 7.70092e-06 7.79629e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 8732 8420 9044
+   buffer bytes (avg, min, max): 600 400 800
+ done :: setup h1 coarse grid    2.9364824295043945E-002  sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld             1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000      -3.0000    
+ uvwpt min  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20
+ PS min     0.99000E+22
+ xyz max    0.50000      0.50000       10.000    
+ uvwpt max  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19
+ PS max    -0.99000E+22
+ done :: set initial conditions
+  
+ call userchk
+ done :: userchk
+
+gridpoints unique/tot:        142269       204800
+  dofs:                   133420                   141260
+  
+ Initialization successfully completed   0.98319     sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.200E-03   0.494-323   0.232-309   0.200E-03
+Step      1, t= 2.0000000E-04, DT= 2.0000000E-04, C=  0.000 0.0000E+00 0.0000E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             1            1
+    1 1.00000E-06 2.36902E+01 3.37384E+01 7.02173E-01       1 Divergence
+    2 1.00000E-06 2.34214E+01 3.37384E+01 6.94206E-01       1 Divergence
+    3 1.00000E-06 2.22792E+01 3.37384E+01 6.60353E-01       1 Divergence
+    4 1.00000E-06 2.19147E+01 3.37384E+01 6.49547E-01       1 Divergence
+    5 1.00000E-06 2.02501E+01 3.37384E+01 6.00208E-01       1 Divergence
+    6 1.00000E-06 1.85763E+01 3.37384E+01 5.50598E-01       1 Divergence
+    7 1.00000E-06 1.65941E+01 3.37384E+01 4.91847E-01       1 Divergence
+    8 1.00000E-06 1.50731E+01 3.37384E+01 4.46764E-01       1 Divergence
+    9 1.00000E-06 1.28408E+01 3.37384E+01 3.80598E-01       1 Divergence
+   10 1.00000E-06 9.75618E+00 3.37384E+01 2.89172E-01       1 Divergence
+   11 1.00000E-06 7.62288E+00 3.37384E+01 2.25941E-01       1 Divergence
+   12 1.00000E-06 6.14558E+00 3.37384E+01 1.82154E-01       1 Divergence
+   13 1.00000E-06 4.87772E+00 3.37384E+01 1.44575E-01       1 Divergence
+   14 1.00000E-06 4.00314E+00 3.37384E+01 1.18653E-01       1 Divergence
+   15 1.00000E-06 3.21894E+00 3.37384E+01 9.54090E-02       1 Divergence
+   16 1.00000E-06 2.40206E+00 3.37384E+01 7.11965E-02       1 Divergence
+   17 1.00000E-06 1.60448E+00 3.37384E+01 4.75564E-02       1 Divergence
+   18 1.00000E-06 1.11788E+00 3.37384E+01 3.31336E-02       1 Divergence
+   19 1.00000E-06 7.94036E-01 3.37384E+01 2.35351E-02       1 Divergence
+   20 1.00000E-06 5.53712E-01 3.37384E+01 1.64119E-02       1 Divergence
+   21 1.00000E-06 3.94162E-01 3.37384E+01 1.16829E-02       1 Divergence
+   22 1.00000E-06 2.80892E-01 3.37384E+01 8.32558E-03       1 Divergence
+   23 1.00000E-06 1.83570E-01 3.37384E+01 5.44099E-03       1 Divergence
+   24 1.00000E-06 1.24651E-01 3.37384E+01 3.69465E-03       1 Divergence
+   25 1.00000E-06 8.45606E-02 3.37384E+01 2.50636E-03       1 Divergence
+   26 1.00000E-06 6.04233E-02 3.37384E+01 1.79094E-03       1 Divergence
+   27 1.00000E-06 4.03710E-02 3.37384E+01 1.19659E-03       1 Divergence
+   28 1.00000E-06 2.49171E-02 3.37384E+01 7.38540E-04       1 Divergence
+   29 1.00000E-06 1.53741E-02 3.37384E+01 4.55686E-04       1 Divergence
+   30 1.00000E-06 9.54810E-03 3.37384E+01 2.83004E-04       1 Divergence
+   31 1.00000E-06 7.25097E-03 3.37384E+01 2.14918E-04       1 Divergence
+   32 1.00000E-06 5.39202E-03 3.37384E+01 1.59819E-04       1 Divergence
+   33 1.00000E-06 3.67231E-03 3.37384E+01 1.08847E-04       1 Divergence
+   34 1.00000E-06 2.38496E-03 3.37384E+01 7.06898E-05       1 Divergence
+   35 1.00000E-06 1.59963E-03 3.37384E+01 4.74129E-05       1 Divergence
+   36 1.00000E-06 1.06609E-03 3.37384E+01 3.15987E-05       1 Divergence
+   37 1.00000E-06 7.77925E-04 3.37384E+01 2.30576E-05       1 Divergence
+   38 1.00000E-06 5.60216E-04 3.37384E+01 1.66047E-05       1 Divergence
+   39 1.00000E-06 3.84408E-04 3.37384E+01 1.13938E-05       1 Divergence
+   40 1.00000E-06 3.03896E-04 3.37384E+01 9.00742E-06       1 Divergence
+   41 1.00000E-06 2.37187E-04 3.37384E+01 7.03017E-06       1 Divergence
+   42 1.00000E-06 1.82597E-04 3.37384E+01 5.41216E-06       1 Divergence
+   43 1.00000E-06 1.54137E-04 3.37384E+01 4.56858E-06       1 Divergence
+   44 1.00000E-06 1.14158E-04 3.37384E+01 3.38362E-06       1 Divergence
+   45 1.00000E-06 9.03336E-05 3.37384E+01 2.67747E-06       1 Divergence
+   46 1.00000E-06 6.58591E-05 3.37384E+01 1.95205E-06       1 Divergence
+   47 1.00000E-06 4.69035E-05 3.37384E+01 1.39021E-06       1 Divergence
+   48 1.00000E-06 3.21884E-05 3.37384E+01 9.54059E-07       1 Divergence
+   49 1.00000E-06 2.44354E-05 3.37384E+01 7.24262E-07       1 Divergence
+   50 1.00000E-06 1.80212E-05 3.37384E+01 5.34145E-07       1 Divergence
+   51 1.00000E-06 1.24218E-05 3.37384E+01 3.68182E-07       1 Divergence
+   52 1.00000E-06 8.54862E-06 3.37384E+01 2.53380E-07       1 Divergence
+   53 1.00000E-06 5.67882E-06 3.37384E+01 1.68319E-07       1 Divergence
+   54 1.00000E-06 3.78089E-06 3.37384E+01 1.12065E-07       1 Divergence
+   55 1.00000E-06 2.54939E-06 3.37384E+01 7.55635E-08       1 Divergence
+   56 1.00000E-06 1.55555E-06 3.37384E+01 4.61063E-08       1 Divergence
+   57 1.00000E-06 1.01681E-06 3.37384E+01 3.01380E-08       1 Divergence
+   58 1.00000E-06 6.87419E-07 3.37384E+01 2.03750E-08       1 Divergence
+        1 PRES gmres:   58  6.8742E-07  1.0000E-06  3.3738E+01  3.3389E-01  5.4069E-01    F
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELX    F:   1.9334E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELX    F:   2.0964E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELX    F:   3.0330E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELX    F:   6.3017E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELX    F:   1.5238E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELX    F:   3.4388E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELX    F:   8.1581E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELX    F:   1.7373E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELX    F:   4.3117E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELX    F:   1.0079E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELX    F:   2.2534E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELX    F:   5.5338E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELX    F:   1.2937E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELX    F:   3.0899E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELX    F:   7.0433E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELX:     14   7.0433E-08   1.9334E+02   1.0000E-07
+   9.9999999999999995E-008  p22             1            1
+ New CG1-tolerance (RINIT*epsm) =    2.9267307761116867E-010 
+   5.9326005232964834E-024
+  1     1 Helmholtz VELY    F:   2.0142E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELY    F:   2.1806E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELY    F:   3.1704E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELY    F:   6.6009E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELY    F:   1.5948E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELY    F:   3.5957E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELY    F:   8.5583E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELY    F:   1.8157E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELY    F:   4.5161E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELY    F:   1.0616E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELY    F:   2.3604E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELY    F:   5.8150E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELY    F:   1.3561E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELY    F:   3.2343E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELY    F:   7.3807E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELY:     14   7.3807E-08   2.0142E+02   1.0000E-07
+   9.9999999999999995E-008  p22             1            1
+ New CG1-tolerance (RINIT*epsm) =    2.9267305395462123E-010 
+   5.9326005232964834E-024
+  1     1 Helmholtz VELZ    F:   2.7925E+03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELZ    F:   1.8788E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELZ    F:   3.2284E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELZ    F:   5.9742E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELZ    F:   1.5688E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELZ    F:   3.2169E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELZ    F:   8.3877E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELZ    F:   1.8009E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELZ    F:   4.4390E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELZ    F:   1.1357E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELZ    F:   2.6496E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELZ    F:   6.3945E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELZ    F:   1.5063E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELZ    F:   3.7410E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELZ    F:   8.6589E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    16 Helmholtz VELZ    F:   1.9490E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    17 Helmholtz VELZ    F:   5.2163E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELZ:     16   5.2163E-08   2.7925E+03   1.0000E-07
+               L1/L2 DIV(V)    :  -2.5314E-04   8.2118E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:  -2.5314E-04   8.2118E-02
+          1   2.0000E-04  8.7977E-01 Fluid done
+ schfile:
+ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.sch                                                        
+Step      2, t= 4.0000000E-04, DT= 2.0000000E-04, C=  0.011 9.0921E-01 9.0921E-01
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             2            1
+        2 PRES gmres:   58  9.6444E-07  1.0000E-06  4.8804E+01  3.3335E-01  4.9021E-01    F
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELX:     11   5.2249E-08   1.8121E+01   1.0000E-07
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELY:     11   5.4179E-08   1.8481E+01   1.0000E-07
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELZ:     12   8.8961E-08   1.2060E+02   1.0000E-07
+               L1/L2 DIV(V)    :   1.8682E-04   5.4724E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.8682E-04   5.4724E-02
+          2   4.0000E-04  6.7694E-01 Fluid done
+Step      3, t= 6.0000000E-04, DT= 2.0000000E-04, C=  0.011 1.6099E+00 7.0074E-01
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             3            1
+        3 PRES gmres:   56  6.8199E-07  1.0000E-06  1.5799E+01  3.2209E-01  4.7065E-01    F
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELX:     11   2.4146E-08   1.1529E+01   1.0000E-07
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELY:     11   2.4989E-08   1.1750E+01   1.0000E-07
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELZ:     12   4.0995E-08   8.4859E+01   1.0000E-07
+               L1/L2 DIV(V)    :  -6.3330E-05   4.4311E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:  -6.3330E-05   4.4311E-02
+          3   6.0000E-04  6.5771E-01 Fluid done
+Step      4, t= 8.0000000E-04, DT= 2.0000000E-04, C=  0.011 2.2822E+00 6.7226E-01
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             4            1
+        4 PRES gmres:   51  9.0752E-07  1.0000E-06  2.3367E+00  2.9341E-01  4.2427E-01    F
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELX:     10   7.6443E-08   6.2309E+00   1.0000E-07
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELY:     10   7.9190E-08   6.3548E+00   1.0000E-07
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELZ:     12   2.4027E-08   5.4991E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.2336E-06   3.3153E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.2336E-06   3.3153E-02
+          4   8.0000E-04  6.0929E-01 Fluid done
+Step      5, t= 1.0000000E-03, DT= 2.0000000E-04, C=  0.011 2.9058E+00 6.2359E-01
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             5            1
+        5 PRES gmres:   49  7.5115E-07  1.0000E-06  8.4854E-01  2.8187E-01  4.0634E-01    F
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELX:     10   4.9155E-08   4.4434E+00   1.0000E-07
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELY:     10   5.0730E-08   4.5370E+00   1.0000E-07
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELZ:     11   8.4265E-08   4.2600E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.8866E-06   2.7954E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.8866E-06   2.7954E-02
+          5   1.0000E-03  5.9023E-01 Fluid done
+Step      6, t= 1.2000000E-03, DT= 2.0000000E-04, C=  0.011 3.5104E+00 6.0462E-01
+ Solving for fluid  T  T  T
+        6 PRES gmres:   39  8.6413E-07  1.0000E-06  2.0916E-01  2.2440E-01  3.2286E-01    F
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELX:     10   3.3093E-08   3.6749E+00   1.0000E-07
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELY:     10   3.4474E-08   3.7544E+00   1.0000E-07
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELZ:     11   5.9735E-08   3.5120E+01   1.0000E-07
+               L1/L2 DIV(V)    :   4.4898E-06   2.4108E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   4.4898E-06   2.4108E-02
+          6   1.2000E-03  5.0757E-01 Fluid done
+Step      7, t= 1.4000000E-03, DT= 2.0000000E-04, C=  0.011 4.0324E+00 5.2197E-01
+ Solving for fluid  T  T  T
+          7    PRES alph1n  3.7239E+01  2.9459E+01  1.2641E+00     1
+          7    PRES halpha     1  2.2583E+00
+        7 PRES gmres:   38  7.6920E-07  1.0000E-06  9.8544E-02  2.1879E-01  3.1551E-01    F
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELX:     10   3.1677E-08   3.1569E+00   1.0000E-07
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELY:     10   3.2883E-08   3.2270E+00   1.0000E-07
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELZ:     11   5.2770E-08   2.9786E+01   1.0000E-07
+               L1/L2 DIV(V)    :   2.8754E-06   2.1186E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   2.8754E-06   2.1186E-02
+          7   1.4000E-03  5.0218E-01 Fluid done
+Step      8, t= 1.6000000E-03, DT= 2.0000000E-04, C=  0.011 4.5491E+00 5.1670E-01
+ Solving for fluid  T  T  T
+          8    PRES alph1n  2.4722E+01  2.9884E+01  8.2725E-01     2
+          8    PRES halpha     2 -7.0334E-01  2.5280E-02
+        8 PRES gmres:   33  9.4098E-07  1.0000E-06  1.4044E-01  1.8983E-01  2.7855E-01    F
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELX:     10   2.7509E-08   2.7965E+00   1.0000E-07
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELY:     10   2.8527E-08   2.8588E+00   1.0000E-07
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELZ:     11   4.3051E-08   2.5921E+01   1.0000E-07
+               L1/L2 DIV(V)    :   1.6579E-06   1.8865E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.6579E-06   1.8865E-02
+          8   1.6000E-03  4.6464E-01 Fluid done
+Step      9, t= 1.8000000E-03, DT= 2.0000000E-04, C=  0.011 5.0281E+00 4.7904E-01
+ Solving for fluid  T  T  T
+          9    PRES alph1n  1.9755E+01  3.3456E+00  5.9049E+00     3
+          9    PRES halpha     3 -3.2998E-01  1.7749E-01  1.1999E+00
+        9 PRES gmres:   29  9.6925E-07  1.0000E-06  1.7971E-02  1.6690E-01  2.4737E-01    F
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELX:     10   2.3442E-08   2.5213E+00   1.0000E-07
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELY:     10   2.4311E-08   2.5773E+00   1.0000E-07
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELZ:     11   3.5104E-08   2.3057E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.8365E-07   1.6964E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.8365E-07   1.6964E-02
+          9   1.8000E-03  4.3342E-01 Fluid done
+Step     10, t= 2.0000000E-03, DT= 2.0000000E-04, C=  0.011 5.4760E+00 4.4790E-01
+ Solving for fluid  T  T  T
+         10    PRES alph1n  1.6040E+01  1.1695E+00  1.3715E+01     4
+         10    PRES halpha     4 -2.5231E-01  2.2662E-01  9.2958E-01  2.0290E-01
+       10 PRES gmres:   28  9.3743E-07  1.0000E-06  4.6983E-03  1.6109E-01  2.3731E-01    F
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELX:     10   2.0214E-08   2.3018E+00   1.0000E-07
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELY:     10   2.0964E-08   2.3529E+00   1.0000E-07
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELZ:     11   2.9385E-08   2.0880E+01   1.0000E-07
+               L1/L2 DIV(V)    :   1.7993E-07   1.5368E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.7993E-07   1.5368E-02
+         10   2.0000E-03  4.2375E-01 Fluid done
+ call outfld: ifpsco:  F
+
+       10  2.0000E-03 Write checkpoint:
+
+       10  2.0000E-03 OPEN: stenosis.fld01                                                                
+
+end of time-step loop
+
+runtime statistics:
+ total time    5.957503895623780     
+ tgop time         2061   5.6833982467651367E-002   9.5398984983291520E-003
+ inv3 time           20   9.9468231201171875E-004   1.6696293102592602E-004
+ invc time            0    0.000000000000000         0.000000000000000     
+ mltd time            0    0.000000000000000         0.000000000000000     
+ cdtp time           30    0.000000000000000         0.000000000000000     
+ eslv time            0    0.000000000000000         0.000000000000000     
+ pres time           10    4.080560684204102        0.6849446942370563     
+ crsl time          439   2.1213769912719727E-002   3.5608486850176942E-003
+ crsl min    2.1213769912719727E-002
+ crsl max    3.5131931304931641E-002
+ crsl avg    2.9460251331329346E-002
+ hmhz time           35    4.260404586791992        0.7151324886118110     
+ spro time           11   3.4856796264648438E-003   5.8509061639478398E-004
+ usbc time           10   4.0807008743286133E-002   6.8496822592532172E-003
+ usbc min    4.0807008743286133E-002
+ usbc max    4.4273138046264648E-002
+ usb  avg    4.2852342128753662E-002
+ axhm time          827   0.4547152519226074        7.6326471604429652E-002
+ advc time           10   0.7937810420989990        0.1332405410061232     
+ vdss time            0    0.000000000000000         0.000000000000000     
+ vdss min     0.000000000000000     
+ vdss max     0.000000000000000     
+ vdss avg     0.000000000000000     
+ dsum time            0    0.000000000000000         0.000000000000000     
+ dsum min     0.000000000000000     
+ dsum max     0.000000000000000     
+ dsum avg     0.000000000000000     
+ dadd time            0   0.3564467430114746        5.9831558527945014E-002
+ ddsl time            0    0.000000000000000         0.000000000000000     
+ solv time            0    0.000000000000000         0.000000000000000     
+ prep time           10   5.2923440933227539E-002   8.8834924593341278E-003
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  4.0807E-02  3.5645E-01  2.1214E-02  0.0000E+00  0.0000E+00  5.6834E-02 qqq
+           1  4.2489E-02  4.2056E-01  3.0106E-02  0.0000E+00  0.0000E+00  5.0279E-02 qqq
+           2  4.4273E-02  4.4262E-01  3.1389E-02  0.0000E+00  0.0000E+00  5.0350E-02 qqq
+           3  4.3840E-02  4.0300E-01  3.5132E-02  0.0000E+00  0.0000E+00  6.6824E-02 qqq
+  
+call exitt: dying ...
+  
+backtrace(): obtained 1 stack frames.
+./nek5000() [0x6512a8]
+  
+total elapsed time             :   7.05015E+00 sec
+total solver time incl. I/O    :   5.95750E+00 sec
+time/timestep                  :   5.95750E-01 sec
+CPU seconds/timestep/gridpt    :   1.67500E-05 sec
+
+Application 8342755 resources: utime ~28s, stime ~8s, Rss ~539004, inblocks ~87795, outblocks ~240895

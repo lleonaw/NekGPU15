@@ -1,0 +1,31 @@
+#!/bin/bash --login
+# PBS job options (name, compute nodes, job time)
+#PBS -N steno
+#PBS -l mppwidth=1
+#PBS -l mppnppn=1
+#PBS -l walltime=01:00:00
+#PBS -q gpu_nodes
+#PBS -A z01
+
+
+set -v      # Print script lines as they are read.
+set -x      # Print commands and their arguments as they are executed.
+
+
+# Make sure any symbolic links are resolved to absolute path
+export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)            
+
+cd $PBS_O_WORKDIR
+
+echo $PWD
+
+casename=stenosis
+rm -f  $casename.sch *_host_*
+echo $casename > SESSION.NAME
+echo $PWD/ >> SESSION.NAME
+echo $HOSTNAME > node
+
+aprun -n 1 -N 1  ./nek5000  > nek.out.$PBS_JOBID
+#aprun -n 16 -N 16 ./nek5000  > nek.out.$PBS_JOBID
+
+
