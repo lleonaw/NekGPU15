@@ -1,9 +1,9 @@
-### makefile automatically created by makenek 04/20/2015 11:43:32 ###
+### makefile automatically created by makenek 04/20/2015 11:50:29 ###
 BINNAME=nek5000
 LIBNAME=libnek5000.a
 CASENAME:=stenosis
-CASEDIR:=/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc
-S:=/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc
+CASEDIR:=/ccs/home/csep02/NekGPU15/pipe_r1039_acc
+S:=/ccs/home/csep02/NekGPU15/nek5_r1039_acc
 J:=$S/jl
 OPT_INCDIR:=./
 OBJDIR=obj
