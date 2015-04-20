@@ -764,6 +764,7 @@ C
   580 CONTINUE
 c  ---------------
 c   create GM1 from G1M1, .. G6M1
+c  ---------------
        do 590 iel=1, nelt
          do  km=1, lz1
            do  jm=1, ly1
