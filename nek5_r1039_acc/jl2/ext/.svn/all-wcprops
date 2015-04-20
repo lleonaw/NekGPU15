@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/NEKCEM/!svn/ver/2014/trunk/src/jl2/ext
+END
+findpts_local_ext.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/NEKCEM/!svn/ver/2014/trunk/src/jl2/ext/findpts_local_ext.c
+END
+findpts_local.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/NEKCEM/!svn/ver/2014/trunk/src/jl2/ext/findpts_local.h
+END
+nek_config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/NEKCEM/!svn/ver/2014/trunk/src/jl2/ext/nek_config.h.in
+END
