@@ -1,139 +1,302 @@
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/drive.f -o obj/drive.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/drive1.f -o obj/drive1.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/drive2.f -o obj/drive2.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/plan4.f -o obj/plan4.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/bdry.f -o obj/bdry.o
-PGF90-W-0119-Redundant specification for dvc (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/plan4.f: 488)
-PGF90-W-0119-Redundant specification for dfc (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/plan4.f: 488)
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/drive1.f -o obj/drive1.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/drive2.f -o obj/drive2.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f -o obj/plan4.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/bdry.f -o obj/bdry.o
+PGF90-W-0119-Redundant specification for dvc (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
+PGF90-W-0119-Redundant specification for dfc (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
   0 inform,   2 warnings,   0 severes, 0 fatal for plan4_acc
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/coef.f -o obj/coef.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/conduct.f -o obj/conduct.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/connect1.f -o obj/connect1.o
-PGF90-W-0155-The type of FLOAT is now double precision with -r8  (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/connect1.f: 742)
+plan4_acc:
+    495, Generating copy(qtl(:,:,:,:))
+         Generating copyin(usrdiv(:,:,:,:))
+         Generating copyin(vx(:,:,:,:))
+         Generating copyin(vy(:,:,:,:))
+         Generating copyin(vz(:,:,:,:))
+         Generating copyin(vxlag(:,:,:,:,:))
+         Generating copyin(vylag(:,:,:,:,:))
+         Generating copyin(vzlag(:,:,:,:,:))
+    524, Generating copy(dpr(:,:,:,:))
+         Generating copy(pr(:,:,:,:))
+         Generating copy(vx(:,:,:,:))
+         Generating copy(vy(:,:,:,:))
+         Generating copy(vz(:,:,:,:))
+         Generating copyin(bfx(:,:,:,:))
+         Generating copyin(bfy(:,:,:,:))
+         Generating copyin(bfz(:,:,:,:))
+         Generating copyin(dfc(:,:,:,:))
+         Generating copyin(vtrans(:,:,:,:,:))
+         Generating copyin(vdiff(:,:,:,:,:))
+         Generating copyin(qtl(:,:,:,:))
+         Generating copyin(vmult(:,:,:,:))
+         Generating present(v1mask(:,:,:,:))
+         Generating present(v2mask(:,:,:,:))
+         Generating present(v3mask(:,:,:,:))
+         Generating present(pmask(:,:,:,:))
+         Generating present(res1(:,:,:,:))
+         Generating present(res2(:,:,:,:))
+         Generating present(res3(:,:,:,:))
+         Generating present(dv1(:,:,:,:))
+         Generating present(dv2(:,:,:,:))
+         Generating present(dv3(:,:,:,:))
+         Generating present(dvc(:,:,:,:))
+         Generating present(h1(:,:,:,:))
+         Generating present(h2(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(binvm1(:,:,:,:))
+         Generating present(approx(:,:))
+         Generating create(respr(:,:,:,:))
+    540, Generating update host(h2(:,:,:,:))
+         Generating update host(h1(:,:,:,:))
+    556, Generating update host(h2(:,:,:,:))
+         Generating update host(h1(:,:,:,:))
+opadd2cm_acc:
+    623, Generating present(a1(:))
+         Generating present(a2(:))
+         Generating present(a3(:))
+         Generating present(b1(:))
+         Generating present(b2(:))
+         Generating present(b3(:))
+    624, Accelerator kernel generated
+        625, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+    624, Generating Tesla code
+op_curl_acc:
+    665, Generating present(w1(:,:,:,:))
+         Generating present(w2(:,:,:,:))
+         Generating present(w3(:,:,:,:))
+         Generating present(u1(:,:,:,:))
+         Generating present(u2(:,:,:,:))
+         Generating present(u3(:,:,:,:))
+         Generating present(work1(:,:,:,:))
+         Generating present(work2(:,:,:,:))
+         Generating present(rym1(:,:,:,:))
+         Generating present(sym1(:,:,:,:))
+         Generating present(tym1(:,:,:,:))
+         Generating present(jacm1(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(binvm1(:,:,:,:))
+cresvsp_acc:
+    759, Generating present(vtrans(:,:,:,:,:))
+         Generating present(vdiff(:,:,:,:,:))
+         Generating present(qtl(:,:,:,:))
+         Generating present(bfx(:,:,:,:))
+         Generating present(bfy(:,:,:,:))
+         Generating present(bfz(:,:,:,:))
+         Generating present(vx(:,:,:,:))
+         Generating present(vy(:,:,:,:))
+         Generating present(vz(:,:,:,:))
+         Generating present(pr(:,:,:,:))
+         Generating present(h1(:,:,:,:))
+         Generating present(h2(:,:,:,:))
+         Generating present(resv1(:,:,:,:))
+         Generating present(resv2(:,:,:,:))
+         Generating present(resv3(:,:,:,:))
+crespsp_acc:
+    814, Generating present(respr(:))
+         Generating present(vext(:,:))
+         Generating present(vdiff(:,:,:,:,:))
+         Generating present(vtrans(:,:,:,:,:))
+         Generating present(pr(:,:,:,:))
+         Generating present(qtl(:,:,:,:))
+         Generating create(ta1(:,:))
+         Generating create(ta2(:,:))
+         Generating create(ta3(:,:))
+         Generating create(wa1(:))
+         Generating create(wa2(:))
+         Generating create(wa3(:))
+         Generating create(w1(:))
+         Generating create(w2(:))
+         Generating create(respr2(:))
+         Generating present(bfx(:,:,:,:))
+         Generating present(bfy(:,:,:,:))
+         Generating present(bfz(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(binvm1(:,:,:,:))
+    849, Accelerator kernel generated
+        850, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+    849, Generating Tesla code
+    862, Accelerator kernel generated
+        863, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+    862, Generating Tesla code
+    874, Accelerator kernel generated
+        875, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+    874, Generating Tesla code
+    882, Accelerator kernel generated
+        883, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+    882, Generating Tesla code
+    921, Generating update device(respr2(:))
+v_extrap_acc:
+    969, Generating present(vext(:,:))
+         Generating present(vx(:,:,:,:))
+         Generating present(vy(:,:,:,:))
+         Generating present(vz(:,:,:,:))
+         Generating present(vxlag(:,:,:,:,:))
+         Generating present(vylag(:,:,:,:,:))
+         Generating present(vzlag(:,:,:,:,:))
+    980, Generating update host(vext(:,:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/coef.f -o obj/coef.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/conduct.f -o obj/conduct.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/connect1.f -o obj/connect1.o
+PGF90-W-0155-The type of FLOAT is now double precision with -r8  (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/connect1.f: 742)
   0 inform,   1 warnings,   0 severes, 0 fatal for genxyzl
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/connect2.f -o obj/connect2.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/dssum.f -o obj/dssum.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/edgec.f -o obj/edgec.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/eigsolv.f -o obj/eigsolv.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gauss.f -o obj/gauss.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/genxyz.f -o obj/genxyz.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f -o obj/navier1.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/makeq.f -o obj/makeq.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier0.f -o obj/navier0.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier2.f -o obj/navier2.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier3.f -o obj/navier3.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier4.f -o obj/navier4.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/prepost.f -o obj/prepost.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/speclib.f -o obj/speclib.o
-PGF90-W-0155-The number of subscripts is less than the rank of ux (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5594)
-PGF90-W-0155-The number of subscripts is less than the rank of ur (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5594)
-PGF90-W-0155-The number of subscripts is less than the rank of us (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5594)
-PGF90-W-0155-The number of subscripts is less than the rank of uy (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5596)
-PGF90-W-0155-The number of subscripts is less than the rank of ur (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5596)
-PGF90-W-0155-The number of subscripts is less than the rank of us (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier1.f: 5596)
-  0 inform,   6 warnings,   0 severes, 0 fatal for wgradm1_acc
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/map2.f -o obj/map2.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/turb.f -o obj/turb.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/mvmesh.f -o obj/mvmesh.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/ic.f -o obj/ic.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/ssolv.f -o obj/ssolv.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/planx.f -o obj/planx.o
-ftn  -c  -O3 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/math.f -o obj/math.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/mxm_wrapper.f -o obj/mxm_wrapper.o 
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hmholtz.f -o obj/hmholtz.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gfdm_par.f -o obj/gfdm_par.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gfdm_op.f -o obj/gfdm_op.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gfdm_solve.f -o obj/gfdm_solve.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/subs1.f -o obj/subs1.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/subs2.f -o obj/subs2.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/genbox.f -o obj/genbox.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/gmres.f -o obj/gmres.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f -o obj/hsmg.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f -o obj/convect.o
-PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3583)
-PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3583)
-PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3583)
-PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3583)
-PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3586)
-PGF90-W-0155-The number of subscripts is less than the rank of d (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3586)
-PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3586)
-PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3588)
-PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3588)
-PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3588)
-PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/hsmg.f: 3588)
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/induct.f -o obj/induct.o
-  0 inform,  11 warnings,   0 severes, 0 fatal for hsmg_do_fast_acc
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1633)
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1633)
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1638)
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1672)
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1672)
-PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1677)
-  0 inform,   6 warnings,   0 severes, 0 fatal for convop_fst_3d_acc
-PGF90-W-0155-The number of subscripts is less than the rank of fx (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1909)
-PGF90-W-0155-The number of subscripts is less than the rank of fy (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1909)
-PGF90-W-0155-The number of subscripts is less than the rank of fx (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1910)
-PGF90-W-0155-The number of subscripts is less than the rank of fy (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/convect.f: 1910)
-  0 inform,   4 warnings,   0 severes, 0 fatal for set_convect_new_acc
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/perturb.f -o obj/perturb.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier5.f -o obj/navier5.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier6.f -o obj/navier6.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier7.f -o obj/navier7.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier8.f -o obj/navier8.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/fast3d.f -o obj/fast3d.o
-PGF90-W-0155-The number of subscripts is less than the rank of uf (/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/navier8.f: 2800)
-  0 inform,   1 warnings,   0 severes, 0 fatal for map_c_to_f_h1_bilin_acc
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/fasts.f -o obj/fasts.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/calcz.f -o obj/calcz.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/byte.c -o obj/byte.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/chelpers.c -o obj/chelpers.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/byte_mpi.f -o obj/byte_mpi.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/postpro.f -o obj/postpro.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/cvode_driver.f -o obj/cvode_driver.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/nek_comm.c -o obj/nek_comm.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/init_plugin.f -o obj/init_plugin.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/setprop.f -o obj/setprop.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/qthermal.f -o obj/qthermal.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/cvode_aux.f -o obj/cvode_aux.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/makeq_aux.f -o obj/makeq_aux.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/papi.f -o obj/papi.o
-ftn  -c   -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/3rd_party/nek_in_situ.f -o obj/nek_in_situ.o
-ftn  -c  -O3 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/mxm_std.f -o obj/mxm_std.o
-ftn  -c  -O0      -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/3rd_party/blas.f -o obj/blas.o
-pgf90-Info-Switch -ta=tesla -Mvect forces -O2
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/comm_mpi.f -o obj/comm_mpi.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/singlmesh.f -o obj/singlmesh.o
-ftn  -c  -O0      -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/3rd_party/dsygv.f -o obj/dsygv.o
-pgf90-Info-Switch -ta=tesla -Mvect forces -O2
-ftn  -c  -O0      -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/3rd_party/ssygv.f -o obj/ssygv.o
-pgf90-Info-Switch -ta=tesla -Mvect forces -O2
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/gs.c -o obj/jl_gs.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/sort.c -o obj/jl_sort.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/sarray_transfer.c -o obj/jl_sarray_transfer.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/sarray_sort.c -o obj/jl_sarray_sort.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/gs_local.c -o obj/jl_gs_local.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/crystal.c -o obj/jl_crystal.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/comm.c -o obj/jl_comm.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/tensor.c -o obj/jl_tensor.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/fail.c -o obj/jl_fail.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/fcrystal.c -o obj/jl_fcrystal.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/findpts.c -o obj/jl_findpts.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/findpts_local.c -o obj/jl_findpts_local.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/obbox.c -o obj/jl_obbox.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/poly.c -o obj/jl_poly.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/lob_bnd.c -o obj/jl_lob_bnd.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/findpts_el_3.c -o obj/jl_findpts_el_3.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/findpts_el_2.c -o obj/jl_findpts_el_2.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/sparse_cholesky.c -o obj/jl_sparse_cholesky.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/xxt.c -o obj/jl_xxt.o
-cc  -c  -O2 -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc/jl/fcrs.c -o obj/jl_fcrs.o
-ftn  -c  -O2 -r8 -Mpreprocess -fast -DPTRSIZE8 -DMPI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc -I/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc -I./ /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.f    -o obj/stenosis.o 
-ftn  -o nek5000  obj/stenosis.o obj/drive.o obj/drive1.o obj/drive2.o obj/plan4.o obj/bdry.o obj/coef.o obj/conduct.o obj/connect1.o obj/connect2.o obj/dssum.o obj/edgec.o obj/eigsolv.o obj/gauss.o obj/genxyz.o obj/navier1.o obj/makeq.o obj/navier0.o obj/navier2.o obj/navier3.o obj/navier4.o obj/prepost.o obj/speclib.o obj/map2.o obj/turb.o obj/mvmesh.o obj/ic.o obj/ssolv.o obj/planx.o obj/math.o obj/mxm_wrapper.o obj/hmholtz.o obj/gfdm_par.o obj/gfdm_op.o obj/gfdm_solve.o obj/subs1.o obj/subs2.o obj/genbox.o obj/gmres.o obj/hsmg.o obj/convect.o obj/induct.o obj/perturb.o obj/navier5.o obj/navier6.o obj/navier7.o obj/navier8.o obj/fast3d.o obj/fasts.o obj/calcz.o obj/byte.o obj/chelpers.o obj/byte_mpi.o obj/postpro.o obj/cvode_driver.o obj/nek_comm.o obj/init_plugin.o obj/setprop.o obj/qthermal.o obj/cvode_aux.o obj/makeq_aux.o obj/papi.o obj/nek_in_situ.o obj/mxm_std.o obj/blas.o obj/comm_mpi.o obj/singlmesh.o obj/dsygv.o obj/ssygv.o obj/jl_gs.o obj/jl_sort.o obj/jl_sarray_transfer.o obj/jl_sarray_sort.o obj/jl_gs_local.o obj/jl_crystal.o obj/jl_comm.o obj/jl_tensor.o obj/jl_fail.o obj/jl_fcrystal.o obj/jl_findpts.o obj/jl_findpts_local.o obj/jl_obbox.o obj/jl_poly.o obj/jl_lob_bnd.o obj/jl_findpts_el_3.o obj/jl_findpts_el_2.o obj/jl_sparse_cholesky.o obj/jl_xxt.o obj/jl_fcrs.o 
-WARNING: CrayPat is saving object files from a temporary directory into directory '/ccs/home/mmin/.craypat/nek5000/35058'
-#############################################################
-#                  Compilation successful!                  #
-#############################################################
-   text	   data	    bss	    dec	    hex	filename
-5329656	1770128	991459400	998559184	3b84cdd0	nek5000
-
-
+nek_solve:
+    267, Generating create(tmp1(:,:,:,:))
+         Generating create(tmp2(:,:,:,:))
+         Generating create(tmp3(:,:,:,:))
+         Generating create(dudr(:,:,:,:))
+         Generating create(duds(:,:,:,:))
+         Generating create(dudt(:,:,:,:))
+         Generating create(g1m1(:,:,:,:))
+         Generating create(g2m1(:,:,:,:))
+         Generating create(g3m1(:,:,:,:))
+         Generating create(g4m1(:,:,:,:))
+         Generating create(g5m1(:,:,:,:))
+         Generating create(g6m1(:,:,:,:))
+         Generating create(dxm1(:,:))
+         Generating create(dym1(:,:))
+         Generating create(dzm1(:,:))
+         Generating create(dxtm1(:,:))
+         Generating create(dytm1(:,:))
+         Generating create(dztm1(:,:))
+         Generating create(bm1(:,:,:,:))
+         Generating create(binvm1(:,:,:,:))
+         Generating create(jacm1(:,:,:,:))
+         Generating create(jacmi(:,:))
+         Generating create(ta1(:,:,:,:))
+         Generating create(ta2(:,:,:,:))
+         Generating create(ta3(:,:,:,:))
+         Generating create(ta4(:,:,:,:))
+         Generating create(ur(:,:,:,:))
+         Generating create(us(:,:,:,:))
+         Generating create(ut(:,:,:,:))
+         Generating create(work(:,:,:,:))
+         Generating create(work1(:,:,:,:))
+         Generating create(w1(:,:,:,:))
+         Generating create(w3m1(:,:,:))
+         Generating create(dxm12(:,:))
+         Generating create(dym12(:,:))
+         Generating create(dzm12(:,:))
+         Generating create(dxtm12(:,:))
+         Generating create(dytm12(:,:))
+         Generating create(dztm12(:,:))
+         Generating create(rxm1(:,:,:,:))
+         Generating create(sxm1(:,:,:,:))
+         Generating create(txm1(:,:,:,:))
+         Generating create(rxm2(:,:,:,:))
+         Generating create(sxm2(:,:,:,:))
+         Generating create(txm2(:,:,:,:))
+         Generating create(rym1(:,:,:,:))
+         Generating create(sym1(:,:,:,:))
+         Generating create(tym1(:,:,:,:))
+         Generating create(rym2(:,:,:,:))
+         Generating create(sym2(:,:,:,:))
+         Generating create(tym2(:,:,:,:))
+         Generating create(rzm1(:,:,:,:))
+         Generating create(szm1(:,:,:,:))
+         Generating create(tzm1(:,:,:,:))
+         Generating create(rzm2(:,:,:,:))
+         Generating create(szm2(:,:,:,:))
+         Generating create(tzm2(:,:,:,:))
+         Generating create(ids_lgl1(:))
+         Generating create(ids_lgl2(:))
+         Generating create(ids_ptr(:))
+         Generating create(ug(:))
+         Generating create(res1(:,:,:,:))
+         Generating create(res2(:,:,:,:))
+         Generating create(res3(:,:,:,:))
+         Generating create(dv1(:,:,:,:))
+         Generating create(dv2(:,:,:,:))
+         Generating create(dv3(:,:,:,:))
+         Generating create(dvc(:,:,:,:))
+         Generating create(vext(:,:))
+         Generating create(v1mask(:,:,:,:))
+         Generating create(v2mask(:,:,:,:))
+         Generating create(v3mask(:,:,:,:))
+         Generating create(pmask(:,:,:,:))
+         Generating create(r(:))
+         Generating create(w(:))
+         Generating create(p(:))
+         Generating create(z(:))
+         Generating create(d(:))
+         Generating create(e(:))
+         Generating create(uc(:))
+         Generating create(vc(:))
+         Generating create(ktype(:,:,:))
+         Generating create(fds_acc(:,:,:))
+         Generating create(fdst_acc(:,:,:))
+         Generating create(h1_basis_acc(:,:))
+         Generating create(h1_basist_acc(:,:))
+         Generating create(v_acc(:,:))
+         Generating create(z_acc(:,:))
+         Generating create(ml_acc(:))
+         Generating create(mu_acc(:))
+         Generating create(mg_lgl1(:,:))
+         Generating create(mg_ptr(:,:))
+         Generating create(mg_imask(:))
+         Generating create(mg_fast_s(:))
+         Generating create(mg_fast_d(:))
+         Generating create(mg_schwarz_wt(:))
+         Generating create(mg_rstr_wt(:))
+         Generating create(mg_jh(:,:))
+         Generating create(mg_jht(:,:))
+         Generating create(mg_work(:))
+         Generating create(work2(:,:,:,:))
+         Generating create(work3(:,:,:,:))
+         Generating create(approx(:,:))
+         Generating create(h1(:,:,:,:))
+         Generating create(h2(:,:,:,:))
+    320, Generating update device(g6m1(:,:,:,:))
+         Generating update device(g5m1(:,:,:,:))
+         Generating update device(g4m1(:,:,:,:))
+         Generating update device(g3m1(:,:,:,:))
+         Generating update device(g2m1(:,:,:,:))
+         Generating update device(g1m1(:,:,:,:))
+    321, Generating update device(dztm1(:,:))
+         Generating update device(dytm1(:,:))
+         Generating update device(dxtm1(:,:))
+         Generating update device(dzm1(:,:))
+         Generating update device(dym1(:,:))
+         Generating update device(dxm1(:,:))
+    322, Generating update device(w3m1(:,:,:))
+         Generating update device(jacmi(:,:))
+         Generating update device(jacm1(:,:,:,:))
+         Generating update device(binvm1(:,:,:,:))
+         Generating update device(bm1(:,:,:,:))
+    323, Generating update device(dzm12(:,:))
+         Generating update device(dym12(:,:))
+         Generating update device(dxm12(:,:))
+    324, Generating update device(dztm12(:,:))
+         Generating update device(dytm12(:,:))
+         Generating update device(dxtm12(:,:))
+    325, Generating update device(txm2(:,:,:,:))
+         Generating update device(sxm2(:,:,:,:))
+         Generating update device(rxm2(:,:,:,:))
+         Generating update device(txm1(:,:,:,:))
+         Generating update device(sxm1(:,:,:,:))
+         Generating update device(rxm1(:,:,:,:))
+    326, Generating update device(tym2(:,:,:,:))
+         Generating update device(sym2(:,:,:,:))
+         Generating update device(rym2(:,:,:,:))
+         Generating update device(tym1(:,:,:,:))
+         Generating update device(sym1(:,:,:,:))
+         Generating update device(rym1(:,:,:,:))
+    327, Generating update device(tzm2(:,:,:,:))
+         Generating update device(szm2(:,:,:,:))
+         Generating update device(rzm2(:,:,:,:))
+         Generating update device(tzm1(:,:,:,:))
+         Generating update device(szm1(:,:,:,:))
+         Generating update device(rzm1(:,:,:,:))
+    328, Generating update device(pmask(:,:,:,:))
+         Generating update device(v3mask(:,:,:,:))
+         Generating update device(v2mask(:,:,:,:))
+         Generating update device(v1mask(:,:,:,:))
+    330, Generating update device(ids_ptr(:))
+         Generating update device(ids_lgl2(:))
+         Generating update device(ids_lgl1(:))
+    331, Generating update device(mg_ptr(:,:))
+         Generating update device(mg_lgl1(:,:))
+    332, Generating update device(mg_fast_d(:))
+         Generating update device(mg_fast_s(:))
+         Generating update device(mg_imask(:))
+    333, Generating update device(mg_jht(:,:))
+         Generating update device(mg_jh(:,:))
+         Generating update device(mg_rstr_wt(:))
+         Generating update device(mg_schwarz_wt(:))

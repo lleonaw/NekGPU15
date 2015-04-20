@@ -1,9 +1,9 @@
-### makefile automatically created by makenek 04/17/2015 13:40:11 ###
+### makefile automatically created by makenek 04/20/2015 11:43:32 ###
 BINNAME=nek5000
 LIBNAME=libnek5000.a
 CASENAME:=stenosis
-CASEDIR:=/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc
-S:=/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/nek5_r1039_acc
+CASEDIR:=/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc
+S:=/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc
 J:=$S/jl
 OPT_INCDIR:=./
 OBJDIR=obj
@@ -13,16 +13,15 @@ IFAMG_DUMP:=false
 IFNEKNEK:=false
 IFMOAB:=false
 MOAB_DIR:=
-F77:=ftn 
-CC:=cc 
-#P:=-hacc -ra -s real64 -eZ -em -Rc
-P:=-r8 -Mpreprocess -fast
+F77:=ftn
+CC:=cc
+P:=-r8 -Mpreprocess -acc -Minfo=accel -acc
 PPPO=
-PPS= PTRSIZE8 MPI LONGINT8 UNDERSCORE GLOBAL_LONG_LONG
+PPS= PTRSIZE8 MPI NEK_ACC PGI LONGINT8 UNDERSCORE GLOBAL_LONG_LONG
 G:=
 OPT_FLAGS_STD=
 USR:=
-USR_LFLAGS:=
+USR_LFLAGS:=-ta=nvidia
 IFVISIT=
 VISIT_IFLAGS=
 VISIT_LFLAGS=
