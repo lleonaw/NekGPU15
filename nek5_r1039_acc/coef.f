@@ -691,7 +691,6 @@ C
       COMMON /CTMP1/ ZSM1(LX1,LY1,LZ1,LELT)
      $ ,             ZTM1(LX1,LY1,LZ1,LELT)
      $ ,             WJ   (LX1,LY1,LZ1,LELT)
-      integer im, jm, km
 C
       NXYZ1 = NX1*NY1*NZ1
       NTOT1 = NXYZ1*NELT
@@ -762,22 +761,6 @@ C
             CALL COL2 (G6M1(1,1,1,IEL),W3M1,NXYZ1)
          ENDIF
   580 CONTINUE
-c  ---------------
-c   create GM1 from G1M1, .. G6M1
-       do 590 iel=1, nelt
-         do  km=1, lz1
-           do  jm=1, ly1
-             do  im=1, lx1
-                GM1(1,im,jm,km,iel) = G1M1(im,jm,km,iel)
-                GM1(2,im,jm,km,iel) = G2M1(im,jm,km,iel)
-                GM1(3,im,jm,km,iel) = G3M1(im,jm,km,iel)
-                GM1(4,im,jm,km,iel) = G4M1(im,jm,km,iel)
-                GM1(5,im,jm,km,iel) = G5M1(im,jm,km,iel)
-                GM1(6,im,jm,km,iel) = G6M1(im,jm,km,iel)
-             enddo
-           enddo
-         enddo
-  590 CONTINUE
 C
 C     Compute the mass matrix on mesh M1.
 C

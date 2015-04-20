@@ -45,8 +45,6 @@ c
      $             ,G4M1  (LX1,LY1,LZ1,LELT)
      $             ,G5M1  (LX1,LY1,LZ1,LELT)
      $             ,G6M1  (LX1,LY1,LZ1,LELT)
-      COMMON /GMFACT2/
-     $              GM1   (6,LX1,LY1,LZ1,LELT) 
 C
       COMMON /GSURF/
      $              UNX   (LX1,LZ1,6,LELT)

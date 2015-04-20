@@ -1475,121 +1475,163 @@ C     Compute the (Helmholtz) matrix-vector product,
 C     AU = helm1*[A]u + helm2*[B]u, for NEL elements.
 C
 C------------------------------------------------------------------
-c    li
-c---------------------
-      include 'size'
-      include 'wz'
-      include 'dxyz'
-      include 'geom'
-      include 'mass'
-      include 'input'
-      include 'parallel'
-      include 'ctimer'
- 
-      common /fastax/ wddx(lx1,lx1),wddyt(ly1,ly1),wddzt(lz1,lz1)
-      common /fastmd/ ifdfrm(lelt), iffast(lelt), ifh2, ifsolv
-      logical ifdfrm, iffast, ifh2, ifsolv
- 
-      real           au    (lx1,ly1,lz1,lelv)
-     $ ,             u     (lx1,ly1,lz1,lelv)
-     $ ,             helm1 (lx1,ly1,lz1,lelv)
-     $ ,             helm2 (lx1,ly1,lz1,lelv)
-      real           duax  (lx1)
-      real           ysm1  (lx1)
+      INCLUDE 'SIZE'
+      INCLUDE 'WZ'
+      INCLUDE 'DXYZ'
+      INCLUDE 'GEOM'
+      INCLUDE 'MASS'
+      INCLUDE 'INPUT'
+      INCLUDE 'PARALLEL'
+      INCLUDE 'CTIMER'
+C
+      COMMON /FASTAX/ WDDX(LX1,LX1),WDDYT(LY1,LY1),WDDZT(LZ1,LZ1)
+      COMMON /FASTMD/ IFDFRM(LELT), IFFAST(LELT), IFH2, IFSOLV
+      LOGICAL IFDFRM, IFFAST, IFH2, IFSOLV
+C
+      REAL           AU    (LX1,LY1,LZ1,LELV)
+     $ ,             U     (LX1,LY1,LZ1,LELV)
+     $ ,             HELM1 (LX1,LY1,LZ1,LELV)
+     $ ,             HELM2 (LX1,LY1,LZ1,LELV)
+C      COMMON /CTMP1/ DUDR  (LX1,LY1,LZ1)
+C     $ ,             DUDS  (LX1,LY1,LZ1)
+C     $ ,             DUDT  (LX1,LY1,LZ1)
+C     $ ,             TMP1  (LX1,LY1,LZ1)
+C     $ ,             TMP2  (LX1,LY1,LZ1)
+C     $ ,             TMP3  (LX1,LY1,LZ1)
 
-      common /ctmp3/ dudr  (lx1,ly1,lz1,lelv)
-     $ ,             duds  (lx1,ly1,lz1,lelv)
-     $ ,             dudt  (lx1,ly1,lz1,lelv)
+C      REAL           TM1   (LX1,LY1,LZ1)
+C      REAL           TM2   (LX1,LY1,LZ1)
+C      REAL           TM3   (LX1,LY1,LZ1)
+      REAL           DUAX  (LX1)
+      REAL           YSM1  (LX1)
+C      EQUIVALENCE    (DUDR,TM1),(DUDS,TM2),(DUDT,TM3)
+
+      COMMON /CTMP3/ DUDR  (LX1,LY1,LZ1,LELV)
+     $ ,             DUDS  (LX1,LY1,LZ1,LELV)
+     $ ,             DUDT  (LX1,LY1,LZ1,LELV)
 
       integer e
       
-      real tmpr,tmps,tmpt,tmpa
-      real tmdudr,tmduds,tmdudt,tmhelm1
+      REAL TMPR,TMPS,TMPT,TMPA
+      REAL TMDUDR,TMDUDS,TMDUDT,TMHELM1
 
       nel=nelt
       if (imesh.eq.1) nel=nelv
 
-      nxy=nx1*ny1
-      nyz=ny1*nz1
-      nxz=nx1*nz1
-      nxyz=nx1*ny1*nz1
-      ntot=nxyz*nel
+      NXY=NX1*NY1
+      NYZ=NY1*NZ1
+      NXZ=NX1*NZ1
+      NXYZ=NX1*NY1*NZ1
+      NTOT=NXYZ*NEL
 
       if (icalld.eq.0) taxhm=0.0
       icalld=icalld+1
       naxhm=icalld
       etime1=dnekclock()
 
-      if (.not.ifsolv) call setfast(helm1,helm2,imesh)
+      IF (.NOT.IFSOLV) CALL SETFAST(HELM1,HELM2,IMESH)
 
-!$ACC DATA PRESENT(AU,U)
-!$ACC& PRESENT(DXM1,DYM1,DZM1,DXTM1,DYTM1,DZTM1)
-!$ACC& PRESENT(G1M1,G2M1,G3M1,G4M1,G5M1,G6M1)
-!$ACC& PRESENT(GM1)
-!$ACC& PRESENT(DUDR,DUDS,DUDT,BM1)
-!$ACC& PRESENT(HELM1,HELM2)
+C      CALL RZERO (AU,NTOT)
 
-!$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)
 
-      do e = 1, nel
-         do k = 1, nz1
-         do j = 1, ny1
-         do i = 1, nx1
-            tmpr = 0.0
-            tmps = 0.0
-            tmpt = 0.0
-!$ACC LOOP SEQ
-            do l = 1, nx1
-               tmpr = tmpr+dxm1(i,l)*u(l,j,k,e)
-               tmps = tmps+dym1(j,l)*u(i,l,k,e)
-               tmpt = tmpt+dzm1(k,l)*u(i,j,l,e)
-            enddo
-            tmdudr = gm1(1,i,j,k,e)*tmpr
-     $           +   gm1(4,i,j,k,e)*tmps
-     $           +   gm1(5,i,j,k,e)*tmpt
+!$ACC DATA PRESENT(AU,U)                                                                       
+!$ACC& PRESENT(DXM1,DYM1,DZM1,DXTM1,DYTM1,DZTM1)                                               
+!$ACC& PRESENT(G1M1,G2M1,G3M1,G4M1,G5M1,G6M1)                                                  
+!$ACC& PRESENT(DUDR,DUDS,DUDT,BM1)                                                             
+!$ACC& PRESENT(HELM1,HELM2)                                                                    
 
-            tmduds = gm1(4,i,j,k,e)*tmpr
-     $           +   gm1(2,i,j,k,e)*tmps
-     $           +   gm1(6,i,j,k,e)*tmpt
+!$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)                           
+      DO E = 1, NEL
+         DO K = 1, NZ1
+         DO J = 1, NY1
+         DO I = 1, NX1
+            TMPR = 0.0
+            TMPS = 0.0
+            TMPT = 0.0
+!$ACC LOOP SEQ                                                                                 
+            DO L = 1, NX1
+               TMPR = TMPR+DXM1(I,L)*U(L,J,K,E)
+               TMPS = TMPS+DYM1(J,L)*U(I,L,K,E)
+               TMPT = TMPT+DZM1(K,L)*U(I,J,L,E)
+            ENDDO
+            TMDUDR = G1M1(I,J,K,E)*TMPR
+     $           +          G4M1(I,J,K,E)*TMPS
+     $           +          G5M1(I,J,K,E)*TMPT
 
-            tmdudt = gm1(5,i,j,k,e)*tmpr
-     $           +   gm1(6,i,j,k,e)*tmps
-     $           +   gm1(3,i,j,k,e)*tmpt
+            TMDUDS = G4M1(I,J,K,E)*TMPR
+     $           +          G2M1(I,J,K,E)*TMPS
+     $           +          G6M1(I,J,K,E)*TMPT
 
-            tmhelm1 = helm1(i,j,k,e)
-            dudr(i,j,k,e) = tmdudr*tmhelm1
-            duds(i,j,k,e) = tmduds*tmhelm1
-            dudt(i,j,k,e) = tmdudt*tmhelm1
+            TMDUDT = G5M1(I,J,K,E)*TMPR
+     $           +          G6M1(I,J,K,E)*TMPS
+     $           +          G3M1(I,J,K,E)*TMPT
 
-         enddo
-         enddo
-         enddo
-      enddo
+            TMHELM1 = HELM1(I,J,K,E)
+            DUDR(I,J,K,E) = TMDUDR*TMHELM1
+            DUDS(I,J,K,E) = TMDUDS*TMHELM1
+            DUDT(I,J,K,E) = TMDUDT*TMHELM1
 
-!$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)
-      do e = 1, nel
-         do k = 1, nz1
-         do j = 1, ny1
-         do i = 1, nx1
-            au(i,j,k,e) = 0.0
-!$ACC LOOP SEQ
-            do l = 1, nx1
-               au(i,j,k,e) = au(i,j,k,e)+dxtm1(i,l)*dudr(l,j,k,e)
-     $                                  +dytm1(j,l)*duds(i,l,k,e)
-     $                                  +dztm1(k,l)*dudt(i,j,l,e)
-            enddo
-         enddo
-         enddo
-         enddo
-      enddo
+         ENDDO
+         ENDDO
+         ENDDO
+      ENDDO
 
-      if (ifh2) call addcol4_acc (au,helm2,bm1,u,ntot)
+!$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)                           
+      DO E = 1, NEL
+         DO K = 1, NZ1
+         DO J = 1, NY1
+         DO I = 1, NX1
+            AU(I,J,K,E) = 0.0
+!$ACC LOOP SEQ                                                                                 
+            DO L = 1, NX1
+               AU(I,J,K,E) = AU(I,J,K,E)+DXTM1(I,L)*DUDR(L,J,K,E)
+     $                                  +DYTM1(J,L)*DUDS(I,L,K,E)
+     $                                  +DZTM1(K,L)*DUDT(I,J,L,E)
+            ENDDO
+         ENDDO
+         ENDDO
+         ENDDO
+      ENDDO
+
+      IF (IFH2) CALL ADDCOL4_acc (AU,HELM2,BM1,U,NTOT)
+
 !$ACC END DATA                 
+
+C
+C     If axisymmetric, add a diagonal term in the radial direction (ISD=2)
+C
+      if (ifaxis.and.(isd.eq.2)) then
+         do 200 e=1,nel
+C
+            if (ifrzer(e)) then
+               call mxm(u  (1,1,1,e),nx1,datm1,ny1,duax,1)
+               call mxm(ym1(1,1,1,e),nx1,datm1,ny1,ysm1,1)
+            endif
+c
+            do 190 j=1,ny1
+            do 190 i=1,nx1
+C               if (ym1(i,j,1,e).ne.0.) then
+                  if (ifrzer(e)) then
+                     term1 = 0.0
+                     if(j.ne.1) 
+     $             term1 = bm1(i,j,1,e)*u(i,j,1,e)/ym1(i,j,1,e)**2
+                     term2 =  wxm1(i)*wam1(1)*dam1(1,j)*duax(i)
+     $                       *jacm1(i,1,1,e)/ysm1(i)
+                  else
+                   term1 = bm1(i,j,1,e)*u(i,j,1,e)/ym1(i,j,1,e)**2
+                     term2 = 0.
+                  endif
+                  au(i,j,1,e) = au(i,j,1,e)
+     $                          + helm1(i,j,1,e)*(term1+term2)
+C               endif
+  190       continue
+  200    continue
+      endif
 
       taxhm=taxhm+(dnekclock()-etime1)
       return
       end
-C-------------------------------------------------------------------
+C
 
       subroutine setfast_acc (helm1,helm2,imesh)
 C-------------------------------------------------------------------                           
