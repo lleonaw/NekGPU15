@@ -9,7 +9,7 @@ PGI Compiler: Compile & Runs
     Run directory must be on lustre.
     cd /lustre/atlas/scratch/csep##/trn001/
     cp -r ~/where/pipe/is/pipe_r1039_acc .
-    cp pipe_r1039_acc
+    cd pipe_r1039_acc
 
  Step 2: Just one time edits  
 
