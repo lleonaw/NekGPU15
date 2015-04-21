@@ -1566,11 +1566,6 @@ c---------------------
          enddo
       enddo
 
-c     call checker(gm1,'1  ')
-!$ACC UPDATE HOST(gm1)
-      print *,'1 axhelm  gm1',gm1(1,1,1,1,1) !, charr
-      print *,'2 axhelm  gm1',gm1(2,1,1,1,1) !, charr
-
 !$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)
       do e = 1, nel
          do k = 1, nz1
@@ -1593,16 +1588,6 @@ c     call checker(gm1,'1  ')
 
       taxhm=taxhm+(dnekclock()-etime1)
       return
-      end
-C-------------------------------------------------------------------
-      subroutine checker(gmv)
-      double precision gmv(6*lx1*ly1*lz1*lelt)
-      character charr*3
-
-      print *,'1 checker gm1',gmv(1) !, charr
-      print *,'2 checker gm1',gmv(lx1*ly1*lz1*lelt) !, charr
-
-      return 
       end
 C-------------------------------------------------------------------
       subroutine setfast_acc (helm1,helm2,imesh)
