@@ -5,7 +5,7 @@
 # source path 
 #SOURCE_ROOT="$HOME/nek5_r1039_acc" 
 #SOURCE_ROOT="/lustre/atlas2/nti104/scratch/mmin/nek5_r1039_acc/nek5_r1039_acc"
-SOURCE_ROOT="/ccs/home/csep02/NekGPU15/nek5_r1039_acc"
+SOURCE_ROOT="/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc"
 
 # Fortran compiler
 F77="ftn"
@@ -39,8 +39,8 @@ PLUGIN_LIST=""
 IFACC="true"
 
 #enable PGI compiler
-IFPGI="true"
-IFPGIACC="true"
+ IFPGI="true"
+ IFPGIACC="true"
 #IFCRAYACC="true"
 
 # generic compiler flags
