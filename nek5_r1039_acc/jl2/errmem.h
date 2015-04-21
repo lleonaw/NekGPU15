@@ -56,21 +56,25 @@ typedef struct { size_t size; void *ptr; } buffer;
 static void buffer_init_(buffer *b, size_t size, const char *file)
 {
   b->size=size, b->ptr=smalloc(size,file);
-
-  //#pragma acc enter data create(b->ptr[0:size])
+  prinft("in buffer init\n");
+#pragma acc enter data create(b->ptr[0:size])
 					 
 }
 static void buffer_reserve_(buffer *b, size_t min, const char *file)
 {
-  //#pragma acc exit data delete(b->ptr[0:min])
+
+    printf("realloc in buffer reserve\n");
   size_t size = b->size;
   if(size<min) {
+#pragma acc exit data delete(b->ptr[0:min])
+
     size+=size/2+1;
     if(size<min) size=min;
     b->ptr=srealloc(b->ptr,size,file);
     b->size=size;
+#pragma acc enter data create(b->ptr[0:size])
   }
-  i//#pragma acc enter data create(b->ptr[0:size])
+
 }
 
 static void buffer_free(buffer *b) { free(b->ptr); }

@@ -67,7 +67,7 @@ static void gather_##T##_##OP( \
   int dstride_in=1; \
   if(in_stride==1) dstride_in=dstride; \
   if(acc) {\
-_Pragma("acc data pcopyin(map[0:m_size],mapf[0:2*mf_nt])") \
+_Pragma("acc data present(map[0:m_size],mapf[0:2*mf_nt])") \
 {\
   for(k=0;k<vn;++k) {                                                        \
 _Pragma("acc parallel loop gang vector present(out[0:vn*dstride],in[0:vn*dstride],map[0:m_size],mapf[0:2*mf_nt])") \
@@ -109,7 +109,7 @@ static void scatter_##T( \
   if(in_stride==1)  dstride_in=dstride;                            \
   if(out_stride==1) dstride_out=dstride;                           \
   if(acc) {\
-_Pragma("acc data pcopyin(map[0:m_size],mapf[0:2*mf_nt])") \
+_Pragma("acc data present(map[0:m_size],mapf[0:2*mf_nt],out[0:vn*dstride],in[0:vn*dstride])") \
   {\
   for(k=0;k<vn;++k) {                                              \
 _Pragma("acc parallel loop gang vector present(map[0:m_size],in[0:vn*dstride],mapf[0:2*mf_nt],out[0:vn*dstride])") \
@@ -130,7 +130,7 @@ _Pragma("acc wait")						   \
       for(j=0;j<mapf[i*2+1];j++) {                                 \
         out[out_stride*map[mapf[i*2]+j+1]+k*dstride_out] = t;          \
       }                                                            \
-    }                                                              \
+    }                                             		   \
   }                                                                \
   }								   \
 }
@@ -147,7 +147,7 @@ _Pragma("acc wait")						   \
 _Pragma("acc data pcopyin(map[0:m_size],mapf[0:2*mf_nt])")\
   {\
   for(k=0;k<vn;++k) {\
-_Pragma("acc parallel loop gang vector present(map[0:m_size],mapf[0:2*mf_nt],out[0:vn*dstride])")\
+_Pragma("acc parallel loop gang vector pcopyin(map[0:m_size],mapf[0:2*mf_nt],out[0:vn*dstride])")\
     for(i=0;i<mf_nt;i++){\
 _Pragma("acc loop seq")\
       for(j=0;j<mapf[i*2+1];j++) {\
