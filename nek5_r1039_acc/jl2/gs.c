@@ -567,8 +567,13 @@ static struct pw_data *pw_setup_aux(struct array *sh, buffer *buf,
 
 static void pw_free(struct pw_data *data)
 {
+  int *map0,*map1;
+  map0 = data->map[0];
+  map1 = data->map[1];
+
   pw_comm_free(&data->comm[0]);
   pw_comm_free(&data->comm[1]);
+#pragma acc exit data delete(map0,map1)
   free((uint*)data->map[0]);
   free((uint*)data->map[1]);
   free(data->req);
@@ -932,6 +937,7 @@ static void cr_free_stage_maps(struct cr_stage *stage, unsigned kmax)
 {
   unsigned k;
   for(k=0; k<kmax; ++k) {
+#pragma acc exit data delete(stage->scatter_map)
     free((uint*)stage->scatter_map);
     ++stage;
   }
@@ -1045,6 +1051,7 @@ static struct allreduce_data *allreduce_setup_aux(
 
 static void allreduce_free(struct allreduce_data *ard)
 {
+  //#pragma acc exit data delete(ard->map_to_buf[0],ard->map_to_buf[1],ard->map_from_buf[0],ard->map_from_buf[1])
   free((uint*)ard->map_to_buf[0]);
   free((uint*)ard->map_to_buf[1]);
   free((uint*)ard->map_from_buf[0]);
@@ -1288,6 +1295,11 @@ struct gs_data *gs_setup(const slong *id, uint n, const struct comm *comm,
 void gs_free(struct gs_data *gsh)
 {
   comm_free(&gsh->comm);
+  int *map_local0,*map_local1,*flagged_primaries;
+  map_local0 = gsh->map_local[0];
+  map_local1 = gsh->map_local[1];
+  flagged_primaries = gsh->flagged_primaries;
+#pragma acc exit data delete(map_local0,map_local1,flagged_primaries)
   free((uint*)gsh->map_local[0]), free((uint*)gsh->map_local[1]);
   free((uint*)gsh->flagged_primaries);
   gsh->r.fin(gsh->r.data);
@@ -1323,7 +1335,12 @@ void gs_flatmap_setup(const uint *map, int **mapf, int *mf_nt, int *m_size)
       // Record j-i
       *(*mapf+k*2+1) = j-i-1;
   }
-#pragma enter data copyin(map[0:msize],*mapf[0:*mf_nt])
+  printf("Before copying map %p-%p size %d %d\n", map,map+*m_size,*m_size,*mf_nt);
+  int *mapf2 = *mapf;
+#pragma acc enter data pcopyin(map[0:*m_size])
+
+#pragma acc enter data pcopyin(mapf2[0:2*mf_temp])
+  printf("After copying map\n");
   return;
 }
 
