@@ -1477,14 +1477,14 @@ C
 C------------------------------------------------------------------
 c    li
 c---------------------
-      include 'size'
-      include 'wz'
-      include 'dxyz'
-      include 'geom'
-      include 'mass'
-      include 'input'
-      include 'parallel'
-      include 'ctimer'
+      include 'SIZE'
+      include 'WZ'
+      include 'DXYZ'
+      include 'GEOM'
+      include 'MASS'
+      include 'INPUT'
+      include 'PARALLEL'
+      include 'CTIMER'
  
       common /fastax/ wddx(lx1,lx1),wddyt(ly1,ly1),wddzt(lz1,lz1)
       common /fastmd/ ifdfrm(lelt), iffast(lelt), ifh2, ifsolv
@@ -1566,6 +1566,11 @@ c---------------------
          enddo
       enddo
 
+c     call checker(gm1,'1  ')
+!$ACC UPDATE HOST(gm1)
+      print *,'1 axhelm  gm1',gm1(1,1,1,1,1) !, charr
+      print *,'2 axhelm  gm1',gm1(2,1,1,1,1) !, charr
+
 !$ACC PARALLEL LOOP COLLAPSE(4) WORKER GANG VECTOR VECTOR_LENGTH(64)
       do e = 1, nel
          do k = 1, nz1
@@ -1590,7 +1595,16 @@ c---------------------
       return
       end
 C-------------------------------------------------------------------
+      subroutine checker(gmv)
+      double precision gmv(6*lx1*ly1*lz1*lelt)
+      character charr*3
 
+      print *,'1 checker gm1',gmv(1) !, charr
+      print *,'2 checker gm1',gmv(lx1*ly1*lz1*lelt) !, charr
+
+      return 
+      end
+C-------------------------------------------------------------------
       subroutine setfast_acc (helm1,helm2,imesh)
 C-------------------------------------------------------------------                           
 C                                                                                              

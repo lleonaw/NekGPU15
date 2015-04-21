@@ -764,16 +764,17 @@ C
   580 CONTINUE
 c  ---------------
 c   create GM1 from G1M1, .. G6M1
+c  ---------------
        do 590 iel=1, nelt
-         do  km=1, lz1
-           do  jm=1, ly1
-             do  im=1, lx1
-                GM1(1,im,jm,km,iel) = G1M1(im,jm,km,iel)
-                GM1(2,im,jm,km,iel) = G2M1(im,jm,km,iel)
-                GM1(3,im,jm,km,iel) = G3M1(im,jm,km,iel)
-                GM1(4,im,jm,km,iel) = G4M1(im,jm,km,iel)
-                GM1(5,im,jm,km,iel) = G5M1(im,jm,km,iel)
-                GM1(6,im,jm,km,iel) = G6M1(im,jm,km,iel)
+         do  km=1, nz1
+           do  jm=1, ny1
+             do  im=1, nx1
+                gm1(1,im,jm,km,iel) = G1M1(im,jm,km,iel)
+                gm1(2,im,jm,km,iel) = G2M1(im,jm,km,iel)
+                gm1(3,im,jm,km,iel) = G3M1(im,jm,km,iel)
+                gm1(4,im,jm,km,iel) = G4M1(im,jm,km,iel)
+                gm1(5,im,jm,km,iel) = G5M1(im,jm,km,iel)
+                gm1(6,im,jm,km,iel) = G6M1(im,jm,km,iel)
              enddo
            enddo
          enddo
