@@ -1381,7 +1381,7 @@ c
       isd  = 1
       call axhelm_acc (w,x,h1,h2,imsh,isd)
       call dssum_acc (w,nx1,ny1,nz1)
-      call col2_acc   (w,pmask,n)
+      call col2   (w,pmask,n)
 
       return
       end
@@ -1474,11 +1474,11 @@ c
 c           call copy(r,res,n)                                                                 
          else
             !update residual                                                                   
-            call copy_acc  (r,res,n)                  ! r = res                                
+            call copy  (r,res,n)                  ! r = res                                
             call ax_acc    (w,x,h1,h2,n)              ! w = A x                                
             call add2s2_acc(r,w,-1.,n)                ! r = r - w                              
                                                   !      -1                                    
-            call col2_acc(r,ml_acc,n)                     ! r = L   r                          
+            call col2 (r,ml_acc,n)                     ! r = L   r                          
          endif
 
                                                   !            ______                          
@@ -1530,7 +1530,7 @@ c . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
                                                   !        j                                   
 
                                                   !      -1                                    
-            call col2_acc(w,ml_acc,n)                     ! w = L   w                          
+            call col2 (w,ml_acc,n)                     ! w = L   w                          
 
 c           !modified Gram-Schmidt                                                             
 
@@ -1625,7 +1625,7 @@ c        if(iconv.eq.1) call dbg_write(x,nx1,ny1,nz1,nelv,'esol',3)
  9000  continue
 
       divex = rnorm
-      call copy_acc(res,x,n)
+      call copy (res,x,n)
 
       call ortho_acc   (res) ! Orthogonalize wrt null space, if present                        
 

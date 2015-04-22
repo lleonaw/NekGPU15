@@ -334,7 +334,7 @@ c      parameter(lgmres=50)
 !$ACC UPDATE DEVICE(mg_imask,mg_fast_s,mg_fast_d)
 !$ACC UPDATE DEVICE(mg_schwarz_wt,mg_rstr_wt,mg_jh,mg_jht)
 
-      call rzero_acc(approx(:,0),lx1*ly1*lz1*nelt)
+      call rzero_acc (approx(:,0),lx1*ly1*lz1*nelt)
 
 #endif
 

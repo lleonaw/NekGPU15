@@ -1691,7 +1691,7 @@ c     if (.not.iffdm) kfldfdm=-1
 C
 !$ACC DATA PRESENT(u,rhs,h1,h2,mask,mult)
       call dssum_acc   (rhs,nx1,ny1,nz1)
-      call col2_acc    (rhs,mask,ntot)
+      call col2    (rhs,mask,ntot)
       if (nio.eq.0.and.istep.le.10) 
      $    write(6,*) param(22),' p22 ',istep,imsh
       if (param(22).eq.0.or.istep.le.10)
@@ -1752,7 +1752,7 @@ c
 
       if (ifsplit.and.name.eq.'PRES'.and.param(42).eq.0) then
          n = nx1*ny1*nz1*nelv
-         call copy_acc      (x,f,n)
+         call copy      (x,f,n)
          call hmh_gmres_acc (x,h1,h2,mult,iter)
          niterhm = iter
 c         return
@@ -1794,9 +1794,9 @@ C
          call set_fdm_prec_h1b_acc(d,h1,h2,nel)
       endif
 c
-      call copy_acc (r,f,n)
-      call rzero_acc(x,n)
-      call rzero_acc(p,n)
+      call copy (r,f,n)
+      call rzero_acc (x,n)
+      call rzero_acc (p,n)
 c
 c     Check for non-trivial null-space
 c
@@ -1811,7 +1811,7 @@ c        call ortho (r)           ! Commented out March 15, 2011,pff
 
          smean = -1./glsum_acc(bm1,n) ! Modified 5/4/12 pff
          rmean = smean*glsc2_acc(r,mult,n)
-         call copy_acc(x,bm1,n)
+         call copy (x,bm1,n)
          call dssum_acc(x,nx1,ny1,nz1)
          call add2s2_acc(r,x,rmean,n)
          call rzero_acc(x,n)
@@ -1887,7 +1887,7 @@ c
          call add2s1_acc (p,z,beta,n)
          call axhelm_acc (w,p,h1,h2,imsh,isd)
          call dssum_acc  (w,nx1,ny1,nz1)
-         call col2_acc   (w,mask,n)
+         call col2   (w,mask,n)
 c
          rho0 = rho
          rho  = glsc3_acc(w,p,mult,n)
@@ -2078,7 +2078,7 @@ c        ENDIF
 
 
 C                                                                                              
-      CALL COL2_ACC    (DPCM1,HELM1,NTOT)
+      CALL COL2    (DPCM1,HELM1,NTOT)
       CALL ADDCOL3_ACC (DPCM1,HELM2,BM1,NTOT)
 
       CALL DSSUM_ACC (DPCM1,NX1,NY1,NZ1)
@@ -2127,7 +2127,7 @@ c
       if (ifbhalf) then
          call col3_acc(rr,r,bhalf,ntot)
       else
-         call copy_acc(rr,r,ntot)
+         call copy (rr,r,ntot)
 c        call col2(rr,mult,ntot)                                                               
       endif
 c      if (nid.eq.0.and.icalld.eq.0) write(6,*) 'In fdm_h1',nel                                
@@ -2197,7 +2197,7 @@ c
 c            call col2(w,d(1,1,1,ie),n3)                                                       
 c                                                                                              
 c                                                                                              
-         call col2_acc(w,d,ntot)
+         call col2 (w,d,ntot)
 
 c           Transfer to physical space:                                                        
 
@@ -2286,12 +2286,12 @@ c     write(6,*) 'quit in fdm'
 c     call exitt                                                                               
 c                            
 
-      if (ifbhalf) call col2_acc(z,bhalf,ntot)
+      if (ifbhalf) call col2 (z,bhalf,ntot)
 c                                                                                              
 c     call col2 (z,mult,ntot)
       call dssum_acc(z,nx1,ny1,nz1)
 
-      call col2_acc  (z,mask,ntot)
+      call col2  (z,mask,ntot)
 
 !$ACC END DATA                                                                                 
 

@@ -57,7 +57,7 @@ C
       RETURN
       END
 c-----------------------------------------------------------------------
-      subroutine invers2(a,b,n)
+      subroutine xinvers2(a,b,n)
       REAL A(1),B(1)
 C
       include 'OPCTR'
@@ -388,12 +388,12 @@ c-----------------------------------------------------------------------
       return
       END
 c-----------------------------------------------------------------------
-      subroutine rone(a,n)
-      DIMENSION  A(1)
-      DO 100 I = 1, N
- 100     A(I ) = 1.0
-      return
-      END
+c      subroutine xrone(a,n)
+c      DIMENSION  A(1)
+c      DO 100 I = 1, N
+c 100     A(I ) = 1.0
+c      return
+c      END
 c-----------------------------------------------------------------------
       subroutine cfill(a,b,n)
       DIMENSION  A(1)
@@ -410,16 +410,6 @@ C
  100     IA(I) = IB
       return
       END
-c-----------------------------------------------------------------------
-      subroutine copy(a,b,n)
-      real a(1),b(1)
-
-      do i=1,n
-         a(i)=b(i)
-      enddo
-
-      return
-      end
 c-----------------------------------------------------------------------
       subroutine copyi4(a,b,n)
       integer a(1)
@@ -442,14 +432,6 @@ C
 C
       subroutine icopy(a,b,n)
       INTEGER A(1), B(1)
-C
-      DO 100 I = 1, N
- 100     A(I) = B(I)
-      return
-      END
-c-----------------------------------------------------------------------
-      subroutine i8copy(a,b,n)
-      INTEGER*8 A(1), B(1)
 C
       DO 100 I = 1, N
  100     A(I) = B(I)
@@ -767,31 +749,6 @@ C***
       return
       END
 c-----------------------------------------------------------------------
-      subroutine col2(a,b,n)
-      real a(1),b(1)
-      include 'OPCTR'
-
-#ifndef NOTIMER
-      if (isclld.eq.0) then
-          isclld=1
-          nrout=nrout+1
-          myrout=nrout
-          rname(myrout) = 'col2  '
-      endif
-      isbcnt = N
-      dct(myrout) = dct(myrout) + (isbcnt)
-      ncall(myrout) = ncall(myrout) + 1
-      dcount      =      dcount + (isbcnt)
-#endif
-
-!xbm* unroll (10)
-      do i=1,n
-         a(i)=a(i)*b(i)
-      enddo
-
-      return
-      end
-c-----------------------------------------------------------------------
       subroutine col2c(a,b,c,n)
       real a(1),b(1),c
 
@@ -826,7 +783,7 @@ c-----------------------------------------------------------------------
       return
       end
 c-----------------------------------------------------------------------
-      subroutine add2(a,b,n)
+      subroutine xadd2(a,b,n)
       real a(1),b(1)
       include 'OPCTR'
 
@@ -1121,23 +1078,6 @@ C
       GLSC2 = TMP
       return
       END
-c-----------------------------------------------------------------------
-      function glsc23(x,y,z,n)
-c
-C     Perform inner-product  x*x*y*z
-c
-      real x(1), y(1),z(1)
-      real tmp,work(1)
-
-      ds = 0.0
-      do 10 i=1,n
-         ds=ds+x(i)*x(i)*y(i)*z(i)
-   10 continue
-      tmp=ds
-      call gop(tmp,work,'+  ',1)
-      glsc23 = tmp
-      return
-      end
 c-----------------------------------------------------------------------
       real function gl2norm(a,n)
 
@@ -1879,23 +1819,28 @@ c
 c
       return
       end
-c-----------------------------------------------------------------------
-
 
 C=================== OpenACC ==============================
 #ifdef _OPENACC
-      subroutine i8copy_acc(a,b,n)
-      INTEGER*8 A(n), B(n)
-C
-!$ACC DATA PRESENT(a(1:n),b(1:n))
-!$ACC PARALLEL LOOP
+c-----------------------------------------------------------------------
+      subroutine i8copy(a,b,n)
+      use openacc
+      integer*8 a(n), b(n)
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
+
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP  if (is_present)
       DO 100 I = 1, N
- 100          A(I) = B(I)
+ 100          a(I) = b(I)
 !$ACC END PARALLEL LOOP
 !$ACC END DATA
 
       return
-      END
+      end
 
 c-----------------------------------------------------------------------
       subroutine rzero_acc(a,n)
@@ -1911,28 +1856,71 @@ c-----------------------------------------------------------------------
       return
       END
 
+c-----------------------------------------------------------------------
+c      subroutine rzero(a,n)
+c      use openacc
+c       real A(n)
+c      DIMENSION A(n)
+
+c      logical is_present
+c      is_present = (acc_is_present(a,n))
+
+c!$ACC DATA PRESENT(a(1:n)) (is_present) 
+c!$ACC PARALLEL LOOP   if (is_present)
+c      DO 100 I = 1, N
+c 100     A(I ) = 0.0
+c!$ACC END PARALLEL LOOP
+c!$ACC END DATA
+
+c      return
+c      end
+
 
 c-----------------------------------------------------------------------
-      subroutine rone_acc(a,n)
-      DIMENSION  A(n)
+c      subroutine rone_acc(a,n)
+c      DIMENSION  A(n)
 
-!$ACC DATA PRESENT(a(1:n))
-!$ACC PARALLEL LOOP 
+c!$ACC DATA PRESENT(a(1:n))
+c!$ACC PARALLEL LOOP 
+c      DO 100 I = 1, N
+c 100     A(I ) = 1.0
+c!$ACC END PARALLEL LOOP
+c!$ACC END DATA
+
+c      return
+c      END
+
+
+c-----------------------------------------------------------------------
+      subroutine rone(a,n)
+      use openacc
+      real a(n)
+
+      logical is_present
+      is_present = (acc_is_present(a,1))
+
+!$ACC DATA PRESENT(a(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
       DO 100 I = 1, N
- 100     A(I ) = 1.0
+ 100     a(I ) = 1.0
 !$ACC END PARALLEL LOOP
 !$ACC END DATA
 
       return
-      END
+      end
 
 
 c-----------------------------------------------------------------------
-      subroutine copy_acc(a,b,n)
+      subroutine copy (a,b,n)
+      use openacc
       real a(n),b(n)
 
-!$ACC DATA PRESENT(a(1:n),b(1:n))
-!$ACC PARALLEL LOOP 
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )  
+
+!$ACC DATA PRESENT(a(1:n),b(1:n)) if (is_present)
+!$ACC PARALLEL LOOP if (is_present) 
       do i=1,n
          a(i)=b(i)
       enddo
@@ -1944,11 +1932,47 @@ c-----------------------------------------------------------------------
 
 
 c-----------------------------------------------------------------------
-      subroutine invers2_acc(a,b,n)
-      REAL A(n),B(n)
+c      subroutine invers2_acc(a,b,n)
+c      REAL A(n),B(n)
 C
+c      include 'OPCTR'
+C
+c#ifndef NOTIMER
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'inver2'
+c      endif
+c      isbcnt = n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
+C
+
+c!$ACC DATA PRESENT(a(1:n),b(1:n))
+c!$ACC PARALLEL LOOP 
+c      DO 100 I=1,N
+c         A(I)=1./B(I)
+c 100  CONTINUE
+c!$ACC END PARALLEL LOOP
+c!$ACC END DATA
+
+c      return
+c      END
+
+
+c-----------------------------------------------------------------------
+      subroutine invers2(a,b,n)
+      use openacc
+      real a(n),b(n)
+
       include 'OPCTR'
-C
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
 #ifndef NOTIMER
       if (isclld.eq.0) then
           isclld=1
@@ -1961,18 +1985,19 @@ C
       ncall(myrout) = ncall(myrout) + 1
       dcount      =      dcount + (isbcnt)
 #endif
-C
 
-!$ACC DATA PRESENT(a(1:n),b(1:n))
-!$ACC PARALLEL LOOP 
+
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
       DO 100 I=1,N
-         A(I)=1./B(I)
+         a(I)=1./b(I)
  100  CONTINUE
 !$ACC END PARALLEL LOOP
 !$ACC END DATA
 
       return
-      END
+      end
+
 
 c-----------------------------------------------------------------------
       subroutine add2_acc(a,b,n)
@@ -2005,9 +2030,51 @@ c-----------------------------------------------------------------------
       end
 
 c-----------------------------------------------------------------------
-      subroutine col2_acc(a,b,n)
+      subroutine add2(a,b,n)
+      use openacc
       real a(n),b(n)
       include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'ADD2  '
+      endif
+      isbcnt = N
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+
+!xbm* unroll (10)
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
+      do i=1,n
+         a(i)=a(i)+b(i)
+      enddo
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+
+      return
+      end
+
+
+c-----------------------------------------------------------------------
+
+      subroutine col2(a,b,n)
+      use openacc
+      real a(n),b(n)
+      include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) ) 
 
 #ifndef NOTIMER
       if (isclld.eq.0) then
@@ -2023,8 +2090,8 @@ c-----------------------------------------------------------------------
 #endif
 
 !xbm* unroll (10)
-!$ACC DATA PRESENT(a(1:n),b(1:n))
-!$ACC PARALLEL LOOP 
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
        do i=1,n
          a(i)=a(i)*b(i)
       enddo
@@ -2034,6 +2101,7 @@ c-----------------------------------------------------------------------
       end
 
 c-----------------------------------------------------------------------
+
       subroutine invcol2_acc(a,b,n)
 C
       REAL A(n),B(n)
@@ -2135,21 +2203,6 @@ C
 
       return
       END
-
-c-----------------------------------------------------------------------
-      subroutine add2col2_acc(a,b,c,n)
-      real a(n),b(n),c(n)
-c
-!$ACC DATA PRESENT(a(1:n),b(1:n),c(1:n)) 
-!$ACC PARALLEL LOOP 
-      do i=1,n
-         a(i) = a(i) + b(i)*c(i)
-      enddo
-!$ACC END PARALLEL LOOP 
-!$ACC END DATA
-
-      return
-      end
 
 c-----------------------------------------------------------------------
       subroutine cadd_acc(a,const,n)
@@ -2670,7 +2723,7 @@ C
       END
 
 c-----------------------------------------------------------------------
-      function glsc23_acc(x,y,z,n)
+      function glsc23(x,y,z,n)
       use openacc    
 c
 C     Perform inner-product  x*x*y*z
@@ -2695,7 +2748,8 @@ c
 
       tmp=ds
       call gop(tmp,work,'+  ',1)
-      glsc23_acc = tmp
+      glsc23 = tmp
+
       return
       end
 

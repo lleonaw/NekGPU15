@@ -5731,7 +5731,7 @@ C---------------------------------------------------------------------
 !$ACC&     PRESENT(rxm2,sxm2,txm2,rym2,sym2,tym2,rzm2,szm2,tzm2)
 !$ACC&     PRESENT(dxm12,dym12,dzm12,bm1,jacm1)
          call multd_acc (work,inpx,rxm2,sxm2,txm2,1,iflg)
-         call copy_acc  (outfld,work,ntot2)
+         call copy  (outfld,work,ntot2)
          call multd_acc (work,inpy,rym2,sym2,tym2,2,iflg)
          call add2_acc  (outfld,work,ntot2)
          call multd_acc (work,inpz,rzm2,szm2,tzm2,3,iflg)
@@ -5889,7 +5889,7 @@ C
 !$ACC END PARALLEL LOOP
       ENDIF
 
-      CALL COL2_ACC (DU,JACMI,NTOT)
+      CALL COL2 (DU,JACMI,NTOT)
 
 !$ACC END DATA
 
@@ -6032,7 +6032,7 @@ C
 
 !$ACC DATA PRESENT(WORK1,RESPR,BM1)
       CALL INVCOL3_ACC (WORK1,RESPR,BM1,NTOT1)
-      CALL COL2_ACC    (WORK1,RESPR,NTOT1)
+      CALL COL2    (WORK1,RESPR,NTOT1)
       RINIT  = SQRT    (GLSUM_ACC (WORK1,NTOT1)/VOLVM1)
 !$ACC END DATA
 
@@ -6061,9 +6061,9 @@ c-----------------------------------------------------------------------
       NTOT1=NX1*NY1*NZ1*NELV
 
 !$ACC DATA PRESENT(A(1:NTOT1),B(1:NTOT1),C(1:NTOT1))
-      CALL RZERO_ACC(A,NTOT1)
-      CALL RZERO_ACC(B,NTOT1)
-      IF(NDIM.EQ.3) CALL RZERO_ACC(C,NTOT1)
+      CALL RZERO_ACC (A,NTOT1)
+      CALL RZERO_ACC (B,NTOT1)
+      IF(NDIM.EQ.3) CALL RZERO_ACC (C,NTOT1)
 !$ACC END DATA
 
       return
@@ -6141,20 +6141,20 @@ C
 !$ACC&      COPYIN(VTRANS)
       CALL ADD3S2_ACC (TA1,ABX1,ABX2,AB1,AB2,NTOT1)
       CALL ADD3S2_ACC (TA2,ABY1,ABY2,AB1,AB2,NTOT1)
-      CALL COPY_ACC   (ABX2,ABX1,NTOT1)
-      CALL COPY_ACC   (ABY2,ABY1,NTOT1)
-      CALL COPY_ACC   (ABX1,BFX,NTOT1)
-      CALL COPY_ACC   (ABY1,BFY,NTOT1)
+      CALL COPY   (ABX2,ABX1,NTOT1)
+      CALL COPY   (ABY2,ABY1,NTOT1)
+      CALL COPY   (ABX1,BFX,NTOT1)
+      CALL COPY   (ABY1,BFY,NTOT1)
       CALL ADD2S1_ACC (BFX,TA1,AB0,NTOT1)
       CALL ADD2S1_ACC (BFY,TA2,AB0,NTOT1)
-      CALL COL2_ACC   (BFX,VTRANS,NTOT1)          ! multiply by density
-      CALL COL2_ACC   (BFY,VTRANS,NTOT1)
+      CALL COL2   (BFX,VTRANS,NTOT1)          ! multiply by density
+      CALL COL2   (BFY,VTRANS,NTOT1)
       IF (NDIM.EQ.3) THEN
          CALL ADD3S2_ACC (TA3,ABZ1,ABZ2,AB1,AB2,NTOT1)
-         CALL COPY_ACC   (ABZ2,ABZ1,NTOT1)
-         CALL COPY_ACC   (ABZ1,BFZ,NTOT1)
+         CALL COPY   (ABZ2,ABZ1,NTOT1)
+         CALL COPY   (ABZ1,BFZ,NTOT1)
          CALL ADD2S1_ACC (BFZ,TA3,AB0,NTOT1)
-         CALL COL2_ACC   (BFZ,VTRANS,NTOT1)
+         CALL COL2   (BFZ,VTRANS,NTOT1)
       ENDIF
 !$ACC END DATA
 C

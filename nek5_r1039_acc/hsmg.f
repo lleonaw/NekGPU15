@@ -3511,7 +3511,7 @@ c      common /hsmgw/ work(0:lwk-1),work2(0:lwk-1)
          enddo
       enddo
 
-      call copy_acc(v,v2,nv3*lelv)
+      call copy (v,v2,nv3*lelv)
 
 !$ACC END DATA                                                                                 
 
@@ -3801,7 +3801,7 @@ c----------------------------------------------------------------------
 
 !$ACC DATA PRESENT(a,b)                                                                        
 
-      call rzero_acc(a,(n+2)*(n+2)*(n+2)*nelv)
+      call rzero_acc (a,(n+2)*(n+2)*(n+2)*nelv)
 
 !$ACC PARALLEL LOOP COLLAPSE(4) GANG WORKER VECTOR                                              
       do ie=1,nelv
@@ -4019,7 +4019,7 @@ c     if_hybrid = .false.   ! to convergence efficiency
 
       call h1mg_schwarz_acc(z,rhs,sigma,l)            ! z := sigma W M       rhs               
                                                       !               Schwarz                  
-      call copy_acc(r,rhs,n)                          ! r  := rhs                              
+      call copy (r,rhs,n)                          ! r  := rhs                              
 
       if (if_hybrid) call h1mg_axm(r,z,op,om,l,w)     ! r  := rhs - A z                        
                                                       !  l                                     

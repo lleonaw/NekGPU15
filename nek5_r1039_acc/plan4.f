@@ -532,7 +532,7 @@ C     first, compute pressure
 !$ACC&      CREATE(respr)
 
       call crespsp_acc  (respr)
-      call invers2_acc  (h1,vtrans,ntot1)
+      call invers2  (h1,vtrans,ntot1)  ! modified 4-22-15
       call rzero_acc    (h2,ntot1)
       call ctolspl_acc  (tolspl,respr)
       napprox(1) = laxt
@@ -567,12 +567,12 @@ c Below is just for diagnostics...
 c     Calculate Divergence norms of new VX,VY,VZ
       CALL OPDIV_ACC   (DVC,VX,VY,VZ)
       CALL DSSUM_ACC   (DVC,NX1,NY1,NZ1)
-      CALL COL2_ACC    (DVC,BINVM1,NTOT1)
+      CALL COL2        (DVC,BINVM1,NTOT1)
       CALL COL3_ACC    (DV1,DVC,BM1,NTOT1)
       DIV1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
 
       CALL COL3_ACC    (DV2,DVC,DVC,NTOT1)
-      CALL COL2_ACC    (DV2,BM1   ,NTOT1)
+      CALL COL2        (DV2,BM1   ,NTOT1)
       DIV2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
       DIV2 = SQRT      (DIV2)
 c     Calculate Divergence difference norms
@@ -581,7 +581,7 @@ c     Calculate Divergence difference norms
       DIF1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
   
       CALL COL3_ACC    (DV2,DFC,DFC,NTOT1)
-      CALL COL2_ACC    (DV2,BM1   ,NTOT1)
+      CALL COL2        (DV2,BM1   ,NTOT1)
       DIF2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
       DIF2 = SQRT      (DIF2)
 
@@ -589,7 +589,7 @@ c     Calculate Divergence difference norms
       QTL1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
   
       CALL COL3_ACC    (DV2,QTL,QTL,NTOT1)
-      CALL COL2_ACC    (DV2,BM1   ,NTOT1)
+      CALL COL2        (DV2,BM1   ,NTOT1)
       QTL2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
       QTL2 = SQRT      (QTL2)
 
@@ -770,8 +770,8 @@ c      CALL SETHLM  (H1,H2,INTYPE)
       call add2s1_acc  (ta4,pr,scale,ntot)    
       call opgrad_acc  (ta1,ta2,ta3,TA4)
       if(IFAXIS) then
-         CALL COL2_ACC (TA2, OMASK,NTOT)
-         CALL COL2_ACC (TA3, OMASK,NTOT)
+         CALL COL2     (TA2, OMASK,NTOT)
+         CALL COL2     (TA3, OMASK,NTOT)
       endif
 c
       call opsub2_acc  (resv1,resv2,resv3,ta1,ta2,ta3)
@@ -818,20 +818,20 @@ c     -mu*curl(curl(v))
       call op_curl_acc (ta1,ta2,ta3,vext(1,1),vext(1,2),vext(1,3),
      &                 .true.,w1,w2)
       if(IFAXIS) then  
-         CALL COL2_ACC (TA2, OMASK,NTOT1)
-         CALL COL2_ACC (TA3, OMASK,NTOT1)
+         CALL COL2     (TA2, OMASK,NTOT1)
+         CALL COL2     (TA3, OMASK,NTOT1)
       endif
       call op_curl_acc  (wa1,wa2,wa3,ta1,ta2,ta3,.true.,w1,w2)
       if(IFAXIS) then  
-         CALL COL2_ACC  (WA2, OMASK,NTOT1)
-         CALL COL2_ACC  (WA3, OMASK,NTOT1)
+         CALL COL2  (WA2, OMASK,NTOT1)
+         CALL COL2  (WA3, OMASK,NTOT1)
       endif
       call opcolv_acc   (wa1,wa2,wa3,bm1)
 c
       call opgrad_acc   (ta1,ta2,ta3,QTL)
       if(IFAXIS) then  
-         CALL COL2_ACC  (ta2, OMASK,ntot1)
-         CALL COL2_ACC  (ta3, OMASK,ntot1)
+         CALL COL2  (ta2, OMASK,ntot1)
+         CALL COL2  (ta3, OMASK,ntot1)
       endif
       scale = -4./3. 
       call opadd2cm_acc (wa1,wa2,wa3,ta1,ta2,ta3,scale)
@@ -839,7 +839,7 @@ c
       call opcolv_acc   (wa1,wa2,wa3,w1)
 
 c     add old pressure term because we solve for delta p 
-      CALL INVERS2_ACC (TA1,VTRANS,NTOT1)
+      CALL INVERS2 (TA1,VTRANS,NTOT1) ! modified 4-22-15
       CALL RZERO_ACC   (TA2,NTOT1)
       CALL AXHELM_ACC  (RESPR,PR,TA1,TA2,IMESH,1)
       CALL CHSIGN_ACC  (RESPR,NTOT1)

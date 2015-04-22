@@ -1367,7 +1367,7 @@ c
 
 !$ACC  DATA PRESENT(r,h1,h2,bi,vml,vmk,approx,wl,ws)                                           
 
-      alpha1 = glsc23_acc(r,bi,vml,ntot)
+      alpha1 = glsc23(r,bi,vml,ntot)
       if (alpha1.gt.0) alpha1 = sqrt(alpha1/vol)
 c                                                                                              
 c     Update approximation space if dt has changed                                             
@@ -1391,13 +1391,13 @@ c
       enddo
 c                                                                                              
       call axhelm_acc  (wl,approx(1,0),h1,h2,1,1)
-      call col2_acc    (wl,vmk,ntot)
+      call col2    (wl,vmk,ntot)
       call dssum_acc   (wl,nx1,ny1,nz1)
       call sub2_acc    (r,wl,ntot)
 
 c ................................................................                             
 c   Diag.                                                                                      
-      alpha2 = glsc23_acc(r,bi,vml,ntot)
+      alpha2 = glsc23(r,bi,vml,ntot)
       if (alpha2.gt.0) alpha2 = sqrt(alpha2/vol)
       ratio  = alpha1/alpha2
       n10=min(10,n_sav)
@@ -1451,7 +1451,7 @@ c
 c                                                                                              
          if (niterhm.gt.0) then      ! new vector not in space                                 
             n_sav = n_sav+1
-            call copy_acc(approx(1,n_sav),v1,ntot)
+            call copy (approx(1,n_sav),v1,ntot)
             call add2_acc(v1,approx(1,0),ntot)
 
 c           orthogonalize rhs against previous rhs and normalize                               
@@ -1466,7 +1466,7 @@ c           if (ierr.ne.0) n_sav = n_sav-1
       else
          n_sav = 1
          call add2_acc(v1,approx(1,0),ntot)
-         call copy_acc(approx(1,n_sav),v1,ntot)
+         call copy (approx(1,n_sav),v1,ntot)
 c        normalize                                                                             
          call hconj_acc(approx,n_sav,h1,h2,vml,vmk,ws,name4,ierr)
          if (ierr.ne.0) n_sav = 0
@@ -1500,9 +1500,9 @@ c
 
 !!$ACC DATA PRESENT(approx,h1,h2,vml,vmk,ws)                                                   
       call axhelm_acc  (approx(1,0),approx(1,k),h1,h2,1,1)
-      call col2_acc    (approx(1,0),vmk,ntot)
+      call col2    (approx(1,0),vmk,ntot)
       call dssum_acc  (approx(1,0),nx1,ny1,nz1)
-      call col2_acc    (approx(1,0),vml        ,ntot)
+      call col2    (approx(1,0),vml        ,ntot)
 c                                                                                              
 c     Compute part of the norm   (Note:  a(0) already scaled by vml)                           
 c                                                                                              
@@ -1544,9 +1544,9 @@ c
 c                                                                                              
       if (ierr.ne.0) then
          call axhelm_acc  (approx(1,0),approx(1,k),h1,h2,1,1)
-         call col2_acc    (approx(1,0),vmk,ntot)
+         call col2    (approx(1,0),vmk,ntot)
          call dssum_acc  (approx(1,0),nx1,ny1,nz1)
-         call col2_acc    (approx(1,0),vml        ,ntot)
+         call col2    (approx(1,0),vml        ,ntot)
 c                                                                                              
 c        Compute part of the norm   (Note:  a(0) already scaled by vml)                        
 c                                                                                              
@@ -1624,7 +1624,7 @@ c
 c           Orthogonalize kth vector against {v_1,...,v_k-1}                                   
             if (k.ne.l) then
                ntot = nx1*ny1*nz1*nelfld(ifield)
-               call copy_acc(approx(1,l),approx(1,k),ntot)
+               call copy (approx(1,l),approx(1,k),ntot)
             endif
             call hconj_acc(approx,l,h1,h2,vml,vmk,ws,name4,ierr)
             if (ierr.eq.0) l=l+1
@@ -1732,7 +1732,7 @@ c
 
 !$ACC  DATA PRESENT(u,r,h1,h2,vml,vmk,approx,w1,w2)                                            
         call dssum_acc  (r,nx1,ny1,nz1)
-        call col2_acc   (r,vmk,n)
+        call col2   (r,vmk,n)
         call projh_acc (r,h1,h2,bi,vml,vmk,approx,napprox,w1,w2,name)
         call hmhzpf_acc (name,u,r,h1,h2,vmk,vml,imsh,tol,maxit,isd,bi)
         call gensh_acc  (u,h1,h2,vml,vmk,approx,napprox,w1,w2,name)

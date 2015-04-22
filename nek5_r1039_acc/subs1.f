@@ -2839,7 +2839,7 @@ c iftran = T, intloc = -1, param(107)
 !$ACC DATA PRESENT(h1,h2,vtrans,vdiff)                                                         
       if (iftran) then
          dtbd = bd(1)/dt
-         call copy_acc  (h1,vdiff (1,1,1,1,ifield),ntot1)
+         call copy  (h1,vdiff (1,1,1,1,ifield),ntot1)
          if (intloc.eq.0) then
             call rzero_acc (h2,ntot1)
          else

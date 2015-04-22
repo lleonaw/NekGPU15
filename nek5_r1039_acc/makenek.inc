@@ -204,7 +204,7 @@ case $F77comp in
                PPPO="-WF,"
                F77="${F77} -qsuppress=cmpmsg"
                ;;
-  *ftn*)       P="-r8 -Mpreprocess -acc -Minfo=accel"
+  *ftn*)       P="-r8 -Mpreprocess -acc" # -Minfo=accel"
 # *ftn*)       P="-rm -s real64 -eZ -em"
 # *ftn*)       P="-ra -s real64 -eZ -em -Rc"
 # *ftn*)       P="-hacc -ra -s real64 -eZ -em -Rc"

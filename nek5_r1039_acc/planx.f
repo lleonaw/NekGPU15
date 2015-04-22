@@ -593,7 +593,7 @@ c
       ntot1 = nx1*ny1*nz1*nelv
       if (imsh.eq.2) ntot1 = nx1*ny1*nz1*nelt
 
-      call col2_acc   (rhs,mask,ntot1)
+      call col2   (rhs,mask,ntot1)
       call dssum_acc  (rhs,nx1,ny1,nz1)
          
       call projh2 (rhs,h1,h2,mult,mask,isd,imsh)

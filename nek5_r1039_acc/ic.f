@@ -2855,12 +2855,12 @@ c
          ifield = 1
          ntot = nx1*ny1*nz1*nelv
          call dssum_acc(u,nx1,ny1,nz1)
-         call col2_acc (u,vmult,ntot)
+         call col2 (u,vmult,ntot)
       else
          ifield = 2
          ntot = nx1*ny1*nz1*nelt
          call dssum_acc(u,nx1,ny1,nz1)
-         call col2_acc (u,tmult,ntot)
+         call col2 (u,tmult,ntot)
       endif
       ifield = ifieldo
 c                                                                                              
