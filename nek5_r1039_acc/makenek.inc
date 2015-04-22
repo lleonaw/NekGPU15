@@ -202,9 +202,9 @@ case $F77comp in
                ;;
   *xlf*)       P="-qrealsize=8 -qdpc=e -qsuffix=cpp=f"
                PPPO="-WF,"
-               F77="${F77} -qsuppress=cmpmsg"
+               F77="${F77} -pg -qsuppress=cmpmsg"
                ;;
-  *ftn*)       P="-r8 -Mpreprocess -acc -Minfo=accel"
+  *ftn*)       P="-r8 -Mpreprocess"
 # *ftn*)       P="-rm -s real64 -eZ -em"
 # *ftn*)       P="-ra -s real64 -eZ -em -Rc"
 # *ftn*)       P="-hacc -ra -s real64 -eZ -em -Rc"
