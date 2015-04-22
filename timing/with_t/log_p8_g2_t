@@ -1,0 +1,2206 @@
+/----------------------------------------------------------\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \ / __ \ / __ \ |
+|    /  |/ // __/  / ,<   /___ \  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \____/ \____/ \____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1036                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\----------------------------------------------------------/
+                                                              
+
+ Number of processors:            2
+ REAL    wdsize      :            8
+ INTEGER wdsize      :            4
+
+
+  Beginning session:
+  /lustre/atlas/scratch/csep04/trn001/pipe_1/stenosis.rea                       
+
+ 
+ timer accuracy:   2.8610229E-07 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:         400         400         410
+ lx1  /lx2  /lx3 :           8           8           8
+
+ mapping elements to processors
+            0          200          200          400          400  NELV
+ RANK     0 IEG     201     202     203     204     205     206     207     208
+                    209     210     211     212     213     214     215     216
+                    217     218     219     220     221     222     223     224
+                    225     226     227     228     229     230     231     232
+                    233     234     235     236     237     238     239     240
+                    241     242     243     244     245     246     247     248
+                    249     250     251     252     253     254     255     256
+                    257     258     259     260     261     262     263     264
+                    265     266     267     268     269     270     271     272
+            1          200          200          400          400  NELV
+                    273     274     275     276     277     278     279     280
+                    281     282     283     284     285     286     287     288
+                    289     290     291     292     293     294     295     296
+                    297     298     299     300     301     302     303     304
+                    305     306     307     308     309     310     311     312
+                    313     314     315     316     317     318     319     320
+                    321     322     323     324     325     326     327     328
+                    329     330     331     332     333     334     335     336
+                    337     338     339     340     341     342     343     344
+                    345     346     347     348     349     350     351     352
+                    353     354     355     356     357     358     359     360
+                    361     362     363     364     365     366     367     368
+                    369     370     371     372     373     374     375     376
+                    377     378     379     380     381     382     383     384
+                    385     386     387     388     389     390     391     392
+                    393     394     395     396     397     398     399     400
+ element load imbalance:             0          200          200
+ done :: mapping elements to processors
+  
+            0  objects found
+ done :: read .rea file   0.74605E-01 sec
+
+ setup mesh topology
+   Right-handed check complete for     400 elements. OK.
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.55651e-06 6.50883e-06 6.60419e-06
+   crystal router                : 6.4373e-06 6.38962e-06 6.48499e-06
+   all reduce                    : 1.49012e-05 1.48058e-05 1.49965e-05
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 703484 703484 703484
+   buffer bytes (avg, min, max): 32288 32288 32288
+   setupds time 3.8800E-02 seconds   0  8       55869         400
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.55651e-06 6.50883e-06 6.60419e-06
+   crystal router                : 6.44922e-06 6.41346e-06 6.48499e-06
+   all reduce                    : 1.44482e-05 1.44005e-05 1.44958e-05
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 703484 703484 703484
+   buffer bytes (avg, min, max): 32288 32288 32288
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.54459e-06 6.48499e-06 6.60419e-06
+   crystal router                : 6.29425e-06 6.29425e-06 6.29425e-06
+   all reduce                    : 1.44482e-05 1.44005e-05 1.44958e-05
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 73028 73028 73028
+   buffer bytes (avg, min, max): 32288 32288 32288
+                    24791        55552        24791                     1009
+                    24791        55552        24791                     1009
+            8  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:    31.41593180650111         31.41593180650111     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data            1
+ vol_t,vol_v:    9.571995966681737         9.571995966681737     
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data            1
+  
+ verify mesh topology
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
+ done :: verify mesh topology
+  
+ 103   Parameters from file:/lustre/atlas/scratch/csep04/trn001/pipe_1/stenosis.rea
+   1      1.00000         p1  DENSITY
+   2     -100.000         p2  VISCOS
+   7      1.00000         p7  RHOCP
+   8      1.00000         p8  CONDUCT
+  11      10.             p11 NSTEPS
+  12     -0.2000E-03      p12 DT
+  15      1000.             p15 IOSTEP
+  18     -20.00000        p18 GRID
+  19     -1.00000         p19 INTYPE
+  20      10.0000         p20 NORDER
+  21      0.100000E-05    p21 DIVERGENCE
+  22      0.100000E-06    p22 HELMHOLTZ
+  24      0.100000E-01    p24 TOLREL
+  25      0.100000E-01    p25 TOLABS
+  26      1.00000         p26 COURANT/NTAU
+  27      2.00000         p27 TORDER
+  28      0.              p28 TORDER: mesh velocity (0: p28=p27)
+  34      1.
+  59      0.              p59 !=0 --> full Jac. eval. for each el.
+  65      1.00000         p65 #iofiles (eg, 0 or 64); <0 --> sep. dirs
+  93      20.0000           p93 Number of previous pressure solns saved
+  95      5.00000          p95 start projecting pressure after p95 step
+  99      0.               p99   dealiasing: <0--> off/3--> old/4--> new
+ 102      1.00000          p102   Dump out divergence at each time step
+ 103     -1.00000          p103   weight of stabilizing filter (.01)
+  
+ IFTRAN   =  T
+ IFFLOW   =  T
+ IFHEAT   =  F
+ IFSPLIT  =  T
+ IFLOMACH =  F
+ IFUSERVP =  F
+ IFUSERMV =  F
+ IFSTRS   =  F
+ IFCHAR   =  T
+ IFCYCLIC =  F
+ IFAXIS   =  F
+ IFMVBD   =  F
+ IFMELT   =  F
+ IFMODEL  =  F
+ IFKEPS   =  F
+ IFMOAB   =  F
+ IFNEKNEK =  F
+ IFSYNC   =  T
+   
+ IFVCOR   =  F
+ IFINTQ   =  F
+ IFCWUZ   =  F
+ IFSWALL  =  F
+ IFGEOM   =  F
+ IFSURT   =  F
+ IFWCNO   =  F
+   
+ IFTMSH for field            1    =   F
+ IFADVC for field            1    =   T
+ IFNONL for field            1    =   F
+   
+ Dealiasing enabled, lxd=           12
+  
+ Estimated eigenvalues
+ EIGAA =     6.599202942740221     
+ EIGGA =     1076720.330364404     
+ EIGAE =    5.8400026041948862E-002
+ EIGAS =    7.3746312684365792E-004
+ EIGGE =     1076720.330364404     
+ EIGGS =     2.000000000000000     
+  
+ verify mesh topology
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:            1            3            7
+ mg_ny:            1            3            7
+ mg_nz:            1            3            7
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 25 unique labels shared
+   pairwise times (avg, min, max): 3.00407e-06 3.00407e-06 3.00407e-06
+   crystal router                : 2.89679e-06 2.88486e-06 2.90871e-06
+   all reduce                    : 5.00679e-06 5.00679e-06 5.00679e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 17180 17180 17180
+   buffer bytes (avg, min, max): 800 800 800
+   setupds time 9.2793E-04 seconds   3  2         525         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.54052e-06 3.48091e-06 3.60012e-06
+   crystal router                : 3.44515e-06 3.38554e-06 3.50475e-06
+   all reduce                    : 5.54323e-06 5.50747e-06 5.57899e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+   setupds time 1.0819E-02 seconds   4  4        8573         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.60012e-06 3.60012e-06 3.60012e-06
+   crystal router                : 3.50475e-06 3.50475e-06 3.50475e-06
+   all reduce                    : 5.65052e-06 5.60284e-06 5.6982e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+   setupds time 8.4560E-03 seconds   5  4        8573         400
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 521 unique labels shared
+   pairwise times (avg, min, max): 4.85182e-06 4.79221e-06 4.91142e-06
+   crystal router                : 5.25713e-06 5.19753e-06 5.31673e-06
+   all reduce                    : 1.13487e-05 1.1301e-05 1.13964e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 334348 334348 334348
+   buffer bytes (avg, min, max): 8336 8336 8336
+   setupds time 1.9150E-02 seconds   6  6       27021         400
+ regenerate geometry data            1
+ vol_t,vol_v:    9.571995966681737         9.571995966681737     
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data            1
+  
+ h1_mg_nx:            1            3            7
+ h1_mg_ny:            1            3            7
+ h1_mg_nz:            1            3            7
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 25 unique labels shared
+   pairwise times (avg, min, max): 3.00407e-06 3.00407e-06 3.00407e-06
+   crystal router                : 2.8491e-06 2.7895e-06 2.90871e-06
+   all reduce                    : 4.19617e-06 4.19617e-06 4.19617e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 17180 17180 17180
+   buffer bytes (avg, min, max): 800 800 800
+   setupds time 9.1815E-04 seconds   7  2         525         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.60012e-06 3.60012e-06 3.60012e-06
+   crystal router                : 3.49283e-06 3.48091e-06 3.50475e-06
+   all reduce                    : 5.55515e-06 5.50747e-06 5.60284e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+   setupds time 1.1093E-02 seconds   8  4        8573         400
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.69549e-06 3.69549e-06 3.69549e-06
+   crystal router                : 3.55244e-06 3.50475e-06 3.60012e-06
+   all reduce                    : 5.65052e-06 5.60284e-06 5.6982e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+   setupds time 8.5509E-03 seconds   9  4        8573         400
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 521 unique labels shared
+   pairwise times (avg, min, max): 4.95911e-06 4.91142e-06 5.00679e-06
+   crystal router                : 4.99487e-06 4.98295e-06 5.00679e-06
+   all reduce                    : 1.11461e-05 1.11103e-05 1.11818e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 334348 334348 334348
+   buffer bytes (avg, min, max): 8336 8336 8336
+   setupds time 1.6912E-02 seconds  10  6       27021         400
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.74725e-06 6.69956e-06 6.79493e-06
+   crystal router                : 6.30617e-06 6.29425e-06 6.31809e-06
+   all reduce                    : 1.49965e-05 1.49965e-05 1.49965e-05
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 703484 703484 703484
+   buffer bytes (avg, min, max): 32288 32288 32288
+   setupds time 3.3391E-02 seconds  11  8       55869         400
+   setvert3d:  10       95117      299917       95117       95117
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1657 unique labels shared
+   pairwise times (avg, min, max): 1.67012e-05 1.66893e-05 1.67131e-05
+   crystal router                : 1.6737e-05 1.66893e-05 1.67847e-05
+   all reduce                    : 1.84536e-05 1.84059e-05 1.85013e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1.08296e+06 1082956 1082956
+   buffer bytes (avg, min, max): 26512 26512 26512
+   setupds time 5.7281E-02 seconds  12 10       95117         400
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 25 unique labels shared
+   pairwise times (avg, min, max): 2.95639e-06 2.90871e-06 3.00407e-06
+   crystal router                : 2.83718e-06 2.7895e-06 2.88486e-06
+   all reduce                    : 4.1008e-06 4.1008e-06 4.1008e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 17180 17180 17180
+   buffer bytes (avg, min, max): 800 800 800
+gs_setup: 25 unique labels shared
+   pairwise times (avg, min, max): 2.89679e-06 2.88486e-06 2.90871e-06
+   crystal router                : 2.89679e-06 2.88486e-06 2.90871e-06
+   all reduce                    : 4.05312e-06 4.00543e-06 4.1008e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 820 820 820
+   buffer bytes (avg, min, max): 400 400 400
+                      275         1600          275                       25
+   setupds time 1.5850E-03 seconds  14  2         525         400
+                      275         1600          275                       25
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.75509e-06 3.69549e-06 3.8147e-06
+   crystal router                : 3.60012e-06 3.60012e-06 3.60012e-06
+   all reduce                    : 5.55515e-06 5.50747e-06 5.60284e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.44515e-06 3.38554e-06 3.50475e-06
+   crystal router                : 3.39746e-06 3.38554e-06 3.40939e-06
+   all reduce                    : 5.59092e-06 5.57899e-06 5.60284e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 14276 14276 14276
+   buffer bytes (avg, min, max): 6176 6176 6176
+                     3967        10784         3967                      193
+   setupds time 1.6825E-02 seconds  16  4        8573         400
+                     3967        10784         3967                      193
+   setvert3d:   4        8573       11773        8573        8573
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.80278e-06 3.79086e-06 3.8147e-06
+   crystal router                : 3.60012e-06 3.60012e-06 3.60012e-06
+   all reduce                    : 5.75781e-06 5.6982e-06 5.81741e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 130748 130748 130748
+   buffer bytes (avg, min, max): 6176 6176 6176
+gs_setup: 193 unique labels shared
+   pairwise times (avg, min, max): 3.65973e-06 3.60012e-06 3.71933e-06
+   crystal router                : 3.55244e-06 3.50475e-06 3.60012e-06
+   all reduce                    : 5.59092e-06 5.57899e-06 5.60284e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 14276 14276 14276
+   buffer bytes (avg, min, max): 6176 6176 6176
+                     3967        10784         3967                      193
+   setupds time 1.2414E-02 seconds  18  4        8573         400
+                     3967        10784         3967                      193
+   setvert3d:   6       27021       52621       27021       27021
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 521 unique labels shared
+   pairwise times (avg, min, max): 4.80413e-06 4.79221e-06 4.81606e-06
+   crystal router                : 5.14984e-06 5.10216e-06 5.19753e-06
+   all reduce                    : 1.13606e-05 1.1301e-05 1.14202e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 334348 334348 334348
+   buffer bytes (avg, min, max): 8336 8336 8336
+gs_setup: 521 unique labels shared
+   pairwise times (avg, min, max): 4.91142e-06 4.91142e-06 4.91142e-06
+   crystal router                : 4.94719e-06 4.88758e-06 5.00679e-06
+   all reduce                    : 1.16467e-05 1.15871e-05 1.17064e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 12724 12724 12724
+   buffer bytes (avg, min, max): 8336 8336 8336
+                    12139        28768        12139                      521
+                    12139        28768        12139                      521
+   setupds time 2.8198E-02 seconds  20  6       27021         400
+   setvert3d:   8       55869      142269       55869       55869
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.90222e-06 6.8903e-06 6.91414e-06
+   crystal router                : 6.90222e-06 6.8903e-06 6.91414e-06
+   all reduce                    : 1.49488e-05 1.49012e-05 1.49965e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 654892 654892 654892
+   buffer bytes (avg, min, max): 16144 16144 16144
+gs_setup: 1009 unique labels shared
+   pairwise times (avg, min, max): 6.46114e-06 6.41346e-06 6.50883e-06
+   crystal router                : 9.90629e-06 9.89437e-06 9.91821e-06
+   all reduce                    : 1.52469e-05 1.51873e-05 1.53065e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 24436 24436 24436
+   buffer bytes (avg, min, max): 16144 16144 16144
+                    24791        55552        24791                     1009
+   setupds time 5.5584E-02 seconds  22  8       55869         400
+                    24791        55552        24791                     1009
+   setvert3d:  10       95117      299917       95117       95117
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 1657 unique labels shared
+   pairwise times (avg, min, max): 1.81913e-05 1.81913e-05 1.81913e-05
+   crystal router                : 2.77519e-05 2.77042e-05 2.77996e-05
+   all reduce                    : 1.93477e-05 1.92881e-05 1.94073e-05
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1.08296e+06 1082956 1082956
+   buffer bytes (avg, min, max): 26512 26512 26512
+gs_setup: 1657 unique labels shared
+   pairwise times (avg, min, max): 1.8394e-05 1.82867e-05 1.85013e-05
+   crystal router                : 1.84059e-05 1.84059e-05 1.84059e-05
+   all reduce                    : 1.90496e-05 1.9002e-05 1.90973e-05
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 119684 119684 119684
+   buffer bytes (avg, min, max): 53024 53024 53024
+                    41923        91136        41923                     1657
+                    41923        91136        41923                     1657
+   setupds time 1.1213E-01 seconds  24 10       95117         400
+ setup h1 coarse grid, nx_crs=            2
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 25 unique labels shared
+   pairwise times (avg, min, max): 3.39746e-06 3.38554e-06 3.40939e-06
+   crystal router                : 3.31402e-06 3.31402e-06 3.31402e-06
+   all reduce                    : 4.8995e-06 4.88758e-06 4.91142e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 17180 17180 17180
+   buffer bytes (avg, min, max): 800 800 800
+ done :: setup h1 coarse grid    5.5402040481567383E-002  sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld             1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000      -3.0000    
+ uvwpt min  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20
+ PS min     0.99000E+22
+ xyz max    0.50000      0.50000       10.000    
+ uvwpt max  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19
+ PS max    -0.99000E+22
+ done :: set initial conditions
+  
+ call userchk
+ done :: userchk
+
+gridpoints unique/tot:        142269       204800
+  dofs:                   133420                   141259
+  
+ Initialization successfully completed    1.4758     sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.200E-03   0.494-323   0.232-309   0.200E-03
+Step      1, t= 2.0000000E-04, DT= 2.0000000E-04, C=  0.000 0.0000E+00 0.0000E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             1            1
+    1 1.00000E-06 2.36902E+01 3.37384E+01 7.02173E-01       1 Divergence
+    2 1.00000E-06 2.34214E+01 3.37384E+01 6.94206E-01       1 Divergence
+    3 1.00000E-06 2.22792E+01 3.37384E+01 6.60353E-01       1 Divergence
+    4 1.00000E-06 2.19147E+01 3.37384E+01 6.49547E-01       1 Divergence
+    5 1.00000E-06 2.02501E+01 3.37384E+01 6.00208E-01       1 Divergence
+    6 1.00000E-06 1.85763E+01 3.37384E+01 5.50598E-01       1 Divergence
+    7 1.00000E-06 1.65941E+01 3.37384E+01 4.91847E-01       1 Divergence
+    8 1.00000E-06 1.50731E+01 3.37384E+01 4.46764E-01       1 Divergence
+    9 1.00000E-06 1.28408E+01 3.37384E+01 3.80598E-01       1 Divergence
+   10 1.00000E-06 9.75618E+00 3.37384E+01 2.89172E-01       1 Divergence
+   11 1.00000E-06 7.62288E+00 3.37384E+01 2.25941E-01       1 Divergence
+   12 1.00000E-06 6.14558E+00 3.37384E+01 1.82154E-01       1 Divergence
+   13 1.00000E-06 4.87772E+00 3.37384E+01 1.44575E-01       1 Divergence
+   14 1.00000E-06 4.00314E+00 3.37384E+01 1.18653E-01       1 Divergence
+   15 1.00000E-06 3.21894E+00 3.37384E+01 9.54090E-02       1 Divergence
+   16 1.00000E-06 2.40206E+00 3.37384E+01 7.11965E-02       1 Divergence
+   17 1.00000E-06 1.60448E+00 3.37384E+01 4.75564E-02       1 Divergence
+   18 1.00000E-06 1.11788E+00 3.37384E+01 3.31336E-02       1 Divergence
+   19 1.00000E-06 7.94036E-01 3.37384E+01 2.35351E-02       1 Divergence
+   20 1.00000E-06 5.53712E-01 3.37384E+01 1.64119E-02       1 Divergence
+   21 1.00000E-06 3.94162E-01 3.37384E+01 1.16829E-02       1 Divergence
+   22 1.00000E-06 2.80892E-01 3.37384E+01 8.32558E-03       1 Divergence
+   23 1.00000E-06 1.83570E-01 3.37384E+01 5.44099E-03       1 Divergence
+   24 1.00000E-06 1.24651E-01 3.37384E+01 3.69465E-03       1 Divergence
+   25 1.00000E-06 8.45606E-02 3.37384E+01 2.50636E-03       1 Divergence
+   26 1.00000E-06 6.04233E-02 3.37384E+01 1.79094E-03       1 Divergence
+   27 1.00000E-06 4.03710E-02 3.37384E+01 1.19659E-03       1 Divergence
+   28 1.00000E-06 2.49171E-02 3.37384E+01 7.38540E-04       1 Divergence
+   29 1.00000E-06 1.53741E-02 3.37384E+01 4.55686E-04       1 Divergence
+   30 1.00000E-06 9.54810E-03 3.37384E+01 2.83004E-04       1 Divergence
+   31 1.00000E-06 7.25097E-03 3.37384E+01 2.14918E-04       1 Divergence
+   32 1.00000E-06 5.39202E-03 3.37384E+01 1.59819E-04       1 Divergence
+   33 1.00000E-06 3.67231E-03 3.37384E+01 1.08847E-04       1 Divergence
+   34 1.00000E-06 2.38496E-03 3.37384E+01 7.06898E-05       1 Divergence
+   35 1.00000E-06 1.59963E-03 3.37384E+01 4.74129E-05       1 Divergence
+   36 1.00000E-06 1.06609E-03 3.37384E+01 3.15987E-05       1 Divergence
+   37 1.00000E-06 7.77925E-04 3.37384E+01 2.30576E-05       1 Divergence
+   38 1.00000E-06 5.60216E-04 3.37384E+01 1.66047E-05       1 Divergence
+   39 1.00000E-06 3.84408E-04 3.37384E+01 1.13938E-05       1 Divergence
+   40 1.00000E-06 3.03896E-04 3.37384E+01 9.00742E-06       1 Divergence
+   41 1.00000E-06 2.37187E-04 3.37384E+01 7.03017E-06       1 Divergence
+   42 1.00000E-06 1.82597E-04 3.37384E+01 5.41216E-06       1 Divergence
+   43 1.00000E-06 1.54137E-04 3.37384E+01 4.56858E-06       1 Divergence
+   44 1.00000E-06 1.14158E-04 3.37384E+01 3.38362E-06       1 Divergence
+   45 1.00000E-06 9.03336E-05 3.37384E+01 2.67747E-06       1 Divergence
+   46 1.00000E-06 6.58591E-05 3.37384E+01 1.95205E-06       1 Divergence
+   47 1.00000E-06 4.69035E-05 3.37384E+01 1.39021E-06       1 Divergence
+   48 1.00000E-06 3.21884E-05 3.37384E+01 9.54059E-07       1 Divergence
+   49 1.00000E-06 2.44354E-05 3.37384E+01 7.24262E-07       1 Divergence
+   50 1.00000E-06 1.80212E-05 3.37384E+01 5.34145E-07       1 Divergence
+   51 1.00000E-06 1.24218E-05 3.37384E+01 3.68182E-07       1 Divergence
+   52 1.00000E-06 8.54862E-06 3.37384E+01 2.53380E-07       1 Divergence
+   53 1.00000E-06 5.67882E-06 3.37384E+01 1.68319E-07       1 Divergence
+   54 1.00000E-06 3.78089E-06 3.37384E+01 1.12065E-07       1 Divergence
+   55 1.00000E-06 2.54939E-06 3.37384E+01 7.55635E-08       1 Divergence
+   56 1.00000E-06 1.55555E-06 3.37384E+01 4.61063E-08       1 Divergence
+   57 1.00000E-06 1.01681E-06 3.37384E+01 3.01380E-08       1 Divergence
+   58 1.00000E-06 6.87419E-07 3.37384E+01 2.03750E-08       1 Divergence
+        1 PRES gmres:   58  6.8742E-07  1.0000E-06  3.3738E+01  5.4804E-01  8.5210E-01    F
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELX    F:   1.9334E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELX    F:   2.0964E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELX    F:   3.0330E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELX    F:   6.3017E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELX    F:   1.5238E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELX    F:   3.4388E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELX    F:   8.1581E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELX    F:   1.7373E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELX    F:   4.3117E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELX    F:   1.0079E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELX    F:   2.2534E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELX    F:   5.5338E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELX    F:   1.2937E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELX    F:   3.0899E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELX    F:   7.0433E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELX:     14   7.0433E-08   1.9334E+02   1.0000E-07
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELY    F:   2.0142E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELY    F:   2.1806E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELY    F:   3.1704E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELY    F:   6.6009E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELY    F:   1.5948E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELY    F:   3.5957E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELY    F:   8.5583E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELY    F:   1.8157E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELY    F:   4.5161E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELY    F:   1.0616E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELY    F:   2.3604E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELY    F:   5.8150E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELY    F:   1.3561E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELY    F:   3.2343E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELY    F:   7.3807E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELY:     14   7.3807E-08   2.0142E+02   1.0000E-07
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELZ    F:   2.7925E+03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELZ    F:   1.8788E+02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELZ    F:   3.2284E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELZ    F:   5.9742E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     5 Helmholtz VELZ    F:   1.5688E+00   1.0000E-07   1.0000E-02   5.0000E+03
+  1     6 Helmholtz VELZ    F:   3.2169E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     7 Helmholtz VELZ    F:   8.3877E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     8 Helmholtz VELZ    F:   1.8009E-02   1.0000E-07   1.0000E-02   5.0000E+03
+  1     9 Helmholtz VELZ    F:   4.4390E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1    10 Helmholtz VELZ    F:   1.1357E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1    11 Helmholtz VELZ    F:   2.6496E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1    12 Helmholtz VELZ    F:   6.3945E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    13 Helmholtz VELZ    F:   1.5063E-05   1.0000E-07   1.0000E-02   5.0000E+03
+  1    14 Helmholtz VELZ    F:   3.7410E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1    15 Helmholtz VELZ    F:   8.6589E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    16 Helmholtz VELZ    F:   1.9490E-07   1.0000E-07   1.0000E-02   5.0000E+03
+  1    17 Helmholtz VELZ    F:   5.2163E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELZ:     16   5.2163E-08   2.7925E+03   1.0000E-07
+               L1/L2 DIV(V)    :  -2.5314E-04   8.2118E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:  -2.5314E-04   8.2118E-02
+          1   2.0000E-04  1.5422E+00 Fluid done
+ schfile:
+ /lustre/atlas/scratch/csep04/trn001/pipe_1/stenosis.sch                                                                             
+Step      2, t= 4.0000000E-04, DT= 2.0000000E-04, C=  0.011 1.6325E+00 1.6325E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             2            1
+        2 PRES gmres:   58  9.6443E-07  1.0000E-06  4.8804E+01  5.4622E-01  7.9690E-01    F
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELX:     11   5.2258E-08   1.8121E+01   1.0000E-07
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELY:     11   5.4187E-08   1.8481E+01   1.0000E-07
+   9.9999999999999995E-008  p22             2            1
+          2    Hmholtz VELZ:     12   8.8961E-08   1.2060E+02   1.0000E-07
+               L1/L2 DIV(V)    :   1.8682E-04   5.4724E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.8682E-04   5.4724E-02
+          2   4.0000E-04  1.5842E+00 Fluid done
+Step      3, t= 6.0000000E-04, DT= 2.0000000E-04, C=  0.011 3.3000E+00 1.6675E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             3            1
+        3 PRES gmres:   56  6.8197E-07  1.0000E-06  1.5799E+01  5.2762E-01  7.6525E-01    F
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELX:     11   2.4125E-08   1.1529E+01   1.0000E-07
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELY:     11   2.4972E-08   1.1750E+01   1.0000E-07
+   9.9999999999999995E-008  p22             3            1
+          3    Hmholtz VELZ:     12   4.0996E-08   8.4859E+01   1.0000E-07
+               L1/L2 DIV(V)    :  -6.3330E-05   4.4312E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:  -6.3330E-05   4.4312E-02
+          3   6.0000E-04  1.5530E+00 Fluid done
+Step      4, t= 8.0000000E-04, DT= 2.0000000E-04, C=  0.011 4.8908E+00 1.5908E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             4            1
+        4 PRES gmres:   51  9.0747E-07  1.0000E-06  2.3367E+00  4.8014E-01  6.8899E-01    F
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELX:     10   7.6454E-08   6.2309E+00   1.0000E-07
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELY:     10   7.9200E-08   6.3548E+00   1.0000E-07
+   9.9999999999999995E-008  p22             4            1
+          4    Hmholtz VELZ:     12   2.4027E-08   5.4991E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.2336E-06   3.3155E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.2336E-06   3.3155E-02
+          4   8.0000E-04  1.4734E+00 Fluid done
+Step      5, t= 1.0000000E-03, DT= 2.0000000E-04, C=  0.011 6.4019E+00 1.5111E+00
+ Solving for fluid  T  T  T
+   9.9999999999999995E-008  p22             5            1
+        5 PRES gmres:   49  7.5112E-07  1.0000E-06  8.4846E-01  4.6167E-01  6.6007E-01    F
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELX:     10   4.9158E-08   4.4434E+00   1.0000E-07
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELY:     10   5.0732E-08   4.5370E+00   1.0000E-07
+   9.9999999999999995E-008  p22             5            1
+          5    Hmholtz VELZ:     11   8.4265E-08   4.2600E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.8867E-06   2.7957E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.8867E-06   2.7957E-02
+          5   1.0000E-03  1.4425E+00 Fluid done
+Step      6, t= 1.2000000E-03, DT= 2.0000000E-04, C=  0.011 7.8822E+00 1.4804E+00
+ Solving for fluid  T  T  T
+        6 PRES gmres:   39  8.6473E-07  1.0000E-06  2.0916E-01  3.6740E-01  5.2587E-01    F
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELX:     10   3.3090E-08   3.6748E+00   1.0000E-07
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELY:     10   3.4472E-08   3.7543E+00   1.0000E-07
+   9.9999999999999995E-008  p22             6            1
+          6    Hmholtz VELZ:     11   5.9735E-08   3.5120E+01   1.0000E-07
+               L1/L2 DIV(V)    :   4.4898E-06   2.4112E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   4.4898E-06   2.4112E-02
+          6   1.2000E-03  1.3100E+00 Fluid done
+Step      7, t= 1.4000000E-03, DT= 2.0000000E-04, C=  0.011 9.2300E+00 1.3478E+00
+ Solving for fluid  T  T  T
+          7    PRES alph1n  3.7230E+01  2.9455E+01  1.2640E+00     1
+          7    PRES halpha     1  2.2581E+00
+        7 PRES gmres:   38  7.7015E-07  1.0000E-06  9.8538E-02  3.5864E-01  5.1443E-01    F
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELX:     10   3.1675E-08   3.1568E+00   1.0000E-07
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELY:     10   3.2881E-08   3.2270E+00   1.0000E-07
+   9.9999999999999995E-008  p22             7            1
+          7    Hmholtz VELZ:     11   5.2770E-08   2.9786E+01   1.0000E-07
+               L1/L2 DIV(V)    :   2.8754E-06   2.1190E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   2.8754E-06   2.1190E-02
+          7   1.4000E-03  1.3013E+00 Fluid done
+Step      8, t= 1.6000000E-03, DT= 2.0000000E-04, C=  0.011 1.0569E+01 1.3391E+00
+ Solving for fluid  T  T  T
+          8    PRES alph1n  2.4715E+01  2.9879E+01  8.2718E-01     2
+          8    PRES halpha     2 -7.0353E-01  2.5105E-02
+        8 PRES gmres:   33  9.4036E-07  1.0000E-06  1.4045E-01  3.1153E-01  4.5461E-01    F
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELX:     10   2.7508E-08   2.7965E+00   1.0000E-07
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELY:     10   2.8526E-08   2.8588E+00   1.0000E-07
+   9.9999999999999995E-008  p22             8            1
+          8    Hmholtz VELZ:     11   4.3051E-08   2.5921E+01   1.0000E-07
+               L1/L2 DIV(V)    :   1.6579E-06   1.8870E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.6579E-06   1.8870E-02
+          8   1.6000E-03  1.2398E+00 Fluid done
+Step      9, t= 1.8000000E-03, DT= 2.0000000E-04, C=  0.011 1.1847E+01 1.2778E+00
+ Solving for fluid  T  T  T
+          9    PRES alph1n  1.9751E+01  3.3436E+00  5.9071E+00     3
+          9    PRES halpha     3 -3.3012E-01  1.7736E-01  1.1997E+00
+        9 PRES gmres:   29  9.6928E-07  1.0000E-06  1.7968E-02  2.7359E-01  4.0340E-01    F
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELX:     10   2.3442E-08   2.5213E+00   1.0000E-07
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELY:     10   2.4311E-08   2.5773E+00   1.0000E-07
+   9.9999999999999995E-008  p22             9            1
+          9    Hmholtz VELZ:     11   3.5104E-08   2.3057E+01   1.0000E-07
+               L1/L2 DIV(V)    :   7.8365E-07   1.6969E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   7.8365E-07   1.6969E-02
+          9   1.8000E-03  1.1890E+00 Fluid done
+Step     10, t= 2.0000000E-03, DT= 2.0000000E-04, C=  0.011 1.3074E+01 1.2269E+00
+ Solving for fluid  T  T  T
+         10    PRES alph1n  1.6037E+01  1.1695E+00  1.3712E+01     4
+         10    PRES halpha     4 -2.5242E-01  2.2651E-01  9.2942E-01  2.0287E-01
+       10 PRES gmres:   28  9.3750E-07  1.0000E-06  4.6990E-03  2.6391E-01  3.8724E-01    F
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELX:     10   2.0215E-08   2.3018E+00   1.0000E-07
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELY:     10   2.0965E-08   2.3529E+00   1.0000E-07
+   9.9999999999999995E-008  p22            10            1
+         10    Hmholtz VELZ:     11   2.9385E-08   2.0880E+01   1.0000E-07
+               L1/L2 DIV(V)    :   1.7993E-07   1.5374E-02
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   1.7993E-07   1.5374E-02
+         10   2.0000E-03  1.1740E+00 Fluid done
+ call outfld: ifpsco:  F
+
+       10  2.0000E-03 Write checkpoint:
+
+       10  2.0000E-03 OPEN: stenosis.fld01                                                                
+
+end of time-step loop
+
+runtime statistics:
+ total time    14.31503019796143     
+ tgop time         2061   3.8398027420043945E-002   2.6823574165782851E-003
+ inv3 time           20   1.6317367553710938E-003   1.1398765722502396E-004
+ invc time            0    0.000000000000000         0.000000000000000     
+ mltd time            0    0.000000000000000         0.000000000000000     
+ cdtp time           30    0.000000000000000         0.000000000000000     
+ eslv time            0    0.000000000000000         0.000000000000000     
+ pres time           10    6.524042606353760        0.4557477361998744     
+ crsl time          439   3.8471460342407227E-002   2.6874871942558576E-003
+ crsl min    3.8471460342407227E-002
+ crsl max    4.3528795242309570E-002
+ crsl avg    4.1000127792358398E-002
+ hmhz time           35    6.964363813400269        0.4865070989785302     
+ spro time           11   6.8674087524414063E-003   4.7973414358702367E-004
+ usbc time           10   8.2464694976806641E-002   5.7607070216694530E-003
+ usbc min    8.2330226898193359E-002
+ usbc max    8.2464694976806641E-002
+ usb  avg    8.2397460937500000E-002
+ axhm time          827   0.8984227180480957        6.2760797960177431E-002
+ advc time           10    5.871846437454224        0.4101874991706564     
+ vdss time            0    0.000000000000000         0.000000000000000     
+ vdss min     0.000000000000000     
+ vdss max     0.000000000000000     
+ vdss avg     0.000000000000000     
+ dsum time            0    0.000000000000000         0.000000000000000     
+ dsum min     0.000000000000000     
+ dsum max     0.000000000000000     
+ dsum avg     0.000000000000000     
+ dadd time            0   0.4901900291442871        3.4243031440764550E-002
+ ddsl time            0    0.000000000000000         0.000000000000000     
+ solv time            0    0.000000000000000         0.000000000000000     
+ prep time           10   3.9134025573730469E-002   2.7337717792103203E-003
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  8.2465E-02  4.9019E-01  3.8471E-02  0.0000E+00  0.0000E+00  3.8398E-02 qqq
+           1  8.2330E-02  5.2274E-01  4.3529E-02  0.0000E+00  0.0000E+00  4.0802E-02 qqq
+  
+call exitt: dying ...
+  
+backtrace(): obtained 1 stack frames.
+./nek5000() [0x64ab08]
+  
+total elapsed time             :   1.59069E+01 sec
+total solver time incl. I/O    :   1.43150E+01 sec
+time/timestep                  :   1.43150E+00 sec
+CPU seconds/timestep/gridpt    :   2.01239E-05 sec
+
+
+Accelerator Kernel Timing data
+    Timing may be affected by asynchronous behavior
+    set PGI_ACC_SYNCHRONOUS to 1 to disable async() clauses
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/subs2.f
+  cmult2_acc  NVIDIA  devicenum=0
+    time(us): 4,309
+    2319: data region reached 453 times
+    2320: compute region reached 453 times
+        2320: kernel launched 453 times
+            grid: [400]  block: [256]
+             device time(us): total=4,309 max=60 min=9 avg=9
+            elapsed time(us): total=13,930 max=82 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/subs1.f
+  sethlm_acc  NVIDIA  devicenum=0
+    time(us): 0
+    2839: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  plan4_acc  NVIDIA  devicenum=0
+    time(us): 3,584
+    495: data region reached 10 times
+        495: data copyin transfers: 80
+             device time(us): total=1,016 max=18 min=10 avg=12
+        502: data copyout transfers: 10
+             device time(us): total=100 max=16 min=6 avg=10
+    524: data region reached 10 times
+        524: data copyin transfers: 130
+             device time(us): total=1,564 max=25 min=5 avg=12
+        596: data copyout transfers: 50
+             device time(us): total=467 max=14 min=8 avg=9
+    540: update directive reached 10 times
+        540: data copyout transfers: 20
+             device time(us): total=234 max=70 min=8 avg=11
+    556: update directive reached 10 times
+        556: data copyout transfers: 20
+             device time(us): total=203 max=12 min=9 avg=10
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  opadd2cm_acc  NVIDIA  devicenum=0
+    time(us): 129
+    623: data region reached 10 times
+    624: compute region reached 10 times
+        624: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=129 max=13 min=12 avg=12
+            elapsed time(us): total=310 max=32 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  op_curl_acc  NVIDIA  devicenum=0
+    time(us): 0
+    665: data region reached 20 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  cresvsp_acc  NVIDIA  devicenum=0
+    time(us): 0
+    759: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  crespsp_acc  NVIDIA  devicenum=0
+    time(us): 494
+    814: data region reached 10 times
+    849: compute region reached 10 times
+        849: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=127 max=13 min=12 avg=12
+            elapsed time(us): total=305 max=31 min=30 avg=30
+    862: compute region reached 10 times
+        862: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=129 max=13 min=12 avg=12
+            elapsed time(us): total=307 max=32 min=30 avg=30
+    874: compute region reached 10 times
+        874: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=129 max=13 min=12 avg=12
+            elapsed time(us): total=308 max=31 min=30 avg=30
+    921: update directive reached 10 times
+        921: data copyin transfers: 10
+             device time(us): total=109 max=12 min=10 avg=10
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  v_extrap_acc  NVIDIA  devicenum=0
+    time(us): 155
+    969: data region reached 10 times
+    980: update directive reached 10 times
+        980: data copyout transfers: 10
+             device time(us): total=155 max=43 min=12 avg=15
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  vlsc3_acc  NVIDIA  devicenum=0
+    time(us): 181,380
+    1193: data region reached 6602 times
+    1194: compute region reached 6602 times
+        1194: kernel launched 6602 times
+            grid: [400]  block: [256]
+             device time(us): total=61,188 max=94 min= avg=9
+            elapsed time(us): total=199,971 max=138 min=24 avg=30
+        1194: reduction kernel launched 6602 times
+            grid: [1]  block: [256]
+             device time(us): total=120,192 max=71 min=10 avg=18
+            elapsed time(us): total=239,356 max=134 min=29 avg=36
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  projh_acc  NVIDIA  devicenum=0
+    time(us): 20
+    1368: data region reached 4 times
+    1386: update directive reached 4 times
+        1386: data copyin transfers: 4
+             device time(us): total=20 max=5 min=5 avg=5
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  gensh_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1449: data region reached 5 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  hsolve_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1733: data region reached 5 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  opcolv_acc  NVIDIA  devicenum=0
+    time(us): 743
+    5357: data region reached 60 times
+    5358: compute region reached 60 times
+        5358: kernel launched 60 times
+            grid: [820]  block: [256]
+             device time(us): total=743 max=13 min=12 avg=12
+            elapsed time(us): total=1,815 max=35 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  wgradm1_acc  NVIDIA  devicenum=0
+    time(us): 252
+    5546: data region reached 20 times
+    5549: data region reached 20 times
+    5549: compute region reached 20 times
+        5549: kernel launched 20 times
+            grid: [800]  block: [32x4]
+             device time(us): total=252 max=14 min=11 avg=12
+            elapsed time(us): total=612 max=31 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  opdiv_acc  NVIDIA  devicenum=0
+    time(us): 0
+    5730: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  multd_acc  NVIDIA  devicenum=0
+    time(us): 371
+    5777: data region reached 30 times
+    5781: compute region reached 30 times
+        5781: kernel launched 30 times
+            grid: [100]  block: [256x4]
+             device time(us): total=371 max=14 min=12 avg=12
+            elapsed time(us): total=917 max=32 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  dudxyz_acc  NVIDIA  devicenum=0
+    time(us): 1,589
+    5851: data region reached 120 times
+    5868: compute region reached 120 times
+        5868: kernel launched 120 times
+            grid: [800]  block: [32x4]
+             device time(us): total=1,589 max=25 min=12 avg=13
+            elapsed time(us): total=3,795 max=89 min=28 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  cdtp_acc  NVIDIA  devicenum=0
+    time(us): 751
+    5969: data region reached 30 times
+    5973: compute region reached 30 times
+        5973: kernel launched 30 times
+            grid: [800]  block: [32x4]
+             device time(us): total=380 max=13 min=12 avg=12
+            elapsed time(us): total=917 max=32 min=30 avg=30
+    5987: data region reached 30 times
+    5987: compute region reached 30 times
+        5987: kernel launched 30 times
+            grid: [800]  block: [32x4]
+             device time(us): total=371 max=13 min=12 avg=12
+            elapsed time(us): total=912 max=32 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  ctolspl_acc  NVIDIA  devicenum=0
+    time(us): 0
+    6033: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  rzero_acc  NVIDIA  devicenum=0
+    time(us): 12,002
+    1904: data region reached 969 times
+    1905: compute region reached 969 times
+        1905: kernel launched 969 times
+            grid: [169-782]  block: [256]
+             device time(us): total=12,002 max=63 min=11 avg=12
+            elapsed time(us): total=29,472 max=83 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  copy_acc  NVIDIA  devicenum=0
+    time(us): 17,056
+    1934: data region reached 1400 times
+    1935: compute region reached 1400 times
+        1935: kernel launched 1400 times
+            grid: [13-400]  block: [256]
+             device time(us): total=17,056 max=68 min=11 avg=12
+            elapsed time(us): total=42,238 max=86 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invers2_acc  NVIDIA  devicenum=0
+    time(us): 260
+    1966: data region reached 20 times
+    1967: compute region reached 20 times
+        1967: kernel launched 20 times
+            grid: [400]  block: [256]
+             device time(us): total=260 max=14 min=12 avg=13
+            elapsed time(us): total=609 max=31 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2_acc  NVIDIA  devicenum=0
+    time(us): 1,608
+    1996: data region reached 115 times
+    1997: compute region reached 115 times
+        1997: kernel launched 115 times
+            grid: [400]  block: [256]
+             device time(us): total=1,608 max=62 min=10 avg=13
+            elapsed time(us): total=3,698 max=84 min=29 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  col2_acc  NVIDIA  devicenum=0
+    time(us): 23,442
+    2026: data region reached 1919 times
+    2027: compute region reached 1919 times
+        2027: kernel launched 1919 times
+            grid: [400]  block: [256]
+             device time(us): total=23,442 max=63 min=11 avg=12
+            elapsed time(us): total=57,980 max=81 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  addcol3_acc  NVIDIA  devicenum=0
+    time(us): 376
+    2098: data region reached 30 times
+    2099: compute region reached 30 times
+        2099: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=376 max=13 min=12 avg=12
+            elapsed time(us): total=911 max=31 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  cmult_acc  NVIDIA  devicenum=0
+    time(us): 10,713
+    2128: data region reached 884 times
+    2129: compute region reached 884 times
+        2129: kernel launched 884 times
+            grid: [50-400]  block: [256]
+             device time(us): total=10,713 max=17 min=10 avg=12
+            elapsed time(us): total=26,523 max=80 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  col3_acc  NVIDIA  devicenum=0
+    time(us): 10,787
+    2204: data region reached 879 times
+    2205: compute region reached 879 times
+        2205: kernel launched 879 times
+            grid: [400]  block: [256]
+             device time(us): total=10,787 max=78 min=9 avg=12
+            elapsed time(us): total=26,860 max=97 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2s2_acc  NVIDIA  devicenum=0
+    time(us): 88,437
+    2235: data region reached 7379 times
+    2236: compute region reached 7379 times
+        2236: kernel launched 7379 times
+            grid: [400]  block: [256]
+             device time(us): total=88,437 max=117 min=9 avg=11
+            elapsed time(us): total=223,149 max=137 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  vlsc2_acc  NVIDIA  devicenum=0
+    time(us): 247
+    2268: data region reached 10 times
+    2269: compute region reached 10 times
+        2269: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=94 max=10 min=9 avg=9
+            elapsed time(us): total=304 max=32 min=29 avg=30
+        2269: reduction kernel launched 10 times
+            grid: [1]  block: [256]
+             device time(us): total=153 max=17 min=14 avg=15
+            elapsed time(us): total=388 max=82 min=31 avg=38
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsum_acc  NVIDIA  devicenum=0
+    time(us): 1,584
+    2287: data region reached 70 times
+    2288: compute region reached 70 times
+        2288: kernel launched 70 times
+            grid: [400]  block: [256]
+             device time(us): total=611 max=10 min=8 avg=8
+            elapsed time(us): total=2,144 max=32 min=28 avg=30
+        2288: reduction kernel launched 70 times
+            grid: [1]  block: [256]
+             device time(us): total=973 max=17 min=12 avg=13
+            elapsed time(us): total=2,272 max=35 min=30 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc2_acc  NVIDIA  devicenum=0
+    time(us): 204
+    2327: data region reached 6 times
+    2328: compute region reached 6 times
+        2328: kernel launched 6 times
+            grid: [400]  block: [256]
+             device time(us): total=55 max=10 min=9 avg=9
+            elapsed time(us): total=238 max=80 min=31 avg=39
+        2328: reduction kernel launched 6 times
+            grid: [1]  block: [256]
+             device time(us): total=149 max=66 min=14 avg=24
+            elapsed time(us): total=262 max=83 min=34 avg=43
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc3_acc  NVIDIA  devicenum=0
+    time(us): 20,356
+    2373: data region reached 787 times
+    2374: compute region reached 787 times
+        2374: kernel launched 787 times
+            grid: [800]  block: [128]
+             device time(us): total=6,953 max=12 min= avg=8
+            elapsed time(us): total=24,583 max=87 min=23 avg=31
+        2374: reduction kernel launched 787 times
+            grid: [1]  block: [256]
+             device time(us): total=13,403 max=66 min=10 avg=17
+            elapsed time(us): total=27,890 max=87 min=31 avg=35
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  sub2_acc  NVIDIA  devicenum=0
+    time(us): 417
+    2405: data region reached 34 times
+    2406: compute region reached 34 times
+        2406: kernel launched 34 times
+            grid: [400]  block: [256]
+             device time(us): total=417 max=13 min=12 avg=12
+            elapsed time(us): total=1,027 max=31 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add3s2_acc  NVIDIA  devicenum=0
+    time(us): 389
+    2434: data region reached 30 times
+    2435: compute region reached 30 times
+        2435: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=389 max=14 min=12 avg=12
+            elapsed time(us): total=928 max=33 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  addcol4_acc  NVIDIA  devicenum=0
+    time(us): 4,386
+    2464: data region reached 360 times
+    2465: compute region reached 360 times
+        2465: kernel launched 360 times
+            grid: [400]  block: [256]
+             device time(us): total=4,386 max=17 min=11 avg=12
+            elapsed time(us): total=10,919 max=38 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  chsign_acc  NVIDIA  devicenum=0
+    time(us): 500
+    2479: data region reached 40 times
+    2480: compute region reached 40 times
+        2480: kernel launched 40 times
+            grid: [400]  block: [256]
+             device time(us): total=500 max=13 min=12 avg=12
+            elapsed time(us): total=1,202 max=32 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2s1_acc  NVIDIA  devicenum=0
+    time(us): 3,285
+    2510: data region reached 340 times
+    2511: compute region reached 340 times
+        2511: kernel launched 340 times
+            grid: [400]  block: [256]
+             device time(us): total=3,285 max=65 min=9 avg=9
+            elapsed time(us): total=10,442 max=87 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  sub3_acc  NVIDIA  devicenum=0
+    time(us): 834
+    2541: data region reached 70 times
+    2542: compute region reached 70 times
+        2542: kernel launched 70 times
+            grid: [400]  block: [256]
+             device time(us): total=834 max=13 min=9 avg=11
+            elapsed time(us): total=2,101 max=33 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invcol3_acc  NVIDIA  devicenum=0
+    time(us): 253
+    2580: data region reached 20 times
+    2581: compute region reached 20 times
+        2581: kernel launched 20 times
+            grid: [400]  block: [256]
+             device time(us): total=253 max=14 min=12 avg=12
+            elapsed time(us): total=615 max=32 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  admcol3_acc  NVIDIA  devicenum=0
+    time(us): 130
+    2598: data region reached 10 times
+    2599: compute region reached 10 times
+        2599: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=130 max=13 min=13 avg=13
+            elapsed time(us): total=304 max=31 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invcol1_acc  NVIDIA  devicenum=0
+    time(us): 390
+    2629: data region reached 30 times
+    2630: compute region reached 30 times
+        2630: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=390 max=13 min=13 avg=13
+            elapsed time(us): total=930 max=32 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc23_acc  NVIDIA  devicenum=0
+    time(us): 219
+    2688: data region reached 8 times
+    2689: data region reached 8 times
+    2689: compute region reached 8 times
+        2689: kernel launched 8 times
+            grid: [400]  block: [256]
+             device time(us): total=72 max=9 min=9 avg=9
+            elapsed time(us): total=250 max=32 min=31 avg=31
+        2689: reduction kernel launched 8 times
+            grid: [1]  block: [256]
+             device time(us): total=147 max=20 min=16 avg=18
+            elapsed time(us): total=286 max=38 min=34 avg=35
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_wt3d_acc  NVIDIA  devicenum=0
+    time(us): 10,573
+    3211: data region reached 878 times
+    3212: compute region reached 878 times
+        3212: kernel launched 878 times
+            grid: [200]  block: [256]
+             device time(us): total=10,573 max=62 min=10 avg=12
+            elapsed time(us): total=26,147 max=81 min=28 avg=29
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_tnsr3d_acc  NVIDIA  devicenum=0
+    time(us): 31,835
+    3297: data region reached 878 times
+    3299: compute region reached 878 times
+        3299: kernel launched 878 times
+            grid: [25-200]  block: [32x4]
+             device time(us): total=10,657 max=63 min=11 avg=12
+            elapsed time(us): total=26,191 max=81 min=28 avg=29
+    3316: compute region reached 878 times
+        3316: kernel launched 878 times
+            grid: [50-400]  block: [32x4]
+             device time(us): total=10,593 max=62 min=11 avg=12
+            elapsed time(us): total=26,251 max=80 min=27 avg=29
+    3333: compute region reached 878 times
+        3333: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,585 max=61 min=10 avg=12
+            elapsed time(us): total=26,044 max=79 min=28 avg=29
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_do_wt_acc  NVIDIA  devicenum=0
+    time(us): 10,662
+    3388: data region reached 878 times
+    3389: compute region reached 878 times
+        3389: kernel launched 878 times
+            grid: [200]  block: [256]
+             device time(us): total=10,662 max=62 min=11 avg=12
+            elapsed time(us): total=26,432 max=104 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_tnsr1_3d_acc  NVIDIA  devicenum=0
+    time(us): 32,348
+    3464: data region reached 878 times
+    3467: compute region reached 878 times
+        3467: kernel launched 878 times
+            grid: [50-400]  block: [32x4]
+             device time(us): total=10,823 max=64 min=11 avg=12
+            elapsed time(us): total=26,716 max=83 min=28 avg=30
+    3483: compute region reached 878 times
+        3483: kernel launched 878 times
+            grid: [25-200]  block: [32x4]
+             device time(us): total=10,762 max=63 min=11 avg=12
+            elapsed time(us): total=26,362 max=81 min=28 avg=30
+    3498: compute region reached 878 times
+        3498: kernel launched 878 times
+            grid: [13-100]  block: [32x4]
+             device time(us): total=10,763 max=65 min=11 avg=12
+            elapsed time(us): total=26,359 max=83 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_do_fast_acc  NVIDIA  devicenum=0
+    time(us): 64,315
+    3595: data region reached 878 times
+    3598: compute region reached 878 times
+        3598: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=11,083 max=65 min=11 avg=12
+            elapsed time(us): total=27,197 max=82 min=29 avg=30
+    3615: compute region reached 878 times
+        3615: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,716 max=67 min=11 avg=12
+            elapsed time(us): total=26,453 max=84 min=28 avg=30
+    3631: compute region reached 878 times
+        3631: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,565 max=13 min=11 avg=12
+            elapsed time(us): total=26,182 max=35 min=28 avg=29
+    3649: compute region reached 878 times
+        3649: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,615 max=61 min=11 avg=12
+            elapsed time(us): total=26,320 max=85 min=28 avg=29
+    3665: compute region reached 878 times
+        3665: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,668 max=61 min=12 avg=12
+            elapsed time(us): total=26,244 max=80 min=28 avg=29
+    3681: compute region reached 878 times
+        3681: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,668 max=63 min=11 avg=12
+            elapsed time(us): total=26,359 max=136 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_extrude_acc  NVIDIA  devicenum=0
+    time(us): 54,092
+    3736: data region reached 4390 times
+    3737: compute region reached 4390 times
+        3737: kernel launched 4390 times
+            grid: [200]  block: [256]
+             device time(us): total=54,092 max=66 min=10 avg=12
+            elapsed time(us): total=132,926 max=85 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_toreg3d_acc  NVIDIA  devicenum=0
+    time(us): 10,551
+    3778: data region reached 878 times
+    3780: compute region reached 878 times
+        3780: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,551 max=17 min=11 avg=12
+            elapsed time(us): total=26,578 max=107 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_toext3d_acc  NVIDIA  devicenum=0
+    time(us): 10,799
+    3802: data region reached 878 times
+    3806: compute region reached 878 times
+        3806: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,799 max=68 min=11 avg=12
+            elapsed time(us): total=26,563 max=86 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  h1mg_mask_acc  NVIDIA  devicenum=0
+    time(us): 31,895
+    3832: data region reached 2634 times
+    3833: compute region reached 2634 times
+        3833: kernel launched 2634 times
+            grid: [1]  block: [256]
+             device time(us): total=31,895 max=62 min=11 avg=12
+            elapsed time(us): total=79,735 max=104 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  h1mg_solve_acc  NVIDIA  devicenum=0
+    time(us): 18,901
+    4005: data region reached 439 times
+    4049: update directive reached 439 times
+        4049: data copyout transfers: 439
+             device time(us): total=4,143 max=67 min=8 avg=9
+    4052: update directive reached 439 times
+        4052: data copyin transfers: 439
+             device time(us): total=4,042 max=58 min=8 avg=9
+    4069: compute region reached 439 times
+        4069: kernel launched 439 times
+            grid: [50]  block: [256]
+             device time(us): total=5,274 max=19 min=11 avg=12
+            elapsed time(us): total=13,055 max=89 min=28 avg=29
+    4081: compute region reached 439 times
+        4081: kernel launched 439 times
+            grid: [400]  block: [256]
+             device time(us): total=5,442 max=63 min=11 avg=12
+            elapsed time(us): total=13,302 max=80 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  set_fdm_prec_h1a_gen  NVIDIA  devicenum=0
+    time(us): 142
+    1094: data region reached 9 times
+    1097: update directive reached 9 times
+        1097: data copyin transfers: 18
+             device time(us): total=142 max=12 min=7 avg=7
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  set_fdm_prec_h1a_els  NVIDIA  devicenum=0
+    time(us): 13
+    1265: update directive reached 1 time
+        1265: data copyin transfers: 1
+             device time(us): total=13 max=13 min=13 avg=13
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  axhelm_acc  NVIDIA  devicenum=0
+    time(us): 20,457
+    1525: data region reached 827 times
+    1532: compute region reached 827 times
+        1532: kernel launched 827 times
+            grid: [400]  block: [64x4]
+             device time(us): total=10,399 max=66 min=10 avg=12
+            elapsed time(us): total=25,388 max=84 min=29 avg=30
+    1569: compute region reached 827 times
+        1569: kernel launched 827 times
+            grid: [400]  block: [64x4]
+             device time(us): total=10,058 max=60 min=11 avg=12
+            elapsed time(us): total=25,053 max=81 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  hmholtz_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1692: data region reached 35 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  cggo_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1750: data region reached 40 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  vlsc32_acc  NVIDIA  devicenum=0
+    time(us): 9,581
+    1946: data region reached 360 times
+    1947: compute region reached 360 times
+        1947: kernel launched 360 times
+            grid: [400]  block: [256]
+             device time(us): total=3,413 max=64 min=9 avg=9
+            elapsed time(us): total=10,895 max=85 min=28 avg=30
+        1947: reduction kernel launched 360 times
+            grid: [1]  block: [256]
+             device time(us): total=6,168 max=71 min=12 avg=17
+            elapsed time(us): total=12,465 max=88 min=29 avg=34
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  setprec_acc  NVIDIA  devicenum=0
+    time(us): 700
+    1990: data region reached 30 times
+    1993: compute region reached 30 times
+        1993: kernel launched 30 times
+            grid: [200]  block: [256]
+             device time(us): total=700 max=25 min=23 avg=23
+            elapsed time(us): total=1,478 max=52 min=48 avg=49
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/gmres.f
+  uzawa_gmres_split_acc  NVIDIA  devicenum=0
+    time(us): 14
+    1346: data region reached 1 time
+    1347: compute region reached 1 time
+        1347: kernel launched 1 time
+            grid: [400]  block: [256]
+             device time(us): total=14 max=14 min=14 avg=14
+            elapsed time(us): total=32 max=32 min=32 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/gmres.f
+  hmh_gmres_acc  NVIDIA  devicenum=0
+    time(us): 284
+    1438: data region reached 10 times
+    1453: update directive reached 10 times
+        1453: data copyin transfers: 10
+             device time(us): total=142 max=15 min=14 avg=14
+    1455: update directive reached 10 times
+        1455: data copyout transfers: 10
+             device time(us): total=142 max=25 min=12 avg=14
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/dssum.f
+  hsmg_dssum_acc  NVIDIA  devicenum=0
+    time(us): 130,148
+    1001: data region reached 3073 times
+    1003: compute region reached 3073 times
+        1003: kernel launched 3073 times
+            grid: [16-164]  block: [256]
+             device time(us): total=37,316 max=67 min=11 avg=12
+            elapsed time(us): total=93,127 max=123 min=28 avg=30
+    1017: update directive reached 3073 times
+        1017: data copyout transfers: 3073
+             device time(us): total=29,265 max=90 min=8 avg=9
+    1020: update directive reached 3073 times
+        1020: data copyin transfers: 3073
+             device time(us): total=25,242 max=66 min=6 avg=8
+    1024: compute region reached 3073 times
+        1024: kernel launched 3073 times
+            grid: [16-164]  block: [256]
+             device time(us): total=38,325 max=65 min=11 avg=12
+            elapsed time(us): total=93,762 max=112 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/dssum.f
+  dssum_acc  NVIDIA  devicenum=0
+    time(us): 60,030
+    1326: data region reached 1396 times
+    1329: compute region reached 1396 times
+        1329: kernel launched 1396 times
+            grid: [97]  block: [256]
+             device time(us): total=17,258 max=66 min=9 avg=12
+            elapsed time(us): total=42,594 max=83 min=28 avg=30
+    1343: update directive reached 1396 times
+        1343: data copyout transfers: 1396
+             device time(us): total=13,890 max=71 min=8 avg=9
+    1346: update directive reached 1396 times
+        1346: data copyin transfers: 1396
+             device time(us): total=11,532 max=64 min=7 avg=8
+    1350: compute region reached 1396 times
+        1350: kernel launched 1396 times
+            grid: [97]  block: [256]
+             device time(us): total=17,350 max=117 min=11 avg=12
+            elapsed time(us): total=42,548 max=136 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/drive1.f
+  nek_solve  NVIDIA  devicenum=0
+    time(us): 640
+    267: data region reached 1 time
+    321: update directive reached 1 time
+        321: data copyin transfers: 6
+             device time(us): total=94 max=32 min=10 avg=15
+    322: update directive reached 1 time
+        322: data copyin transfers: 1
+             device time(us): total=12 max=12 min=12 avg=12
+    323: update directive reached 1 time
+        323: data copyin transfers: 6
+             device time(us): total=42 max=7 min=7 avg=7
+    324: update directive reached 1 time
+        324: data copyin transfers: 5
+             device time(us): total=55 max=13 min=7 avg=11
+    325: update directive reached 1 time
+        325: data copyin transfers: 3
+             device time(us): total=21 max=7 min=7 avg=7
+    326: update directive reached 1 time
+        326: data copyin transfers: 3
+             device time(us): total=21 max=7 min=7 avg=7
+    327: update directive reached 1 time
+        327: data copyin transfers: 6
+             device time(us): total=70 max=13 min=11 avg=11
+    328: update directive reached 1 time
+        328: data copyin transfers: 6
+             device time(us): total=69 max=13 min=10 avg=11
+    329: update directive reached 1 time
+        329: data copyin transfers: 6
+             device time(us): total=73 max=14 min=10 avg=12
+    330: update directive reached 1 time
+        330: data copyin transfers: 4
+             device time(us): total=49 max=14 min=11 avg=12
+    332: update directive reached 1 time
+        332: data copyin transfers: 3
+             device time(us): total=36 max=12 min=12 avg=12
+    333: update directive reached 1 time
+        333: data copyin transfers: 2
+             device time(us): total=24 max=14 min=10 avg=12
+    334: update directive reached 1 time
+        334: data copyin transfers: 3
+             device time(us): total=37 max=14 min=11 avg=12
+    335: update directive reached 1 time
+        335: data copyin transfers: 4
+             device time(us): total=37 max=12 min=7 avg=9
+
+Accelerator Kernel Timing data
+    Timing may be affected by asynchronous behavior
+    set PGI_ACC_SYNCHRONOUS to 1 to disable async() clauses
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/subs2.f
+  cmult2_acc  NVIDIA  devicenum=0
+    time(us): 4,430
+    2319: data region reached 453 times
+    2320: compute region reached 453 times
+        2320: kernel launched 453 times
+            grid: [400]  block: [256]
+             device time(us): total=4,430 max=61 min=8 avg=9
+            elapsed time(us): total=14,060 max=95 min=28 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/subs1.f
+  sethlm_acc  NVIDIA  devicenum=0
+    time(us): 0
+    2839: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  plan4_acc  NVIDIA  devicenum=0
+    time(us): 3,525
+    495: data region reached 10 times
+        495: data copyin transfers: 80
+             device time(us): total=994 max=21 min=10 avg=12
+        502: data copyout transfers: 10
+             device time(us): total=105 max=17 min=6 avg=10
+    524: data region reached 10 times
+        524: data copyin transfers: 130
+             device time(us): total=1,529 max=25 min=7 avg=11
+        596: data copyout transfers: 50
+             device time(us): total=460 max=13 min=8 avg=9
+    540: update directive reached 10 times
+        540: data copyout transfers: 20
+             device time(us): total=235 max=72 min=8 avg=11
+    556: update directive reached 10 times
+        556: data copyout transfers: 20
+             device time(us): total=202 max=12 min=9 avg=10
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  opadd2cm_acc  NVIDIA  devicenum=0
+    time(us): 131
+    623: data region reached 10 times
+    624: compute region reached 10 times
+        624: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=131 max=14 min=13 avg=13
+            elapsed time(us): total=312 max=32 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  op_curl_acc  NVIDIA  devicenum=0
+    time(us): 0
+    665: data region reached 20 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  cresvsp_acc  NVIDIA  devicenum=0
+    time(us): 0
+    759: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  crespsp_acc  NVIDIA  devicenum=0
+    time(us): 496
+    814: data region reached 10 times
+    849: compute region reached 10 times
+        849: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=128 max=13 min=12 avg=12
+            elapsed time(us): total=308 max=32 min=29 avg=30
+    862: compute region reached 10 times
+        862: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=130 max=13 min=13 avg=13
+            elapsed time(us): total=304 max=32 min=29 avg=30
+    874: compute region reached 10 times
+        874: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=130 max=13 min=13 avg=13
+            elapsed time(us): total=310 max=32 min=30 avg=31
+    921: update directive reached 10 times
+        921: data copyin transfers: 10
+             device time(us): total=108 max=11 min=10 avg=10
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/plan4.f
+  v_extrap_acc  NVIDIA  devicenum=0
+    time(us): 153
+    969: data region reached 10 times
+    980: update directive reached 10 times
+        980: data copyout transfers: 10
+             device time(us): total=153 max=42 min=12 avg=15
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  vlsc3_acc  NVIDIA  devicenum=0
+    time(us): 181,765
+    1193: data region reached 6602 times
+    1194: compute region reached 6602 times
+        1194: kernel launched 6602 times
+            grid: [400]  block: [256]
+             device time(us): total=61,664 max=65 min= avg=9
+            elapsed time(us): total=200,725 max=97 min=23 avg=30
+        1194: reduction kernel launched 6602 times
+            grid: [1]  block: [256]
+             device time(us): total=120,101 max=81 min=10 avg=18
+            elapsed time(us): total=238,943 max=97 min=30 avg=36
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  projh_acc  NVIDIA  devicenum=0
+    time(us): 20
+    1368: data region reached 4 times
+    1386: update directive reached 4 times
+        1386: data copyin transfers: 4
+             device time(us): total=20 max=5 min=5 avg=5
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  gensh_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1449: data region reached 5 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier4.f
+  hsolve_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1733: data region reached 5 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  opcolv_acc  NVIDIA  devicenum=0
+    time(us): 754
+    5357: data region reached 60 times
+    5358: compute region reached 60 times
+        5358: kernel launched 60 times
+            grid: [820]  block: [256]
+             device time(us): total=754 max=14 min=12 avg=12
+            elapsed time(us): total=1,864 max=59 min=28 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  wgradm1_acc  NVIDIA  devicenum=0
+    time(us): 258
+    5546: data region reached 20 times
+    5549: data region reached 20 times
+    5549: compute region reached 20 times
+        5549: kernel launched 20 times
+            grid: [800]  block: [32x4]
+             device time(us): total=258 max=13 min=12 avg=12
+            elapsed time(us): total=617 max=32 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  opdiv_acc  NVIDIA  devicenum=0
+    time(us): 0
+    5730: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  multd_acc  NVIDIA  devicenum=0
+    time(us): 371
+    5777: data region reached 30 times
+    5781: compute region reached 30 times
+        5781: kernel launched 30 times
+            grid: [100]  block: [256x4]
+             device time(us): total=371 max=13 min=12 avg=12
+            elapsed time(us): total=911 max=32 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  dudxyz_acc  NVIDIA  devicenum=0
+    time(us): 1,629
+    5851: data region reached 120 times
+    5868: compute region reached 120 times
+        5868: kernel launched 120 times
+            grid: [800]  block: [32x4]
+             device time(us): total=1,629 max=26 min=11 avg=13
+            elapsed time(us): total=3,903 max=128 min=30 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  cdtp_acc  NVIDIA  devicenum=0
+    time(us): 763
+    5969: data region reached 30 times
+    5973: compute region reached 30 times
+        5973: kernel launched 30 times
+            grid: [800]  block: [32x4]
+             device time(us): total=384 max=13 min=12 avg=12
+            elapsed time(us): total=904 max=31 min=29 avg=30
+    5987: data region reached 30 times
+    5987: compute region reached 30 times
+        5987: kernel launched 30 times
+            grid: [800]  block: [32x4]
+             device time(us): total=379 max=13 min=12 avg=12
+            elapsed time(us): total=905 max=32 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/navier1.f
+  ctolspl_acc  NVIDIA  devicenum=0
+    time(us): 0
+    6033: data region reached 10 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  rzero_acc  NVIDIA  devicenum=0
+    time(us): 12,073
+    1904: data region reached 969 times
+    1905: compute region reached 969 times
+        1905: kernel launched 969 times
+            grid: [169-782]  block: [256]
+             device time(us): total=12,073 max=66 min=11 avg=12
+            elapsed time(us): total=29,677 max=83 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  copy_acc  NVIDIA  devicenum=0
+    time(us): 17,069
+    1934: data region reached 1400 times
+    1935: compute region reached 1400 times
+        1935: kernel launched 1400 times
+            grid: [13-400]  block: [256]
+             device time(us): total=17,069 max=67 min=10 avg=12
+            elapsed time(us): total=42,016 max=85 min=27 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invers2_acc  NVIDIA  devicenum=0
+    time(us): 260
+    1966: data region reached 20 times
+    1967: compute region reached 20 times
+        1967: kernel launched 20 times
+            grid: [400]  block: [256]
+             device time(us): total=260 max=13 min=13 avg=13
+            elapsed time(us): total=618 max=32 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2_acc  NVIDIA  devicenum=0
+    time(us): 1,626
+    1996: data region reached 115 times
+    1997: compute region reached 115 times
+        1997: kernel launched 115 times
+            grid: [400]  block: [256]
+             device time(us): total=1,626 max=62 min=10 avg=14
+            elapsed time(us): total=3,724 max=83 min=28 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  col2_acc  NVIDIA  devicenum=0
+    time(us): 23,803
+    2026: data region reached 1919 times
+    2027: compute region reached 1919 times
+        2027: kernel launched 1919 times
+            grid: [400]  block: [256]
+             device time(us): total=23,803 max=63 min=11 avg=12
+            elapsed time(us): total=58,482 max=82 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  addcol3_acc  NVIDIA  devicenum=0
+    time(us): 389
+    2098: data region reached 30 times
+    2099: compute region reached 30 times
+        2099: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=389 max=13 min=12 avg=12
+            elapsed time(us): total=939 max=36 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  cmult_acc  NVIDIA  devicenum=0
+    time(us): 10,898
+    2128: data region reached 884 times
+    2129: compute region reached 884 times
+        2129: kernel launched 884 times
+            grid: [50-400]  block: [256]
+             device time(us): total=10,898 max=21 min=9 avg=12
+            elapsed time(us): total=26,893 max=80 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  col3_acc  NVIDIA  devicenum=0
+    time(us): 11,026
+    2204: data region reached 879 times
+    2205: compute region reached 879 times
+        2205: kernel launched 879 times
+            grid: [400]  block: [256]
+             device time(us): total=11,026 max=71 min=9 avg=12
+            elapsed time(us): total=26,738 max=89 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2s2_acc  NVIDIA  devicenum=0
+    time(us): 88,745
+    2235: data region reached 7379 times
+    2236: compute region reached 7379 times
+        2236: kernel launched 7379 times
+            grid: [400]  block: [256]
+             device time(us): total=88,745 max=66 min=9 avg=12
+            elapsed time(us): total=224,452 max=103 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  vlsc2_acc  NVIDIA  devicenum=0
+    time(us): 255
+    2268: data region reached 10 times
+    2269: compute region reached 10 times
+        2269: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=95 max=11 min=9 avg=9
+            elapsed time(us): total=305 max=32 min=29 avg=30
+        2269: reduction kernel launched 10 times
+            grid: [1]  block: [256]
+             device time(us): total=160 max=18 min=13 avg=16
+            elapsed time(us): total=384 max=79 min=32 avg=38
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsum_acc  NVIDIA  devicenum=0
+    time(us): 1,645
+    2287: data region reached 70 times
+    2288: compute region reached 70 times
+        2288: kernel launched 70 times
+            grid: [400]  block: [256]
+             device time(us): total=627 max=11 min=8 avg=8
+            elapsed time(us): total=2,178 max=32 min=28 avg=31
+        2288: reduction kernel launched 70 times
+            grid: [1]  block: [256]
+             device time(us): total=1,018 max=17 min=12 avg=14
+            elapsed time(us): total=2,307 max=37 min=31 avg=32
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc2_acc  NVIDIA  devicenum=0
+    time(us): 197
+    2327: data region reached 6 times
+    2328: compute region reached 6 times
+        2328: kernel launched 6 times
+            grid: [400]  block: [256]
+             device time(us): total=55 max=10 min=9 avg=9
+            elapsed time(us): total=239 max=81 min=31 avg=39
+        2328: reduction kernel launched 6 times
+            grid: [1]  block: [256]
+             device time(us): total=142 max=66 min=12 avg=23
+            elapsed time(us): total=252 max=83 min=33 avg=42
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc3_acc  NVIDIA  devicenum=0
+    time(us): 20,505
+    2373: data region reached 787 times
+    2374: compute region reached 787 times
+        2374: kernel launched 787 times
+            grid: [800]  block: [128]
+             device time(us): total=6,929 max=12 min= avg=8
+            elapsed time(us): total=24,549 max=83 min=24 avg=31
+        2374: reduction kernel launched 787 times
+            grid: [1]  block: [256]
+             device time(us): total=13,576 max=63 min=10 avg=17
+            elapsed time(us): total=27,982 max=83 min=31 avg=35
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  sub2_acc  NVIDIA  devicenum=0
+    time(us): 427
+    2405: data region reached 34 times
+    2406: compute region reached 34 times
+        2406: kernel launched 34 times
+            grid: [400]  block: [256]
+             device time(us): total=427 max=14 min=12 avg=12
+            elapsed time(us): total=1,025 max=32 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add3s2_acc  NVIDIA  devicenum=0
+    time(us): 399
+    2434: data region reached 30 times
+    2435: compute region reached 30 times
+        2435: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=399 max=14 min=12 avg=13
+            elapsed time(us): total=941 max=32 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  addcol4_acc  NVIDIA  devicenum=0
+    time(us): 4,423
+    2464: data region reached 360 times
+    2465: compute region reached 360 times
+        2465: kernel launched 360 times
+            grid: [400]  block: [256]
+             device time(us): total=4,423 max=13 min=12 avg=12
+            elapsed time(us): total=10,947 max=38 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  chsign_acc  NVIDIA  devicenum=0
+    time(us): 497
+    2479: data region reached 40 times
+    2480: compute region reached 40 times
+        2480: kernel launched 40 times
+            grid: [400]  block: [256]
+             device time(us): total=497 max=13 min=11 avg=12
+            elapsed time(us): total=1,203 max=32 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  add2s1_acc  NVIDIA  devicenum=0
+    time(us): 3,463
+    2510: data region reached 340 times
+    2511: compute region reached 340 times
+        2511: kernel launched 340 times
+            grid: [400]  block: [256]
+             device time(us): total=3,463 max=108 min=9 avg=10
+            elapsed time(us): total=10,542 max=128 min=28 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  sub3_acc  NVIDIA  devicenum=0
+    time(us): 843
+    2541: data region reached 70 times
+    2542: compute region reached 70 times
+        2542: kernel launched 70 times
+            grid: [400]  block: [256]
+             device time(us): total=843 max=17 min=10 avg=12
+            elapsed time(us): total=2,126 max=34 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invcol3_acc  NVIDIA  devicenum=0
+    time(us): 257
+    2580: data region reached 20 times
+    2581: compute region reached 20 times
+        2581: kernel launched 20 times
+            grid: [400]  block: [256]
+             device time(us): total=257 max=13 min=12 avg=12
+            elapsed time(us): total=615 max=32 min=29 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  admcol3_acc  NVIDIA  devicenum=0
+    time(us): 129
+    2598: data region reached 10 times
+    2599: compute region reached 10 times
+        2599: kernel launched 10 times
+            grid: [400]  block: [256]
+             device time(us): total=129 max=13 min=12 avg=12
+            elapsed time(us): total=308 max=31 min=30 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  invcol1_acc  NVIDIA  devicenum=0
+    time(us): 391
+    2629: data region reached 30 times
+    2630: compute region reached 30 times
+        2630: kernel launched 30 times
+            grid: [400]  block: [256]
+             device time(us): total=391 max=14 min=13 avg=13
+            elapsed time(us): total=939 max=35 min=30 avg=31
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/math.f
+  glsc23_acc  NVIDIA  devicenum=0
+    time(us): 211
+    2688: data region reached 8 times
+    2689: data region reached 8 times
+    2689: compute region reached 8 times
+        2689: kernel launched 8 times
+            grid: [400]  block: [256]
+             device time(us): total=71 max=9 min=8 avg=8
+            elapsed time(us): total=327 max=111 min=30 avg=40
+        2689: reduction kernel launched 8 times
+            grid: [1]  block: [256]
+             device time(us): total=140 max=20 min=14 avg=17
+            elapsed time(us): total=278 max=39 min=31 avg=34
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_wt3d_acc  NVIDIA  devicenum=0
+    time(us): 10,689
+    3211: data region reached 878 times
+    3212: compute region reached 878 times
+        3212: kernel launched 878 times
+            grid: [200]  block: [256]
+             device time(us): total=10,689 max=61 min=11 avg=12
+            elapsed time(us): total=26,565 max=79 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_tnsr3d_acc  NVIDIA  devicenum=0
+    time(us): 31,938
+    3297: data region reached 878 times
+    3299: compute region reached 878 times
+        3299: kernel launched 878 times
+            grid: [25-200]  block: [32x4]
+             device time(us): total=10,683 max=63 min=10 avg=12
+            elapsed time(us): total=26,168 max=118 min=28 avg=29
+    3316: compute region reached 878 times
+        3316: kernel launched 878 times
+            grid: [50-400]  block: [32x4]
+             device time(us): total=10,662 max=63 min=11 avg=12
+            elapsed time(us): total=26,587 max=81 min=28 avg=30
+    3333: compute region reached 878 times
+        3333: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,593 max=61 min=11 avg=12
+            elapsed time(us): total=26,258 max=86 min=28 avg=29
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_do_wt_acc  NVIDIA  devicenum=0
+    time(us): 10,818
+    3388: data region reached 878 times
+    3389: compute region reached 878 times
+        3389: kernel launched 878 times
+            grid: [200]  block: [256]
+             device time(us): total=10,818 max=60 min=11 avg=12
+            elapsed time(us): total=26,575 max=80 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_tnsr1_3d_acc  NVIDIA  devicenum=0
+    time(us): 32,831
+    3464: data region reached 878 times
+    3467: compute region reached 878 times
+        3467: kernel launched 878 times
+            grid: [50-400]  block: [32x4]
+             device time(us): total=11,106 max=64 min=11 avg=12
+            elapsed time(us): total=26,871 max=82 min=28 avg=30
+    3483: compute region reached 878 times
+        3483: kernel launched 878 times
+            grid: [25-200]  block: [32x4]
+             device time(us): total=10,914 max=65 min=11 avg=12
+            elapsed time(us): total=26,828 max=101 min=28 avg=30
+    3498: compute region reached 878 times
+        3498: kernel launched 878 times
+            grid: [13-100]  block: [32x4]
+             device time(us): total=10,811 max=65 min=11 avg=12
+            elapsed time(us): total=26,748 max=83 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_do_fast_acc  NVIDIA  devicenum=0
+    time(us): 64,916
+    3595: data region reached 878 times
+    3598: compute region reached 878 times
+        3598: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=11,221 max=65 min=12 avg=12
+            elapsed time(us): total=26,979 max=82 min=29 avg=30
+    3615: compute region reached 878 times
+        3615: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,868 max=67 min=11 avg=12
+            elapsed time(us): total=26,786 max=107 min=28 avg=30
+    3631: compute region reached 878 times
+        3631: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,698 max=30 min=11 avg=12
+            elapsed time(us): total=26,438 max=48 min=28 avg=30
+    3649: compute region reached 878 times
+        3649: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,647 max=61 min=11 avg=12
+            elapsed time(us): total=26,576 max=84 min=28 avg=30
+    3665: compute region reached 878 times
+        3665: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,775 max=60 min=11 avg=12
+            elapsed time(us): total=26,488 max=78 min=28 avg=30
+    3681: compute region reached 878 times
+        3681: kernel launched 878 times
+            grid: [338-1563]  block: [32x4]
+             device time(us): total=10,707 max=64 min=12 avg=12
+            elapsed time(us): total=26,515 max=83 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_extrude_acc  NVIDIA  devicenum=0
+    time(us): 55,038
+    3736: data region reached 4390 times
+    3737: compute region reached 4390 times
+        3737: kernel launched 4390 times
+            grid: [200]  block: [256]
+             device time(us): total=55,038 max=64 min=10 avg=12
+            elapsed time(us): total=134,142 max=85 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_toreg3d_acc  NVIDIA  devicenum=0
+    time(us): 10,586
+    3778: data region reached 878 times
+    3780: compute region reached 878 times
+        3780: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,586 max=15 min=12 avg=12
+            elapsed time(us): total=26,315 max=79 min=28 avg=29
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  hsmg_schwarz_toext3d_acc  NVIDIA  devicenum=0
+    time(us): 10,867
+    3802: data region reached 878 times
+    3806: compute region reached 878 times
+        3806: kernel launched 878 times
+            grid: [100-800]  block: [32x4]
+             device time(us): total=10,867 max=68 min=11 avg=12
+            elapsed time(us): total=26,545 max=86 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  h1mg_mask_acc  NVIDIA  devicenum=0
+    time(us): 32,233
+    3832: data region reached 2634 times
+    3833: compute region reached 2634 times
+        3833: kernel launched 2634 times
+            grid: [1]  block: [256]
+             device time(us): total=32,233 max=81 min=10 avg=12
+            elapsed time(us): total=79,207 max=98 min=27 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hsmg.f
+  h1mg_solve_acc  NVIDIA  devicenum=0
+    time(us): 18,996
+    4005: data region reached 439 times
+    4049: update directive reached 439 times
+        4049: data copyout transfers: 439
+             device time(us): total=4,210 max=65 min=8 avg=9
+    4052: update directive reached 439 times
+        4052: data copyin transfers: 439
+             device time(us): total=4,016 max=58 min=7 avg=9
+    4069: compute region reached 439 times
+        4069: kernel launched 439 times
+            grid: [50]  block: [256]
+             device time(us): total=5,270 max=13 min=11 avg=12
+            elapsed time(us): total=13,272 max=40 min=28 avg=30
+    4081: compute region reached 439 times
+        4081: kernel launched 439 times
+            grid: [400]  block: [256]
+             device time(us): total=5,500 max=63 min=11 avg=12
+            elapsed time(us): total=13,591 max=82 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  set_fdm_prec_h1a_gen  NVIDIA  devicenum=0
+    time(us): 139
+    1094: data region reached 9 times
+    1097: update directive reached 9 times
+        1097: data copyin transfers: 18
+             device time(us): total=139 max=9 min=7 avg=7
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  set_fdm_prec_h1a_els  NVIDIA  devicenum=0
+    time(us): 14
+    1265: update directive reached 1 time
+        1265: data copyin transfers: 1
+             device time(us): total=14 max=14 min=14 avg=14
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  axhelm_acc  NVIDIA  devicenum=0
+    time(us): 20,846
+    1525: data region reached 827 times
+    1532: compute region reached 827 times
+        1532: kernel launched 827 times
+            grid: [400]  block: [64x4]
+             device time(us): total=10,715 max=64 min=11 avg=12
+            elapsed time(us): total=25,647 max=83 min=29 avg=31
+    1569: compute region reached 827 times
+        1569: kernel launched 827 times
+            grid: [400]  block: [64x4]
+             device time(us): total=10,131 max=60 min=11 avg=12
+            elapsed time(us): total=25,378 max=81 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  hmholtz_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1692: data region reached 35 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  cggo_acc  NVIDIA  devicenum=0
+    time(us): 0
+    1750: data region reached 40 times
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  vlsc32_acc  NVIDIA  devicenum=0
+    time(us): 9,540
+    1946: data region reached 360 times
+    1947: compute region reached 360 times
+        1947: kernel launched 360 times
+            grid: [400]  block: [256]
+             device time(us): total=3,448 max=58 min=9 avg=9
+            elapsed time(us): total=10,853 max=79 min=28 avg=30
+        1947: reduction kernel launched 360 times
+            grid: [1]  block: [256]
+             device time(us): total=6,092 max=71 min=12 avg=16
+            elapsed time(us): total=12,290 max=89 min=30 avg=34
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/hmholtz.f
+  setprec_acc  NVIDIA  devicenum=0
+    time(us): 739
+    1990: data region reached 30 times
+    1993: compute region reached 30 times
+        1993: kernel launched 30 times
+            grid: [200]  block: [256]
+             device time(us): total=739 max=26 min=24 avg=24
+            elapsed time(us): total=1,639 max=161 min=49 avg=54
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/gmres.f
+  uzawa_gmres_split_acc  NVIDIA  devicenum=0
+    time(us): 14
+    1346: data region reached 1 time
+    1347: compute region reached 1 time
+        1347: kernel launched 1 time
+            grid: [400]  block: [256]
+             device time(us): total=14 max=14 min=14 avg=14
+            elapsed time(us): total=33 max=33 min=33 avg=33
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/gmres.f
+  hmh_gmres_acc  NVIDIA  devicenum=0
+    time(us): 294
+    1438: data region reached 10 times
+    1453: update directive reached 10 times
+        1453: data copyin transfers: 10
+             device time(us): total=141 max=15 min=14 avg=14
+    1455: update directive reached 10 times
+        1455: data copyout transfers: 10
+             device time(us): total=153 max=35 min=12 avg=15
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/dssum.f
+  hsmg_dssum_acc  NVIDIA  devicenum=0
+    time(us): 130,461
+    1001: data region reached 3073 times
+    1003: compute region reached 3073 times
+        1003: kernel launched 3073 times
+            grid: [16-164]  block: [256]
+             device time(us): total=37,498 max=67 min=11 avg=12
+            elapsed time(us): total=92,782 max=85 min=28 avg=30
+    1017: update directive reached 3073 times
+        1017: data copyout transfers: 3073
+             device time(us): total=29,184 max=88 min=8 avg=9
+    1020: update directive reached 3073 times
+        1020: data copyin transfers: 3073
+             device time(us): total=25,318 max=65 min=6 avg=8
+    1024: compute region reached 3073 times
+        1024: kernel launched 3073 times
+            grid: [16-164]  block: [256]
+             device time(us): total=38,461 max=64 min=11 avg=12
+            elapsed time(us): total=92,844 max=135 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/dssum.f
+  dssum_acc  NVIDIA  devicenum=0
+    time(us): 60,849
+    1326: data region reached 1396 times
+    1329: compute region reached 1396 times
+        1329: kernel launched 1396 times
+            grid: [97]  block: [256]
+             device time(us): total=17,618 max=68 min=10 avg=12
+            elapsed time(us): total=42,721 max=86 min=28 avg=30
+    1343: update directive reached 1396 times
+        1343: data copyout transfers: 1396
+             device time(us): total=13,919 max=71 min=8 avg=9
+    1346: update directive reached 1396 times
+        1346: data copyin transfers: 1396
+             device time(us): total=11,838 max=64 min=6 avg=8
+    1350: compute region reached 1396 times
+        1350: kernel launched 1396 times
+            grid: [97]  block: [256]
+             device time(us): total=17,474 max=26 min=11 avg=12
+            elapsed time(us): total=42,427 max=89 min=28 avg=30
+/ccs/home/csep04/codes/NekGPU15/nek5_r1039_acc/drive1.f
+  nek_solve  NVIDIA  devicenum=0
+    time(us): 635
+    267: data region reached 1 time
+    321: update directive reached 1 time
+        321: data copyin transfers: 6
+             device time(us): total=90 max=32 min=11 avg=15
+    322: update directive reached 1 time
+        322: data copyin transfers: 1
+             device time(us): total=15 max=15 min=15 avg=15
+    323: update directive reached 1 time
+        323: data copyin transfers: 6
+             device time(us): total=40 max=7 min=6 avg=6
+    324: update directive reached 1 time
+        324: data copyin transfers: 5
+             device time(us): total=61 max=15 min=7 avg=12
+    325: update directive reached 1 time
+        325: data copyin transfers: 3
+             device time(us): total=21 max=7 min=7 avg=7
+    326: update directive reached 1 time
+        326: data copyin transfers: 3
+             device time(us): total=21 max=7 min=7 avg=7
+    327: update directive reached 1 time
+        327: data copyin transfers: 6
+             device time(us): total=72 max=13 min=11 avg=12
+    328: update directive reached 1 time
+        328: data copyin transfers: 6
+             device time(us): total=67 max=13 min=10 avg=11
+    329: update directive reached 1 time
+        329: data copyin transfers: 6
+             device time(us): total=71 max=13 min=11 avg=11
+    330: update directive reached 1 time
+        330: data copyin transfers: 4
+             device time(us): total=47 max=14 min=11 avg=11
+    332: update directive reached 1 time
+        332: data copyin transfers: 3
+             device time(us): total=37 max=13 min=12 avg=12
+    333: update directive reached 1 time
+        333: data copyin transfers: 2
+             device time(us): total=21 max=11 min=10 avg=10
+    334: update directive reached 1 time
+        334: data copyin transfers: 3
+             device time(us): total=34 max=12 min=11 avg=11
+    335: update directive reached 1 time
+        335: data copyin transfers: 4
+             device time(us): total=38 max=13 min=7 avg=9
+Application 1039683 resources: utime ~30s, stime ~4s, Rss ~642728, inblocks ~40205, outblocks ~126259

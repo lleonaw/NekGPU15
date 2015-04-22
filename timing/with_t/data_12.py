@@ -28,4 +28,4 @@ def read(path):
 	# 		if ("/ccs" in line):
 	# 			print line
 
-read("log_p8_g4")
+read("log_p12_g1_t")
