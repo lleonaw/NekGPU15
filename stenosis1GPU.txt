@@ -1,0 +1,1049 @@
+CrayPat/X:  Version 6.2.3 Revision 13730 (xf 13540)  03/23/15 16:01:49
+
+Number of PEs (MPI ranks):   1
+                           
+Numbers of PEs per Node:     1
+                           
+Numbers of Threads per PE:   1
+                           
+Number of Cores per Socket:  8
+
+Execution start time:  Wed Apr 22 17:17:20 2015
+
+System name and speed:  chester-login1.ccs.ornl.gov 2200 MHz
+
+Current path to data file:
+  /lustre/atlas/scratch/csep02/trn001/pipe_r1039_acc/nek5000+pat+4881-3s.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O samp_profile
+  Options implied by table option:
+    -d sa%@0.95,sa,imb_sa,imb_sa% -b gr,fu
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O samp_profile+src    
+
+  The Total value for Samp is the sum for the Group values.
+  The Group value for Samp is the sum for the Function values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Samp% > 0.
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+  To make the profile easier to interpret, some samples are attributed
+  to a caller that is either a user defined function, or a library
+  function called directly by a user defined function.  To disable this
+  adjustment, and show functions actually sampled, use the -P option.
+  
+  Trace option suggestions have been generated into a separate file
+  from the data in the next table.  You can examine the file, edit it
+  if desired, and use it to reinstrument the program like this:
+  
+            pat_build -O stenosis1GPU.apa
+
+Table 1:  Profile by Function
+
+  Samp% |   Samp | Imb. |  Imb. |Group
+        |        | Samp | Samp% | Function
+       
+ 100.0% | 1141.0 |   -- |    -- |Total
+|-----------------------------------------------------------------------------
+|  62.8% |  716.0 |   -- |    -- |ETC
+||----------------------------------------------------------------------------
+||  26.8% |  306.0 |   -- |    -- |cuMemGetAttribute_v2
+||  21.2% |  242.0 |   -- |    -- |cudbgGetAPIVersion
+||   5.3% |   60.0 |   -- |    -- |cudbgMain
+||   2.9% |   33.0 |   -- |    -- |__pthread_mutex_unlock_usercnt
+||   1.1% |   12.0 |   -- |    -- |__cray_dcopy_AVX
+||   0.8% |    9.0 |   -- |    -- |cuVDPAUCtxCreate
+||   0.7% |    8.0 |   -- |    -- |__ieee754_atan2
+||   0.5% |    6.0 |   -- |    -- |cudbgReportDriverInternalError
+||   0.5% |    6.0 |   -- |    -- |cray_acc_transfer_list
+||   0.5% |    6.0 |   -- |    -- |__cray_dset_AVX
+||   0.4% |    5.0 |   -- |    -- |scatter_double
+||   0.4% |    5.0 |   -- |    -- |__cray_memcpy_INT
+||   0.4% |    4.0 |   -- |    -- |__cray_acc_implement_transfer
+||   0.4% |    4.0 |   -- |    -- |std::_Rb_tree<Addr_range, std::pair<Addr_range const, int>, std::_Select1st<std::pair<Addr_range const, int> >, Addr_range::comp, std::allocator<std::pair<Addr_range const, int> > >::find
+||   0.2% |    2.0 |   -- |    -- |__tls_get_addr
+||   0.1% |    1.0 |   -- |    -- |==LO_MEMORY== nek5000+pat
+||   0.1% |    1.0 |   -- |    -- |gather_double_min
+||   0.1% |    1.0 |   -- |    -- |_init
+||   0.1% |    1.0 |   -- |    -- |free_delayed_free
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_implement_typed_transfer
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_hw_synchronize
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_pt_add
+||   0.1% |    1.0 |   -- |    -- |std::_Rb_tree_rebalance_for_erase
+||============================================================================
+|  32.1% |  366.0 |   -- |    -- |USER
+||----------------------------------------------------------------------------
+||   5.5% |   63.0 |   -- |    -- |mxf8_
+||   2.2% |   25.0 |   -- |    -- |mxf12_
+||   1.1% |   13.0 |   -- |    -- |col3_
+||   1.1% |   12.0 |   -- |    -- |addcol3_
+||   0.7% |    8.0 |   -- |    -- |j8sort_
+||   0.7% |    8.0 |   -- |    -- |set_dealias_rx_
+||   0.6% |    7.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1193
+||   0.6% |    7.0 |   -- |    -- |vlsc3_acc_.ACC_REGION@li.1194
+||   0.5% |    6.0 |   -- |    -- |col2_
+||   0.5% |    6.0 |   -- |    -- |add2s2_acc_.ACC_DATA_REGION@li.2235
+||   0.5% |    6.0 |   -- |    -- |add2s2_acc_.ACC_COPY@li.2241
+||   0.4% |    5.0 |   -- |    -- |nekasgn_
+||   0.4% |    5.0 |   -- |    -- |vlamax_
+||   0.4% |    5.0 |   -- |    -- |set_convect_new_
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1194
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1199
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_DATA_REGION@li.1193
+||   0.4% |    5.0 |   -- |    -- |add2s2_acc_.ACC_COPY@li.2235
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1198
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_ASYNC_KERNEL@li.1194
+||   0.4% |    4.0 |   -- |    -- |radix_count_ull
+||   0.4% |    4.0 |   -- |    -- |jl_sparse_cholesky_solve
+||   0.4% |    4.0 |   -- |    -- |vlsc3_acc_.ACC_SYNC_WAIT@li.1198
+||   0.4% |    4.0 |   -- |    -- |add2s2_acc_.ACC_REGION@li.2236
+||   0.4% |    4.0 |   -- |    -- |add2s2_acc_.ACC_ASYNC_KERNEL@li.2236
+||   0.3% |    3.0 |   -- |    -- |opcolv_
+||   0.3% |    3.0 |   -- |    -- |opcolv3c_
+||   0.3% |    3.0 |   -- |    -- |add2_
+||   0.3% |    3.0 |   -- |    -- |glsc3_
+||   0.3% |    3.0 |   -- |    -- |local_map
+||   0.3% |    3.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_DATA_REGION@li.3778
+||   0.3% |    3.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3498
+||   0.3% |    3.0 |   -- |    -- |h1mg_mask_acc_.ACC_ASYNC_KERNEL@li.3833
+||   0.2% |    2.0 |   -- |    -- |addcol4_
+||   0.2% |    2.0 |   -- |    -- |ascol5_
+||   0.2% |    2.0 |   -- |    -- |vdot3_
+||   0.2% |    2.0 |   -- |    -- |add2s2_
+||   0.2% |    2.0 |   -- |    -- |compute_cfl_
+||   0.2% |    2.0 |   -- |    -- |setvert3d_
+||   0.2% |    2.0 |   -- |    -- |radix_passp0_b_ui
+||   0.2% |    2.0 |   -- |    -- |radix_passp_b_ull
+||   0.2% |    2.0 |   -- |    -- |hsmg_dssum_acc_.ACC_REGION@li.1003
+||   0.2% |    2.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3299
+||   0.2% |    2.0 |   -- |    -- |axhelm_acc_.ACC_REGION@li.1569
+||   0.2% |    2.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3467
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3681
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_COPY@li.3595
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3911
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_DATA_REGION@li.3901
+||   0.2% |    2.0 |   -- |    -- |cmult_acc_.ACC_COPY@li.2128
+||   0.2% |    2.0 |   -- |    -- |dssum_acc_.ACC_REGION@li.1329
+||   0.2% |    2.0 |   -- |    -- |copy_acc_.ACC_ASYNC_KERNEL@li.1935
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3631
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_COPY@li.3911
+||   0.1% |    1.0 |   -- |    -- |geodat1_
+||   0.1% |    1.0 |   -- |    -- |area3_
+||   0.1% |    1.0 |   -- |    -- |nekuf_
+||   0.1% |    1.0 |   -- |    -- |vlsc3_
+||   0.1% |    1.0 |   -- |    -- |vlsc3_acc_
+||   0.1% |    1.0 |   -- |    -- |nekuic_
+||   0.1% |    1.0 |   -- |    -- |ifgtil_
+||   0.1% |    1.0 |   -- |    -- |sub2_
+||   0.1% |    1.0 |   -- |    -- |subcol3_
+||   0.1% |    1.0 |   -- |    -- |cmult_
+||   0.1% |    1.0 |   -- |    -- |vlmax_
+||   0.1% |    1.0 |   -- |    -- |add2s1_
+||   0.1% |    1.0 |   -- |    -- |vlsc2_
+||   0.1% |    1.0 |   -- |    -- |glsc23_
+||   0.1% |    1.0 |   -- |    -- |glsc23_acc_
+||   0.1% |    1.0 |   -- |    -- |axhelm_
+||   0.1% |    1.0 |   -- |    -- |setfast_
+||   0.1% |    1.0 |   -- |    -- |facexv_
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_
+||   0.1% |    1.0 |   -- |    -- |convect_new_
+||   0.1% |    1.0 |   -- |    -- |rand_fld_h1_
+||   0.1% |    1.0 |   -- |    -- |iftuple_ialtb_
+||   0.1% |    1.0 |   -- |    -- |flagged_primaries_map
+||   0.1% |    1.0 |   -- |    -- |radix_passp_m_ui
+||   0.1% |    1.0 |   -- |    -- |gather_double_add
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_COPY@li.3349
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_COPY@li.1034
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3483
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_UPDATE@li.4052
+||   0.1% |    1.0 |   -- |    -- |axhelm_acc_.ACC_ASYNC_KERNEL@li.1569
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_ASYNC_KERNEL@li.2374
+||   0.1% |    1.0 |   -- |    -- |cmult2_acc_.ACC_COPY@li.2325
+||   0.1% |    1.0 |   -- |    -- |col3_acc_.ACC_ASYNC_KERNEL@li.2205
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_.ACC_COPY@li.3388
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_.ACC_DATA_REGION@li.3388
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_REGION@li.3665
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_REGION@li.3911
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_COPY@li.3791
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_DATA_REGION@li.3211
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_COPY@li.1001
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_REGION@li.3833
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_REGION@li.4069
+||   0.1% |    1.0 |   -- |    -- |vlsc32_acc_.ACC_COPY@li.1952
+||   0.1% |    1.0 |   -- |    -- |col2_acc_.ACC_COPY@li.2026
+||   0.1% |    1.0 |   -- |    -- |col2_acc_.ACC_COPY@li.2032
+||   0.1% |    1.0 |   -- |    -- |dssum_acc_.ACC_DATA_REGION@li.1326
+||   0.1% |    1.0 |   -- |    -- |copy_acc_.ACC_REGION@li.1935
+||   0.1% |    1.0 |   -- |    -- |col3_acc_.ACC_COPY@li.2204
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_COPY@li.2373
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_COPY@li.2378
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_COPY@li.3832
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_COPY@li.3844
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toext3d_acc_.ACC_COPY@li.3817
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_REGION@li.3897
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_ASYNC_KERNEL@li.1024
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3901
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_REGION@li.3615
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_DATA_REGION@li.3906
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_REGION@li.3780
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_REGION@li.3212
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_ASYNC_KERNEL@li.3212
+||   0.1% |    1.0 |   -- |    -- |cmult_acc_.ACC_ASYNC_KERNEL@li.2129
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_DATA_REGION@li.3464
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_COPY@li.3464
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_REGION@li.3483
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_REGION@li.3498
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_UPDATE@li.4049
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_DATA_REGION@li.3297
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_REGION@li.3316
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_REGION@li.3333
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3333
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_REGION@li.4081
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_ASYNC_KERNEL@li.4081
+||   0.1% |    1.0 |   -- |    -- |vlsc32_acc_.ACC_REGION@li.1947
+||============================================================================
+|   2.9% |   33.0 |   -- |    -- |PTHREAD
+||----------------------------------------------------------------------------
+||   2.5% |   29.0 |   -- |    -- |pthread_mutex_lock
+||   0.4% |    4.0 |   -- |    -- |pthread_getspecific
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |IO
+||----------------------------------------------------------------------------
+||   0.3% |    3.0 |   -- |    -- |read
+||   0.2% |    2.0 |   -- |    -- |open
+||   0.1% |    1.0 |   -- |    -- |write
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |MPI
+||----------------------------------------------------------------------------
+||   0.4% |    4.0 |   -- |    -- |mpi_wtime
+||   0.2% |    2.0 |   -- |    -- |MPI_ALLREDUCE
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |BLAS
+||----------------------------------------------------------------------------
+||   0.2% |    2.0 |   -- |    -- |dtrsm_
+||   0.1% |    1.0 |   -- |    -- |daxpy_
+||   0.1% |    1.0 |   -- |    -- |dgemv_
+||   0.1% |    1.0 |   -- |    -- |dger_
+||   0.1% |    1.0 |   -- |    -- |dsymv_
+||============================================================================
+|   0.4% |    4.0 |   -- |    -- |CUDA
+||----------------------------------------------------------------------------
+||   0.2% |    2.0 |   -- |    -- |cuCtxSynchronize
+||   0.1% |    1.0 |   -- |    -- |cuCtxGetDevice
+||   0.1% |    1.0 |   -- |    -- |cuEventRecord
+||============================================================================
+|   0.3% |    3.0 |   -- |    -- |OACC
+||----------------------------------------------------------------------------
+||   0.3% |    3.0 |   -- |    -- |acc_get_device_num
+||============================================================================
+|   0.1% |    1.0 |   -- |    -- |LAPACK
+||----------------------------------------------------------------------------
+||   0.1% |    1.0 |   -- |    -- |dlapy2_
+|=============================================================================
+
+Notes for table 2:
+
+  Table option:
+    -O samp_profile+src
+  Options implied by table option:
+    -d sa%@0.95,sa,imb_sa,imb_sa% -b gr,fu,so,li
+  Other options:
+    -T 
+
+  Options for related tables:
+    -O samp_profile        
+
+  The Total value for Samp is the sum for the Group values.
+  The Group value for Samp is the sum for the Function values.
+  The Function value for Samp is the sum for the Source values.
+  The Source value for Samp is the sum for the Line values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Samp% > 0.
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+  To make the profile easier to interpret, some samples are attributed
+  to a caller that is either a user defined function, or a library
+  function called directly by a user defined function.  To disable this
+  adjustment, and show functions actually sampled, use the -P option.
+
+Table 2:  Profile by Group, Function, and Line
+
+  Samp% |   Samp | Imb. |  Imb. |Group
+        |        | Samp | Samp% | Function
+        |        |      |       |  Source
+        |        |      |       |   Line
+       
+ 100.0% | 1141.0 |   -- |    -- |Total
+|-----------------------------------------------------------------------------
+|  62.8% |  716.0 |   -- |    -- |ETC
+||----------------------------------------------------------------------------
+||  26.8% |  306.0 |   -- |    -- |cuMemGetAttribute_v2
+||  21.2% |  242.0 |   -- |    -- |cudbgGetAPIVersion
+||   5.3% |   60.0 |   -- |    -- |cudbgMain
+||   2.9% |   33.0 |   -- |    -- |__pthread_mutex_unlock_usercnt
+||   1.1% |   12.0 |   -- |    -- |__cray_dcopy_AVX
+||   0.8% |    9.0 |   -- |    -- |cuVDPAUCtxCreate
+||   0.7% |    8.0 |   -- |    -- |__ieee754_atan2
+||   0.5% |    6.0 |   -- |    -- |cudbgReportDriverInternalError
+||   0.5% |    6.0 |   -- |    -- |cray_acc_transfer_list
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_runtime.c
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.1103
+4|||   0.1% |    1.0 |   -- |    -- |line.1107
+4|||   0.1% |    1.0 |   -- |    -- |line.1123
+4|||   0.1% |    1.0 |   -- |    -- |line.1211
+4|||   0.1% |    1.0 |   -- |    -- |line.1228
+4|||   0.1% |    1.0 |   -- |    -- |line.1317
+||||==========================================================================
+||   0.5% |    6.0 |   -- |    -- |__cray_dset_AVX
+||   0.4% |    5.0 |   -- |    -- |scatter_double
+||   0.4% |    5.0 |   -- |    -- |__cray_memcpy_INT
+||   0.4% |    4.0 |   -- |    -- |__cray_acc_implement_transfer
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_runtime.c
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.296
+4|||   0.1% |    1.0 |   -- |    -- |line.548
+4|||   0.1% |    1.0 |   -- |    -- |line.748
+||||==========================================================================
+||   0.4% |    4.0 |   -- |    -- |std::_Rb_tree<Addr_range, std::pair<Addr_range const, int>, std::_Select1st<std::pair<Addr_range const, int> >, Addr_range::comp, std::allocator<std::pair<Addr_range const, int> > >::find
+|||---------------------------------------------------------------------------
+3||   0.2% |    2.0 |   -- |    -- |tbs/craylibs/libcrayacc/acc_present.c
+4||        |        |      |       | line.41
+3||   0.2% |    2.0 |   -- |    -- |include/g++/bits/stl_tree.h
+4||        |        |      |       | line.1139
+|||===========================================================================
+||   0.2% |    2.0 |   -- |    -- |__tls_get_addr
+||   0.1% |    1.0 |   -- |    -- |==LO_MEMORY== nek5000+pat
+||   0.1% |    1.0 |   -- |    -- |gather_double_min
+||   0.1% |    1.0 |   -- |    -- |_init
+||   0.1% |    1.0 |   -- |    -- |free_delayed_free
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_runtime.c
+4|        |        |      |       |  line.2008
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_implement_typed_transfer
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_datatype.c
+4|        |        |      |       |  line.1588
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_hw_synchronize
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_hw_nvidia.c
+4|        |        |      |       |  line.636
+||   0.1% |    1.0 |   -- |    -- |__cray_acc_pt_add
+3|        |        |      |       | tbs/craylibs/libcrayacc/acc_present.c
+4|        |        |      |       |  line.69
+||   0.1% |    1.0 |   -- |    -- |std::_Rb_tree_rebalance_for_erase
+3|        |        |      |       | libstdc++-v3/src/c++98/tree.cc
+4|        |        |      |       |  line.366
+||============================================================================
+|  32.1% |  366.0 |   -- |    -- |USER
+||----------------------------------------------------------------------------
+||   5.5% |   63.0 |   -- |    -- |mxf8_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/mxm_std.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.178
+4|||   5.3% |   60.0 |   -- |    -- |line.179
+4|||   0.1% |    1.0 |   -- |    -- |line.188
+||||==========================================================================
+||   2.2% |   25.0 |   -- |    -- |mxf12_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/mxm_std.f
+||||--------------------------------------------------------------------------
+4|||   0.5% |    6.0 |   -- |    -- |line.260
+4|||   1.7% |   19.0 |   -- |    -- |line.261
+||||==========================================================================
+||   1.1% |   13.0 |   -- |    -- |col3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.823
+4|||   1.1% |   12.0 |   -- |    -- |line.824
+||||==========================================================================
+||   1.1% |   12.0 |   -- |    -- |addcol3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.896
+||   0.7% |    8.0 |   -- |    -- |j8sort_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.783
+4|||   0.2% |    2.0 |   -- |    -- |line.793
+4|||   0.2% |    2.0 |   -- |    -- |line.794
+4|||   0.2% |    2.0 |   -- |    -- |line.797
+4|||   0.1% |    1.0 |   -- |    -- |line.799
+||||==========================================================================
+||   0.7% |    8.0 |   -- |    -- |set_dealias_rx_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/induct.f
+4|        |        |      |       |  line.1558
+||   0.6% |    7.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1193
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1193
+||   0.6% |    7.0 |   -- |    -- |vlsc3_acc_.ACC_REGION@li.1194
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.1194
+4|||   0.4% |    5.0 |   -- |    -- |line.1199
+||||==========================================================================
+||   0.5% |    6.0 |   -- |    -- |col2_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.789
+||   0.5% |    6.0 |   -- |    -- |add2s2_acc_.ACC_DATA_REGION@li.2235
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+||||--------------------------------------------------------------------------
+4|||   0.4% |    4.0 |   -- |    -- |line.2235
+4|||   0.2% |    2.0 |   -- |    -- |line.2243
+||||==========================================================================
+||   0.5% |    6.0 |   -- |    -- |add2s2_acc_.ACC_COPY@li.2241
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2241
+||   0.4% |    5.0 |   -- |    -- |nekasgn_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/bdry.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.1186
+4|||   0.1% |    1.0 |   -- |    -- |line.1187
+4|||   0.2% |    2.0 |   -- |    -- |line.1188
+4|||   0.1% |    1.0 |   -- |    -- |line.1193
+||||==========================================================================
+||   0.4% |    5.0 |   -- |    -- |vlamax_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.603
+4|||   0.3% |    3.0 |   -- |    -- |line.604
+||||==========================================================================
+||   0.4% |    5.0 |   -- |    -- |set_convect_new_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/convect.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.916
+4|||   0.3% |    3.0 |   -- |    -- |line.918
+||||==========================================================================
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1194
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1194
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1199
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1199
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_DATA_REGION@li.1193
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+||||--------------------------------------------------------------------------
+4|||   0.3% |    3.0 |   -- |    -- |line.1193
+4|||   0.2% |    2.0 |   -- |    -- |line.1204
+||||==========================================================================
+||   0.4% |    5.0 |   -- |    -- |add2s2_acc_.ACC_COPY@li.2235
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2235
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_COPY@li.1198
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1198
+||   0.4% |    5.0 |   -- |    -- |vlsc3_acc_.ACC_ASYNC_KERNEL@li.1194
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.1194
+4|||   0.3% |    3.0 |   -- |    -- |line.1198
+||||==========================================================================
+||   0.4% |    4.0 |   -- |    -- |radix_count_ull
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/sort_imp.h
+4|        |        |      |       |  line.82
+||   0.4% |    4.0 |   -- |    -- |jl_sparse_cholesky_solve
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/sparse_cholesky.c
+||||--------------------------------------------------------------------------
+4|||   0.3% |    3.0 |   -- |    -- |line.150
+4|||   0.1% |    1.0 |   -- |    -- |line.155
+||||==========================================================================
+||   0.4% |    4.0 |   -- |    -- |vlsc3_acc_.ACC_SYNC_WAIT@li.1198
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1198
+||   0.4% |    4.0 |   -- |    -- |add2s2_acc_.ACC_REGION@li.2236
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+||||--------------------------------------------------------------------------
+4|||   0.3% |    3.0 |   -- |    -- |line.2236
+4|||   0.1% |    1.0 |   -- |    -- |line.2241
+||||==========================================================================
+||   0.4% |    4.0 |   -- |    -- |add2s2_acc_.ACC_ASYNC_KERNEL@li.2236
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.2236
+4|||   0.3% |    3.0 |   -- |    -- |line.2240
+||||==========================================================================
+||   0.3% |    3.0 |   -- |    -- |opcolv_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier1.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.2849
+4|||   0.1% |    1.0 |   -- |    -- |line.2850
+4|||   0.1% |    1.0 |   -- |    -- |line.2851
+||||==========================================================================
+||   0.3% |    3.0 |   -- |    -- |opcolv3c_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier1.f
+4|        |        |      |       |  line.3212
+||   0.3% |    3.0 |   -- |    -- |add2_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.848
+||   0.3% |    3.0 |   -- |    -- |glsc3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.1087
+||   0.3% |    3.0 |   -- |    -- |local_map
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/gs.c
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.340
+4|||   0.2% |    2.0 |   -- |    -- |line.352
+||||==========================================================================
+||   0.3% |    3.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_DATA_REGION@li.3778
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.3778
+4|||   0.1% |    1.0 |   -- |    -- |line.3793
+||||==========================================================================
+||   0.3% |    3.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3498
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.3498
+4|||   0.1% |    1.0 |   -- |    -- |line.3512
+||||==========================================================================
+||   0.3% |    3.0 |   -- |    -- |h1mg_mask_acc_.ACC_ASYNC_KERNEL@li.3833
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.3833
+4|||   0.2% |    2.0 |   -- |    -- |line.3843
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |addcol4_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.244
+||   0.2% |    2.0 |   -- |    -- |ascol5_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.268
+||   0.2% |    2.0 |   -- |    -- |vdot3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.678
+||   0.2% |    2.0 |   -- |    -- |add2s2_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.945
+||   0.2% |    2.0 |   -- |    -- |compute_cfl_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/induct.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.955
+4|||   0.1% |    1.0 |   -- |    -- |line.958
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |setvert3d_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier8.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.2067
+4|||   0.1% |    1.0 |   -- |    -- |line.2316
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |radix_passp0_b_ui
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/sort_imp.h
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.165
+4|||   0.1% |    1.0 |   -- |    -- |line.166
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |radix_passp_b_ull
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/sort_imp.h
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.178
+4|||   0.1% |    1.0 |   -- |    -- |line.181
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |hsmg_dssum_acc_.ACC_REGION@li.1003
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+4|        |        |      |       |  line.1003
+||   0.2% |    2.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3299
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3299
+||   0.2% |    2.0 |   -- |    -- |axhelm_acc_.ACC_REGION@li.1569
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.1569
+4|||   0.1% |    1.0 |   -- |    -- |line.1586
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3467
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.3467
+4|||   0.1% |    1.0 |   -- |    -- |line.3481
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3681
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.3681
+4|||   0.1% |    1.0 |   -- |    -- |line.3695
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_COPY@li.3595
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3595
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3911
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3911
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_DATA_REGION@li.3901
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3901
+||   0.2% |    2.0 |   -- |    -- |cmult_acc_.ACC_COPY@li.2128
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2128
+||   0.2% |    2.0 |   -- |    -- |dssum_acc_.ACC_REGION@li.1329
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.1329
+4|||   0.1% |    1.0 |   -- |    -- |line.1341
+||||==========================================================================
+||   0.2% |    2.0 |   -- |    -- |copy_acc_.ACC_ASYNC_KERNEL@li.1935
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.1939
+||   0.2% |    2.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3631
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3646
+||   0.2% |    2.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_COPY@li.3911
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3911
+||   0.1% |    1.0 |   -- |    -- |geodat1_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/coef.f
+4|        |        |      |       |  line.776
+||   0.1% |    1.0 |   -- |    -- |area3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/coef.f
+4|        |        |      |       |  line.1244
+||   0.1% |    1.0 |   -- |    -- |nekuf_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier1.f
+4|        |        |      |       |  line.1565
+||   0.1% |    1.0 |   -- |    -- |vlsc3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.336
+||   0.1% |    1.0 |   -- |    -- |vlsc3_acc_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier4.f
+4|        |        |      |       |  line.1187
+||   0.1% |    1.0 |   -- |    -- |nekuic_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/ic.f
+4|        |        |      |       |  line.1734
+||   0.1% |    1.0 |   -- |    -- |ifgtil_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/ic.f
+4|        |        |      |       |  line.1818
+||   0.1% |    1.0 |   -- |    -- |sub2_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.292
+||   0.1% |    1.0 |   -- |    -- |subcol3_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.340
+||   0.1% |    1.0 |   -- |    -- |cmult_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.487
+||   0.1% |    1.0 |   -- |    -- |vlmax_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.593
+||   0.1% |    1.0 |   -- |    -- |add2s1_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.919
+||   0.1% |    1.0 |   -- |    -- |vlsc2_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.1020
+||   0.1% |    1.0 |   -- |    -- |glsc23_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.1134
+||   0.1% |    1.0 |   -- |    -- |glsc23_acc_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2691
+||   0.1% |    1.0 |   -- |    -- |axhelm_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+4|        |        |      |       |  line.205
+||   0.1% |    1.0 |   -- |    -- |setfast_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+4|        |        |      |       |  line.292
+||   0.1% |    1.0 |   -- |    -- |facexv_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/subs2.f
+4|        |        |      |       |  line.198
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3414
+||   0.1% |    1.0 |   -- |    -- |convect_new_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/convect.f
+4|        |        |      |       |  line.744
+||   0.1% |    1.0 |   -- |    -- |rand_fld_h1_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier5.f
+4|        |        |      |       |  line.3642
+||   0.1% |    1.0 |   -- |    -- |iftuple_ialtb_
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/navier8.f
+4|        |        |      |       |  line.440
+||   0.1% |    1.0 |   -- |    -- |flagged_primaries_map
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/gs.c
+4|        |        |      |       |  line.366
+||   0.1% |    1.0 |   -- |    -- |radix_passp_m_ui
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/sort_imp.h
+4|        |        |      |       |  line.191
+||   0.1% |    1.0 |   -- |    -- |gather_double_add
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/jl/gs_local.c
+4|        |        |      |       |  line.104
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_COPY@li.3349
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3349
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_COPY@li.1034
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+4|        |        |      |       |  line.1034
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3483
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3483
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_UPDATE@li.4052
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.4052
+||   0.1% |    1.0 |   -- |    -- |axhelm_acc_.ACC_ASYNC_KERNEL@li.1569
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+4|        |        |      |       |  line.1569
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_ASYNC_KERNEL@li.2374
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2374
+||   0.1% |    1.0 |   -- |    -- |cmult2_acc_.ACC_COPY@li.2325
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/subs2.f
+4|        |        |      |       |  line.2325
+||   0.1% |    1.0 |   -- |    -- |col3_acc_.ACC_ASYNC_KERNEL@li.2205
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2205
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_.ACC_COPY@li.3388
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3388
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_wt_acc_.ACC_DATA_REGION@li.3388
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3388
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_REGION@li.3665
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3665
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_REGION@li.3911
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3911
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_COPY@li.3791
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3791
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_DATA_REGION@li.3211
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3211
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_COPY@li.1001
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+4|        |        |      |       |  line.1001
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_REGION@li.3833
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3833
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_REGION@li.4069
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.4069
+||   0.1% |    1.0 |   -- |    -- |vlsc32_acc_.ACC_COPY@li.1952
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+4|        |        |      |       |  line.1952
+||   0.1% |    1.0 |   -- |    -- |col2_acc_.ACC_COPY@li.2026
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2026
+||   0.1% |    1.0 |   -- |    -- |col2_acc_.ACC_COPY@li.2032
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2032
+||   0.1% |    1.0 |   -- |    -- |dssum_acc_.ACC_DATA_REGION@li.1326
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+4|        |        |      |       |  line.1363
+||   0.1% |    1.0 |   -- |    -- |copy_acc_.ACC_REGION@li.1935
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.1940
+||   0.1% |    1.0 |   -- |    -- |col3_acc_.ACC_COPY@li.2204
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2204
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_COPY@li.2373
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2373
+||   0.1% |    1.0 |   -- |    -- |glsc3_acc_.ACC_COPY@li.2378
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2378
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_COPY@li.3832
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3832
+||   0.1% |    1.0 |   -- |    -- |h1mg_mask_acc_.ACC_COPY@li.3844
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3844
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toext3d_acc_.ACC_COPY@li.3817
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3817
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_REGION@li.3897
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3897
+||   0.1% |    1.0 |   -- |    -- |hsmg_dssum_acc_.ACC_ASYNC_KERNEL@li.1024
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/dssum.f
+4|        |        |      |       |  line.1033
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3901
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3901
+||   0.1% |    1.0 |   -- |    -- |hsmg_do_fast_acc_.ACC_REGION@li.3615
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3631
+||   0.1% |    1.0 |   -- |    -- |h1mg_schwarz_part1_acc_.ACC_DATA_REGION@li.3906
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3906
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_toreg3d_acc_.ACC_REGION@li.3780
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3791
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_REGION@li.3212
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3241
+||   0.1% |    1.0 |   -- |    -- |hsmg_schwarz_wt3d_acc_.ACC_ASYNC_KERNEL@li.3212
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3239
+||   0.1% |    1.0 |   -- |    -- |cmult_acc_.ACC_ASYNC_KERNEL@li.2129
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/math.f
+4|        |        |      |       |  line.2133
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_DATA_REGION@li.3464
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3433
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_COPY@li.3464
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3464
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_REGION@li.3483
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3498
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr1_3d_acc_.ACC_REGION@li.3498
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3514
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_UPDATE@li.4049
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.4050
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_DATA_REGION@li.3297
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3352
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_REGION@li.3316
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3333
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_REGION@li.3333
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3349
+||   0.1% |    1.0 |   -- |    -- |hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3333
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.3348
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_REGION@li.4081
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.4086
+||   0.1% |    1.0 |   -- |    -- |h1mg_solve_acc_.ACC_ASYNC_KERNEL@li.4081
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hsmg.f
+4|        |        |      |       |  line.4084
+||   0.1% |    1.0 |   -- |    -- |vlsc32_acc_.ACC_REGION@li.1947
+3|        |        |      |       | csep02/NekGPU15/nek5_r1039_acc/hmholtz.f
+4|        |        |      |       |  line.1952
+||============================================================================
+|   2.9% |   33.0 |   -- |    -- |PTHREAD
+||----------------------------------------------------------------------------
+||   2.5% |   29.0 |   -- |    -- |pthread_mutex_lock
+||   0.4% |    4.0 |   -- |    -- |pthread_getspecific
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |IO
+||----------------------------------------------------------------------------
+||   0.3% |    3.0 |   -- |    -- |read
+||   0.2% |    2.0 |   -- |    -- |open
+|||---------------------------------------------------------------------------
+|||===========================================================================
+||   0.1% |    1.0 |   -- |    -- |write
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |MPI
+||----------------------------------------------------------------------------
+||   0.4% |    4.0 |   -- |    -- |mpi_wtime
+||   0.2% |    2.0 |   -- |    -- |MPI_ALLREDUCE
+||============================================================================
+|   0.5% |    6.0 |   -- |    -- |BLAS
+||----------------------------------------------------------------------------
+||   0.2% |    2.0 |   -- |    -- |dtrsm_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/blas.f
+||||--------------------------------------------------------------------------
+4|||   0.1% |    1.0 |   -- |    -- |line.14749
+4|||   0.1% |    1.0 |   -- |    -- |line.14750
+||||==========================================================================
+||   0.1% |    1.0 |   -- |    -- |daxpy_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/blas.f
+4|        |        |      |       |  line.8269
+||   0.1% |    1.0 |   -- |    -- |dgemv_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/blas.f
+4|        |        |      |       |  line.9251
+||   0.1% |    1.0 |   -- |    -- |dger_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/blas.f
+4|        |        |      |       |  line.9275
+||   0.1% |    1.0 |   -- |    -- |dsymv_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/blas.f
+4|        |        |      |       |  line.11455
+||============================================================================
+|   0.4% |    4.0 |   -- |    -- |CUDA
+||----------------------------------------------------------------------------
+||   0.2% |    2.0 |   -- |    -- |cuCtxSynchronize
+||   0.1% |    1.0 |   -- |    -- |cuCtxGetDevice
+||   0.1% |    1.0 |   -- |    -- |cuEventRecord
+||============================================================================
+|   0.3% |    3.0 |   -- |    -- |OACC
+||----------------------------------------------------------------------------
+||   0.3% |    3.0 |   -- |    -- |acc_get_device_num
+3|        |        |      |       | tbs/craylibs/libcrayacc/openacc.c
+||||--------------------------------------------------------------------------
+4|||   0.2% |    2.0 |   -- |    -- |line.104
+4|||   0.1% |    1.0 |   -- |    -- |line.106
+||||==========================================================================
+||============================================================================
+|   0.1% |    1.0 |   -- |    -- |LAPACK
+||----------------------------------------------------------------------------
+||   0.1% |    1.0 |   -- |    -- |dlapy2_
+3|        |        |      |       | NekGPU15/nek5_r1039_acc/3rd_party/dsygv.f
+4|        |        |      |       |  line.3092
+|=============================================================================
+
+Notes for table 3:
+
+  Table option:
+    -O hwpc
+  Options implied by table option:
+    -d P -b to
+  Other options:
+    -T 
+
+  
+  Percent of peak FP Ops based on a compute unit.
+
+Table 3:  Program HW Performance Counter Data
+
+Total
+
+  
+==============================================================================
+  Total
+------------------------------------------------------------------------------
+  PAPI_L1_DCM                         41.700M/sec   484885551.000 misses
+  PAPI_TLB_DM                          0.114M/sec     1326769.000 misses
+  PAPI_L1_DCA                        814.358M/sec  9469220326.000 refs
+  PAPI_FP_OPS                        356.192M/sec  4141746897.000 ops
+  DATA_CACHE_REFILLS_FROM_L2_OR_NORTHBRIDGE:
+    ALL                               60.628M/sec       704975376 fills
+  DATA_CACHE_REFILLS_FROM_NORTHBRIDGE  4.032M/sec        46887474 fills
+  User time (approx)                  11.628 secs     25581243752 cycles
+  HW FP Ops / User time              356.192M/sec      4141746897 ops  2.0%peak(DP)
+  Computational intensity               0.16 ops/cycle       0.44 ops/ref
+  MFLOPS (aggregate)                  356.19M/sec                 
+  TLB utilization                    7137.05 refs/miss     13.940 avg uses
+  D1 cache hit,miss ratios             94.9% hits            5.1% misses
+  D1 cache hit,refill ratio            92.6% hits            7.4% refills
+  D1 cache utilization (misses)        19.53 refs/miss      2.441 avg hits
+  D1 cache utilization (refills)       13.43 refs/refill    1.679 avg uses
+  D2 cache hit,miss ratio              93.3% hits            6.7% misses
+  D1+D2 cache hit,miss ratio           99.7% hits            0.3% misses
+  D1+D2 cache utilization             293.62 refs/miss     36.703 avg hits
+  System to D1 refill                  4.032M/sec        46887474 lines
+  System to D1 bandwidth             246.115MiB/sec    3000798336 bytes
+  D2 to D1 bandwidth                3454.339MiB/sec   42117625728 bytes
+==============================================================================
+
+Notes for table 4:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b to
+  Other options:
+    -T 
+
+  The value shown for Process HiMem is calculated from information in
+  the /proc/self/numa_maps files captured near the end of the program. 
+  It is the total size of all pages, including huge pages, that were
+  actually mapped into physical memory from both private and shared
+  memory segments.
+
+Table 4:  Wall Clock Time, Memory High Water Mark
+
+   Process |  Process |Total
+      Time |    HiMem |
+           | (MBytes) |
+          
+ 11.699036 |  484.598 |Total
+
+========================  Additional details  ========================
+
+Experiment:  samp_cs_time
+
+Sampling interval:  10000 microsecs
+
+Original path to data file:
+  /lustre/atlas1/trn001/scratch/csep02/pipe_r1039_acc/nek5000+pat+4881-3s.xf  (RTS)
+
+Original program:
+  /lustre/atlas1/trn001/scratch/csep02/pipe_r1039_acc/nek5000
+
+Instrumented with:  pat_build -O apa nek5000
+
+  Option file "apa" contained:
+    -Drtenv=PAT_RT_PERFCTR=default_samp
+    -Drtenv=PAT_RT_EXPERIMENT=samp_cs_time
+    -Drtenv=PAT_RT_SAMPLING_MODE=3
+    -g upc
+    -g caf
+    -g mpi
+    -g shmem
+    -g syscall
+
+Instrumented program:  ./nek5000+pat
+
+Program invocation:  ./nek5000+pat
+
+Exit Status:  0 for 1 PE
+
+AMD interlagos CPU  Family: 21  Model:  1  Stepping:  2
+
+Core Performance Boost:  1 PE has CPB capability
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  2 MiB
+
+Accelerator Model: Nvidia K20X Memory: 5.62 GB Frequency: 0.73 GHz
+
+Accelerator Driver Version: 340.87.0
+
+Programming environment:  CRAY
+
+Runtime environment variables:
+  ATP_HOME=/opt/cray/atp/1.8.1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.8.1/libexec/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.8.1/libApp/
+  CRAYOS_VERSION=5
+  CRAYPE_VERSION=2.3.0
+  CRAY_BINUTILS_VERSION=/opt/cray/cce/8.3.9
+  CRAY_CC_VERSION=8.3.9
+  CRAY_CUDATOOLKIT_VERSION=6.5.14-1.0502.9613.6.1
+  CRAY_FTN_VERSION=8.3.9
+  CRAY_LIBSCI_ACC_VERSION=3.1.1
+  CRAY_LIBSCI_VERSION=13.0.3
+  LIBSCI_ACC_VERSION=3.1.1
+  LIBSCI_VERSION=13.0.3
+  MODULE_VERSION=3.2.10.3
+  MODULE_VERSION_STACK=3.2.10.3
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/7.2.0/gni/mpich2-cray/83
+  MPICH_RDMA_ENABLED_CUDA=1
+  PATH=/opt/cray/perftools/6.2.3/bin:/opt/cray/papi/5.4.0.1/bin:/opt/cray/rca/1.0.0-2.0502.53711.3.125.gem/bin:/opt/cray/pmi/5.0.4-1.0000.10161.132.18.gem/bin:/opt/cray/cce/8.3.9/cray-binutils/x86_64-unknown-linux-gnu/bin:/opt/cray/cce/8.3.9/craylibs/x86-64/bin:/opt/cray/cce/8.3.9/cftn/bin:/opt/cray/cce/8.3.9/CC/bin:/opt/nvidia/cudatoolkit6.5/6.5.14-1.0502.9613.6.1/bin:/opt/nvidia/cudatoolkit6.5/6.5.14-1.0502.9613.6.1/libnvvp:/sw/xk6/altd/bin:/sw/xk6/site-aprun/bin:/sw/xk6/bin:/sw/xk6/lustredu/1.4/sles11.3_gnu4.8.2/bin:/opt/cray/mpt/7.2.0/gni/bin:/opt/cray/craype/2.3.0/bin:/opt/cray/llm/default/bin:/opt/cray/llm/default/etc:/opt/cray/xpmem/0.1-2.0502.55507.3.2.gem/bin:/opt/cray/dmapp/7.0.1-1.0502.9501.5.211.gem/bin:/opt/cray/ugni/5.0-1.0502.9685.4.24.gem/bin:/opt/cray/udreg/2.3.2-1.0502.9275.1.25.gem/bin:/opt/cray/lustre-cray_gem_s/2.6.93_3.0.101_0.31.1_1.0502.8394.10.1-1.0502.17198.8.50/sbin:/opt/cray/lustre-cray_gem_s/2.6.93_3.0.101_0.31.1_1.0502.8394.10.1-1.0502.17198.8.50/bin:/opt/cray/alps/5.2.1-2.0502.9479.20.1.gem/sbin:/opt/cray/alps/5.2.1-2.0502.9479.20.1.gem/bin:/opt/cray/sdb/1.0-1.0502.55976.5.27.gem/bin:/opt/cray/nodestat/2.2-1.0502.53712.3.109.gem/bin:/opt/modules/3.2.10.3/bin:/opt/moab/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/bin:/opt/ibutils/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:.:/usr/lib/qt3/bin:/opt/cray/bin:/opt/bin:/opt/public/bin:/opt/cray/nvidia/default/bin:/opt/bin:/opt/public/bin:/opt/bin:/opt/public/bin
+  PAT_BUILD_PAPI_BASEDIR=/opt/cray/papi/5.4.0.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+  PAT_RT_EXPERIMENT=samp_cs_time
+  PAT_RT_PERFCTR=default_samp
+  PAT_RT_SAMPLING_MODE=3
+  PBS_VERSION=TORQUE-5.1.0.h1
+  PERFTOOLS_VERSION=6.2.3
+  XTOS_VERSION=5.2.40
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.2.3
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Report command line options:  -T -o stenosis1GPU.txt
+
+Operating system:
+  Linux 3.0.101-0.31.1_1.0502.8394-cray_gem_c #1 SMP Wed Sep 10 04:14:47 UTC 2014
+
+Hardware performance counter events:
+   PAPI_L1_DCM                                    Level 1 data cache misses
+   PAPI_TLB_DM                                    Data translation lookaside buffer misses
+   PAPI_L1_DCA                                    Level 1 data cache accesses
+   PAPI_FP_OPS                                    Floating point operations
+   DATA_CACHE_REFILLS_FROM_L2_OR_NORTHBRIDGE:ALL  Data Cache Refills from L2 or System:All sub-events selected
+   DATA_CACHE_REFILLS_FROM_NORTHBRIDGE            Data Cache Refills from System
+   CYCLES_RTC                                     User Cycles (approx, from rtc)
+
+Number of traced functions:  1228
+
+  (To see the list, specify:  -s traced_functions=show)
+
