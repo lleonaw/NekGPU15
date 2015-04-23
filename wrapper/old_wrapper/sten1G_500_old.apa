@@ -1,0 +1,657 @@
+#  You can edit this file, if desired, and use it
+#  to reinstrument the program for tracing like this:
+#
+#           pat_build -O sten1G_500_old.apa
+#
+#  These suggested trace options are based on data from:
+#
+#    nek5000+pat+8461-2s.ap2
+
+# ----------------------------------------------------------------------
+
+#	Collect the default PERFCTR group.
+
+  -Drtenv=PAT_RT_PERFCTR=default
+
+#	Alternatively, energy counters may be added to the default
+#	list by commenting out the line above and enabling the
+#	line below. Note that this may significantly increase the
+#	runtime overhead for high trace counts. The parentheses
+#	in the syntax below denote counters that are not available
+#	on all platforms.
+
+#  -Drtenv=PAT_RT_PERFCTR=default,(PM_ENERGY:NODE),(PM_ENERGY:ACC)
+
+# ----------------------------------------------------------------------
+
+#	ACCPC group to collect by default.
+
+  -Drtenv=PAT_RT_PERFCTR=1000  # Instructions executed and global store transactions.
+
+# ----------------------------------------------------------------------
+
+#	Libraries to trace.
+
+  -g mpi
+
+# ----------------------------------------------------------------------
+
+
+#	User-defined functions to trace, sorted by % of samples.
+
+#	The way these functions are filtered can be controlled with
+#	pat_report options (values used for this file are shown):
+#
+#	-s apa_max_count=200	No more than 200 functions are listed.
+#	-s apa_min_size=800	Commented out if text size < 800 bytes.
+#	-s apa_min_pct=1	Commented out if it had < 1% of samples.
+#	-s apa_max_cum_pct=90	Commented out after cumulative 90%.
+
+#	Local functions are listed for completeness, but cannot be traced.
+
+  -w  # Enable tracing of user-defined functions.
+      # Note: -u should NOT be specified as an additional option.
+
+# 16.39% 5926 bytes
+         -T mxf8_
+
+# 7.89% 2674 bytes
+         -T mxf12_
+
+# 4.58% 468 bytes
+#         -T addcol3_
+
+# 3.27% 415 bytes
+#         -T col3_
+
+# 2.93% 409 bytes
+#         -T col2_
+
+# 2.65% 459 bytes
+#         -T add2s2_
+
+# 2.25% 409 bytes
+#         -T add2_
+
+# 1.59% 512 bytes
+#         -T vlsc3_
+
+# 1.43% 511 bytes
+#         -T nekasgn_
+
+# 1.19% 2571 bytes
+         -T set_convect_new_
+
+# 0.95% 698 bytes
+#         -T vlsc2_
+
+# 0.92% 517 bytes
+#         -T addcol4_
+
+# 0.80% 1393 bytes
+#         -T opcolv3c_
+
+# 0.74% 637 bytes
+#         -T glsc3_
+
+# 0.64% 314 bytes
+#         -T vlamax_
+
+# 0.57% 2874 bytes
+#         -T compute_cfl_
+
+# 0.52% 4138 bytes
+#         -T convect_new_
+
+# 0.50% 511 bytes
+#         -T glsc23_
+
+# 0.50% 178 bytes
+#         -T mxm_cpu_
+
+# 0.45% 115 bytes
+#         -T gather_double_add
+
+# 0.41% 7573 bytes
+#         -T axhelm_
+
+# 0.37% 625 bytes
+#         -T nekuf_
+
+# 0.36% 409 bytes
+#         -T sub2_
+
+# 0.28% 5178 bytes
+#         -T glsc23_acc_
+
+# 0.23% 1560 bytes
+#         -T opadd2col_
+
+# 0.21% 513 bytes
+#         -T invcol2_
+
+# 0.21% 399 bytes
+#         -T glmin_
+
+# 0.21% 0 bytes
+#         -T add2s2_acc_.ACC_COPY@li.2235
+
+# 0.20% 468 bytes
+#         -T subcol3_
+
+# 0.19% 448 bytes
+#         -T add3s2_
+
+# 0.18% 402 bytes
+#         -T cmult_
+
+# 0.17% 459 bytes
+#         -T add2s1_
+
+# 0.17% 823 bytes
+#         -T glsc2_
+
+# 0.17% 277 bytes
+#         -T cmult2_
+
+# 0.17% 0 bytes
+#         -T add2s2_acc_.ACC_COPY@li.2241
+
+# 0.17% 0 bytes
+#         -T add2s2_acc_.ACC_REGION@li.2236
+
+# 0.15% 0 bytes
+#         -T add2s2_acc_.ACC_ASYNC_KERNEL@li.2236
+
+# 0.13% 1216 bytes
+#         -T opcolv_
+
+# 0.13% 0 bytes
+#         -T vlsc3_acc_.ACC_COPY@li.1198
+
+# 0.12% 0 bytes
+#         -T vlsc3_acc_.ACC_SYNC_WAIT@li.1198
+
+# 0.12% 0 bytes
+#         -T add2s2_acc_.ACC_DATA_REGION@li.2235
+
+# 0.11% 0 bytes
+#         -T vlsc3_acc_.ACC_COPY@li.1194
+
+# 0.10% 0 bytes
+#         -T vlsc3_acc_.ACC_COPY@li.1199
+
+# 0.10% 0 bytes
+#         -T vlsc3_acc_.ACC_ASYNC_KERNEL@li.1194
+
+# 0.10% 0 bytes
+#         -T vlsc3_acc_.ACC_DATA_REGION@li.1193
+
+# 0.09% 625 bytes
+#         -T jl_sparse_cholesky_solve
+
+# 0.09% 0 bytes
+#         -T vlsc3_acc_.ACC_REGION@li.1194
+
+# 0.08% 346 bytes
+#         -T mxmf2_
+
+# 0.08% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_REGION@li.1024
+
+# 0.08% 0 bytes
+#         -T col2_acc_.ACC_ASYNC_KERNEL@li.2027
+
+# 0.08% 623 bytes
+#         -T glsum_
+
+# 0.08% 0 bytes
+#         -T vlsc3_acc_.ACC_COPY@li.1193
+
+# 0.08% 0 bytes
+#         -T add2s1_acc_.ACC_COPY@li.2516
+
+# 0.07% 24310 bytes
+#         -T set_fdm_prec_h1b_
+
+# 0.07% 1064 bytes
+#         -T faccl2_
+
+# 0.07% 0 bytes
+#         -T addcol4_acc_.ACC_DATA_REGION@li.2464
+
+# 0.06% 1977 bytes
+#         -T set_dealias_rx_
+
+# 0.06% 0 bytes
+#         -T addcol4_acc_.ACC_ASYNC_KERNEL@li.2465
+
+# 0.06% 399 bytes
+#         -T glmax_
+
+# 0.06% 0 bytes
+#         -T glsc3_acc_.ACC_COPY@li.2374
+
+# 0.05% 39 bytes
+#         -T userf_
+
+# 0.05% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_ASYNC_KERNEL@li.1024
+
+# 0.05% 0 bytes
+#         -T addcol4_acc_.ACC_REGION@li.2465
+
+# 0.05% 0 bytes
+#         -T glsc3_acc_.ACC_COPY@li.2373
+
+# 0.04% 542 bytes
+#         -T j8sort_
+
+# 0.04% 471 bytes
+#         -T local_grad3_
+
+# 0.04% 847 bytes
+#         -T specmpn_
+
+# 0.04% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_COPY@li.1034
+
+# 0.04% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_COPY@li.3897
+
+# 0.04% 0 bytes
+#         -T hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3665
+
+# 0.04% 0 bytes
+#         -T dssum_acc_.ACC_REGION@li.1329
+
+# 0.04% 0 bytes
+#         -T col3_acc_.ACC_COPY@li.2204
+
+# 0.04% 0 bytes
+#         -T vlsc32_acc_.ACC_COPY@li.1947
+
+# 0.04% 0 bytes
+#         -T vlsc32_acc_.ACC_DATA_REGION@li.1946
+
+# 0.04% 0 bytes
+#         -T glsc3_acc_.ACC_REGION@li.2374
+
+# 0.04% 0 bytes
+#         -T vlsc32_acc_.ACC_SYNC_WAIT@li.1951
+
+# 0.03% 21 bytes
+#         -T copy_
+
+# 0.03% 949 bytes
+#         -T intp_rstd_
+
+# 0.03% 223 bytes
+#         -T radix_count_ull
+
+# 0.03% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_DATA_REGION@li.1001
+
+# 0.03% 0 bytes
+#         -T h1mg_mask_acc_.ACC_ASYNC_KERNEL@li.3833
+
+# 0.03% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_ASYNC_KERNEL@li.1003
+
+# 0.03% 0 bytes
+#         -T h1mg_mask_acc_.ACC_REGION@li.3833
+
+# 0.03% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_REGION@li.3483
+
+# 0.03% 0 bytes
+#         -T copy_acc_.ACC_DATA_REGION@li.1934
+
+# 0.03% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_REGION@li.1003
+
+# 0.03% 0 bytes
+#         -T glsc3_acc_.ACC_COPY@li.2379
+
+# 0.03% 0 bytes
+#         -T glsc3_acc_.ACC_DATA_REGION@li.2373
+
+# 0.03% 0 bytes
+#         -T col3_acc_.ACC_COPY@li.2210
+
+# 0.03% 0 bytes
+#         -T cggo_acc_.ACC_DATA_REGION@li.1750
+
+# 0.03% 0 bytes
+#         -T projh_acc_.ACC_DATA_REGION@li.1382
+
+# 0.03% 0 bytes
+#         -T vlsc2_acc_.ACC_COPY@li.2269
+
+# 0.03% 0 bytes
+#         -T dssum_acc_.ACC_DATA_REGION@li.1326
+
+# 0.03% 0 bytes
+#         -T vlsc32_acc_.ACC_REGION@li.1947
+
+# 0.03% 0 bytes
+#         -T add2s1_acc_.ACC_COPY@li.2510
+
+# 0.03% 0 bytes
+#         -T addcol4_acc_.ACC_COPY@li.2464
+
+# 0.03% 0 bytes
+#         -T dssum_acc_.ACC_ASYNC_KERNEL@li.1350
+
+# 0.03% 0 bytes
+#         -T dssum_acc_.ACC_COPY@li.1360
+
+# 0.03% 0 bytes
+#         -T projh_acc_.ACC_COPY@li.1382
+
+# 0.03% 4124 bytes
+#         -T bcdirvc_
+
+# 0.03% 353 bytes
+#         -T facev_
+
+# 0.03% 13 bytes
+#         -T mxm_
+
+# 0.03% 0 bytes
+#         -T hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3631
+
+# 0.03% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_COPY@li.3906
+
+# 0.03% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_DATA_REGION@li.3464
+
+# 0.03% 0 bytes
+#         -T hsmg_schwarz_toreg3d_acc_.ACC_REGION@li.3780
+
+# 0.03% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_COPY@li.3911
+
+# 0.03% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_COPY@li.3913
+
+# 0.03% 0 bytes
+#         -T hsmg_schwarz_wt3d_acc_.ACC_ASYNC_KERNEL@li.3212
+
+# 0.03% 0 bytes
+#         -T col2_acc_.ACC_COPY@li.2026
+
+# 0.03% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3913
+
+# 0.03% 0 bytes
+#         -T copy_acc_.ACC_REGION@li.1935
+
+# 0.03% 0 bytes
+#         -T h1mg_solve_acc_.ACC_SYNC_WAIT@li.4053
+
+# 0.03% 0 bytes
+#         -T hsmg_tnsr3d_acc_.ACC_COPY@li.3297
+
+# 0.03% 0 bytes
+#         -T vlsc32_acc_.ACC_ASYNC_KERNEL@li.1947
+
+# 0.03% 0 bytes
+#         -T col3_acc_.ACC_DATA_REGION@li.2204
+
+# 0.03% 0 bytes
+#         -T col2_acc_.ACC_DATA_REGION@li.2026
+
+# 0.03% 0 bytes
+#         -T add2s1_acc_.ACC_ASYNC_KERNEL@li.2511
+
+# 0.03% 0 bytes
+#         -T axhelm_acc_.ACC_REGION@li.1532
+
+# 0.03% 0 bytes
+#         -T col2_acc_.ACC_COPY@li.2032
+
+# 0.03% 0 bytes
+#         -T dssum_acc_.ACC_ASYNC_KERNEL@li.1329
+
+# 0.03% 0 bytes
+#         -T vlsc32_acc_.ACC_COPY@li.1951
+
+# 0.03% 0 bytes
+#         -T cmult_acc_.ACC_REGION@li.2129
+
+# 0.03% 0 bytes
+#         -T add2s1_acc_.ACC_REGION@li.2511
+
+# 0.02% 626 bytes
+#         -T vlsum_
+
+# 0.02% 785 bytes
+#         -T get_int_ptr_
+
+# 0.02% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_COPY@li.3901
+
+# 0.02% 0 bytes
+#         -T h1mg_mask_acc_.ACC_DATA_REGION@li.3832
+
+# 0.02% 0 bytes
+#         -T h1mg_mask_acc_.ACC_COPY@li.3832
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_wt3d_acc_.ACC_COPY@li.3241
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_toext3d_acc_.ACC_COPY@li.3817
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_toext3d_acc_.ACC_DATA_REGION@li.3802
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_toext3d_acc_.ACC_COPY@li.3802
+
+# 0.02% 0 bytes
+#         -T hsmg_tnsr3d_acc_.ACC_REGION@li.3299
+
+# 0.02% 0 bytes
+#         -T hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3316
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_toreg3d_acc_.ACC_ASYNC_KERNEL@li.3780
+
+# 0.02% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_REGION@li.3467
+
+# 0.02% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3483
+
+# 0.02% 0 bytes
+#         -T h1mg_solve_acc_.ACC_DATA_REGION@li.4005
+
+# 0.02% 0 bytes
+#         -T h1mg_solve_acc_.ACC_ASYNC_COPY@li.4049
+
+# 0.02% 0 bytes
+#         -T cmult2_acc_.ACC_ASYNC_KERNEL@li.2320
+
+# 0.02% 0 bytes
+#         -T glsc3_acc_.ACC_ASYNC_KERNEL@li.2374
+
+# 0.02% 0 bytes
+#         -T vlsc2_acc_.ACC_ASYNC_KERNEL@li.2269
+
+# 0.02% 0 bytes
+#         -T cmult_acc_.ACC_COPY@li.2128
+
+# 0.02% 0 bytes
+#         -T vlsc32_acc_.ACC_COPY@li.1952
+
+# 0.02% 0 bytes
+#         -T vlsc32_acc_.ACC_COPY@li.1946
+
+# 0.02% 0 bytes
+#         -T col3_acc_.ACC_REGION@li.2205
+
+# 0.02% 0 bytes
+#         -T dssum_acc_.ACC_COPY@li.1326
+
+# 0.02% 0 bytes
+#         -T glsc3_acc_.ACC_COPY@li.2378
+
+# 0.02% 0 bytes
+#         -T axhelm_acc_.ACC_ASYNC_KERNEL@li.1532
+
+# 0.02% 0 bytes
+#         -T col2_acc_.ACC_REGION@li.2027
+
+# 0.02% 0 bytes
+#         -T invcol3_acc_.ACC_COPY@li.2586
+
+# 0.02% 0 bytes
+#         -T copy_acc_.ACC_COPY@li.1934
+
+# 0.02% 0 bytes
+#         -T axhelm_acc_.ACC_DATA_REGION@li.1525
+
+# 0.02% 0 bytes
+#         -T axhelm_acc_.ACC_COPY@li.1525
+
+# 0.02% 0 bytes
+#         -T hsmg_dssum_acc_.ACC_COPY@li.1001
+
+# 0.02% 0 bytes
+#         -T hsmg_schwarz_toreg3d_acc_.ACC_DATA_REGION@li.3778
+
+# 0.01% 4531 bytes
+#         -T dssum_acc_
+
+# 0.01% 1748 bytes
+#         -T add2s2_acc_
+
+# 0.01% 959 bytes
+#         -T ituple_sort_
+
+# 0.01% 973 bytes
+#         -T nonzero_ids
+
+# 0.01% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_REGION@li.3913
+
+# 0.01% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_DATA_REGION@li.3901
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr3d_acc_.ACC_DATA_REGION@li.3297
+
+# 0.01% 0 bytes
+#         -T hsmg_do_fast_acc_.ACC_COPY@li.3595
+
+# 0.01% 0 bytes
+#         -T cmult2_acc_.ACC_REGION@li.2320
+
+# 0.01% 0 bytes
+#         -T cmult2_acc_.ACC_COPY@li.2325
+
+# 0.01% 0 bytes
+#         -T hsmg_schwarz_toext3d_acc_.ACC_REGION@li.3806
+
+# 0.01% 0 bytes
+#         -T hsmg_do_fast_acc_.ACC_REGION@li.3681
+
+# 0.01% 0 bytes
+#         -T hsmg_schwarz_wt3d_acc_.ACC_DATA_REGION@li.3211
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr3d_acc_.ACC_ASYNC_KERNEL@li.3333
+
+# 0.01% 0 bytes
+#         -T rzero_acc_.ACC_COPY@li.1909
+
+# 0.01% 0 bytes
+#         -T hsmg_schwarz_toext3d_acc_.ACC_ASYNC_KERNEL@li.3806
+
+# 0.01% 0 bytes
+#         -T h1mg_schwarz_part1_acc_.ACC_ASYNC_KERNEL@li.3911
+
+# 0.01% 0 bytes
+#         -T hsmg_do_fast_acc_.ACC_ASYNC_KERNEL@li.3615
+
+# 0.01% 0 bytes
+#         -T hsmg_do_wt_acc_.ACC_REGION@li.3389
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_SYNC_WAIT@li.3516
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_COPY@li.3464
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_COPY@li.3516
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_REGION@li.3498
+
+# 0.01% 0 bytes
+#         -T hsmg_tnsr1_3d_acc_.ACC_ASYNC_KERNEL@li.3498
+
+# 0.01% 0 bytes
+#         -T hsmg_do_wt_acc_.ACC_COPY@li.3388
+
+# 0.01% 0 bytes
+#         -T h1mg_solve_acc_.ACC_REGION@li.4081
+
+# 0.01% 0 bytes
+#         -T cmult2_acc_.ACC_DATA_REGION@li.2319
+
+# 0.01% 0 bytes
+#         -T col3_acc_.ACC_ASYNC_KERNEL@li.2205
+
+# 0.01% 0 bytes
+#         -T dssum_acc_.ACC_REGION@li.1350
+
+# 0.01% 0 bytes
+#         -T projh_acc_.ACC_COPY@li.1368
+
+# 0.01% 0 bytes
+#         -T vlsc2_acc_.ACC_DATA_REGION@li.2268
+
+# 0.01% 0 bytes
+#         -T hsolve_acc_.ACC_COPY@li.1733
+
+# 0.01% 0 bytes
+#         -T setprec_acc_.ACC_REGION@li.1993
+
+# 0.01% 0 bytes
+#         -T invcol1_acc_.ACC_COPY@li.2629
+
+# 0.01% 0 bytes
+#         -T axhelm_acc_.ACC_REGION@li.1569
+
+# 0.01% 0 bytes
+#         -T copy_acc_.ACC_ASYNC_KERNEL@li.1935
+
+# 0.01% 0 bytes
+#         -T add2s1_acc_.ACC_DATA_REGION@li.2510
+
+# 0.01% 0 bytes
+#         -T addcol3_acc_.ACC_COPY@li.2098
+
+# 0.01% 0 bytes
+#         -T setprec_acc_.ACC_DATA_REGION@li.1990
+
+# 0.01% 0 bytes
+#         -T sub2_acc_.ACC_COPY@li.2405
+
+# 0.01% 0 bytes
+#         -T glsum_acc_.ACC_REGION@li.2288
+
+# 0.01% 0 bytes
+#         -T plan4_acc_.ACC_SYNC_WAIT@li.541
+
+
+# ----------------------------------------------------------------------
+
+-o nek5000+apa # New instrumented program.
+
+-U /lustre/atlas1/trn001/scratch/csep04/pipe_2/nek5000 # Original program.
