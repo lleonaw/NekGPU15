@@ -1,9 +1,10 @@
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/drive1.f -o obj/drive1.o
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/drive2.f -o obj/drive2.o
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f -o obj/plan4.o
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/bdry.f -o obj/bdry.o
-PGF90-W-0119-Redundant specification for dvc (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
-PGF90-W-0119-Redundant specification for dfc (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/drive.f -o obj/drive.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/drive1.f -o obj/drive1.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/drive2.f -o obj/drive2.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/plan4.f -o obj/plan4.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/bdry.f -o obj/bdry.o
+PGF90-W-0119-Redundant specification for dvc (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
+PGF90-W-0119-Redundant specification for dfc (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/plan4.f: 488)
   0 inform,   2 warnings,   0 severes, 0 fatal for plan4_acc
 plan4_acc:
     495, Generating copy(qtl(:,:,:,:))
@@ -132,10 +133,10 @@ v_extrap_acc:
          Generating present(vylag(:,:,:,:,:))
          Generating present(vzlag(:,:,:,:,:))
     980, Generating update host(vext(:,:))
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/coef.f -o obj/coef.o
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/conduct.f -o obj/conduct.o
-ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/ccs/home/csep05/mjo98/NekGPU15/pipe_r1039_acc -I/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc -I./ /ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/connect1.f -o obj/connect1.o
-PGF90-W-0155-The type of FLOAT is now double precision with -r8  (/ccs/home/csep05/mjo98/NekGPU15/nek5_r1039_acc/connect1.f: 742)
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/coef.f -o obj/coef.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/conduct.f -o obj/conduct.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/connect1.f -o obj/connect1.o
+PGF90-W-0155-The type of FLOAT is now double precision with -r8  (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/connect1.f: 742)
   0 inform,   1 warnings,   0 severes, 0 fatal for genxyzl
 nek_solve:
     267, Generating create(tmp1(:,:,:,:))
@@ -150,6 +151,7 @@ nek_solve:
          Generating create(g4m1(:,:,:,:))
          Generating create(g5m1(:,:,:,:))
          Generating create(g6m1(:,:,:,:))
+         Generating create(gm1(:,:,:,:,:))
          Generating create(dxm1(:,:))
          Generating create(dym1(:,:))
          Generating create(dzm1(:,:))
@@ -243,60 +245,1173 @@ nek_solve:
          Generating create(approx(:,:))
          Generating create(h1(:,:,:,:))
          Generating create(h2(:,:,:,:))
-    320, Generating update device(g6m1(:,:,:,:))
+    321, Generating update device(g6m1(:,:,:,:))
          Generating update device(g5m1(:,:,:,:))
          Generating update device(g4m1(:,:,:,:))
          Generating update device(g3m1(:,:,:,:))
          Generating update device(g2m1(:,:,:,:))
          Generating update device(g1m1(:,:,:,:))
-    321, Generating update device(dztm1(:,:))
+    322, Generating update device(gm1(:,:,:,:,:))
+    323, Generating update device(dztm1(:,:))
          Generating update device(dytm1(:,:))
          Generating update device(dxtm1(:,:))
          Generating update device(dzm1(:,:))
          Generating update device(dym1(:,:))
          Generating update device(dxm1(:,:))
-    322, Generating update device(w3m1(:,:,:))
+    324, Generating update device(w3m1(:,:,:))
          Generating update device(jacmi(:,:))
          Generating update device(jacm1(:,:,:,:))
          Generating update device(binvm1(:,:,:,:))
          Generating update device(bm1(:,:,:,:))
-    323, Generating update device(dzm12(:,:))
+    325, Generating update device(dzm12(:,:))
          Generating update device(dym12(:,:))
          Generating update device(dxm12(:,:))
-    324, Generating update device(dztm12(:,:))
+    326, Generating update device(dztm12(:,:))
          Generating update device(dytm12(:,:))
          Generating update device(dxtm12(:,:))
-    325, Generating update device(txm2(:,:,:,:))
+    327, Generating update device(txm2(:,:,:,:))
          Generating update device(sxm2(:,:,:,:))
          Generating update device(rxm2(:,:,:,:))
          Generating update device(txm1(:,:,:,:))
          Generating update device(sxm1(:,:,:,:))
          Generating update device(rxm1(:,:,:,:))
-    326, Generating update device(tym2(:,:,:,:))
+    328, Generating update device(tym2(:,:,:,:))
          Generating update device(sym2(:,:,:,:))
          Generating update device(rym2(:,:,:,:))
          Generating update device(tym1(:,:,:,:))
          Generating update device(sym1(:,:,:,:))
          Generating update device(rym1(:,:,:,:))
-    327, Generating update device(tzm2(:,:,:,:))
+    329, Generating update device(tzm2(:,:,:,:))
          Generating update device(szm2(:,:,:,:))
          Generating update device(rzm2(:,:,:,:))
          Generating update device(tzm1(:,:,:,:))
          Generating update device(szm1(:,:,:,:))
          Generating update device(rzm1(:,:,:,:))
-    328, Generating update device(pmask(:,:,:,:))
+    330, Generating update device(pmask(:,:,:,:))
          Generating update device(v3mask(:,:,:,:))
          Generating update device(v2mask(:,:,:,:))
          Generating update device(v1mask(:,:,:,:))
-    330, Generating update device(ids_ptr(:))
+    332, Generating update device(ids_ptr(:))
          Generating update device(ids_lgl2(:))
          Generating update device(ids_lgl1(:))
-    331, Generating update device(mg_ptr(:,:))
+    333, Generating update device(mg_ptr(:,:))
          Generating update device(mg_lgl1(:,:))
-    332, Generating update device(mg_fast_d(:))
+    334, Generating update device(mg_fast_d(:))
          Generating update device(mg_fast_s(:))
          Generating update device(mg_imask(:))
-    333, Generating update device(mg_jht(:,:))
+    335, Generating update device(mg_jht(:,:))
          Generating update device(mg_jh(:,:))
          Generating update device(mg_rstr_wt(:))
          Generating update device(mg_schwarz_wt(:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/connect2.f -o obj/connect2.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/dssum.f -o obj/dssum.o
+hsmg_dssum_acc:
+   1030, Generating present(u(:))
+         Generating present(mg_lgl1(:,:))
+         Generating present(mg_ptr(:,:))
+         Generating present(ug(:nglobl))
+   1032, Accelerator kernel generated
+       1033, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1032, Generating Tesla code
+   1037, Complex loop carried dependence of 'ug' prevents parallelization
+         Loop carried reuse of 'ug' prevents parallelization
+   1046, Generating update host(ug(:n_nonlocal))
+   1049, Generating update device(ug(:n_nonlocal))
+   1053, Accelerator kernel generated
+       1054, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1053, Generating Tesla code
+   1057, Loop carried reuse of 'u' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/edgec.f -o obj/edgec.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/eigsolv.f -o obj/eigsolv.o
+dssum_acc:
+   1358, Generating present(ids_ptr(:nglobl+1))
+         Generating present(u(:))
+         Generating present(ids_lgl1(:))
+         Generating present(ug(:nglobl))
+   1361, Accelerator kernel generated
+       1362, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1361, Generating Tesla code
+   1366, Complex loop carried dependence of 'ug' prevents parallelization
+         Loop carried reuse of 'ug' prevents parallelization
+   1375, Generating update host(ug(:n_nonlocal))
+   1378, Generating update device(ug(:n_nonlocal))
+   1382, Accelerator kernel generated
+       1383, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1382, Generating Tesla code
+   1386, Loop carried reuse of 'u' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/gauss.f -o obj/gauss.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/genxyz.f -o obj/genxyz.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f -o obj/navier1.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/makeq.f -o obj/makeq.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier0.f -o obj/navier0.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier2.f -o obj/navier2.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier3.f -o obj/navier3.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier4.f -o obj/navier4.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/prepost.f -o obj/prepost.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/speclib.f -o obj/speclib.o
+vlsc3_acc:
+   1193, Generating present(x(:))
+         Generating present(y(:))
+         Generating present(b(:))
+   1194, Accelerator kernel generated
+       1195, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       1196, Sum reduction generated for dt
+   1194, Generating Tesla code
+projh_acc:
+   1368, Generating present(r(:))
+         Generating present(h1(:))
+         Generating present(h2(:))
+         Generating present(bi(:))
+         Generating present(vml(:))
+         Generating present(vmk(:))
+         Generating present(approx(:,:))
+         Generating present(wl(:,:,:,:))
+         Generating present(ws(:))
+   1386, Generating update device(ws(:))
+gensh_acc:
+   1449, Generating present(v1(:,:,:,:))
+         Generating present(approx(:,:))
+PGF90-W-0155-The number of subscripts is less than the rank of ux (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5594)
+PGF90-W-0155-The number of subscripts is less than the rank of ur (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5594)
+PGF90-W-0155-The number of subscripts is less than the rank of us (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5594)
+PGF90-W-0155-The number of subscripts is less than the rank of uy (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5596)
+PGF90-W-0155-The number of subscripts is less than the rank of ur (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5596)
+PGF90-W-0155-The number of subscripts is less than the rank of us (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier1.f: 5596)
+  0 inform,   6 warnings,   0 severes, 0 fatal for wgradm1_acc
+hsolve_acc:
+   1733, Generating present(u(:,:,:,:))
+         Generating present(r(:,:,:,:))
+         Generating present(h1(:,:,:,:))
+         Generating present(h2(:,:,:,:))
+         Generating present(vml(:,:,:,:))
+         Generating present(vmk(:,:,:,:))
+         Generating present(approx(:,:))
+         Generating present(w1(:,:,:,:))
+         Generating present(w2(:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/map2.f -o obj/map2.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/turb.f -o obj/turb.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/mvmesh.f -o obj/mvmesh.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/ic.f -o obj/ic.o
+opcolv_acc:
+   5357, Generating present(a1(:))
+         Generating present(a2(:))
+         Generating present(a3(:))
+         Generating present(c(:))
+   5358, Accelerator kernel generated
+       5359, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   5358, Generating Tesla code
+wgradm1_acc:
+   5546, Generating present(ur(:,:,:,:))
+         Generating present(us(:,:,:,:))
+         Generating present(ut(:,:,:,:))
+         Generating present(ux(:,:,:,:))
+         Generating present(uy(:,:,:,:))
+         Generating present(uz(:,:,:,:))
+         Generating present(u(:,:,:,:))
+         Generating present(w3m1(:,:,:))
+         Generating present(rxm1(:,:,:,:))
+         Generating present(sxm1(:,:,:,:))
+         Generating present(txm1(:,:,:,:))
+         Generating present(rym1(:,:,:,:))
+         Generating present(sym1(:,:,:,:))
+         Generating present(tym1(:,:,:,:))
+         Generating present(rzm1(:,:,:,:))
+         Generating present(szm1(:,:,:,:))
+         Generating present(tzm1(:,:,:,:))
+   5549, Accelerator kernel generated
+       5550, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       5553,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5554,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5555,   ! blockidx%x threadidx%x threadidx%y collapsed
+   5549, Generating present_or_copyin(dxm1(:,:nx1))
+         Generating Tesla code
+   5560, Complex loop carried dependence of 'ur' prevents parallelization
+         Loop carried reuse of 'ur' prevents parallelization
+         Complex loop carried dependence of 'us' prevents parallelization
+         Loop carried reuse of 'us' prevents parallelization
+         Complex loop carried dependence of 'ut' prevents parallelization
+         Loop carried reuse of 'ut' prevents parallelization
+opdiv_acc:
+   5730, Generating present(outfld(:,:,:,:))
+         Generating present(inpx(:,:,:,:))
+         Generating present(inpy(:,:,:,:))
+         Generating present(inpz(:,:,:,:))
+         Generating present(work(:,:,:,:))
+         Generating present(rxm2(:,:,:,:))
+         Generating present(sxm2(:,:,:,:))
+         Generating present(txm2(:,:,:,:))
+         Generating present(rym2(:,:,:,:))
+         Generating present(sym2(:,:,:,:))
+         Generating present(tym2(:,:,:,:))
+         Generating present(rzm2(:,:,:,:))
+         Generating present(szm2(:,:,:,:))
+         Generating present(tzm2(:,:,:,:))
+         Generating present(dxm12(:,:))
+         Generating present(dym12(:,:))
+         Generating present(dzm12(:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(jacm1(:,:,:,:))
+multd_acc:
+   5777, Generating present(dx(:,:,:,:))
+         Generating present(x(:,:,:,:))
+         Generating present(rm2(:,:,:,:))
+         Generating present(sm2(:,:,:,:))
+         Generating present(tm2(:,:,:,:))
+         Generating present(dxm12(:,:))
+         Generating present(dym12(:,:))
+         Generating present(dzm12(:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(jacm1(:,:,:,:))
+         Generating present(ur(:,:,:,:))
+         Generating present(us(:,:,:,:))
+         Generating present(ut(:,:,:,:))
+   5781, Accelerator kernel generated
+       5782, !$acc loop gang, vector(256), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       5783,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5784,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5785,   ! blockidx%x threadidx%x threadidx%y collapsed
+   5781, Generating Tesla code
+   5790, Complex loop carried dependence of 'ur' prevents parallelization
+         Loop carried reuse of 'ur' prevents parallelization
+         Complex loop carried dependence of 'us' prevents parallelization
+         Loop carried reuse of 'us' prevents parallelization
+         Complex loop carried dependence of 'ut' prevents parallelization
+         Loop carried reuse of 'ut' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/ssolv.f -o obj/ssolv.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/planx.f -o obj/planx.o
+dudxyz_acc:
+   5851, Generating present(du(:,:,:,:))
+         Generating present(u(:,:,:,:))
+         Generating present(rm1(:,:,:,:))
+         Generating present(sm1(:,:,:,:))
+         Generating present(tm1(:,:,:,:))
+         Generating present(dxm1(:,:))
+         Generating present(dym1(:,:))
+         Generating present(dzm1(:,:))
+         Generating present(jacmi(:,:))
+   5868, Accelerator kernel generated
+       5869, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       5870,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5871,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5872,   ! blockidx%x threadidx%x threadidx%y collapsed
+   5868, Generating Tesla code
+   5877, Loop is parallelizable
+cdtp_acc:
+   5969, Generating present(dtx(:,:,:,:))
+         Generating present(x(:,:,:,:))
+         Generating present(rm2(:,:,:,:))
+         Generating present(sm2(:,:,:,:))
+         Generating present(tm2(:,:,:,:))
+         Generating present(tmp1(:,:,:,:))
+         Generating present(tmp2(:,:,:,:))
+         Generating present(tmp3(:,:,:,:))
+         Generating present(work1(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(jacm1(:,:,:,:))
+         Generating present(dxtm12(:,:))
+         Generating present(dytm12(:,:))
+         Generating present(dztm12(:,:))
+   5973, Accelerator kernel generated
+       5974, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       5975,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5976,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5977,   ! blockidx%x threadidx%x threadidx%y collapsed
+   5973, Generating Tesla code
+   5987, Accelerator kernel generated
+       5988, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       5989,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5990,   ! blockidx%x threadidx%x threadidx%y collapsed
+       5991,   ! blockidx%x threadidx%x threadidx%y collapsed
+   5987, Generating present_or_copyout(dudt(:nx2,:ny2,:nz2,:nelv))
+         Generating present_or_copyout(duds(:nx2,:ny2,:nz2,:nelv))
+         Generating present_or_copyout(dudr(:nx2,:ny2,:nz2,:nelv))
+         Generating Tesla code
+   5996, Complex loop carried dependence of 'dudr' prevents parallelization
+         Loop carried reuse of 'dudr' prevents parallelization
+         Complex loop carried dependence of 'duds' prevents parallelization
+         Loop carried reuse of 'duds' prevents parallelization
+         Complex loop carried dependence of 'dudt' prevents parallelization
+         Loop carried reuse of 'dudt' prevents parallelization
+ctolspl_acc:
+   6033, Generating present(work1(:,:,:,:))
+         Generating present(respr(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+oprzero_acc:
+   6063, Generating present(a(:ntot1))
+         Generating present(b(:ntot1))
+         Generating present(c(:ntot1))
+makeabf_acc:
+   6138, Generating present(ta1(:,:,:,:))
+         Generating present(ta2(:,:,:,:))
+         Generating present(ta3(:,:,:,:))
+         Generating copyin(abx1(:,:,:,:))
+         Generating copyin(abx2(:,:,:,:))
+         Generating copyin(abx3)
+         Generating copyin(aby1(:,:,:,:))
+         Generating copyin(aby2(:,:,:,:))
+         Generating copyin(aby3)
+         Generating copyin(abz1(:,:,:,:))
+         Generating copyin(abz2(:,:,:,:))
+         Generating copyin(abz3)
+         Generating copyin(bfx(:,:,:,:))
+         Generating copyin(bfy(:,:,:,:))
+         Generating copyin(bfz(:,:,:,:))
+         Generating copyin(vtrans(:,:,:,:,:))
+ftn -c  -O3 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/math.f -o obj/math.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/mxm_wrapper.f -o obj/mxm_wrapper.o 
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hmholtz.f -o obj/hmholtz.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/gfdm_par.f -o obj/gfdm_par.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/gfdm_op.f -o obj/gfdm_op.o
+i8copy_acc:
+   1890, Generating present(a(:n))
+         Generating present(b(:n))
+   1891, Accelerator kernel generated
+       1892, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1891, Generating Tesla code
+rzero_acc:
+   1904, Generating present(a(:n))
+   1905, Accelerator kernel generated
+       1906, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1905, Generating Tesla code
+rone_acc:
+   1919, Generating present(a(:n))
+   1920, Accelerator kernel generated
+       1921, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1920, Generating Tesla code
+copy_acc:
+   1934, Generating present(a(:n))
+         Generating present(b(:n))
+   1935, Accelerator kernel generated
+       1936, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1935, Generating Tesla code
+invers2_acc:
+   1966, Generating present(a(:n))
+         Generating present(b(:n))
+   1967, Accelerator kernel generated
+       1968, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1967, Generating Tesla code
+add2_acc:
+   1996, Generating present(a(:n))
+         Generating present(b(:n))
+   1997, Accelerator kernel generated
+       1998, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1997, Generating Tesla code
+col2_acc:
+   2026, Generating present(a(:n))
+         Generating present(b(:n))
+   2027, Accelerator kernel generated
+       2028, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2027, Generating Tesla code
+invcol2_acc:
+   2063, Generating present(a(:n))
+         Generating present(b(:n))
+   2064, Accelerator kernel generated
+       2065, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2064, Generating Tesla code
+addcol3_acc:
+   2098, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2099, Accelerator kernel generated
+       2100, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2099, Generating Tesla code
+cmult_acc:
+   2128, Generating present(a(:n))
+   2129, Accelerator kernel generated
+       2130, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2129, Generating Tesla code
+add2col2_acc:
+   2143, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2144, Accelerator kernel generated
+       2145, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2144, Generating Tesla code
+cadd_acc:
+   2173, Generating present(a(:n))
+   2174, Accelerator kernel generated
+       2175, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2174, Generating Tesla code
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/gfdm_solve.f -o obj/gfdm_solve.o
+col3_acc:
+   2204, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2205, Accelerator kernel generated
+       2206, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2205, Generating Tesla code
+add2s2_acc:
+   2235, Generating present(a(:n))
+         Generating present(b(:n))
+   2236, Accelerator kernel generated
+       2237, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2236, Generating Tesla code
+vlsc2_acc:
+   2268, Generating present(x(:n))
+         Generating present(y(:n))
+   2269, Accelerator kernel generated
+       2270, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       2271, Sum reduction generated for s
+   2269, Generating Tesla code
+glsum_acc:
+   2287, Generating present(x(:n))
+   2288, Accelerator kernel generated
+       2289, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       2290, Sum reduction generated for tsum
+   2288, Generating Tesla code
+glsc2_acc:
+   2327, Generating present(x(:n))
+         Generating present(y(:n))
+   2328, Accelerator kernel generated
+       2329, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       2330, Sum reduction generated for tmp
+   2328, Generating Tesla code
+glsc3_acc:
+   2373, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(mult(:n))
+   2374, Accelerator kernel generated
+       2375, !$acc loop gang, vector(128) ! blockidx%x threadidx%x
+       2376, Sum reduction generated for tmp
+   2374, Generating Tesla code
+sub2_acc:
+   2405, Generating present(a(:n))
+         Generating present(b(:n))
+   2406, Accelerator kernel generated
+       2407, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2406, Generating Tesla code
+add3s2_acc:
+   2434, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2435, Accelerator kernel generated
+       2436, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2435, Generating Tesla code
+addcol4_acc:
+   2464, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+         Generating present(d(:n))
+   2465, Accelerator kernel generated
+       2466, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2465, Generating Tesla code
+chsign_acc:
+   2479, Generating present(a(:n))
+   2480, Accelerator kernel generated
+       2481, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2480, Generating Tesla code
+add2s1_acc:
+   2510, Generating present(a(:n))
+         Generating present(b(:n))
+   2511, Accelerator kernel generated
+       2512, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2511, Generating Tesla code
+sub3_acc:
+   2541, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2542, Accelerator kernel generated
+       2543, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2542, Generating Tesla code
+invcol3_acc:
+   2580, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2581, Accelerator kernel generated
+       2582, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2581, Generating Tesla code
+admcol3_acc:
+   2598, Generating present(a(:n))
+         Generating present(b(:n))
+         Generating present(c(:n))
+   2599, Accelerator kernel generated
+       2600, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2599, Generating Tesla code
+invcol1_acc:
+   2629, Generating present(a(:n))
+   2630, Accelerator kernel generated
+       2631, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2630, Generating Tesla code
+vlsum_acc:
+   2660, Generating present(vec(:n))
+   2661, Accelerator kernel generated
+       2662, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       2663, Sum reduction generated for sum
+   2661, Generating Tesla code
+glsc23_acc:
+   2688, Generating present(x(:n))
+         Generating present(y(:n))
+         Generating present(z(:n))
+   2689, Accelerator kernel generated
+       2690, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       2691, Sum reduction generated for ds
+   2689, Generating present(z(:n))
+         Generating present(y(:n))
+         Generating present(x(:n))
+         Generating Tesla code
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/subs1.f -o obj/subs1.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/subs2.f -o obj/subs2.o
+set_fdm_prec_h1a_gen:
+   1094, Generating present(fds_acc(:,:,:))
+         Generating present(fdst_acc(:,:,:))
+   1097, Generating update device(fdst_acc(:,:,:))
+         Generating update device(fds_acc(:,:,:))
+set_fdm_prec_h1a_els:
+   1265, Generating update device(ktype(:,:,:))
+axhelm_acc:
+   1525, Generating present(au(:,:,:,:))
+         Generating present(u(:,:,:,:))
+         Generating present(dxm1(:,:))
+         Generating present(dym1(:,:))
+         Generating present(dzm1(:,:))
+         Generating present(dxtm1(:,:))
+         Generating present(dytm1(:,:))
+         Generating present(dztm1(:,:))
+         Generating present(g1m1(:,:,:,:))
+         Generating present(g2m1(:,:,:,:))
+         Generating present(g3m1(:,:,:,:))
+         Generating present(g4m1(:,:,:,:))
+         Generating present(g5m1(:,:,:,:))
+         Generating present(g6m1(:,:,:,:))
+         Generating present(gm1(:,:,:,:,:))
+         Generating present(dudr(:,:,:,:))
+         Generating present(duds(:,:,:,:))
+         Generating present(dudt(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(helm1(:,:,:,:))
+         Generating present(helm2(:,:,:,:))
+   1532, Accelerator kernel generated
+       1534, !$acc loop gang, vector(64), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       1535,   ! blockidx%x threadidx%x threadidx%y collapsed
+       1536,   ! blockidx%x threadidx%x threadidx%y collapsed
+       1537,   ! blockidx%x threadidx%x threadidx%y collapsed
+   1532, Generating Tesla code
+   1542, Loop is parallelizable
+   1569, Accelerator kernel generated
+       1570, !$acc loop gang, vector(64), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       1571,   ! blockidx%x threadidx%x threadidx%y collapsed
+       1572,   ! blockidx%x threadidx%x threadidx%y collapsed
+       1573,   ! blockidx%x threadidx%x threadidx%y collapsed
+   1569, Generating Tesla code
+   1576, Complex loop carried dependence of 'au' prevents parallelization
+         Loop carried reuse of 'au' prevents parallelization
+hmholtz_acc:
+   1692, Generating present(u(:,:,:,:))
+         Generating present(rhs(:,:,:,:))
+         Generating present(h1(:,:,:,:))
+         Generating present(h2(:,:,:,:))
+         Generating present(mask(:,:,:,:))
+         Generating present(mult(:,:,:,:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/genbox.f -o obj/genbox.o
+cggo_acc:
+   1750, Generating present(x(:))
+         Generating present(mask(:))
+         Generating present(mult(:))
+         Generating present(h1(:))
+         Generating present(h2(:))
+         Generating present(f(:))
+         Generating present(r(:))
+         Generating present(w(:))
+         Generating present(p(:))
+         Generating present(z(:))
+         Generating present(d(:))
+         Generating present(binv(:))
+vlsc32_acc:
+   1946, Generating present(r(:))
+         Generating present(b(:))
+         Generating present(m(:))
+   1947, Accelerator kernel generated
+       1948, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+       1949, Sum reduction generated for s
+   1947, Generating Tesla code
+setprec_acc:
+   1990, Generating present(dpcm1(:,:,:,:))
+         Generating present(helm1(:,:,:,:))
+         Generating present(helm2(:,:,:,:))
+         Generating present(dxm1(:,:))
+         Generating present(dym1(:,:))
+         Generating present(dzm1(:,:))
+         Generating present(dxtm1(:,:))
+         Generating present(dytm1(:,:))
+         Generating present(dztm1(:,:))
+         Generating present(g1m1(:,:,:,:))
+         Generating present(g2m1(:,:,:,:))
+         Generating present(g3m1(:,:,:,:))
+         Generating present(g4m1(:,:,:,:))
+         Generating present(g5m1(:,:,:,:))
+         Generating present(g6m1(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+   1993, Accelerator kernel generated
+       1994, !$acc loop gang ! blockidx%x
+       1999, !$acc loop vector(256) collapse(3) ! threadidx%x
+       2000,   ! threadidx%x collapsed
+       2001,   ! threadidx%x collapsed
+       2013, !$acc loop vector(256) collapse(3) ! threadidx%x
+       2014,   ! threadidx%x collapsed
+       2015,   ! threadidx%x collapsed
+       2026, !$acc loop vector(256) collapse(3) ! threadidx%x
+       2027,   ! threadidx%x collapsed
+       2028,   ! threadidx%x collapsed
+       2044, !$acc loop vector(256) ! threadidx%x
+       2055, !$acc loop vector(256) ! threadidx%x
+       2066, !$acc loop vector(256) ! threadidx%x
+   1993, Generating Tesla code
+   1999, Loop is parallelizable
+   2000, Loop is parallelizable
+   2001, Loop is parallelizable
+   2004, Complex loop carried dependence of 'dpcm1' prevents parallelization
+         Loop carried reuse of 'dpcm1' prevents parallelization
+   2013, Loop is parallelizable
+   2014, Loop is parallelizable
+   2015, Loop is parallelizable
+   2017, Complex loop carried dependence of 'dpcm1' prevents parallelization
+         Loop carried dependence of 'dpcm1' prevents parallelization
+         Loop carried backward dependence of 'dpcm1' prevents vectorization
+   2026, Loop is parallelizable
+   2027, Loop is parallelizable
+   2028, Loop is parallelizable
+   2030, Complex loop carried dependence of 'dpcm1' prevents parallelization
+         Loop carried dependence of 'dpcm1' prevents parallelization
+         Loop carried backward dependence of 'dpcm1' prevents vectorization
+   2044, Loop is parallelizable
+   2045, Loop is parallelizable
+   2055, Loop is parallelizable
+   2056, Loop is parallelizable
+   2066, Loop is parallelizable
+   2067, Loop is parallelizable
+fdm_h1_acc:
+   2125, Generating present(z(:,:,:,:))
+         Generating present(r(:,:,:,:))
+         Generating present(d(:,:,:,:))
+         Generating present(mask(:,:,:,:))
+         Generating present(mult(:,:,:,:))
+         Generating present(rr(:,:,:,:))
+         Generating present(w(:,:,:,:))
+         Generating present(kt(:,:))
+         Generating present(fds_acc(:,:,:))
+         Generating present(fdst_acc(:,:,:))
+   2138, Accelerator kernel generated
+       2139, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2140,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2141,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2142,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2138, Generating Tesla code
+   2146, Complex loop carried dependence of 'w' prevents parallelization
+         Loop carried reuse of 'w' prevents parallelization
+   2155, Accelerator kernel generated
+       2156, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2157,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2158,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2159,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2155, Generating Tesla code
+   2163, Complex loop carried dependence of 'z' prevents parallelization
+         Loop carried reuse of 'z' prevents parallelization
+   2172, Accelerator kernel generated
+       2173, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2174,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2175,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2176,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2172, Generating Tesla code
+   2180, Complex loop carried dependence of 'w' prevents parallelization
+         Loop carried reuse of 'w' prevents parallelization
+   2204, Accelerator kernel generated
+       2205, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2206,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2207,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2208,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2204, Generating Tesla code
+   2212, Complex loop carried dependence of 'z' prevents parallelization
+         Loop carried reuse of 'z' prevents parallelization
+   2220, Accelerator kernel generated
+       2221, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2222,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2223,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2224,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2220, Generating Tesla code
+   2228, Complex loop carried dependence of 'w' prevents parallelization
+         Loop carried reuse of 'w' prevents parallelization
+   2236, Accelerator kernel generated
+       2237, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2238,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2239,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2240,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2236, Generating Tesla code
+   2244, Complex loop carried dependence of 'z' prevents parallelization
+         Loop carried reuse of 'z' prevents parallelization
+set_fdm_prec_h1b_acc:
+   2318, Accelerator kernel generated
+       2319, !$acc loop gang ! blockidx%x
+       2326, !$acc loop vector(256) ! threadidx%x
+       2335, !$acc loop vector(256) ! threadidx%x
+       2353, !$acc loop vector(256) collapse(3) ! threadidx%x
+       2354,   ! threadidx%x collapsed
+       2355,   ! threadidx%x collapsed
+   2318, Generating present_or_copyin(h1(:nx1,:ny1,:nz1,:nel))
+         Generating present_or_copyin(h2(:nx1,:ny1,:nz1,:nel))
+         Generating present_or_copyin(ktype(:nel,:,kfldfdm))
+         Generating present_or_copyin(elsize(:,:nel))
+         Generating present_or_copy(d(:nx1,:ny1,:nz1,:nel))
+         Generating present_or_copyin(dd(:,:))
+         Generating Tesla code
+   2324, Loop is parallelizable
+   2325, Loop is parallelizable
+   2326, Loop is parallelizable
+   2334, Loop is parallelizable
+   2335, Loop is parallelizable
+   2337, Loop is parallelizable
+   2353, Loop is parallelizable
+   2354, Loop is parallelizable
+   2355, Loop is parallelizable
+axhelm2_acc:
+   2445, Generating present(au(:,:,:,:))
+         Generating present(u(:,:,:,:))
+         Generating present(dxm1(:,:))
+         Generating present(dym1(:,:))
+         Generating present(dzm1(:,:))
+         Generating present(dxtm1(:,:))
+         Generating present(dytm1(:,:))
+         Generating present(dztm1(:,:))
+         Generating present(g1m1(:,:,:,:))
+         Generating present(g2m1(:,:,:,:))
+         Generating present(g3m1(:,:,:,:))
+         Generating present(g4m1(:,:,:,:))
+         Generating present(g5m1(:,:,:,:))
+         Generating present(g6m1(:,:,:,:))
+         Generating present(dudr(:,:,:,:))
+         Generating present(duds(:,:,:,:))
+         Generating present(dudt(:,:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(helm1(:,:,:,:))
+         Generating present(helm2(:,:,:,:))
+   2451, Accelerator kernel generated
+       2452, !$acc loop gang, vector(64), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2453,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2454,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2455,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2451, Generating Tesla code
+   2460, Loop is parallelizable
+   2486, Accelerator kernel generated
+       2487, !$acc loop gang, vector(64), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2488,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2489,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2490,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2486, Generating Tesla code
+   2493, Complex loop carried dependence of 'au' prevents parallelization
+         Loop carried reuse of 'au' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/gmres.f -o obj/gmres.o
+cmult2_acc:
+   2319, Generating present(a(:))
+         Generating present(b(:))
+   2320, Accelerator kernel generated
+       2321, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2320, Generating Tesla code
+sethlm_acc:
+   2839, Generating present(h1(:))
+         Generating present(h2(:))
+         Generating present(vtrans(:,:,:,:,:))
+         Generating present(vdiff(:,:,:,:,:))
+   2850, Accelerator kernel generated
+       2851, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   2850, Generating present_or_copyin(param(107))
+         Generating Tesla code
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f -o obj/hsmg.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f -o obj/convect.o
+uzawa_gmres_split_acc:
+   1346, Generating present(l(:))
+         Generating present(u(:))
+         Generating present(b(:))
+         Generating present(binv(:))
+   1347, Accelerator kernel generated
+       1348, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   1347, Generating Tesla code
+hmh_gmres_acc:
+   1438, Generating present(res(:))
+         Generating present(h1(:,:,:,:))
+         Generating present(h2(:,:,:,:))
+         Generating present(wt(:,:,:,:))
+         Generating present(z_acc(:,:))
+         Generating present(v_acc(:,:))
+         Generating present(d(:))
+         Generating present(pmask(:,:,:,:))
+         Generating present(vmult(:,:,:,:))
+         Generating present(ktype(:,:,:))
+         Generating present(bm1(:,:,:,:))
+         Generating present(binvm1(:,:,:,:))
+         Generating create(r(:))
+         Generating create(x(:))
+         Generating create(w(:))
+         Generating create(wk(:))
+         Generating present(ml_acc(:))
+         Generating present(mu_acc(:))
+   1453, Generating update device(d(:))
+   1455, Generating update host(res(:))
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1633)
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1633)
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1638)
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1672)
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1672)
+PGF90-W-0155-The number of subscripts is less than the rank of w (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1677)
+  0 inform,   6 warnings,   0 severes, 0 fatal for convop_fst_3d_acc
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/induct.f -o obj/induct.o
+PGF90-W-0155-The number of subscripts is less than the rank of fx (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1909)
+PGF90-W-0155-The number of subscripts is less than the rank of fy (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1909)
+PGF90-W-0155-The number of subscripts is less than the rank of fx (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1910)
+PGF90-W-0155-The number of subscripts is less than the rank of fy (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/convect.f: 1910)
+  0 inform,   4 warnings,   0 severes, 0 fatal for set_convect_new_acc
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/perturb.f -o obj/perturb.o
+PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3583)
+PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3583)
+PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3583)
+PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3583)
+PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3586)
+PGF90-W-0155-The number of subscripts is less than the rank of d (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3586)
+PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3586)
+PGF90-W-0155-The number of subscripts is less than the rank of e (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3588)
+PGF90-W-0155-The number of subscripts is less than the rank of r (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3588)
+PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3588)
+PGF90-W-0155-The number of subscripts is less than the rank of s (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/hsmg.f: 3588)
+  0 inform,  11 warnings,   0 severes, 0 fatal for hsmg_do_fast_acc
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier5.f -o obj/navier5.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier6.f -o obj/navier6.o
+hsmg_schwarz_wt3d_acc:
+   3211, Generating present(e(:,:,:,:))
+         Generating present(wt(:,:,:,:,:))
+   3212, Accelerator kernel generated
+       3213, !$acc loop gang ! blockidx%x
+       3215, !$acc loop vector(256) ! threadidx%x
+       3223, !$acc loop vector(256) ! threadidx%x
+       3231, !$acc loop vector(256) ! threadidx%x
+   3212, Generating Tesla code
+   3214, Loop is parallelizable
+   3215, Loop is parallelizable
+   3222, Loop is parallelizable
+   3223, Loop is parallelizable
+   3230, Loop is parallelizable
+   3231, Loop is parallelizable
+hsmg_tnsr3d_acc:
+   3297, Generating present(u(:,:,:,:))
+         Generating present(v(:,:,:,:))
+         Generating present(a(:,:))
+         Generating present(b(:,:))
+         Generating present(c(:,:))
+         Generating present(work2(:,:,:,:))
+         Generating present(work3(:,:,:,:))
+   3299, Accelerator kernel generated
+       3300, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3301,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3302,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3303,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3299, Generating Tesla code
+   3306, Complex loop carried dependence of 'work2' prevents parallelization
+         Loop carried reuse of 'work2' prevents parallelization
+   3316, Accelerator kernel generated
+       3317, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3318,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3319,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3320,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3316, Generating Tesla code
+   3323, Complex loop carried dependence of 'work3' prevents parallelization
+         Loop carried reuse of 'work3' prevents parallelization
+   3333, Accelerator kernel generated
+       3334, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3335,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3336,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3337,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3333, Generating Tesla code
+   3340, Complex loop carried dependence of 'v' prevents parallelization
+         Loop carried reuse of 'v' prevents parallelization
+hsmg_do_wt_acc:
+   3388, Generating present(u(:,:,:,:))
+         Generating present(wt(:,:,:,:,:))
+   3389, Accelerator kernel generated
+       3390, !$acc loop gang ! blockidx%x
+       3392, !$acc loop vector(256) ! threadidx%x
+       3398, !$acc loop vector(256) ! threadidx%x
+       3404, !$acc loop vector(256) ! threadidx%x
+   3389, Generating Tesla code
+   3391, Loop is parallelizable
+   3392, Loop is parallelizable
+   3397, Loop is parallelizable
+   3398, Loop is parallelizable
+   3403, Loop is parallelizable
+   3404, Loop is parallelizable
+hsmg_tnsr1_3d_acc:
+   3464, Generating present(v(:,:,:,:))
+         Generating present(a(:,:))
+         Generating present(b(:,:))
+         Generating present(c(:,:))
+         Generating present(work2(:,:,:,:))
+         Generating present(work3(:,:,:,:))
+         Generating create(v2(:,:,:,:))
+   3467, Accelerator kernel generated
+       3468, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3469,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3470,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3471,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3467, Generating Tesla code
+   3474, Complex loop carried dependence of 'work2' prevents parallelization
+         Loop carried reuse of 'work2' prevents parallelization
+   3483, Accelerator kernel generated
+       3484, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3485,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3486,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3487,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3483, Generating Tesla code
+   3490, Complex loop carried dependence of 'work3' prevents parallelization
+         Loop carried reuse of 'work3' prevents parallelization
+   3498, Accelerator kernel generated
+       3499, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3500,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3501,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3502,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3498, Generating Tesla code
+   3505, Complex loop carried dependence of 'v2' prevents parallelization
+         Loop carried reuse of 'v2' prevents parallelization
+hsmg_do_fast_acc:
+   3595, Generating present(e(:,:,:,:))
+         Generating present(r(:,:,:,:))
+         Generating present(s(:,:,:,:,:))
+         Generating present(d(:,:,:,:))
+         Generating create(work(:,:,:,:))
+         Generating create(work2(:,:,:,:))
+   3598, Accelerator kernel generated
+       3599, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3600,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3601,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3602,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3598, Generating Tesla code
+   3605, Complex loop carried dependence of 'work' prevents parallelization
+         Loop carried reuse of 'work' prevents parallelization
+   3615, Accelerator kernel generated
+       3616, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3617,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3618,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3619,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3615, Generating Tesla code
+   3622, Complex loop carried dependence of 'work2' prevents parallelization
+         Loop carried reuse of 'work2' prevents parallelization
+   3631, Accelerator kernel generated
+       3632, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3633,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3634,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3635,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3631, Generating Tesla code
+   3638, Complex loop carried dependence of 'e' prevents parallelization
+         Loop carried reuse of 'e' prevents parallelization
+   3649, Accelerator kernel generated
+       3650, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3651,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3652,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3653,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3649, Generating Tesla code
+   3656, Complex loop carried dependence of 'work' prevents parallelization
+         Loop carried reuse of 'work' prevents parallelization
+   3665, Accelerator kernel generated
+       3666, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3667,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3668,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3669,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3665, Generating Tesla code
+   3672, Complex loop carried dependence of 'work2' prevents parallelization
+         Loop carried reuse of 'work2' prevents parallelization
+   3681, Accelerator kernel generated
+       3682, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3683,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3684,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3685,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3681, Generating Tesla code
+   3688, Complex loop carried dependence of 'e' prevents parallelization
+         Loop carried reuse of 'e' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier7.f -o obj/navier7.o
+hsmg_extrude_acc:
+   3736, Generating present(arr1(:,:,:,:))
+         Generating present(arr2(:,:,:,:))
+   3737, Accelerator kernel generated
+       3738, !$acc loop gang ! blockidx%x
+       3740, !$acc loop vector(256) ! threadidx%x
+       3748, !$acc loop vector(256) ! threadidx%x
+       3756, !$acc loop vector(256) ! threadidx%x
+   3737, Generating Tesla code
+   3739, Loop is parallelizable
+   3740, Loop is parallelizable
+   3747, Loop is parallelizable
+   3748, Loop is parallelizable
+   3755, Loop is parallelizable
+   3756, Loop is parallelizable
+hsmg_schwarz_toreg3d_acc:
+   3778, Generating present(a(:n+1,:n+1,:n+1,:nelv))
+         Generating present(b(:n,:n,:n,:nelv))
+   3780, Accelerator kernel generated
+       3781, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3782,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3783,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3784,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3780, Generating Tesla code
+hsmg_schwarz_toext3d_acc:
+   3802, Generating present(a(:,:,:,:))
+         Generating present(b(:,:,:,:))
+   3806, Accelerator kernel generated
+       3807, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       3808,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3809,   ! blockidx%x threadidx%x threadidx%y collapsed
+       3810,   ! blockidx%x threadidx%x threadidx%y collapsed
+   3806, Generating Tesla code
+h1mg_mask_acc:
+   3832, Generating present(w(:))
+         Generating present(mask(:))
+   3833, Accelerator kernel generated
+       3834, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   3833, Generating Tesla code
+   3838, Loop carried reuse of 'w' prevents parallelization
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier8.f -o obj/navier8.o
+h1mg_solve_acc:
+   4005, Generating present(r(:))
+         Generating present(w(:))
+         Generating present(z(:))
+         Generating present(e(:))
+         Generating present(rhs(:))
+         Generating present(mg_imask(:))
+         Generating present(mg_fast_s(:))
+         Generating present(mg_fast_d(:))
+         Generating present(mg_schwarz_wt(:))
+         Generating present(mg_rstr_wt(:))
+         Generating present(mg_jh(:,:))
+   4049, Generating update host(r(:n1))
+   4052, Generating update device(e(is:is+n1))
+   4069, Accelerator kernel generated
+       4070, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   4069, Generating Tesla code
+   4081, Accelerator kernel generated
+       4082, !$acc loop gang, vector(256) ! blockidx%x threadidx%x
+   4081, Generating Tesla code
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/fast3d.f -o obj/fast3d.o
+PGF90-W-0155-The number of subscripts is less than the rank of uf (/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/navier8.f: 2800)
+  0 inform,   1 warnings,   0 severes, 0 fatal for map_c_to_f_h1_bilin_acc
+set_h1_basis_bilin:
+   1389, Generating present(h1_basis_acc(:,:))
+         Generating present(h1_basist_acc(:,:))
+   1391, Generating update device(h1_basist_acc(:,:))
+         Generating update device(h1_basis_acc(:,:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/fasts.f -o obj/fasts.o
+map_c_to_f_h1_bilin_acc:
+   2722, Generating present(uf(:,:,:,:))
+         Generating present(uc(:,:,:,:))
+         Generating present(w2(:,:,:,:))
+         Generating present(v2(:,:,:,:))
+   2736, Accelerator kernel generated
+       2737, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2739,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2740,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2741,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2736, Generating present_or_copyin(h1_basis_acc(:,:))
+         Generating Tesla code
+   2744, Complex loop carried dependence of 'v2' prevents parallelization
+         Loop carried reuse of 'v2' prevents parallelization
+   2753, Accelerator kernel generated
+       2754, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2756,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2757,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2758,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2753, Generating present_or_copyin(h1_basis_acc(:,:))
+         Generating Tesla code
+   2761, Complex loop carried dependence of 'w2' prevents parallelization
+         Loop carried reuse of 'w2' prevents parallelization
+   2770, Accelerator kernel generated
+       2771, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2773,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2774,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2775,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2770, Generating present_or_copyin(h1_basis_acc(:,:))
+         Generating Tesla code
+   2778, Complex loop carried dependence of 'uf' prevents parallelization
+         Loop carried reuse of 'uf' prevents parallelization
+map_f_to_c_h1_bilin_acc:
+   2832, Generating present(uc(:,:,:,:))
+         Generating present(uf(:,:,:,:))
+         Generating present(h1_basist_acc(:,:))
+         Generating present(w2(:,:,:,:))
+         Generating present(v2(:,:,:,:))
+   2845, Accelerator kernel generated
+       2846, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2847,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2848,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2849,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2845, Generating Tesla code
+   2852, Complex loop carried dependence of 'v2' prevents parallelization
+         Loop carried reuse of 'v2' prevents parallelization
+   2861, Accelerator kernel generated
+       2862, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2863,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2864,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2865,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2861, Generating Tesla code
+   2868, Complex loop carried dependence of 'w2' prevents parallelization
+         Loop carried reuse of 'w2' prevents parallelization
+   2877, Accelerator kernel generated
+       2878, !$acc loop gang, vector(32), worker(4) collapse(4) blockidx%x threadidx%x threadidx%y
+       2879,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2880,   ! blockidx%x threadidx%x threadidx%y collapsed
+       2881,   ! blockidx%x threadidx%x threadidx%y collapsed
+   2877, Generating Tesla code
+   2884, Complex loop carried dependence of 'uc' prevents parallelization
+         Loop carried reuse of 'uc' prevents parallelization
+crs_solve_h1_acc:
+   2937, Generating present(uf(:))
+         Generating present(vf(:))
+         Generating present(uc(:))
+         Generating present(vc(:))
+   2942, Generating update host(vc(:))
+   2953, Generating update device(uc(:))
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/calcz.f -o obj/calcz.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/byte.c -o obj/byte.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/chelpers.c -o obj/chelpers.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/byte_mpi.f -o obj/byte_mpi.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/postpro.f -o obj/postpro.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/cvode_driver.f -o obj/cvode_driver.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/nek_comm.c -o obj/nek_comm.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/init_plugin.f -o obj/init_plugin.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/setprop.f -o obj/setprop.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/qthermal.f -o obj/qthermal.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/cvode_aux.f -o obj/cvode_aux.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/makeq_aux.f -o obj/makeq_aux.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/papi.f -o obj/papi.o
+ftn -c   -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/3rd_party/nek_in_situ.f -o obj/nek_in_situ.o
+ftn -c  -O3 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/mxm_std.f -o obj/mxm_std.o
+ftn -c  -O0      -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/3rd_party/blas.f -o obj/blas.o
+pgf90-Info-Switch -ta=tesla -Mvect forces -O2
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/comm_mpi.f -o obj/comm_mpi.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/singlmesh.f -o obj/singlmesh.o
+ftn -c  -O0      -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/3rd_party/dsygv.f -o obj/dsygv.o
+pgf90-Info-Switch -ta=tesla -Mvect forces -O2
+ftn -c  -O0      -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/3rd_party/ssygv.f -o obj/ssygv.o
+pgf90-Info-Switch -ta=tesla -Mvect forces -O2
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/gs.c -o obj/jl_gs.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/sort.c -o obj/jl_sort.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/sarray_transfer.c -o obj/jl_sarray_transfer.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/sarray_sort.c -o obj/jl_sarray_sort.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/gs_local.c -o obj/jl_gs_local.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/crystal.c -o obj/jl_crystal.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/comm.c -o obj/jl_comm.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/tensor.c -o obj/jl_tensor.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/fail.c -o obj/jl_fail.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/fcrystal.c -o obj/jl_fcrystal.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/findpts.c -o obj/jl_findpts.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/findpts_local.c -o obj/jl_findpts_local.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/obbox.c -o obj/jl_obbox.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/poly.c -o obj/jl_poly.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/lob_bnd.c -o obj/jl_lob_bnd.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/findpts_el_3.c -o obj/jl_findpts_el_3.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/findpts_el_2.c -o obj/jl_findpts_el_2.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/sparse_cholesky.c -o obj/jl_sparse_cholesky.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/xxt.c -o obj/jl_xxt.o
+cc -c  -O2 -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG  -DPREFIX=jl_ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc/jl/fcrs.c -o obj/jl_fcrs.o
+ftn -c  -O2 -r8 -Mpreprocess -acc -Minfo=accel -acc -DPTRSIZE8 -DMPI -DNEK_ACC -DPGI -DLONGINT8 -DUNDERSCORE -DGLOBAL_LONG_LONG -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc -I/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/nek5_r1039_acc -I./ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc/stenosis.f    -o obj/stenosis.o 
+ftn -o nek5000  obj/stenosis.o obj/drive.o obj/drive1.o obj/drive2.o obj/plan4.o obj/bdry.o obj/coef.o obj/conduct.o obj/connect1.o obj/connect2.o obj/dssum.o obj/edgec.o obj/eigsolv.o obj/gauss.o obj/genxyz.o obj/navier1.o obj/makeq.o obj/navier0.o obj/navier2.o obj/navier3.o obj/navier4.o obj/prepost.o obj/speclib.o obj/map2.o obj/turb.o obj/mvmesh.o obj/ic.o obj/ssolv.o obj/planx.o obj/math.o obj/mxm_wrapper.o obj/hmholtz.o obj/gfdm_par.o obj/gfdm_op.o obj/gfdm_solve.o obj/subs1.o obj/subs2.o obj/genbox.o obj/gmres.o obj/hsmg.o obj/convect.o obj/induct.o obj/perturb.o obj/navier5.o obj/navier6.o obj/navier7.o obj/navier8.o obj/fast3d.o obj/fasts.o obj/calcz.o obj/byte.o obj/chelpers.o obj/byte_mpi.o obj/postpro.o obj/cvode_driver.o obj/nek_comm.o obj/init_plugin.o obj/setprop.o obj/qthermal.o obj/cvode_aux.o obj/makeq_aux.o obj/papi.o obj/nek_in_situ.o obj/mxm_std.o obj/blas.o obj/comm_mpi.o obj/singlmesh.o obj/dsygv.o obj/ssygv.o obj/jl_gs.o obj/jl_sort.o obj/jl_sarray_transfer.o obj/jl_sarray_sort.o obj/jl_gs_local.o obj/jl_crystal.o obj/jl_comm.o obj/jl_tensor.o obj/jl_fail.o obj/jl_fcrystal.o obj/jl_findpts.o obj/jl_findpts_local.o obj/jl_obbox.o obj/jl_poly.o obj/jl_lob_bnd.o obj/jl_findpts_el_3.o obj/jl_findpts_el_2.o obj/jl_sparse_cholesky.o obj/jl_xxt.o obj/jl_fcrs.o -ta=nvidia
+WARNING: CrayPat is saving object files from a temporary directory into directory '/ccs/home/csep05/.craypat/nek5000/14880'
+#############################################################
+#                  Compilation successful!                  #
+#############################################################
+   text	   data	    bss	    dec	    hex	filename
+5302255	1771536	1001535560	1008609351	3c1e2847	nek5000
+
+

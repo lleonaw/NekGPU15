@@ -442,14 +442,22 @@ static void pw_exec(
   const unsigned recv = 0^transpose, send = 1^transpose;
   unsigned unit_size = vn*gs_dom_size[dom];
   char *sendbuf;
+  int i;
   /* post receives */
   sendbuf = pw_exec_recvs(buf,unit_size,comm,&pwd->comm[recv],pwd->req);
   /* fill send buffer */
   scatter_to_buf[mode](sendbuf,data,vn,pwd->map[send],dom);
+  for(i=0;i<10;i++) {
+    printf("sendbuf: %f\n",(double*)sendbuf[i*8]);
+  }
   /* post sends */
   pw_exec_sends(sendbuf,unit_size,comm,&pwd->comm[send],
                 &pwd->req[pwd->comm[recv].n]);
   comm_wait(pwd->req,pwd->comm[0].n+pwd->comm[1].n);
+  for(i=0;i<10;i++) {
+    printf("buf: %f\n",(double*)buf[i*8]);
+  }
+
   /* gather using recv buffer */
   gather_from_buf[mode](data,buf,vn,pwd->map[recv],dom,op);
 }
@@ -1054,6 +1062,7 @@ static void gs_aux(
   buffer_reserve(buf,vn*gs_dom_size[dom]*gsh->r.buffer_size);
   local_gather [mode](u,u,vn,gsh->map_local[0^transpose],dom,op);
   if(transpose==0) init[mode](u,vn,gsh->flagged_primaries,dom,op);
+  printf("mode gs: %d %d\n",mode,vn*gs_dom_size[dom]*gsh->r.buffer_size);
   gsh->r.exec(u,mode,vn,dom,op,transpose,gsh->r.data,&gsh->comm,buf->ptr);
   local_scatter[mode](u,u,vn,gsh->map_local[1^transpose],dom);
 }
@@ -1206,7 +1215,7 @@ void fgs_setup_pick(sint *handle, const slong id[], const sint *n,
 void fgs_setup(sint *handle, const slong id[], const sint *n,
                const MPI_Fint *comm, const sint *np)
 {
-  const sint method = gs_auto;
+  const sint method = gs_pairwise;
   fgs_setup_pick(handle,id,n,comm,np,&method);
 }
 

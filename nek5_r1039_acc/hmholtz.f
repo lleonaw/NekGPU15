@@ -1689,6 +1689,7 @@ c     if (name.eq.'VELZ') kfldfdm =  3
       if (name.eq.'PRES') kfldfdm =  ndim+1
 c     if (.not.iffdm) kfldfdm=-1
 C
+      print*,'in hmholtz'
 !$ACC DATA PRESENT(u,rhs,h1,h2,mask,mult)
       call dssum_acc   (rhs,nx1,ny1,nz1)
       call col2_acc    (rhs,mask,ntot)

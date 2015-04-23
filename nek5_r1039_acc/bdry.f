@@ -681,11 +681,14 @@ c     write(6,*) 'BCDIRV: ifield',ifield
 C
 C        Take care of Neumann-Dirichlet shared edges...
 C
+         print*,'before opdsop'
+!$ACC UPDATE DEVICE(tmp1,tmp2,tmp3)
          if (isweep.eq.1) then
             call opdsop(tmp1,tmp2,tmp3,'MXA')
          else
             call opdsop(tmp1,tmp2,tmp3,'MNA')
          endif
+!$ACC UPDATE HOST(tmp1,tmp2,tmp3)
  2100 CONTINUE
 C
 C     Copy temporary array to velocity arrays.

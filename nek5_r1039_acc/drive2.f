@@ -749,7 +749,7 @@ c        PLAN 4: TOMBO SPLITTING
 c                - Time-dependent Navier-Stokes calculation (Re>>1).
 c                - Same approximation spaces for pressure and velocity.
 c                - Incompressibe or Weakly compressible (div u .ne. 0).
- 
+         print*,'before plan4' 
 #ifdef _OPENACC
          call plan4_acc
 #else

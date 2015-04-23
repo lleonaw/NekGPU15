@@ -500,16 +500,16 @@ c
 c      CALL V_EXTRAP(vext)
        CALL V_EXTRAP_ACC
 !$ACC END DATA
-
+      print*,'before makef'
       ! compute explicit contributions bfx,bfy,bfz 
       CALL MAKEF 
       CALL LAGVEL
-
+      print*,'before split_vis'
       ! split viscosity into explicit/implicit part
       if (ifexplvis) call split_vis
 
       ! extrapolate velocity
-
+      print*,'before bcdirvc'
       ! mask Dirichlet boundaries
       CALL BCDIRVC  (VX,VY,VZ,v1mask,v2mask,v3mask) 
 
@@ -520,7 +520,7 @@ C     first, compute pressure
       npres=icalld
       etime1=dnekclock()
 #endif
-
+      print*,'before hsolve'
 !$ACC  DATA COPY(dpr,pr) 
 !$ACC&      COPY(VX,VY,VZ)
 !$ACC&      COPYIN(bfx,bfy,bfz,DFC)
@@ -536,7 +536,7 @@ C     first, compute pressure
       call rzero_acc    (h2,ntot1)
       call ctolspl_acc  (tolspl,respr)
       napprox(1) = laxt
-
+  
 !$ACC UPDATE HOST(h1,h2) ASYNC(1)
 !$ACC WAIT
       call hsolve_acc  ('PRES',dpr,respr,h1,h2 

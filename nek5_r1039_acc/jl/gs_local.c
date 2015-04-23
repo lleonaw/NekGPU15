@@ -312,6 +312,7 @@ void gs_scatter_many_to_vec(void *out, const void *in, const unsigned vn,
   unsigned i; const unsigned unit_size = gs_dom_size[dom];
   typedef const void *ptr_to_const_void;
   char *p = out; const ptr_to_const_void *q = in;
+  printf("in scatter many to vec\n");
 #define WITH_DOMAIN(T) \
   for(i=vn;i;--i) scatter_##T((T*)p,vn,*q++,1,map), p+=unit_size
   SWITCH_DOMAIN(dom);

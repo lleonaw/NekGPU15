@@ -1,11 +1,9 @@
-Warning: no access to tty (Bad file descriptor).
-Thus no job control in this shell.
-/----------------------------------------------------------\\
+/----------------------------------------------------------\
 |      _   __ ______ __ __  ______  ____    ____    ____   |
-|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
-|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|     / | / // ____// //_/ / ____/ / __ \ / __ \ / __ \ |
+|    /  |/ // __/  / ,<   /___ \  / / / // / / // / / /   |
 |   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
-|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|  /_/ |_//_____//_/ |_|/_____/  \____/ \____/ \____/   |
 |                                                          |
 |----------------------------------------------------------|
 |                                                          |
@@ -14,110 +12,135 @@ Thus no job control in this shell.
 | Version:  1.0rc1 / SVN  r1036                            |
 | Web:      http://nek5000.mcs.anl.gov                     |
 |                                                          |
-\\----------------------------------------------------------/
+\----------------------------------------------------------/
                                                               
 
- Number of processors: 4
- REAL    wdsize      : 8
- INTEGER wdsize      : 4
+ Number of processors:            2
+ REAL    wdsize      :            8
+ INTEGER wdsize      :            4
 
 
   Beginning session:
-  /lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.rea  
+  /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc/stenosis.rea
 
  
- timer accuracy:   2.1457672E-07 sec
+ timer accuracy:   0.0000000E+00 sec
 
  read .rea file
  nelgt/nelgv/lelt:         400         400         410
- lx1  /lx2  /lx3 :           8           8           8
+ lx1  /lx2  /lx3 :           2           2           2
 
  mapping elements to processors
- 0,  2*100,  2*400  NELV
- RANK     0 IEG     301     302     303     304     305     306     307     308
-                    309     310     311     312     313     314     315     316
-                    317     318     319     320     321     322     323     324
-                    325     326     327     328     329     330     331     332
-                    333     334     335     336     337     338     339     340
-                    341     342     343     344     345     346     347     348
-                    349     350     351     352     353     354     355     356
- 1,  2*100,  2*400  NELV
- 2,  2*100,  2*400  NELV
- 3,  2*100,  2*400  NELV
-                    357     358     359     360     361     362     363     364
-                    365     366     367     368     369     370     371     372
-                    373     374     375     376     377     378     379     380
-                    381     382     383     384     385     386     387     388
-                    389     390     391     392     393     394     395     396
-                    397     398     399     400
- element load imbalance:  0,  2*100
+            0          200          200          400          400  NELV
+ RANK     0 IEG     201     202     203     204     205     206     207     208
+                    209     210     211     212     213     214     215     216
+                    217     218     219     220     221     222     223     224
+                    225     226     227     228     229     230     231     232
+                    233     234     235     236     237     238     239     240
+                    241     242     243     244     245     246     247     248
+                    249     250     251     252     253     254     255     256
+                    257     258     259     260     261     262     263     264
+            1          200          200          400          400  NELV
+                    265     266     267     268     269     270     271     272
+                    273     274     275     276     277     278     279     280
+                    281     282     283     284     285     286     287     288
+                    289     290     291     292     293     294     295     296
+                    297     298     299     300     301     302     303     304
+                    305     306     307     308     309     310     311     312
+                    313     314     315     316     317     318     319     320
+                    321     322     323     324     325     326     327     328
+                    329     330     331     332     333     334     335     336
+                    337     338     339     340     341     342     343     344
+                    345     346     347     348     349     350     351     352
+                    353     354     355     356     357     358     359     360
+                    361     362     363     364     365     366     367     368
+                    369     370     371     372     373     374     375     376
+                    377     378     379     380     381     382     383     384
+                    385     386     387     388     389     390     391     392
+                    393     394     395     396     397     398     399     400
+ element load imbalance:             0          200          200
  done :: mapping elements to processors
   
- 0  objects found
- done :: read .rea file   0.46563E-01 sec
+            0  objects found
+ done :: read .rea file   0.57048E-01 sec
 
  setup mesh topology
    Right-handed check complete for     400 elements. OK.
-   setvert3d:   8       55869      142269       55869       55869
  call usrsetvert
  done :: usrsetvert
 
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 2.88486e-05 2.82049e-05 2.96116e-05
-   crystal router                : 2.87414e-05 2.83957e-05 2.91824e-05
-   all reduce                    : 0.000143653 0.000142813 0.000144506
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 452780 404348 501212
-   buffer bytes (avg, min, max): 40360 32288 48432
-   setupds time 3.6172E-02 seconds   0  8       55869         400
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 1.38879e-05 1.19209e-05 1.5521e-05
-   crystal router                : 3.71218e-05 3.6788e-05 3.75986e-05
-   all reduce                    : 0.000147426 0.000145888 0.000148988
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 343532 331412 355652
-   buffer bytes (avg, min, max): 24216 16144 32288
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 1.21534e-05 1.13964e-05 1.28984e-05
-   crystal router                : 2.82228e-05 2.67982e-05 2.94924e-05
-   all reduce                    : 0.000141978 0.000141096 0.000142813
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 36556 24436 48676
-   buffer bytes (avg, min, max): 24216 16144 32288
- 12516,  27392,  12516,  1009
- 12516,  27392,  12516,  1009
- 13284,  28160,  13284,  2018
- 13284,  28160,  13284,  2018
- 8  max multiplicity
+setup map: 0x2f743e0 mapf: 0x2f76140 size: 275
+setup map: 0x2f75560 mapf: 0x2f6dbc0 size: 275
+setup map: 0x2fd18c0 mapf: 0x2fd3620 size: 275
+setup map: 0x2fd4560 mapf: 0x2fd4580 size: 0
+gs_setup: 25 unique labels shared
+setup map: 0x2fd50a0 mapf: 0x2fd51e0 size: 25
+setup map: 0x2fd5970 mapf: 0x2fd5ab0 size: 25
+setup map: 0x2fcc670 mapf: 0x2fce3d0 size: 275
+setup map: 0x2fcf310 mapf: 0x2fcf330 size: 0
+setup map: 0x2fcfe50 mapf: 0x2fcff90 size: 25
+setup map: 0x2fd0720 mapf: 0x2fd0860 size: 25
+   handle bytes (avg, min, max): 15908 15908 15908
+   buffer bytes (avg, min, max): 400 400 400
+   setupds time 5.4378E-02 seconds   0  2         525         400
+setup map: 0x2f70ec0 mapf: 0x2f73440 size: 275
+setup map: 0x2f6a6a0 mapf: 0x2f6cc60 size: 275
+setup map: 0x3165ae0 mapf: 0x2f4feb0 size: 275
+setup map: 0x2f7c360 mapf: 0x2f74380 size: 0
+gs_setup: 25 unique labels shared
+setup map: 0x2f50b50 mapf: 0x2f50c90 size: 25
+setup map: 0x3160a10 mapf: 0x2f73fd0 size: 275
+setup map: 0x2f6dba0 mapf: 0x2f56030 size: 0
+setup map: 0x2f74c70 mapf: 0x2f74db0 size: 25
+setup map: 0x3162770 mapf: 0x31628b0 size: 25
+setup map: 0x3167840 mapf: 0x3167980 size: 25
+   handle bytes (avg, min, max): 15908 15908 15908
+   buffer bytes (avg, min, max): 400 400 400
+setup map: 0x2f4fe30 mapf: 0x2f4fe50 size: 0
+setup map: 0x2f55ca0 mapf: 0x2f79110 size: 0
+setup map: 0x2f4fe70 mapf: 0x2f733e0 size: 0
+setup map: 0x2f73400 mapf: 0x2f73420 size: 0
+gs_setup: 25 unique labels shared
+setup map: 0x2f50b50 mapf: 0x2f67b70 size: 25
+setup map: 0x2f67c60 mapf: 0x2f67da0 size: 25
+setup map: 0x2f79130 mapf: 0x2f79150 size: 0
+setup map: 0x2f79170 mapf: 0x2f6cbc0 size: 0
+setup map: 0x2f74c70 mapf: 0x2f61390 size: 25
+setup map: 0x2f61480 mapf: 0x2f615c0 size: 25
+   handle bytes (avg, min, max): 908 908 908
+   buffer bytes (avg, min, max): 400 400 400
+                      275         1600          275                       25
+            8  max multiplicity
  done :: setup mesh topology
   
+                      275         1600          275                       25
  call usrdat
  done :: usrdat
 
  generate geometry data
- vol_t,vol_v: 2*31.415931806500986
+ vol_t,vol_v:    28.28427561817344         28.28427561817344     
  done :: generate geometry data
   
  call usrdat2
  done :: usrdat2
 
- regenerate geometry data 1
- vol_t,vol_v: 2*9.5719959666817296
+ regenerate geometry data            1
+ vol_t,vol_v:    8.621013518703087         8.621013518703087     
  NOTE: All elements deformed , param(59) ^=0
- done :: regenerate geometry data 1
+ done :: regenerate geometry data            1
   
  verify mesh topology
- -0.5,  0.5  Xrange
- -0.5,  0.5  Yrange
- -3.,  10.  Zrange
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
  done :: verify mesh topology
   
- 103   Parameters from file:/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.rea
+ 103   Parameters from file:/lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc/stenosis.rea
    1      1.00000         p1  DENSITY
    2     -100.000         p2  VISCOS
    7      1.00000         p7  RHOCP
    8      1.00000         p8  CONDUCT
-  11      10.             p11 NSTEPS
+  11      1.             p11 NSTEPS
   12     -0.2000E-03      p12 DT
   15      1000.             p15 IOSTEP
   18     -20.00000        p18 GRID
@@ -139,669 +162,734 @@ gs_setup: 3027 unique labels shared
  102      1.00000          p102   Dump out divergence at each time step
  103     -1.00000          p103   weight of stabilizing filter (.01)
   
- IFTRAN   = T
- IFFLOW   = T
- IFHEAT   = F
- IFSPLIT  = T
- IFLOMACH = F
- IFUSERVP = F
- IFUSERMV = F
- IFSTRS   = F
- IFCHAR   = T
- IFCYCLIC = F
- IFAXIS   = F
- IFMVBD   = F
- IFMELT   = F
- IFMODEL  = F
- IFKEPS   = F
- IFMOAB   = F
- IFNEKNEK = F
- IFSYNC   = T
+ IFTRAN   =  T
+ IFFLOW   =  T
+ IFHEAT   =  F
+ IFSPLIT  =  T
+ IFLOMACH =  F
+ IFUSERVP =  F
+ IFUSERMV =  F
+ IFSTRS   =  F
+ IFCHAR   =  T
+ IFCYCLIC =  F
+ IFAXIS   =  F
+ IFMVBD   =  F
+ IFMELT   =  F
+ IFMODEL  =  F
+ IFKEPS   =  F
+ IFMOAB   =  F
+ IFNEKNEK =  F
+ IFSYNC   =  T
    
- IFVCOR   = F
- IFINTQ   = F
- IFCWUZ   = F
- IFSWALL  = F
- IFGEOM   = F
- IFSURT   = F
- IFWCNO   = F
+ IFVCOR   =  F
+ IFINTQ   =  F
+ IFCWUZ   =  F
+ IFSWALL  =  F
+ IFGEOM   =  F
+ IFSURT   =  F
+ IFWCNO   =  F
    
- IFTMSH for field 1    =  F
- IFADVC for field 1    =  T
- IFNONL for field 1    =  F
+ IFTMSH for field            1    =   F
+ IFADVC for field            1    =   T
+ IFNONL for field            1    =   F
    
- Dealiasing enabled, lxd= 8
+ Dealiasing enabled, lxd=            2
   
  Estimated eigenvalues
- EIGAA =  6.5992029427402201
- EIGGA =  1076720.1362887782
- EIGAE =  5.84000260419488618E-2
- EIGAS =  7.37463126843657915E-4
- EIGGE =  1076720.1362887782
- EIGGS =  2.
+ EIGAA =     6.599202942740221     
+ EIGGA =     1431.729029683402     
+ EIGAE =    5.8400026041948862E-002
+ EIGAS =    7.3746312684365792E-004
+ EIGGE =     1431.729029683402     
+ EIGGS =     2.000000000000000     
   
  verify mesh topology
- -0.5,  0.5  Xrange
- -0.5,  0.5  Yrange
- -3.,  10.  Zrange
+  -0.5000000000000000        0.5000000000000000       Xrange
+  -0.5000000000000000        0.5000000000000000       Yrange
+   -3.000000000000000         10.00000000000000       Zrange
  done :: verify mesh topology
   
   E-solver strategy:  0 itr
- mg_nx: 1,  3,  7
- mg_ny: 1,  3,  7
- mg_nz: 1,  3,  7
+ No mgrid for lx1=2!
+ setup h1 coarse grid, nx_crs=            2
  call usrsetvert
  done :: usrsetvert
 
-gs_setup: 75 unique labels shared
-   pairwise times (avg, min, max): 9.32217e-06 8.89301e-06 9.89437e-06
-   crystal router                : 1.07586e-05 1.05143e-05 1.10149e-05
-   all reduce                    : 1.20163e-05 1.19925e-05 1.20878e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 8732 8420 9044
-   buffer bytes (avg, min, max): 600 400 800
-   setupds time 1.7409E-03 seconds   3  2         525         400
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 7.82013e-06 6.79493e-06 8.58307e-06
-   crystal router                : 1.32918e-05 1.30892e-05 1.34945e-05
-   all reduce                    : 7.41005e-05 7.37906e-05 7.43866e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 64652 62324 66980
-   buffer bytes (avg, min, max): 4632 3088 6176
-   setupds time 8.9438E-03 seconds   4  4        8573         400
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 1.06215e-05 9.10759e-06 1.20878e-05
-   crystal router                : 1.18434e-05 1.15871e-05 1.21832e-05
-   all reduce                    : 9.35078e-05 9.28164e-05 9.44138e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 64652 62324 66980
-   buffer bytes (avg, min, max): 4632 3088 6176
-   setupds time 8.9178E-03 seconds   5  4        8573         400
-   setvert3d:   6       27021       52621       27021       27021
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 1563 unique labels shared
-   pairwise times (avg, min, max): 7.95126e-06 7.70092e-06 8.29697e-06
-   crystal router                : 6.46532e-05 6.42061e-05 6.49929e-05
-   all reduce                    : 8.81493e-05 8.80003e-05 8.8501e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 176252 169988 182516
-   buffer bytes (avg, min, max): 12504 8336 16672
-   setupds time 1.7459E-02 seconds   6  6       27021         400
- regenerate geometry data 1
- vol_t,vol_v: 2*9.5719959666817296
- NOTE: All elements deformed , param(59) ^=0
- done :: regenerate geometry data 1
-  
- h1_mg_nx: 1,  3,  7
- h1_mg_ny: 1,  3,  7
- h1_mg_nz: 1,  3,  7
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 75 unique labels shared
-   pairwise times (avg, min, max): 1.68502e-05 1.44958e-05 1.85013e-05
-   crystal router                : 1.22249e-05 1.20878e-05 1.23978e-05
-   all reduce                    : 2.25544e-05 2.24113e-05 2.26021e-05
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 11708 10508 12908
-   buffer bytes (avg, min, max): 1000 800 1200
-   setupds time 1.9100E-03 seconds   7  2         525         400
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 6.04391e-06 5.88894e-06 6.38962e-06
-   crystal router                : 2.41339e-05 2.3818e-05 2.43902e-05
-   all reduce                    : 4.9448e-05 4.84943e-05 5.04971e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 64652 62324 66980
-   buffer bytes (avg, min, max): 4632 3088 6176
-   setupds time 9.5148E-03 seconds   8  4        8573         400
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 1.20819e-05 9.70364e-06 1.44005e-05
-   crystal router                : 1.25289e-05 1.19925e-05 1.30177e-05
-   all reduce                    : 4.66764e-05 3.54052e-05 5.80788e-05
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 85772 76508 95036
-   buffer bytes (avg, min, max): 7720 6176 9264
-   setupds time 8.8129E-03 seconds   9  4        8573         400
-   setvert3d:   6       27021       52621       27021       27021
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 1563 unique labels shared
-   pairwise times (avg, min, max): 8.43406e-06 8.29697e-06 8.60691e-06
-   crystal router                : 2.01762e-05 2.00033e-05 2.03133e-05
-   all reduce                    : 3.53813e-05 3.53098e-05 3.55005e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 176252 169988 182516
-   buffer bytes (avg, min, max): 12504 8336 16672
-   setupds time 1.5285E-02 seconds  10  6       27021         400
-   setvert3d:   8       55869      142269       55869       55869
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 1.11699e-05 1.08957e-05 1.17064e-05
-   crystal router                : 2.31028e-05 2.28167e-05 2.34842e-05
-   all reduce                    : 0.00013293 0.000132108 0.000133801
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 343532 331412 355652
-   buffer bytes (avg, min, max): 24216 16144 32288
-   setupds time 3.7466E-02 seconds  11  8       55869         400
-   setvert3d:  10       95117      299917       95117       95117
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 4971 unique labels shared
-   pairwise times (avg, min, max): 5.26249e-05 5.03063e-05 5.40018e-05
-   crystal router                : 6.36518e-05 6.28948e-05 6.43015e-05
-   all reduce                    : 0.000194532 0.000193691 0.000195408
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 566492 546596 586388
-   buffer bytes (avg, min, max): 39768 26512 53024
-   setupds time 4.7508E-02 seconds  12 10       95117         400
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 75 unique labels shared
-   pairwise times (avg, min, max): 5.49555e-06 5.29289e-06 5.6982e-06
-   crystal router                : 2.2471e-05 2.21968e-05 2.27928e-05
-   all reduce                    : 1.46449e-05 1.45912e-05 1.47104e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 8732 8420 9044
-   buffer bytes (avg, min, max): 600 400 800
-gs_setup: 75 unique labels shared
-   pairwise times (avg, min, max): 5.79357e-06 5.57899e-06 6.19888e-06
-   crystal router                : 1.50204e-05 1.41859e-05 1.60933e-05
-   all reduce                    : 1.24693e-05 1.23978e-05 1.24931e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 1132 820 1444
-   buffer bytes (avg, min, max): 600 400 800
- 150,  800,  150,  25
-   setupds time 3.2921E-03 seconds  14  2         525         400
- 150,  800,  150,  50
- 150,  800,  150,  50
- 150,  800,  150,  25
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 6.16908e-06 5.98431e-06 6.50883e-06
-   crystal router                : 1.20997e-05 1.18971e-05 1.23978e-05
-   all reduce                    : 3.29912e-05 3.22819e-05 3.34978e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 64652 62324 66980
-   buffer bytes (avg, min, max): 4632 3088 6176
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 1.46568e-05 1.36137e-05 1.54018e-05
-   crystal router                : 1.2809e-05 1.26123e-05 1.3113e-05
-   all reduce                    : 6.93798e-05 6.8903e-05 6.99043e-05
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 28300 19036 37564
-   buffer bytes (avg, min, max): 7720 6176 9264
- 2032,  5344,  2032,  193
- 2128,  5440,  2128,  386
- 2032,  5344,  2032,  193
-   setupds time 1.3887E-02 seconds  16  4        8573         400
- 2128,  5440,  2128,  386
-   setvert3d:   4        8573       11773        8573        8573
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 6.04987e-06 5.88894e-06 6.29425e-06
-   crystal router                : 3.51548e-05 3.39985e-05 3.64065e-05
-   all reduce                    : 3.62575e-05 3.61919e-05 3.63111e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 64652 62324 66980
-   buffer bytes (avg, min, max): 4632 3088 6176
-gs_setup: 579 unique labels shared
-   pairwise times (avg, min, max): 1.31965e-05 9.98974e-06 1.64032e-05
-   crystal router                : 1.32918e-05 1.30892e-05 1.34945e-05
-   all reduce                    : 4.71056e-05 4.68969e-05 4.76122e-05
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 28300 19036 37564
-   buffer bytes (avg, min, max): 7720 6176 9264
- 2032,  5344,  2032,  193
-   setupds time 1.3673E-02 seconds  18  4        8573         400
- 2032,  5344,  2032,  193
- 2128,  5440,  2128,  386
- 2128,  5440,  2128,  386
-   setvert3d:   6       27021       52621       27021       27021
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 1563 unique labels shared
-   pairwise times (avg, min, max): 2.5928e-05 2.51055e-05 2.66075e-05
-   crystal router                : 3.26753e-05 3.19004e-05 3.34978e-05
-   all reduce                    : 9.73046e-05 9.59873e-05 9.84192e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 176252 169988 182516
-   buffer bytes (avg, min, max): 12504 8336 16672
-gs_setup: 1563 unique labels shared
-   pairwise times (avg, min, max): 7.7486e-06 7.60555e-06 7.98702e-06
-   crystal router                : 1.94788e-05 1.7786e-05 2.13146e-05
-   all reduce                    : 3.52502e-05 3.49998e-05 3.55005e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 18988 12724 25252
-   buffer bytes (avg, min, max): 12504 8336 16672
- 6154,  14208,  6154,  521
- 6506,  14560,  6506,  1042
- 6506,  14560,  6506,  1042
- 6154,  14208,  6154,  521
-   setupds time 3.5791E-02 seconds  20  6       27021         400
-   setvert3d:   8       55869      142269       55869       55869
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 1.11997e-05 1.08957e-05 1.17064e-05
-   crystal router                : 2.41518e-05 2.33889e-05 2.47002e-05
-   all reduce                    : 0.000125176 0.000118208 0.000132203
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 343532 331412 355652
-   buffer bytes (avg, min, max): 24216 16144 32288
-gs_setup: 3027 unique labels shared
-   pairwise times (avg, min, max): 1.09434e-05 1.0705e-05 1.11818e-05
-   crystal router                : 3.52263e-05 3.46899e-05 3.58105e-05
-   all reduce                    : 8.86261e-05 8.79049e-05 8.95023e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 36556 24436 48676
-   buffer bytes (avg, min, max): 24216 16144 32288
- 13284,  28160,  13284,  2018
- 12516,  27392,  12516,  1009
-   setupds time 5.1038E-02 seconds  22  8       55869         400
- 12516,  27392,  12516,  1009
- 13284,  28160,  13284,  2018
-   setvert3d:  10       95117      299917       95117       95117
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 4971 unique labels shared
-   pairwise times (avg, min, max): 0.000107044 0.000105691 0.000107789
-   crystal router                : 7.48932e-05 7.02858e-05 7.97033e-05
-   all reduce                    : 0.0002065 0.000204802 0.000208211
-   used all_to_all method: crystal router
-   handle bytes (avg, min, max): 745724 666188 825260
-   buffer bytes (avg, min, max): 66280 53024 79536
-gs_setup: 4971 unique labels shared
-   pairwise times (avg, min, max): 3.44753e-05 3.39031e-05 3.50952e-05
-   crystal router                : 0.000118607 0.000117517 0.0001194
-   all reduce                    : 0.000265831 0.000264502 0.000267196
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 59884 39988 79780
-   buffer bytes (avg, min, max): 39768 26512 53024
- 21118,  44896,  21118,  1657
-   setupds time 1.0043E-01 seconds  24 10       95117         400
- 21118,  44896,  21118,  1657
- 22462,  46240,  22462,  3314
- 22462,  46240,  22462,  3314
- setup h1 coarse grid, nx_crs= 2
- call usrsetvert
- done :: usrsetvert
-
-gs_setup: 75 unique labels shared
-   pairwise times (avg, min, max): 5.22733e-06 5.10216e-06 5.50747e-06
-   crystal router                : 1.07527e-05 1.05143e-05 1.10149e-05
-   all reduce                    : 8.61704e-05 8.55923e-05 8.65936e-05
-   used all_to_all method: pairwise
-   handle bytes (avg, min, max): 8732 8420 9044
-   buffer bytes (avg, min, max): 600 400 800
- done :: setup h1 coarse grid  2.90839672088623047E-2  sec
+setup map: 0x3165ae0 mapf: 0x2f67170 size: 275
+setup map: 0x2f62550 mapf: 0x2f642b0 size: 275
+setup map: 0x2f68ee0 mapf: 0x2f6ac40 size: 275
+setup map: 0x2f6bb80 mapf: 0x2f6bba0 size: 0
+gs_setup: 25 unique labels shared
+setup map: 0x2f6bfc0 mapf: 0x2f6c100 size: 25
+setup map: 0x2f64b50 mapf: 0x2f668b0 size: 275
+setup map: 0x2f61e50 mapf: 0x2f61e70 size: 0
+setup map: 0x2f6c890 mapf: 0x2f6c9d0 size: 25
+   handle bytes (avg, min, max): 15908 15908 15908
+   buffer bytes (avg, min, max): 400 400 400
+setup map: 0x2f67290 mapf: 0x2f673d0 size: 25
+setup map: 0x2f67b60 mapf: 0x2f67ca0 size: 25
+setup map: 0x2f6c890 mapf: 0x2f6c8b0 size: 0
+setup map: 0x2f64250 mapf: 0x2f64270 size: 0
+setup map: 0x2f6c8d0 mapf: 0x2f6c8f0 size: 0
+setup map: 0x2f6c910 mapf: 0x2f6c930 size: 0
+setup map: 0x2f7e1a0 mapf: 0x2f72900 size: 25
+setup map: 0x2f72420 mapf: 0x2f729d0 size: 25
+setup map: 0x2f64290 mapf: 0x2f67b60 size: 0
+setup map: 0x2f67b80 mapf: 0x2f67ba0 size: 0
+setup map: 0x2f78fd0 mapf: 0x3160a10 size: 25
+setup map: 0x2f72550 mapf: 0x2f7e000 size: 25
+setup map: 0x3167700 mapf: 0x2f7e0d0 size: 25
+setup map: 0x2f72690 mapf: 0x2f5ce70 size: 25
+setup map: 0x2f727c0 mapf: 0x2f5d5e0 size: 25
+setup map: 0x2f6c140 mapf: 0x3160ae0 size: 25
+setup map: 0x2f6c270 mapf: 0x3161250 size: 25
+setup map: 0x2f66460 mapf: 0x31619c0 size: 25
+setup map: 0x2f665a0 mapf: 0x3162130 size: 25
+setup map: 0x2f666d0 mapf: 0x2f56880 size: 25
+ done :: setup h1 coarse grid    6.6630840301513672E-003  sec
   
  call usrdat3
  done :: usrdat3
 
  set initial conditions
- nekuic (1) for ifld  1
+ nekuic (1) for ifld             1
  call nekuic for vel  
  xyz min   -0.50000     -0.50000      -3.0000    
- uvwpt min  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20  0.93046E-20
+ uvwpt min -0.74853E-19 -0.74853E-19 -0.74853E-19 -0.74853E-19 -0.74853E-19
  PS min     0.99000E+22
  xyz max    0.50000      0.50000       10.000    
- uvwpt max  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19  0.80000E-19
+ uvwpt max  0.79232E-19  0.79232E-19  0.79232E-19  0.79232E-19  0.79232E-19
  PS max    -0.99000E+22
  done :: set initial conditions
   
  call userchk
  done :: userchk
 
-gridpoints unique/tot:        142269       204800
-  dofs: 133420,  141260
+gridpoints unique/tot:           525         3200
+  dofs:                      340                      500
   
- Initialization successfully completed   0.93983     sec
+ Initialization successfully completed   0.13506     sec
 
 Starting time loop ...
 
-     DT/DTCFL/DTFS/DTINIT   0.200E-03   0.763E-16   0.941-320   0.200E-03
+     DT/DTCFL/DTFS/DTINIT   0.200E-03   0.494-323   0.232-309   0.200E-03
 Step      1, t= 2.0000000E-04, DT= 2.0000000E-04, C=  0.000 0.0000E+00 0.0000E+00
- Solving for fluid 3*T
- 9.99999999999999955E-8  p22  2*1
-    1 1.00000E-06 2.36902E+01 3.37384E+01 7.02173E-01       1 Divergence
-    2 1.00000E-06 2.34214E+01 3.37384E+01 6.94206E-01       1 Divergence
-    3 1.00000E-06 2.22792E+01 3.37384E+01 6.60353E-01       1 Divergence
-    4 1.00000E-06 2.19147E+01 3.37384E+01 6.49547E-01       1 Divergence
-    5 1.00000E-06 2.02501E+01 3.37384E+01 6.00208E-01       1 Divergence
-    6 1.00000E-06 1.85763E+01 3.37384E+01 5.50598E-01       1 Divergence
-    7 1.00000E-06 1.65941E+01 3.37384E+01 4.91847E-01       1 Divergence
-    8 1.00000E-06 1.50731E+01 3.37384E+01 4.46764E-01       1 Divergence
-    9 1.00000E-06 1.28408E+01 3.37384E+01 3.80598E-01       1 Divergence
-   10 1.00000E-06 9.75618E+00 3.37384E+01 2.89172E-01       1 Divergence
-   11 1.00000E-06 7.62288E+00 3.37384E+01 2.25941E-01       1 Divergence
-   12 1.00000E-06 6.14558E+00 3.37384E+01 1.82154E-01       1 Divergence
-   13 1.00000E-06 4.87772E+00 3.37384E+01 1.44575E-01       1 Divergence
-   14 1.00000E-06 4.00314E+00 3.37384E+01 1.18653E-01       1 Divergence
-   15 1.00000E-06 3.21894E+00 3.37384E+01 9.54090E-02       1 Divergence
-   16 1.00000E-06 2.40206E+00 3.37384E+01 7.11965E-02       1 Divergence
-   17 1.00000E-06 1.60448E+00 3.37384E+01 4.75564E-02       1 Divergence
-   18 1.00000E-06 1.11788E+00 3.37384E+01 3.31336E-02       1 Divergence
-   19 1.00000E-06 7.94036E-01 3.37384E+01 2.35351E-02       1 Divergence
-   20 1.00000E-06 5.53712E-01 3.37384E+01 1.64119E-02       1 Divergence
-   21 1.00000E-06 3.94162E-01 3.37384E+01 1.16829E-02       1 Divergence
-   22 1.00000E-06 2.80892E-01 3.37384E+01 8.32558E-03       1 Divergence
-   23 1.00000E-06 1.83570E-01 3.37384E+01 5.44099E-03       1 Divergence
-   24 1.00000E-06 1.24651E-01 3.37384E+01 3.69465E-03       1 Divergence
-   25 1.00000E-06 8.45606E-02 3.37384E+01 2.50636E-03       1 Divergence
-   26 1.00000E-06 6.04233E-02 3.37384E+01 1.79094E-03       1 Divergence
-   27 1.00000E-06 4.03710E-02 3.37384E+01 1.19659E-03       1 Divergence
-   28 1.00000E-06 2.49171E-02 3.37384E+01 7.38540E-04       1 Divergence
-   29 1.00000E-06 1.53741E-02 3.37384E+01 4.55686E-04       1 Divergence
-   30 1.00000E-06 9.54810E-03 3.37384E+01 2.83004E-04       1 Divergence
-   31 1.00000E-06 7.25097E-03 3.37384E+01 2.14918E-04       1 Divergence
-   32 1.00000E-06 5.39202E-03 3.37384E+01 1.59819E-04       1 Divergence
-   33 1.00000E-06 3.67231E-03 3.37384E+01 1.08847E-04       1 Divergence
-   34 1.00000E-06 2.38496E-03 3.37384E+01 7.06898E-05       1 Divergence
-   35 1.00000E-06 1.59963E-03 3.37384E+01 4.74129E-05       1 Divergence
-   36 1.00000E-06 1.06609E-03 3.37384E+01 3.15987E-05       1 Divergence
-   37 1.00000E-06 7.77925E-04 3.37384E+01 2.30576E-05       1 Divergence
-   38 1.00000E-06 5.60216E-04 3.37384E+01 1.66047E-05       1 Divergence
-   39 1.00000E-06 3.84408E-04 3.37384E+01 1.13938E-05       1 Divergence
-   40 1.00000E-06 3.03896E-04 3.37384E+01 9.00742E-06       1 Divergence
-   41 1.00000E-06 2.37187E-04 3.37384E+01 7.03017E-06       1 Divergence
-   42 1.00000E-06 1.82597E-04 3.37384E+01 5.41216E-06       1 Divergence
-   43 1.00000E-06 1.54137E-04 3.37384E+01 4.56858E-06       1 Divergence
-   44 1.00000E-06 1.14158E-04 3.37384E+01 3.38362E-06       1 Divergence
-   45 1.00000E-06 9.03336E-05 3.37384E+01 2.67747E-06       1 Divergence
-   46 1.00000E-06 6.58591E-05 3.37384E+01 1.95205E-06       1 Divergence
-   47 1.00000E-06 4.69035E-05 3.37384E+01 1.39021E-06       1 Divergence
-   48 1.00000E-06 3.21884E-05 3.37384E+01 9.54059E-07       1 Divergence
-   49 1.00000E-06 2.44354E-05 3.37384E+01 7.24262E-07       1 Divergence
-   50 1.00000E-06 1.80212E-05 3.37384E+01 5.34145E-07       1 Divergence
-   51 1.00000E-06 1.24218E-05 3.37384E+01 3.68182E-07       1 Divergence
-   52 1.00000E-06 8.54862E-06 3.37384E+01 2.53380E-07       1 Divergence
-   53 1.00000E-06 5.67882E-06 3.37384E+01 1.68319E-07       1 Divergence
-   54 1.00000E-06 3.78089E-06 3.37384E+01 1.12065E-07       1 Divergence
-   55 1.00000E-06 2.54939E-06 3.37384E+01 7.55635E-08       1 Divergence
-   56 1.00000E-06 1.55555E-06 3.37384E+01 4.61063E-08       1 Divergence
-   57 1.00000E-06 1.01681E-06 3.37384E+01 3.01380E-08       1 Divergence
-   58 1.00000E-06 6.87419E-07 3.37384E+01 2.03750E-08       1 Divergence
-        1 PRES gmres:   58  6.8742E-07  1.0000E-06  3.3738E+01  2.0175E-01  3.6032E-01    F
- 9.99999999999999955E-8  p22  2*1
-  1     1 Helmholtz VELX    F:   1.9334E+02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     2 Helmholtz VELX    F:   2.0964E+01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     3 Helmholtz VELX    F:   3.0330E+00   1.0000E-07   1.0000E-02   5.0000E+03
-  1     4 Helmholtz VELX    F:   6.3017E-01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     5 Helmholtz VELX    F:   1.5238E-01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     6 Helmholtz VELX    F:   3.4388E-02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     7 Helmholtz VELX    F:   8.1581E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1     8 Helmholtz VELX    F:   1.7373E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1     9 Helmholtz VELX    F:   4.3117E-04   1.0000E-07   1.0000E-02   5.0000E+03
-  1    10 Helmholtz VELX    F:   1.0079E-04   1.0000E-07   1.0000E-02   5.0000E+03
-  1    11 Helmholtz VELX    F:   2.2534E-05   1.0000E-07   1.0000E-02   5.0000E+03
-  1    12 Helmholtz VELX    F:   5.5338E-06   1.0000E-07   1.0000E-02   5.0000E+03
-  1    13 Helmholtz VELX    F:   1.2937E-06   1.0000E-07   1.0000E-02   5.0000E+03
-  1    14 Helmholtz VELX    F:   3.0899E-07   1.0000E-07   1.0000E-02   5.0000E+03
-  1    15 Helmholtz VELX    F:   7.0433E-08   1.0000E-07   1.0000E-02   5.0000E+03
-          1    Hmholtz VELX:     14   7.0433E-08   1.9334E+02   1.0000E-07
- 9.99999999999999955E-8  p22  2*1
- New CG1-tolerance (RINIT*epsm) =  2.92673077611173066E-10,  5.9326005232964834E-24
-  1     1 Helmholtz VELY    F:   2.0142E+02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     2 Helmholtz VELY    F:   2.1806E+01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     3 Helmholtz VELY    F:   3.1704E+00   1.0000E-07   1.0000E-02   5.0000E+03
-  1     4 Helmholtz VELY    F:   6.6009E-01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     5 Helmholtz VELY    F:   1.5948E-01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     6 Helmholtz VELY    F:   3.5957E-02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     7 Helmholtz VELY    F:   8.5583E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1     8 Helmholtz VELY    F:   1.8157E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1     9 Helmholtz VELY    F:   4.5161E-04   1.0000E-07   1.0000E-02   5.0000E+03
-  1    10 Helmholtz VELY    F:   1.0616E-04   1.0000E-07   1.0000E-02   5.0000E+03
-  1    11 Helmholtz VELY    F:   2.3604E-05   1.0000E-07   1.0000E-02   5.0000E+03
-  1    12 Helmholtz VELY    F:   5.8150E-06   1.0000E-07   1.0000E-02   5.0000E+03
-  1    13 Helmholtz VELY    F:   1.3561E-06   1.0000E-07   1.0000E-02   5.0000E+03
-  1    14 Helmholtz VELY    F:   3.2343E-07   1.0000E-07   1.0000E-02   5.0000E+03
-  1    15 Helmholtz VELY    F:   7.3807E-08   1.0000E-07   1.0000E-02   5.0000E+03
-          1    Hmholtz VELY:     14   7.3807E-08   2.0142E+02   1.0000E-07
- 9.99999999999999955E-8  p22  2*1
- New CG1-tolerance (RINIT*epsm) =  2.92673053954626043E-10,  5.9326005232964834E-24
-  1     1 Helmholtz VELZ    F:   2.7925E+03   1.0000E-07   1.0000E-02   5.0000E+03
-  1     2 Helmholtz VELZ    F:   1.8788E+02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     3 Helmholtz VELZ    F:   3.2284E+01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     4 Helmholtz VELZ    F:   5.9742E+00   1.0000E-07   1.0000E-02   5.0000E+03
-  1     5 Helmholtz VELZ    F:   1.5688E+00   1.0000E-07   1.0000E-02   5.0000E+03
-  1     6 Helmholtz VELZ    F:   3.2169E-01   1.0000E-07   1.0000E-02   5.0000E+03
-  1     7 Helmholtz VELZ    F:   8.3877E-02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     8 Helmholtz VELZ    F:   1.8009E-02   1.0000E-07   1.0000E-02   5.0000E+03
-  1     9 Helmholtz VELZ    F:   4.4390E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1    10 Helmholtz VELZ    F:   1.1357E-03   1.0000E-07   1.0000E-02   5.0000E+03
-  1    11 Helmholtz VELZ    F:   2.6496E-04   1.0000E-07   1.0000E-02   5.0000E+03
-  1    12 Helmholtz VELZ    F:   6.3945E-05   1.0000E-07   1.0000E-02   5.0000E+03
-  1    13 Helmholtz VELZ    F:   1.5063E-05   1.0000E-07   1.0000E-02   5.0000E+03
-  1    14 Helmholtz VELZ    F:   3.7410E-06   1.0000E-07   1.0000E-02   5.0000E+03
-  1    15 Helmholtz VELZ    F:   8.6589E-07   1.0000E-07   1.0000E-02   5.0000E+03
-  1    16 Helmholtz VELZ    F:   1.9490E-07   1.0000E-07   1.0000E-02   5.0000E+03
-  1    17 Helmholtz VELZ    F:   5.2163E-08   1.0000E-07   1.0000E-02   5.0000E+03
-          1    Hmholtz VELZ:     16   5.2163E-08   2.7925E+03   1.0000E-07
-               L1/L2 DIV(V)    :  -2.5314E-04   8.2118E-02
+ Solving for fluid  T  T  T
+ before plan4
+ before plan4
+ before makef
+ before makef
+ before split_vis
+ before bcdirvc
+ before split_vis
+ before bcdirvc
+ before opdsop
+ before opdsop
+ before opdsop
+ before opdsop
+ before hsolve
+ before hsolve
+ in hmholtz
+ in hmholtz
+   9.9999999999999995E-008  p22             1            1
+    1 1.00000E-06 1.06521E+02 1.86875E+02 5.70014E-01       1 Divergence
+    2 1.00000E-06 7.65212E+01 1.86875E+02 4.09478E-01       1 Divergence
+    3 1.00000E-06 7.60140E+01 1.86875E+02 4.06764E-01       1 Divergence
+    4 1.00000E-06 7.52451E+01 1.86875E+02 4.02650E-01       1 Divergence
+    5 1.00000E-06 7.46841E+01 1.86875E+02 3.99648E-01       1 Divergence
+    6 1.00000E-06 7.44917E+01 1.86875E+02 3.98618E-01       1 Divergence
+    7 1.00000E-06 7.44916E+01 1.86875E+02 3.98618E-01       1 Divergence
+    8 1.00000E-06 7.44474E+01 1.86875E+02 3.98381E-01       1 Divergence
+    9 1.00000E-06 7.44457E+01 1.86875E+02 3.98372E-01       1 Divergence
+   10 1.00000E-06 7.36397E+01 1.86875E+02 3.94059E-01       1 Divergence
+   11 1.00000E-06 7.33752E+01 1.86875E+02 3.92643E-01       1 Divergence
+   12 1.00000E-06 7.33583E+01 1.86875E+02 3.92553E-01       1 Divergence
+   13 1.00000E-06 7.33508E+01 1.86875E+02 3.92513E-01       1 Divergence
+   14 1.00000E-06 7.33128E+01 1.86875E+02 3.92310E-01       1 Divergence
+   15 1.00000E-06 7.22824E+01 1.86875E+02 3.86796E-01       1 Divergence
+   16 1.00000E-06 6.98463E+01 1.86875E+02 3.73760E-01       1 Divergence
+   17 1.00000E-06 6.83362E+01 1.86875E+02 3.65679E-01       1 Divergence
+   18 1.00000E-06 6.58738E+01 1.86875E+02 3.52502E-01       1 Divergence
+   19 1.00000E-06 6.46936E+01 1.86875E+02 3.46187E-01       1 Divergence
+   20 1.00000E-06 6.32169E+01 1.86875E+02 3.38285E-01       1 Divergence
+   21 1.00000E-06 6.26148E+01 1.86875E+02 3.35063E-01       1 Divergence
+   22 1.00000E-06 6.23880E+01 1.86875E+02 3.33849E-01       1 Divergence
+   23 1.00000E-06 6.20847E+01 1.86875E+02 3.32226E-01       1 Divergence
+   24 1.00000E-06 6.17523E+01 1.86875E+02 3.30448E-01       1 Divergence
+   25 1.00000E-06 6.17201E+01 1.86875E+02 3.30275E-01       1 Divergence
+   26 1.00000E-06 6.16806E+01 1.86875E+02 3.30063E-01       1 Divergence
+   27 1.00000E-06 6.16437E+01 1.86875E+02 3.29866E-01       1 Divergence
+   28 1.00000E-06 6.16370E+01 1.86875E+02 3.29830E-01       1 Divergence
+   29 1.00000E-06 6.16368E+01 1.86875E+02 3.29829E-01       1 Divergence
+   30 1.00000E-06 6.16367E+01 1.86875E+02 3.29829E-01       1 Divergence
+   31 1.00000E-06 6.16367E+01 1.86875E+02 3.29829E-01       1 Divergence
+   32 1.00000E-06 6.16367E+01 1.86875E+02 3.29829E-01       1 Divergence
+   33 1.00000E-06 6.16367E+01 1.86875E+02 3.29829E-01       1 Divergence
+   34 1.00000E-06 6.16367E+01 1.86875E+02 3.29829E-01       1 Divergence
+   35 1.00000E-06 6.16363E+01 1.86875E+02 3.29827E-01       1 Divergence
+   36 1.00000E-06 6.16361E+01 1.86875E+02 3.29826E-01       1 Divergence
+   37 1.00000E-06 6.16360E+01 1.86875E+02 3.29825E-01       1 Divergence
+   38 1.00000E-06 6.16359E+01 1.86875E+02 3.29825E-01       1 Divergence
+   39 1.00000E-06 6.16359E+01 1.86875E+02 3.29824E-01       1 Divergence
+   40 1.00000E-06 6.16346E+01 1.86875E+02 3.29818E-01       1 Divergence
+   41 1.00000E-06 6.16341E+01 1.86875E+02 3.29815E-01       1 Divergence
+   42 1.00000E-06 6.16341E+01 1.86875E+02 3.29815E-01       1 Divergence
+   43 1.00000E-06 6.16335E+01 1.86875E+02 3.29812E-01       1 Divergence
+   44 1.00000E-06 6.16329E+01 1.86875E+02 3.29808E-01       1 Divergence
+   45 1.00000E-06 6.16328E+01 1.86875E+02 3.29808E-01       1 Divergence
+   46 1.00000E-06 6.16325E+01 1.86875E+02 3.29807E-01       1 Divergence
+   47 1.00000E-06 6.16289E+01 1.86875E+02 3.29787E-01       1 Divergence
+   48 1.00000E-06 6.16250E+01 1.86875E+02 3.29766E-01       1 Divergence
+   49 1.00000E-06 6.16153E+01 1.86875E+02 3.29714E-01       1 Divergence
+   50 1.00000E-06 6.16101E+01 1.86875E+02 3.29686E-01       1 Divergence
+   51 1.00000E-06 6.16087E+01 1.86875E+02 3.29679E-01       1 Divergence
+   52 1.00000E-06 6.16036E+01 1.86875E+02 3.29652E-01       1 Divergence
+   53 1.00000E-06 6.16035E+01 1.86875E+02 3.29651E-01       1 Divergence
+   54 1.00000E-06 6.16019E+01 1.86875E+02 3.29643E-01       1 Divergence
+   55 1.00000E-06 6.15993E+01 1.86875E+02 3.29629E-01       1 Divergence
+   56 1.00000E-06 6.15991E+01 1.86875E+02 3.29627E-01       1 Divergence
+   57 1.00000E-06 6.15552E+01 1.86875E+02 3.29392E-01       1 Divergence
+   58 1.00000E-06 6.15538E+01 1.86875E+02 3.29385E-01       1 Divergence
+   59 1.00000E-06 6.15538E+01 1.86875E+02 3.29385E-01       1 Divergence
+   60 1.00000E-06 6.14836E+01 1.86875E+02 3.29010E-01       1 Divergence
+   61 1.00000E-06 6.14826E+01 1.86875E+02 3.29004E-01       1 Divergence
+   62 1.00000E-06 6.14811E+01 1.86875E+02 3.28996E-01       1 Divergence
+   63 1.00000E-06 6.14809E+01 1.86875E+02 3.28995E-01       1 Divergence
+   64 1.00000E-06 6.14799E+01 1.86875E+02 3.28990E-01       1 Divergence
+   65 1.00000E-06 6.14789E+01 1.86875E+02 3.28984E-01       1 Divergence
+   66 1.00000E-06 6.14763E+01 1.86875E+02 3.28970E-01       1 Divergence
+   67 1.00000E-06 6.14679E+01 1.86875E+02 3.28926E-01       1 Divergence
+   68 1.00000E-06 6.14664E+01 1.86875E+02 3.28918E-01       1 Divergence
+   69 1.00000E-06 6.14664E+01 1.86875E+02 3.28918E-01       1 Divergence
+   70 1.00000E-06 6.14661E+01 1.86875E+02 3.28916E-01       1 Divergence
+   71 1.00000E-06 6.14660E+01 1.86875E+02 3.28915E-01       1 Divergence
+   72 1.00000E-06 6.14659E+01 1.86875E+02 3.28915E-01       1 Divergence
+   73 1.00000E-06 6.14655E+01 1.86875E+02 3.28913E-01       1 Divergence
+   74 1.00000E-06 6.14621E+01 1.86875E+02 3.28894E-01       1 Divergence
+   75 1.00000E-06 6.14615E+01 1.86875E+02 3.28891E-01       1 Divergence
+   76 1.00000E-06 6.14605E+01 1.86875E+02 3.28886E-01       1 Divergence
+   77 1.00000E-06 6.14604E+01 1.86875E+02 3.28885E-01       1 Divergence
+   78 1.00000E-06 6.14600E+01 1.86875E+02 3.28883E-01       1 Divergence
+   79 1.00000E-06 6.14599E+01 1.86875E+02 3.28883E-01       1 Divergence
+   80 1.00000E-06 6.14598E+01 1.86875E+02 3.28882E-01       1 Divergence
+   81 1.00000E-06 6.14597E+01 1.86875E+02 3.28881E-01       1 Divergence
+   82 1.00000E-06 6.14585E+01 1.86875E+02 3.28875E-01       1 Divergence
+   83 1.00000E-06 6.14583E+01 1.86875E+02 3.28874E-01       1 Divergence
+   84 1.00000E-06 6.14582E+01 1.86875E+02 3.28874E-01       1 Divergence
+   85 1.00000E-06 6.14568E+01 1.86875E+02 3.28866E-01       1 Divergence
+   86 1.00000E-06 6.14562E+01 1.86875E+02 3.28863E-01       1 Divergence
+   87 1.00000E-06 6.14514E+01 1.86875E+02 3.28837E-01       1 Divergence
+   88 1.00000E-06 6.14476E+01 1.86875E+02 3.28817E-01       1 Divergence
+   89 1.00000E-06 6.14471E+01 1.86875E+02 3.28814E-01       1 Divergence
+   90 1.00000E-06 6.14458E+01 1.86875E+02 3.28807E-01       1 Divergence
+   91 1.00000E-06 6.14458E+01 1.86875E+02 3.28807E-01       1 Divergence
+   92 1.00000E-06 6.14458E+01 1.86875E+02 3.28807E-01       1 Divergence
+   93 1.00000E-06 6.14458E+01 1.86875E+02 3.28807E-01       1 Divergence
+   94 1.00000E-06 6.14458E+01 1.86875E+02 3.28807E-01       1 Divergence
+   95 1.00000E-06 6.14457E+01 1.86875E+02 3.28807E-01       1 Divergence
+   96 1.00000E-06 6.14457E+01 1.86875E+02 3.28807E-01       1 Divergence
+   97 1.00000E-06 6.14457E+01 1.86875E+02 3.28807E-01       1 Divergence
+   98 1.00000E-06 6.14457E+01 1.86875E+02 3.28807E-01       1 Divergence
+   99 1.00000E-06 6.14457E+01 1.86875E+02 3.28806E-01       1 Divergence
+  100 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  101 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  102 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  103 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  104 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  105 1.00000E-06 6.14456E+01 1.86875E+02 3.28806E-01       1 Divergence
+  106 1.00000E-06 6.14455E+01 1.86875E+02 3.28806E-01       1 Divergence
+  107 1.00000E-06 6.14455E+01 1.86875E+02 3.28806E-01       1 Divergence
+  108 1.00000E-06 6.14454E+01 1.86875E+02 3.28805E-01       1 Divergence
+  109 1.00000E-06 6.14454E+01 1.86875E+02 3.28805E-01       1 Divergence
+  110 1.00000E-06 6.14454E+01 1.86875E+02 3.28805E-01       1 Divergence
+  111 1.00000E-06 6.14454E+01 1.86875E+02 3.28805E-01       1 Divergence
+  112 1.00000E-06 6.14452E+01 1.86875E+02 3.28804E-01       1 Divergence
+  113 1.00000E-06 6.14452E+01 1.86875E+02 3.28804E-01       1 Divergence
+  114 1.00000E-06 6.14442E+01 1.86875E+02 3.28799E-01       1 Divergence
+  115 1.00000E-06 6.14437E+01 1.86875E+02 3.28796E-01       1 Divergence
+  116 1.00000E-06 6.14435E+01 1.86875E+02 3.28795E-01       1 Divergence
+  117 1.00000E-06 6.14434E+01 1.86875E+02 3.28794E-01       1 Divergence
+  118 1.00000E-06 6.14431E+01 1.86875E+02 3.28793E-01       1 Divergence
+  119 1.00000E-06 6.14428E+01 1.86875E+02 3.28791E-01       1 Divergence
+  120 1.00000E-06 6.14401E+01 1.86875E+02 3.28776E-01       1 Divergence
+  121 1.00000E-06 6.14401E+01 1.86875E+02 3.28776E-01       1 Divergence
+  122 1.00000E-06 6.14400E+01 1.86875E+02 3.28776E-01       1 Divergence
+  123 1.00000E-06 6.14400E+01 1.86875E+02 3.28776E-01       1 Divergence
+  124 1.00000E-06 6.14400E+01 1.86875E+02 3.28776E-01       1 Divergence
+  125 1.00000E-06 6.14400E+01 1.86875E+02 3.28776E-01       1 Divergence
+  126 1.00000E-06 6.14400E+01 1.86875E+02 3.28776E-01       1 Divergence
+  127 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  128 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  129 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  130 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  131 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  132 1.00000E-06 6.14398E+01 1.86875E+02 3.28775E-01       1 Divergence
+  133 1.00000E-06 6.14397E+01 1.86875E+02 3.28775E-01       1 Divergence
+  134 1.00000E-06 6.14397E+01 1.86875E+02 3.28775E-01       1 Divergence
+  135 1.00000E-06 6.14397E+01 1.86875E+02 3.28775E-01       1 Divergence
+  136 1.00000E-06 6.14397E+01 1.86875E+02 3.28774E-01       1 Divergence
+  137 1.00000E-06 6.14397E+01 1.86875E+02 3.28774E-01       1 Divergence
+  138 1.00000E-06 6.14397E+01 1.86875E+02 3.28774E-01       1 Divergence
+  139 1.00000E-06 6.14396E+01 1.86875E+02 3.28774E-01       1 Divergence
+  140 1.00000E-06 6.14395E+01 1.86875E+02 3.28773E-01       1 Divergence
+  141 1.00000E-06 6.14394E+01 1.86875E+02 3.28773E-01       1 Divergence
+  142 1.00000E-06 6.14393E+01 1.86875E+02 3.28773E-01       1 Divergence
+  143 1.00000E-06 6.14392E+01 1.86875E+02 3.28772E-01       1 Divergence
+  144 1.00000E-06 6.14389E+01 1.86875E+02 3.28770E-01       1 Divergence
+  145 1.00000E-06 6.14383E+01 1.86875E+02 3.28767E-01       1 Divergence
+  146 1.00000E-06 6.14379E+01 1.86875E+02 3.28765E-01       1 Divergence
+  147 1.00000E-06 6.14377E+01 1.86875E+02 3.28764E-01       1 Divergence
+  148 1.00000E-06 6.14363E+01 1.86875E+02 3.28757E-01       1 Divergence
+  149 1.00000E-06 6.14363E+01 1.86875E+02 3.28756E-01       1 Divergence
+  150 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  151 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  152 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  153 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  154 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  155 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  156 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  157 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  158 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  159 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  160 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  161 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  162 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  163 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  164 1.00000E-06 6.14361E+01 1.86875E+02 3.28755E-01       1 Divergence
+  165 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  166 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  167 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  168 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  169 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  170 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  171 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  172 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  173 1.00000E-06 6.14360E+01 1.86875E+02 3.28755E-01       1 Divergence
+  174 1.00000E-06 6.14351E+01 1.86875E+02 3.28750E-01       1 Divergence
+  175 1.00000E-06 6.14347E+01 1.86875E+02 3.28748E-01       1 Divergence
+  176 1.00000E-06 6.14346E+01 1.86875E+02 3.28747E-01       1 Divergence
+  177 1.00000E-06 6.14342E+01 1.86875E+02 3.28745E-01       1 Divergence
+  178 1.00000E-06 6.14334E+01 1.86875E+02 3.28741E-01       1 Divergence
+  179 1.00000E-06 6.14333E+01 1.86875E+02 3.28740E-01       1 Divergence
+  180 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  181 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  182 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  183 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  184 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  185 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  186 1.00000E-06 6.14329E+01 1.86875E+02 3.28738E-01       1 Divergence
+  187 1.00000E-06 6.14328E+01 1.86875E+02 3.28738E-01       1 Divergence
+  188 1.00000E-06 6.14328E+01 1.86875E+02 3.28738E-01       1 Divergence
+  189 1.00000E-06 6.14328E+01 1.86875E+02 3.28738E-01       1 Divergence
+  190 1.00000E-06 6.14328E+01 1.86875E+02 3.28737E-01       1 Divergence
+  191 1.00000E-06 6.14328E+01 1.86875E+02 3.28737E-01       1 Divergence
+  192 1.00000E-06 6.14328E+01 1.86875E+02 3.28737E-01       1 Divergence
+  193 1.00000E-06 6.14327E+01 1.86875E+02 3.28737E-01       1 Divergence
+  194 1.00000E-06 6.14327E+01 1.86875E+02 3.28737E-01       1 Divergence
+  195 1.00000E-06 6.14327E+01 1.86875E+02 3.28737E-01       1 Divergence
+  196 1.00000E-06 6.14327E+01 1.86875E+02 3.28737E-01       1 Divergence
+  197 1.00000E-06 6.14326E+01 1.86875E+02 3.28737E-01       1 Divergence
+  198 1.00000E-06 6.14326E+01 1.86875E+02 3.28736E-01       1 Divergence
+  199 1.00000E-06 6.14325E+01 1.86875E+02 3.28736E-01       1 Divergence
+  200 1.00000E-06 6.14325E+01 1.86875E+02 3.28736E-01       1 Divergence
+  201 1.00000E-06 6.14325E+01 1.86875E+02 3.28736E-01       1 Divergence
+  202 1.00000E-06 6.14325E+01 1.86875E+02 3.28736E-01       1 Divergence
+  203 1.00000E-06 6.14324E+01 1.86875E+02 3.28736E-01       1 Divergence
+  204 1.00000E-06 6.14322E+01 1.86875E+02 3.28734E-01       1 Divergence
+  205 1.00000E-06 6.14313E+01 1.86875E+02 3.28730E-01       1 Divergence
+  206 1.00000E-06 6.14313E+01 1.86875E+02 3.28730E-01       1 Divergence
+  207 1.00000E-06 6.14313E+01 1.86875E+02 3.28729E-01       1 Divergence
+  208 1.00000E-06 6.14301E+01 1.86875E+02 3.28723E-01       1 Divergence
+  209 1.00000E-06 6.14301E+01 1.86875E+02 3.28723E-01       1 Divergence
+  210 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  211 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  212 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  213 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  214 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  215 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  216 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  217 1.00000E-06 6.14300E+01 1.86875E+02 3.28723E-01       1 Divergence
+  218 1.00000E-06 6.14300E+01 1.86875E+02 3.28722E-01       1 Divergence
+  219 1.00000E-06 6.14300E+01 1.86875E+02 3.28722E-01       1 Divergence
+  220 1.00000E-06 6.14300E+01 1.86875E+02 3.28722E-01       1 Divergence
+  221 1.00000E-06 6.14300E+01 1.86875E+02 3.28722E-01       1 Divergence
+  222 1.00000E-06 6.14300E+01 1.86875E+02 3.28722E-01       1 Divergence
+  223 1.00000E-06 6.14299E+01 1.86875E+02 3.28722E-01       1 Divergence
+  224 1.00000E-06 6.14298E+01 1.86875E+02 3.28722E-01       1 Divergence
+  225 1.00000E-06 6.14298E+01 1.86875E+02 3.28722E-01       1 Divergence
+  226 1.00000E-06 6.14298E+01 1.86875E+02 3.28722E-01       1 Divergence
+  227 1.00000E-06 6.14297E+01 1.86875E+02 3.28721E-01       1 Divergence
+  228 1.00000E-06 6.14296E+01 1.86875E+02 3.28720E-01       1 Divergence
+  229 1.00000E-06 6.14295E+01 1.86875E+02 3.28720E-01       1 Divergence
+  230 1.00000E-06 6.14295E+01 1.86875E+02 3.28720E-01       1 Divergence
+  231 1.00000E-06 6.14295E+01 1.86875E+02 3.28720E-01       1 Divergence
+  232 1.00000E-06 6.14295E+01 1.86875E+02 3.28720E-01       1 Divergence
+  233 1.00000E-06 6.14294E+01 1.86875E+02 3.28719E-01       1 Divergence
+  234 1.00000E-06 6.14290E+01 1.86875E+02 3.28717E-01       1 Divergence
+  235 1.00000E-06 6.14288E+01 1.86875E+02 3.28716E-01       1 Divergence
+  236 1.00000E-06 6.14286E+01 1.86875E+02 3.28715E-01       1 Divergence
+  237 1.00000E-06 6.14285E+01 1.86875E+02 3.28715E-01       1 Divergence
+  238 1.00000E-06 6.14281E+01 1.86875E+02 3.28713E-01       1 Divergence
+  239 1.00000E-06 6.14281E+01 1.86875E+02 3.28713E-01       1 Divergence
+  240 1.00000E-06 6.14273E+01 1.86875E+02 3.28708E-01       1 Divergence
+  241 1.00000E-06 6.14273E+01 1.86875E+02 3.28708E-01       1 Divergence
+  242 1.00000E-06 6.14273E+01 1.86875E+02 3.28708E-01       1 Divergence
+  243 1.00000E-06 6.14273E+01 1.86875E+02 3.28708E-01       1 Divergence
+  244 1.00000E-06 6.14272E+01 1.86875E+02 3.28708E-01       1 Divergence
+  245 1.00000E-06 6.14272E+01 1.86875E+02 3.28708E-01       1 Divergence
+  246 1.00000E-06 6.14272E+01 1.86875E+02 3.28708E-01       1 Divergence
+  247 1.00000E-06 6.14272E+01 1.86875E+02 3.28707E-01       1 Divergence
+  248 1.00000E-06 6.14272E+01 1.86875E+02 3.28707E-01       1 Divergence
+  249 1.00000E-06 6.14271E+01 1.86875E+02 3.28707E-01       1 Divergence
+  250 1.00000E-06 6.14271E+01 1.86875E+02 3.28707E-01       1 Divergence
+  251 1.00000E-06 6.14271E+01 1.86875E+02 3.28707E-01       1 Divergence
+  252 1.00000E-06 6.14271E+01 1.86875E+02 3.28707E-01       1 Divergence
+  253 1.00000E-06 6.14270E+01 1.86875E+02 3.28707E-01       1 Divergence
+  254 1.00000E-06 6.14268E+01 1.86875E+02 3.28705E-01       1 Divergence
+  255 1.00000E-06 6.14267E+01 1.86875E+02 3.28705E-01       1 Divergence
+  256 1.00000E-06 6.14266E+01 1.86875E+02 3.28705E-01       1 Divergence
+  257 1.00000E-06 6.14264E+01 1.86875E+02 3.28704E-01       1 Divergence
+  258 1.00000E-06 6.14262E+01 1.86875E+02 3.28702E-01       1 Divergence
+  259 1.00000E-06 6.14261E+01 1.86875E+02 3.28702E-01       1 Divergence
+  260 1.00000E-06 6.14261E+01 1.86875E+02 3.28702E-01       1 Divergence
+  261 1.00000E-06 6.14260E+01 1.86875E+02 3.28701E-01       1 Divergence
+  262 1.00000E-06 6.14260E+01 1.86875E+02 3.28701E-01       1 Divergence
+  263 1.00000E-06 6.14260E+01 1.86875E+02 3.28701E-01       1 Divergence
+  264 1.00000E-06 6.14260E+01 1.86875E+02 3.28701E-01       1 Divergence
+  265 1.00000E-06 6.14258E+01 1.86875E+02 3.28700E-01       1 Divergence
+  266 1.00000E-06 6.14257E+01 1.86875E+02 3.28700E-01       1 Divergence
+  267 1.00000E-06 6.14257E+01 1.86875E+02 3.28700E-01       1 Divergence
+  268 1.00000E-06 6.14237E+01 1.86875E+02 3.28689E-01       1 Divergence
+  269 1.00000E-06 6.14234E+01 1.86875E+02 3.28688E-01       1 Divergence
+  270 1.00000E-06 6.14231E+01 1.86875E+02 3.28686E-01       1 Divergence
+  271 1.00000E-06 6.14231E+01 1.86875E+02 3.28686E-01       1 Divergence
+  272 1.00000E-06 6.14231E+01 1.86875E+02 3.28686E-01       1 Divergence
+  273 1.00000E-06 6.14231E+01 1.86875E+02 3.28686E-01       1 Divergence
+  274 1.00000E-06 6.14231E+01 1.86875E+02 3.28686E-01       1 Divergence
+  275 1.00000E-06 6.14230E+01 1.86875E+02 3.28685E-01       1 Divergence
+  276 1.00000E-06 6.14230E+01 1.86875E+02 3.28685E-01       1 Divergence
+  277 1.00000E-06 6.14229E+01 1.86875E+02 3.28685E-01       1 Divergence
+  278 1.00000E-06 6.14229E+01 1.86875E+02 3.28685E-01       1 Divergence
+  279 1.00000E-06 6.14229E+01 1.86875E+02 3.28685E-01       1 Divergence
+  280 1.00000E-06 6.14229E+01 1.86875E+02 3.28685E-01       1 Divergence
+  281 1.00000E-06 6.14227E+01 1.86875E+02 3.28684E-01       1 Divergence
+  282 1.00000E-06 6.14227E+01 1.86875E+02 3.28684E-01       1 Divergence
+  283 1.00000E-06 6.14224E+01 1.86875E+02 3.28682E-01       1 Divergence
+  284 1.00000E-06 6.14215E+01 1.86875E+02 3.28677E-01       1 Divergence
+  285 1.00000E-06 6.14213E+01 1.86875E+02 3.28676E-01       1 Divergence
+  286 1.00000E-06 6.14212E+01 1.86875E+02 3.28676E-01       1 Divergence
+  287 1.00000E-06 6.14209E+01 1.86875E+02 3.28674E-01       1 Divergence
+  288 1.00000E-06 6.14206E+01 1.86875E+02 3.28673E-01       1 Divergence
+  289 1.00000E-06 6.14206E+01 1.86875E+02 3.28672E-01       1 Divergence
+  290 1.00000E-06 6.14206E+01 1.86875E+02 3.28672E-01       1 Divergence
+  291 1.00000E-06 6.14206E+01 1.86875E+02 3.28672E-01       1 Divergence
+  292 1.00000E-06 6.14204E+01 1.86875E+02 3.28671E-01       1 Divergence
+  293 1.00000E-06 6.14203E+01 1.86875E+02 3.28670E-01       1 Divergence
+  294 1.00000E-06 6.14202E+01 1.86875E+02 3.28670E-01       1 Divergence
+  295 1.00000E-06 6.14198E+01 1.86875E+02 3.28668E-01       1 Divergence
+  296 1.00000E-06 6.14180E+01 1.86875E+02 3.28658E-01       1 Divergence
+  297 1.00000E-06 6.14175E+01 1.86875E+02 3.28656E-01       1 Divergence
+  298 1.00000E-06 6.14137E+01 1.86875E+02 3.28635E-01       1 Divergence
+  299 1.00000E-06 6.14134E+01 1.86875E+02 3.28634E-01       1 Divergence
+  300 1.00000E-06 6.13890E+01 1.86875E+02 3.28503E-01       1 Divergence
+  301 1.00000E-06 6.13889E+01 1.86875E+02 3.28503E-01       1 Divergence
+  302 1.00000E-06 6.13889E+01 1.86875E+02 3.28503E-01       1 Divergence
+  303 1.00000E-06 6.13889E+01 1.86875E+02 3.28503E-01       1 Divergence
+  304 1.00000E-06 6.13888E+01 1.86875E+02 3.28502E-01       1 Divergence
+  305 1.00000E-06 6.13887E+01 1.86875E+02 3.28502E-01       1 Divergence
+  306 1.00000E-06 6.13887E+01 1.86875E+02 3.28502E-01       1 Divergence
+  307 1.00000E-06 6.13887E+01 1.86875E+02 3.28501E-01       1 Divergence
+  308 1.00000E-06 6.13887E+01 1.86875E+02 3.28501E-01       1 Divergence
+  309 1.00000E-06 6.13886E+01 1.86875E+02 3.28501E-01       1 Divergence
+  310 1.00000E-06 6.13886E+01 1.86875E+02 3.28501E-01       1 Divergence
+  311 1.00000E-06 6.13881E+01 1.86875E+02 3.28499E-01       1 Divergence
+  312 1.00000E-06 6.13881E+01 1.86875E+02 3.28499E-01       1 Divergence
+  313 1.00000E-06 6.13876E+01 1.86875E+02 3.28496E-01       1 Divergence
+  314 1.00000E-06 6.13868E+01 1.86875E+02 3.28491E-01       1 Divergence
+  315 1.00000E-06 6.13867E+01 1.86875E+02 3.28491E-01       1 Divergence
+  316 1.00000E-06 6.13866E+01 1.86875E+02 3.28491E-01       1 Divergence
+  317 1.00000E-06 6.13864E+01 1.86875E+02 3.28489E-01       1 Divergence
+  318 1.00000E-06 6.13863E+01 1.86875E+02 3.28489E-01       1 Divergence
+  319 1.00000E-06 6.13862E+01 1.86875E+02 3.28488E-01       1 Divergence
+  320 1.00000E-06 6.13861E+01 1.86875E+02 3.28488E-01       1 Divergence
+  321 1.00000E-06 6.13859E+01 1.86875E+02 3.28487E-01       1 Divergence
+  322 1.00000E-06 6.13857E+01 1.86875E+02 3.28486E-01       1 Divergence
+  323 1.00000E-06 6.13857E+01 1.86875E+02 3.28485E-01       1 Divergence
+  324 1.00000E-06 6.13853E+01 1.86875E+02 3.28483E-01       1 Divergence
+  325 1.00000E-06 6.13852E+01 1.86875E+02 3.28483E-01       1 Divergence
+  326 1.00000E-06 6.13852E+01 1.86875E+02 3.28483E-01       1 Divergence
+  327 1.00000E-06 6.13842E+01 1.86875E+02 3.28477E-01       1 Divergence
+  328 1.00000E-06 6.13841E+01 1.86875E+02 3.28477E-01       1 Divergence
+  329 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  330 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  331 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  332 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  333 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  334 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  335 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  336 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  337 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  338 1.00000E-06 6.13840E+01 1.86875E+02 3.28476E-01       1 Divergence
+  339 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  340 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  341 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  342 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  343 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  344 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  345 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  346 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  347 1.00000E-06 6.13839E+01 1.86875E+02 3.28476E-01       1 Divergence
+  348 1.00000E-06 6.13836E+01 1.86875E+02 3.28474E-01       1 Divergence
+  349 1.00000E-06 6.13836E+01 1.86875E+02 3.28474E-01       1 Divergence
+  350 1.00000E-06 6.13835E+01 1.86875E+02 3.28474E-01       1 Divergence
+  351 1.00000E-06 6.13835E+01 1.86875E+02 3.28474E-01       1 Divergence
+  352 1.00000E-06 6.13835E+01 1.86875E+02 3.28474E-01       1 Divergence
+  353 1.00000E-06 6.13835E+01 1.86875E+02 3.28474E-01       1 Divergence
+  354 1.00000E-06 6.13834E+01 1.86875E+02 3.28474E-01       1 Divergence
+  355 1.00000E-06 6.13834E+01 1.86875E+02 3.28473E-01       1 Divergence
+  356 1.00000E-06 6.13834E+01 1.86875E+02 3.28473E-01       1 Divergence
+  357 1.00000E-06 6.13833E+01 1.86875E+02 3.28473E-01       1 Divergence
+  358 1.00000E-06 6.13832E+01 1.86875E+02 3.28472E-01       1 Divergence
+  359 1.00000E-06 6.13832E+01 1.86875E+02 3.28472E-01       1 Divergence
+  360 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  361 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  362 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  363 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  364 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  365 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  366 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  367 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  368 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  369 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  370 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  371 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  372 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  373 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  374 1.00000E-06 6.13830E+01 1.86875E+02 3.28471E-01       1 Divergence
+  375 1.00000E-06 6.13829E+01 1.86875E+02 3.28471E-01       1 Divergence
+  376 1.00000E-06 6.13829E+01 1.86875E+02 3.28471E-01       1 Divergence
+  377 1.00000E-06 6.13829E+01 1.86875E+02 3.28471E-01       1 Divergence
+  378 1.00000E-06 6.13826E+01 1.86875E+02 3.28469E-01       1 Divergence
+  379 1.00000E-06 6.13825E+01 1.86875E+02 3.28469E-01       1 Divergence
+  380 1.00000E-06 6.13825E+01 1.86875E+02 3.28469E-01       1 Divergence
+  381 1.00000E-06 6.13825E+01 1.86875E+02 3.28468E-01       1 Divergence
+  382 1.00000E-06 6.13824E+01 1.86875E+02 3.28468E-01       1 Divergence
+  383 1.00000E-06 6.13823E+01 1.86875E+02 3.28468E-01       1 Divergence
+  384 1.00000E-06 6.13823E+01 1.86875E+02 3.28467E-01       1 Divergence
+  385 1.00000E-06 6.13822E+01 1.86875E+02 3.28467E-01       1 Divergence
+  386 1.00000E-06 6.13822E+01 1.86875E+02 3.28467E-01       1 Divergence
+  387 1.00000E-06 6.13822E+01 1.86875E+02 3.28467E-01       1 Divergence
+  388 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  389 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  390 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  391 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  392 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  393 1.00000E-06 6.13820E+01 1.86875E+02 3.28466E-01       1 Divergence
+  394 1.00000E-06 6.13819E+01 1.86875E+02 3.28466E-01       1 Divergence
+  395 1.00000E-06 6.13819E+01 1.86875E+02 3.28466E-01       1 Divergence
+  396 1.00000E-06 6.13819E+01 1.86875E+02 3.28466E-01       1 Divergence
+  397 1.00000E-06 6.13819E+01 1.86875E+02 3.28466E-01       1 Divergence
+  398 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  399 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  400 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  401 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  402 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  403 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  404 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  405 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  406 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  407 1.00000E-06 6.13819E+01 1.86875E+02 3.28465E-01       1 Divergence
+  408 1.00000E-06 6.13817E+01 1.86875E+02 3.28464E-01       1 Divergence
+  409 1.00000E-06 6.13816E+01 1.86875E+02 3.28464E-01       1 Divergence
+  410 1.00000E-06 6.13816E+01 1.86875E+02 3.28464E-01       1 Divergence
+  411 1.00000E-06 6.13816E+01 1.86875E+02 3.28464E-01       1 Divergence
+  412 1.00000E-06 6.13816E+01 1.86875E+02 3.28464E-01       1 Divergence
+  413 1.00000E-06 6.13816E+01 1.86875E+02 3.28464E-01       1 Divergence
+  414 1.00000E-06 6.13816E+01 1.86875E+02 3.28463E-01       1 Divergence
+  415 1.00000E-06 6.13815E+01 1.86875E+02 3.28463E-01       1 Divergence
+  416 1.00000E-06 6.13815E+01 1.86875E+02 3.28463E-01       1 Divergence
+  417 1.00000E-06 6.13814E+01 1.86875E+02 3.28463E-01       1 Divergence
+  418 1.00000E-06 6.13813E+01 1.86875E+02 3.28462E-01       1 Divergence
+  419 1.00000E-06 6.13813E+01 1.86875E+02 3.28462E-01       1 Divergence
+  420 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  421 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  422 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  423 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  424 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  425 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  426 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  427 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  428 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  429 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  430 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  431 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  432 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  433 1.00000E-06 6.13812E+01 1.86875E+02 3.28462E-01       1 Divergence
+  434 1.00000E-06 6.13812E+01 1.86875E+02 3.28461E-01       1 Divergence
+  435 1.00000E-06 6.13812E+01 1.86875E+02 3.28461E-01       1 Divergence
+  436 1.00000E-06 6.13812E+01 1.86875E+02 3.28461E-01       1 Divergence
+  437 1.00000E-06 6.13812E+01 1.86875E+02 3.28461E-01       1 Divergence
+  438 1.00000E-06 6.13810E+01 1.86875E+02 3.28460E-01       1 Divergence
+  439 1.00000E-06 6.13809E+01 1.86875E+02 3.28460E-01       1 Divergence
+  440 1.00000E-06 6.13809E+01 1.86875E+02 3.28460E-01       1 Divergence
+  441 1.00000E-06 6.13808E+01 1.86875E+02 3.28460E-01       1 Divergence
+  442 1.00000E-06 6.13808E+01 1.86875E+02 3.28459E-01       1 Divergence
+  443 1.00000E-06 6.13807E+01 1.86875E+02 3.28459E-01       1 Divergence
+  444 1.00000E-06 6.13806E+01 1.86875E+02 3.28458E-01       1 Divergence
+  445 1.00000E-06 6.13804E+01 1.86875E+02 3.28457E-01       1 Divergence
+  446 1.00000E-06 6.13804E+01 1.86875E+02 3.28457E-01       1 Divergence
+  447 1.00000E-06 6.13804E+01 1.86875E+02 3.28457E-01       1 Divergence
+  448 1.00000E-06 6.13799E+01 1.86875E+02 3.28455E-01       1 Divergence
+  449 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  450 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  451 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  452 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  453 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  454 1.00000E-06 6.13797E+01 1.86875E+02 3.28454E-01       1 Divergence
+  455 1.00000E-06 6.13797E+01 1.86875E+02 3.28453E-01       1 Divergence
+  456 1.00000E-06 6.13797E+01 1.86875E+02 3.28453E-01       1 Divergence
+  457 1.00000E-06 6.13797E+01 1.86875E+02 3.28453E-01       1 Divergence
+  458 1.00000E-06 6.13797E+01 1.86875E+02 3.28453E-01       1 Divergence
+  459 1.00000E-06 6.13796E+01 1.86875E+02 3.28453E-01       1 Divergence
+  460 1.00000E-06 6.13796E+01 1.86875E+02 3.28453E-01       1 Divergence
+  461 1.00000E-06 6.13796E+01 1.86875E+02 3.28453E-01       1 Divergence
+  462 1.00000E-06 6.13796E+01 1.86875E+02 3.28453E-01       1 Divergence
+  463 1.00000E-06 6.13796E+01 1.86875E+02 3.28453E-01       1 Divergence
+  464 1.00000E-06 6.13795E+01 1.86875E+02 3.28452E-01       1 Divergence
+  465 1.00000E-06 6.13793E+01 1.86875E+02 3.28451E-01       1 Divergence
+  466 1.00000E-06 6.13793E+01 1.86875E+02 3.28451E-01       1 Divergence
+  467 1.00000E-06 6.13792E+01 1.86875E+02 3.28451E-01       1 Divergence
+  468 1.00000E-06 6.13788E+01 1.86875E+02 3.28449E-01       1 Divergence
+  469 1.00000E-06 6.13787E+01 1.86875E+02 3.28448E-01       1 Divergence
+  470 1.00000E-06 6.13787E+01 1.86875E+02 3.28448E-01       1 Divergence
+  471 1.00000E-06 6.13787E+01 1.86875E+02 3.28448E-01       1 Divergence
+  472 1.00000E-06 6.13787E+01 1.86875E+02 3.28448E-01       1 Divergence
+  473 1.00000E-06 6.13787E+01 1.86875E+02 3.28448E-01       1 Divergence
+  474 1.00000E-06 6.13786E+01 1.86875E+02 3.28448E-01       1 Divergence
+  475 1.00000E-06 6.13785E+01 1.86875E+02 3.28447E-01       1 Divergence
+  476 1.00000E-06 6.13785E+01 1.86875E+02 3.28447E-01       1 Divergence
+  477 1.00000E-06 6.13785E+01 1.86875E+02 3.28447E-01       1 Divergence
+  478 1.00000E-06 6.13784E+01 1.86875E+02 3.28446E-01       1 Divergence
+  479 1.00000E-06 6.13784E+01 1.86875E+02 3.28446E-01       1 Divergence
+  480 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  481 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  482 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  483 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  484 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  485 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  486 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  487 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  488 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  489 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  490 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  491 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  492 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  493 1.00000E-06 6.13783E+01 1.86875E+02 3.28446E-01       1 Divergence
+  494 1.00000E-06 6.13782E+01 1.86875E+02 3.28446E-01       1 Divergence
+  495 1.00000E-06 6.13782E+01 1.86875E+02 3.28446E-01       1 Divergence
+  496 1.00000E-06 6.13782E+01 1.86875E+02 3.28446E-01       1 Divergence
+  497 1.00000E-06 6.13782E+01 1.86875E+02 3.28445E-01       1 Divergence
+  498 1.00000E-06 6.13780E+01 1.86875E+02 3.28444E-01       1 Divergence
+  499 1.00000E-06 6.13779E+01 1.86875E+02 3.28444E-01       1 Divergence
+  500 1.00000E-06 6.13779E+01 1.86875E+02 3.28444E-01       1 Divergence
+  501 1.00000E-06 6.13778E+01 1.86875E+02 3.28443E-01       1 Divergence
+  502 1.00000E-06 6.13778E+01 1.86875E+02 3.28443E-01       1 Divergence
+  503 1.00000E-06 6.13778E+01 1.86875E+02 3.28443E-01       1 Divergence
+  504 1.00000E-06 6.13777E+01 1.86875E+02 3.28443E-01       1 Divergence
+  505 1.00000E-06 6.13774E+01 1.86875E+02 3.28441E-01       1 Divergence
+  506 1.00000E-06 6.13774E+01 1.86875E+02 3.28441E-01       1 Divergence
+  507 1.00000E-06 6.13774E+01 1.86875E+02 3.28441E-01       1 Divergence
+  508 1.00000E-06 6.13772E+01 1.86875E+02 3.28440E-01       1 Divergence
+  509 1.00000E-06 6.13772E+01 1.86875E+02 3.28440E-01       1 Divergence
+  510 1.00000E-06 6.13772E+01 1.86875E+02 3.28440E-01       1 Divergence
+        1 PRES gmres:  510  6.1377E+01  1.0000E-06  1.8687E+02  4.6600E-01  1.4017E+00    F
+ in hmholtz
+ in hmholtz
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELX    F:   3.9196E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELX    F:   8.2420E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELX    F:   3.1299E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELX    F:   1.3006E-09   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELX:      3   1.3006E-09   3.9196E+01   1.0000E-07
+ in hmholtz
+ in hmholtz
+   9.9999999999999995E-008  p22             1            1
+  1     1 Helmholtz VELY    F:   4.3288E+01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELY    F:   9.1843E-03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELY    F:   3.5363E-06   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELY    F:   1.5187E-09   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELY:      3   1.5187E-09   4.3288E+01   1.0000E-07
+ in hmholtz
+ in hmholtz
+   9.9999999999999995E-008  p22             1            1
+ New CG1-tolerance (RINIT*epsm) =    8.1374385650793443E-012 
+   5.8756648643786223E-024
+  1     1 Helmholtz VELZ    F:   1.3032E+03   1.0000E-07   1.0000E-02   5.0000E+03
+  1     2 Helmholtz VELZ    F:   2.5002E-01   1.0000E-07   1.0000E-02   5.0000E+03
+  1     3 Helmholtz VELZ    F:   1.0181E-04   1.0000E-07   1.0000E-02   5.0000E+03
+  1     4 Helmholtz VELZ    F:   4.6965E-08   1.0000E-07   1.0000E-02   5.0000E+03
+          1    Hmholtz VELZ:      3   4.6965E-08   1.3032E+03   1.0000E-07
+               L1/L2 DIV(V)    :  -1.9170E-02   1.3994E-01
                L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:  -2.5314E-04   8.2118E-02
-          1   2.0000E-04  9.5046E-01 Fluid done
- schfile:/lustre/atlas/scratch/mmin/nti104/nek5_r1039_acc/pipe_r1039_acc/stenosis.sch                                                        
-Step      2, t= 4.0000000E-04, DT= 2.0000000E-04, C=  0.011 9.9057E-01 9.9057E-01
- Solving for fluid 3*T
- 9.99999999999999955E-8  p22  2,  1
-        2 PRES gmres:   58  9.6444E-07  1.0000E-06  4.8804E+01  1.9917E-01  3.5722E-01    F
- 9.99999999999999955E-8  p22  2,  1
-          2    Hmholtz VELX:     11   5.2249E-08   1.8121E+01   1.0000E-07
- 9.99999999999999955E-8  p22  2,  1
-          2    Hmholtz VELY:     11   5.4179E-08   1.8481E+01   1.0000E-07
- 9.99999999999999955E-8  p22  2,  1
-          2    Hmholtz VELZ:     12   8.8961E-08   1.2060E+02   1.0000E-07
-               L1/L2 DIV(V)    :   1.8682E-04   5.4724E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   1.8682E-04   5.4724E-02
-          2   4.0000E-04  5.2202E-01 Fluid done
-Step      3, t= 6.0000000E-04, DT= 2.0000000E-04, C=  0.011 1.5464E+00 5.5583E-01
- Solving for fluid 3*T
- 9.99999999999999955E-8  p22  3,  1
-        3 PRES gmres:   56  6.8199E-07  1.0000E-06  1.5799E+01  1.9264E-01  3.4143E-01    F
- 9.99999999999999955E-8  p22  3,  1
-          3    Hmholtz VELX:     11   2.4146E-08   1.1529E+01   1.0000E-07
- 9.99999999999999955E-8  p22  3,  1
-          3    Hmholtz VELY:     11   2.4989E-08   1.1750E+01   1.0000E-07
- 9.99999999999999955E-8  p22  3,  1
-          3    Hmholtz VELZ:     12   4.0995E-08   8.4859E+01   1.0000E-07
-               L1/L2 DIV(V)    :  -6.3330E-05   4.4311E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:  -6.3330E-05   4.4311E-02
-          3   6.0000E-04  5.0455E-01 Fluid done
-Step      4, t= 8.0000000E-04, DT= 2.0000000E-04, C=  0.011 2.0666E+00 5.2018E-01
- Solving for fluid 3*T
- 9.99999999999999955E-8  p22  4,  1
-        4 PRES gmres:   51  9.0752E-07  1.0000E-06  2.3367E+00  1.7379E-01  3.0406E-01    F
- 9.99999999999999955E-8  p22  4,  1
-          4    Hmholtz VELX:     10   7.6443E-08   6.2309E+00   1.0000E-07
- 9.99999999999999955E-8  p22  4,  1
-          4    Hmholtz VELY:     10   7.9190E-08   6.3548E+00   1.0000E-07
- 9.99999999999999955E-8  p22  4,  1
-          4    Hmholtz VELZ:     12   2.4027E-08   5.4991E+01   1.0000E-07
-               L1/L2 DIV(V)    :   7.2336E-06   3.3153E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   7.2336E-06   3.3153E-02
-          4   8.0000E-04  4.6651E-01 Fluid done
-Step      5, t= 1.0000000E-03, DT= 2.0000000E-04, C=  0.011 2.5489E+00 4.8230E-01
- Solving for fluid 3*T
- 9.99999999999999955E-8  p22  5,  1
-        5 PRES gmres:   49  7.5115E-07  1.0000E-06  8.4854E-01  1.6885E-01  2.9168E-01    F
- 9.99999999999999955E-8  p22  5,  1
-          5    Hmholtz VELX:     10   4.9155E-08   4.4434E+00   1.0000E-07
- 9.99999999999999955E-8  p22  5,  1
-          5    Hmholtz VELY:     10   5.0730E-08   4.5370E+00   1.0000E-07
- 9.99999999999999955E-8  p22  5,  1
-          5    Hmholtz VELZ:     11   8.4265E-08   4.2600E+01   1.0000E-07
-               L1/L2 DIV(V)    :   7.8866E-06   2.7954E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   7.8866E-06   2.7954E-02
-          5   1.0000E-03  4.5262E-01 Fluid done
-Step      6, t= 1.2000000E-03, DT= 2.0000000E-04, C=  0.011 3.0172E+00 4.6829E-01
- Solving for fluid 3*T
-        6 PRES gmres:   39  8.6413E-07  1.0000E-06  2.0916E-01  1.3382E-01  2.3086E-01    F
- 9.99999999999999955E-8  p22  6,  1
-          6    Hmholtz VELX:     10   3.3093E-08   3.6749E+00   1.0000E-07
- 9.99999999999999955E-8  p22  6,  1
-          6    Hmholtz VELY:     10   3.4474E-08   3.7544E+00   1.0000E-07
- 9.99999999999999955E-8  p22  6,  1
-          6    Hmholtz VELZ:     11   5.9735E-08   3.5120E+01   1.0000E-07
-               L1/L2 DIV(V)    :   4.4898E-06   2.4108E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   4.4898E-06   2.4108E-02
-          6   1.2000E-03  3.9132E-01 Fluid done
-Step      7, t= 1.4000000E-03, DT= 2.0000000E-04, C=  0.011 3.4241E+00 4.0692E-01
- Solving for fluid 3*T
-          7    PRES alph1n  7.3660E-10  7.3660E-10  1.0000E+00     1
-          7    PRES halpha     1  2.2583E+00
-        7 PRES gmres:   38  7.6920E-07  1.0000E-06  9.8544E-02  1.3152E-01  2.2762E-01    F
- 9.99999999999999955E-8  p22  7,  1
-          7    Hmholtz VELX:     10   3.1677E-08   3.1569E+00   1.0000E-07
- 9.99999999999999955E-8  p22  7,  1
-          7    Hmholtz VELY:     10   3.2883E-08   3.2270E+00   1.0000E-07
- 9.99999999999999955E-8  p22  7,  1
-          7    Hmholtz VELZ:     11   5.2770E-08   2.9786E+01   1.0000E-07
-               L1/L2 DIV(V)    :   2.8754E-06   2.1186E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   2.8754E-06   2.1186E-02
-          7   1.4000E-03  3.9068E-01 Fluid done
-Step      8, t= 1.6000000E-03, DT= 2.0000000E-04, C=  0.011 3.8313E+00 4.0718E-01
- Solving for fluid 3*T
-          8    PRES alph1n  7.3660E-10  7.3660E-10  1.0000E+00     2
-          8    PRES halpha     2 -7.0334E-01  2.5280E-02
-        8 PRES gmres:   33  9.4098E-07  1.0000E-06  1.4044E-01  1.1438E-01  2.0356E-01    F
- 9.99999999999999955E-8  p22  8,  1
-          8    Hmholtz VELX:     10   2.7509E-08   2.7965E+00   1.0000E-07
- 9.99999999999999955E-8  p22  8,  1
-          8    Hmholtz VELY:     10   2.8527E-08   2.8588E+00   1.0000E-07
- 9.99999999999999955E-8  p22  8,  1
-          8    Hmholtz VELZ:     11   4.3051E-08   2.5921E+01   1.0000E-07
-               L1/L2 DIV(V)    :   1.6579E-06   1.8865E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   1.6579E-06   1.8865E-02
-          8   1.6000E-03  3.6577E-01 Fluid done
-Step      9, t= 1.8000000E-03, DT= 2.0000000E-04, C=  0.011 4.2130E+00 3.8174E-01
- Solving for fluid 3*T
-          9    PRES alph1n  7.3660E-10  7.3660E-10  1.0000E+00     3
-          9    PRES halpha     3 -3.2998E-01  1.7749E-01  1.1999E+00
-        9 PRES gmres:   29  9.6925E-07  1.0000E-06  1.7971E-02  9.9302E-02  1.8019E-01    F
- 9.99999999999999955E-8  p22  9,  1
-          9    Hmholtz VELX:     10   2.3442E-08   2.5213E+00   1.0000E-07
- 9.99999999999999955E-8  p22  9,  1
-          9    Hmholtz VELY:     10   2.4311E-08   2.5773E+00   1.0000E-07
- 9.99999999999999955E-8  p22  9,  1
-          9    Hmholtz VELZ:     11   3.5104E-08   2.3057E+01   1.0000E-07
-               L1/L2 DIV(V)    :   7.8365E-07   1.6964E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   7.8365E-07   1.6964E-02
-          9   1.8000E-03  3.4302E-01 Fluid done
-Step     10, t= 2.0000000E-03, DT= 2.0000000E-04, C=  0.011 4.5720E+00 3.5899E-01
- Solving for fluid 3*T
-         10    PRES alph1n  7.3660E-10  7.3660E-10  1.0000E+00     4
-         10    PRES halpha     4 -2.5231E-01  2.2662E-01  9.2958E-01  2.0290E-01
-       10 PRES gmres:   28  9.3743E-07  1.0000E-06  4.6983E-03  9.6111E-02  1.7263E-01    F
- 9.99999999999999955E-8  p22  10,  1
-         10    Hmholtz VELX:     10   2.0214E-08   2.3018E+00   1.0000E-07
- 9.99999999999999955E-8  p22  10,  1
-         10    Hmholtz VELY:     10   2.0964E-08   2.3529E+00   1.0000E-07
- 9.99999999999999955E-8  p22  10,  1
-         10    Hmholtz VELZ:     11   2.9385E-08   2.0880E+01   1.0000E-07
-               L1/L2 DIV(V)    :   1.7993E-07   1.5368E-02
-               L1/L2 QTL       :   0.0000E+00   0.0000E+00
-               L1/L2 DIV(V)-QTL:   1.7993E-07   1.5368E-02
-         10   2.0000E-03  3.3621E-01 Fluid done
- call outfld: ifpsco: F
+               L1/L2 DIV(V)-QTL:  -1.9170E-02   1.3994E-01
+               WARNING: DIV(V)-QTL too large!
+          1   2.0000E-04  1.5699E+00 Fluid done
+ schfile:
+ /lustre/atlas/scratch/csep05/trn001/mjo98/NekGPU15/pipe_r1039_acc/stenosis.sch                                                      
+ call outfld: ifpsco:  F
 
-       10  2.0000E-03 Write checkpoint:
+        1  2.0000E-04 Write checkpoint:
 
-       10  2.0000E-03 OPEN: stenosis.fld01                                                                
+        1  2.0000E-04 OPEN: stenosis.fld01                                                                
 
 end of time-step loop
 
 runtime statistics:
- total time 4.9707759426666263
- tgop time 2061,  0.11673235893249512,  2.3483729759477507E-2
- inv3 time 20,  6.42061233520507812E-4,  1.29167204663034396E-4
- invc time 0,  2*0.
- mltd time 0,  2*0.
- cdtp time 30,  2*0.
- eslv time 0,  2*0.
- pres time 10,  2.8534998893737793,  0.57405522242126816
- crsl time 439,  2.30200290679931641E-2,  4.63107356547714805E-3
- crsl min  2.30200290679931641E-2
- crsl max  3.11570167541503906E-2
- crsl avg  2.76956558227539062E-2
- hmhz time 35,  3.1257181167602539,  0.62881895157065337
- spro time 11,  2.72107124328613281E-3,  5.47413778989681203E-4
- usbc time 10,  2.51283645629882812E-2,  5.05521971877652149E-3
- usbc min  2.48000621795654297E-2
- usbc max  2.53129005432128906E-2
- usb  avg  2.50956416130065918E-2
- axhm time 827,  0.31271791458129883,  6.29112875310042508E-2
- advc time 10,  0.79852747917175293,  0.16064443225404648
- vdss time 0,  2*0.
- vdss min  0.
- vdss max  0.
- vdss avg  0.
- dsum time 0,  2*0.
- dsum min  0.
- dsum max  0.
- dsum avg  0.
- dadd time 0,  0.301483154296875,  6.06511252517129354E-2
- ddsl time 0,  2*0.
- solv time 0,  2*0.
- prep time 10,  6.31699562072753906E-2,  1.27082686759337586E-2
+ total time    1.595043043954468     
+ tgop time         1133   1.0178327560424805E-002   6.3812243807480316E-003
+ inv3 time            2   5.1975250244140625E-005   3.2585484411306153E-005
+ invc time            0    0.000000000000000         0.000000000000000     
+ mltd time            0    0.000000000000000         0.000000000000000     
+ cdtp time            3    0.000000000000000         0.000000000000000     
+ eslv time            0    0.000000000000000         0.000000000000000     
+ pres time            1    1.504708766937256        0.9433656180254214     
+ crsl time          510   3.5397529602050781E-002   2.2192209631090833E-002
+ crsl min    3.5397529602050781E-002
+ crsl max    4.3247461318969727E-002
+ crsl avg    3.9322495460510254E-002
+ hmhz time            4    1.413439989089966        0.8861453579244686     
+ spro time            2   2.4080276489257813E-005   1.5096944612577620E-005
+ usbc time            1   2.1018981933593750E-003   1.3177689475691516E-003
+ usbc min    2.1018981933593750E-003
+ usbc max    2.1071434020996094E-003
+ usb  avg    2.1045207977294922E-003
+ axhm time          539   4.5901298522949219E-002   2.8777466976157365E-002
+ advc time            1   2.6178359985351563E-003   1.6412321964960621E-003
+ vdss time            0    0.000000000000000         0.000000000000000     
+ vdss min     0.000000000000000     
+ vdss max     0.000000000000000     
+ vdss avg     0.000000000000000     
+ dsum time            0    0.000000000000000         0.000000000000000     
+ dsum min     0.000000000000000     
+ dsum max     0.000000000000000     
+ dsum avg     0.000000000000000     
+ dadd time            0    0.000000000000000         0.000000000000000     
+ ddsl time            0    0.000000000000000         0.000000000000000     
+ solv time            0    0.000000000000000         0.000000000000000     
+ prep time            1   2.3911952972412109E-002   1.4991415474988713E-002
 
 #  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
-           0  2.5128E-02  3.0148E-01  2.3020E-02  0.0000E+00  0.0000E+00  1.1673E-01 qqq
-           1  2.5313E-02  3.4800E-01  2.6848E-02  0.0000E+00  0.0000E+00  1.0966E-01 qqq
-           2  2.5141E-02  3.5681E-01  2.9758E-02  0.0000E+00  0.0000E+00  9.5359E-02 qqq
-           3  2.4800E-02  2.8500E-01  3.1157E-02  0.0000E+00  0.0000E+00  1.5254E-01 qqq
+           0  2.1019E-03  0.0000E+00  3.5398E-02  0.0000E+00  0.0000E+00  1.0178E-02 qqq
+           1  2.1071E-03  0.0000E+00  4.3247E-02  0.0000E+00  0.0000E+00  2.0543E-02 qqq
   
 call exitt: dying ...
   
-backtrace(): obtained 5 stack frames.
-./nek5000() [0x697ce7]
-./nek5000() [0x7e3458]
-./nek5000() [0x4056ac]
-/lib64/libc.so.6(__libc_start_main+0xe6) [0x2aaab0db2c36]
-./nek5000() [0x404ebd]
+backtrace(): obtained 1 stack frames.
+./nek5000() [0x65a0e9]
   
-total elapsed time             :   5.99273E+00 sec
-total solver time incl. I/O    :   4.97078E+00 sec
-time/timestep                  :   4.97078E-01 sec
-CPU seconds/timestep/gridpt    :   1.39757E-05 sec
+total elapsed time             :   1.73643E+00 sec
+total solver time incl. I/O    :   1.59504E+00 sec
+time/timestep                  :   1.59504E+00 sec
+CPU seconds/timestep/gridpt    :   6.07635E-03 sec
 
-Application 8342931 resources: utime ~24s, stime ~8s, Rss ~1081072, inblocks ~74755, outblocks ~153667
+Application 1041368 resources: utime ~4s, stime ~2s, Rss ~439232, inblocks ~13215, outblocks ~27854

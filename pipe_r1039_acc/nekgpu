@@ -3,7 +3,7 @@
 set -e
 
 DBG=
-PROJECT="NTI104"        #defined by the user
+PROJECT="TRN001"        #defined by the user
 
 if [ $2 -gt 1024 ]; then
 REQ_WALLTIME="00:30:00"
@@ -146,7 +146,7 @@ if    test -d /lustre  ; then
         #craypat: turn on below if it is for CrayPAT profiling
         #echo " aprun -n $CORECOUNT ./nek5000+pat ">> $pbsfile
         echo " aprun -n $CORECOUNT -N 1 ./nek5000 ">> $pbsfile
-
+       
         qsub -V $pbsfile
         rm $pbsfile
         echo "job submitted on OLCF Cray, #GPUs=$CORECOUNT, #Cray_nodes=$3"

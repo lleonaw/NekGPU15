@@ -416,7 +416,7 @@ void fgs_fields_acc(const sint *handle, double *u, const sint *stride, const sin
   //calls++;
 //#pragma acc data present(u[0:uds],mapf[0:m_nt*2],snd_mapf[0:snd_m_nt*2],rcv_mapf[0:rcv_m_nt*2],fp_mapf[0:fp_m_nt*2],t_map[0:t_m_size],map[0:m_size],fp_map[0:fp_m_size],snd_map[0:snd_m_size],rcv_map[0:rcv_m_size]) 
   {
-//#pragma acc data create(sbuf[0:bl],rbuf[0:bl]) if(bl!=0)
+#pragma acc data create(sbuf[0:bl],rbuf[0:bl]) if(bl!=0)
     {
       // The below implementing cgs_many()/gs_aux():
       //
@@ -511,7 +511,7 @@ void fgs_fields_acc(const sint *handle, double *u, const sint *stride, const sin
 	pw_exec_sends_acc((char*)sbuf,vn*sizeof(double),comm,&pwd->comm[send],&pwd->req[nr],&nr);
 	comm_wait(pwd->req,nr);
 #else
-//#pragma acc update host(sbuf[0:bl]) async(vn+2)
+#pragma acc update host(sbuf[0:bl]) async(vn+2)
 //#pragma acc wait
 	pw_exec_sends((char*)sbuf,vn*sizeof(double),comm,&pwd->comm[send],&pwd->req[pwd->comm[recv].n]);
 	comm_wait(pwd->req,pwd->comm[0].n+pwd->comm[1].n);

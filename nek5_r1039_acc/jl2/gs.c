@@ -458,21 +458,40 @@ static void pw_exec(
   const unsigned recv = 0^transpose, send = 1^transpose;
   unsigned unit_size = vn*gs_dom_size[dom];
   char *sendbuf;
+  int i,id;
+  id = comm->id;
   /* post receives */
   //  printf("r:pwe: %d %lX %lX %d:\n",pwd->comm[recv].n,(pwd->comm[recv].p),(pwd->comm[recv].size),pwd->comm[recv].total);
   //printf("s:pwe: %d %lX %lX %d:\n",pwd->comm[send].n,(pwd->comm[send].p),(pwd->comm[send].size),pwd->comm[send].total);
   sendbuf = pw_exec_recvs(buf,unit_size,comm,&pwd->comm[recv],pwd->req);
-  //#pragma acc enter data pcreate(sendbuf[0:vn*gsh->r.buffer_size]) if(vn*gsh->r.buffer_size!=0)
+
+  
   /* fill send buffer */
+  //  printf("mode: %d\n",mode);
   scatter_to_buf[mode](sendbuf,data,vn,pwd->map[send],dom,dstride,pwd->mf_nt[send],
                        pwd->mapf[send],pwd->mf_size[send],acc);
+
+#pragma acc update host(sendbuf[0:unit_size*dstride/2]) if(acc)
+
   /* post sends */
+  //  printf("buf %p-%p sendbuf %p-%p fullbuf? %p-%p\n",buf,buf+unit_size*dstride/2,sendbuf,sendbuf+unit_size*dstride/2,buf,buf+unit_size*dstride);
+
+/*   if(comm->id==0) { */
+/*     for(i=0;i<2*mf_nt;i++){ */
+/*       printf("mapf: %d\n",pwd->mapf[send][i]); */
+/*     } */
+
   pw_exec_sends(sendbuf,unit_size,comm,&pwd->comm[send],
                 &pwd->req[pwd->comm[recv].n]);
   comm_wait(pwd->req,pwd->comm[0].n+pwd->comm[1].n);
+
+#pragma acc update device(buf[0:unit_size*dstride/2]) if(acc)
+
+//#pragma update device(pwd->map[recv],pwd->mapf[recv])
+
   /* gather using recv buffer */
   gather_from_buf[mode](data,buf,vn,pwd->map[recv],dom,op,dstride,pwd->mf_nt[recv],
-                        pwd->mapf[recv],pwd->mf_size[send],acc);
+                        pwd->mapf[recv],pwd->mf_size[recv],acc);
 }
 
 /*------------------------------------------------------------------------------
@@ -628,6 +647,7 @@ static void cr_exec(
     { &gs_gather, &gs_gather_vec, &gs_gather_vec, &gs_gather };
   const unsigned unit_size = vn*gs_dom_size[dom], nstages=crd->nstages;
   unsigned k;
+  int id;
   char *sendbuf, *buf_old, *buf_new;
   const struct cr_stage *stage = crd->stage[transpose];
   buf_old = buf;
@@ -986,6 +1006,7 @@ static void allreduce_exec(
   uint gvn = vn*(ard->buffer_size/2);
   unsigned unit_size = gs_dom_size[dom];
   char *ardbuf;
+  int id;
   ardbuf = buf+unit_size*gvn;
   /* user array -> buffer */
   gs_init_array(buf,gvn,dom,op);
@@ -1164,7 +1185,9 @@ static void gs_aux(
   void *u, gs_mode mode, unsigned vn, gs_dom dom, gs_op op, unsigned transpose,
   struct gs_data *gsh, buffer *buf)
 {
-  int i, acc;
+  int acc;
+  char *bufPtr;
+
   static gs_scatter_fun *const local_scatter[] =
     { &gs_scatter, &gs_scatter_vec, &gs_scatter_many, &scatter_noop };
   static gs_gather_fun  *const local_gather [] =
@@ -1172,7 +1195,11 @@ static void gs_aux(
   static gs_init_fun *const init[] =
     { &gs_init, &gs_init_vec, &gs_init_many, &init_noop };
   if(!buf) buf = &static_buffer;
+  bufPtr = buf->ptr;
+#pragma acc exit data delete(bufPtr)
   buffer_reserve(buf,vn*gs_dom_size[dom]*gsh->r.buffer_size);
+  bufPtr = buf->ptr;
+#pragma acc enter data create(bufPtr[0:vn*gs_dom_size[dom]*gsh->r.buffer_size])
   acc = 0;
 #ifdef _OPENACC
   if(acc_is_present(u,1)) acc = 1;
@@ -1181,9 +1208,14 @@ static void gs_aux(
   local_gather [mode](u,u,vn,gsh->map_local[0^transpose],dom,op,gsh->dstride,
                       gsh->mf_nt[0^transpose],gsh->map_localf[0^transpose],
 		      gsh->m_size[0^transpose],acc);
+
   if(transpose==0) init[mode](u,vn,gsh->flagged_primaries,dom,op,gsh->dstride,
 			      gsh->fp_m_nt,gsh->fp_mapf,gsh->fp_size,acc);
-  gsh->r.exec(u,mode,vn,dom,op,transpose,gsh->r.data,&gsh->comm,buf->ptr,gsh->dstride,acc);
+
+  //  printf("before exec: buf->ptr %p-%p\n",buf->ptr,buf->ptr+vn*gs_dom_size[dom]*gsh->r.buffer_size);
+  //  printf("mode gs: %d\n",mode);
+  gsh->r.exec(u,mode,vn,dom,op,transpose,gsh->r.data,&gsh->comm,buf->ptr,gsh->r.buffer_size/2,acc);
+
   local_scatter[mode](u,u,vn,gsh->map_local[1^transpose],dom,gsh->dstride,
                       gsh->mf_nt[1^transpose],gsh->map_localf[1^transpose],
 		      gsh->m_size[1^transpose],acc);
@@ -1288,7 +1320,7 @@ struct gs_data *gs_setup(const slong *id, uint n, const struct comm *comm,
   struct gs_data *gsh = tmalloc(struct gs_data,1);
   comm_dup(&gsh->comm,comm);
   gs_setup_aux(gsh,id,n,unique,method,verbose);
-//#pragma acc enter data copyin(gsh->map_local[0][0:gsh->m_size[0]],gsh->map_local[1][0:gsh->m_size[1]],gsh->map_localf[0][0:gsh->mf_nt[0]],gsh->map_localf[1][0:gsh->mf_nt[1]],gsh->fp_mapf[0:gsh->fp_m_nt],gsh->flagged_primaries[0:gsh->fp_size])
+
   return gsh;
 }
 
@@ -1299,7 +1331,9 @@ void gs_free(struct gs_data *gsh)
   map_local0 = gsh->map_local[0];
   map_local1 = gsh->map_local[1];
   flagged_primaries = gsh->flagged_primaries;
+
 #pragma acc exit data delete(map_local0,map_local1,flagged_primaries)
+
   free((uint*)gsh->map_local[0]), free((uint*)gsh->map_local[1]);
   free((uint*)gsh->flagged_primaries);
   gsh->r.fin(gsh->r.data);
@@ -1335,12 +1369,10 @@ void gs_flatmap_setup(const uint *map, int **mapf, int *mf_nt, int *m_size)
       // Record j-i
       *(*mapf+k*2+1) = j-i-1;
   }
-  printf("Before copying map %p-%p size %d %d\n", map,map+*m_size,*m_size,*mf_nt);
   int *mapf2 = *mapf;
-#pragma acc enter data pcopyin(map[0:*m_size])
+  printf("setup map: %p mapf: %p size: %d\n",map,mapf2,mf_temp);
+#pragma acc enter data pcopyin(map[0:*m_size],mapf2[0:2*mf_temp])
 
-#pragma acc enter data pcopyin(mapf2[0:2*mf_temp])
-  printf("After copying map\n");
   return;
 }
 
