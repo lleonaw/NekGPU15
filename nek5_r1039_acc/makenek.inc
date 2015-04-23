@@ -204,10 +204,10 @@ case $F77comp in
                PPPO="-WF,"
                F77="${F77} -qsuppress=cmpmsg"
                ;;
-  *ftn*)       P="-r8 -Mpreprocess -acc -Minfo=accel"
+# *ftn*)       P="-r8 -Mpreprocess -acc -Minfo=accel"  # PGI specific
 # *ftn*)       P="-rm -s real64 -eZ -em"
 # *ftn*)       P="-ra -s real64 -eZ -em -Rc"
-# *ftn*)       P="-hacc -ra -s real64 -eZ -em -Rc"
+  *ftn*)       P="-hacc -ra -s real64 -eZ -em -Rc"     # Cray specific
                ;; 
  *sunf*)       P="-r8const -xtypemap=real:64 -fpp"
                ;;

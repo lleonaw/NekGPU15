@@ -1,4 +1,38 @@
+c-----------------------------------------------------------------------
       subroutine mxm(a,n1,b,n2,c,n3)
+      use openacc    
+c
+c     Compute matrix-matrix product C = A*B
+c     for contiguously packed matrices A,B, and C.
+c
+      real a(n1,n2),b(n2,n3),c(n1,n3)
+      logical is_present
+
+      is_present= ( acc_is_present(a,1).and.
+     $              acc_is_present(b,1).and.
+     $              acc_is_present(c,1) )
+ 
+      if (is_present) then
+!$ACC DATA PRESENT(a,b,c) if (is_present)
+!$ACC PARALLEL LOOP if(is_present)
+         do k=1,n3
+         do i=1,n1
+            c(i,k) = 0.
+            do j=1,n2
+                c(i,k) = c(i,k) + a(i,j)*b(j,k)
+            enddo
+         enddo
+         enddo
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+      else
+         call mxm_cpu(a,n1,b,n2,c,n3)
+      endif
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine mxm_cpu(a,n1,b,n2,c,n3)
 c
 c     Compute matrix-matrix product C = A*B
 c     for contiguously packed matrices A,B, and C.
@@ -60,7 +94,9 @@ c
       return
 #endif
 
+
       call mxmf2(a,n1,b,n2,c,n3)
 
       return
       end
+c-----------------------------------------------------------------------
