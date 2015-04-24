@@ -1835,7 +1835,7 @@ c           call copy(z,r,n)
                call fdm_h1_acc(z,r,d,mask,mult,nel,ktype(1,1,kfldfdm),w)
                if (name.eq.'PRES') then 
                  call crs_solve_h1_acc (w,r)  ! Currently, crs grd only for P
-                 call add2_acc         (z,w,n)
+                 call add2_acc       (z,w,n)    !  modif 4-22-15
                endif
             endif
          endif
@@ -2079,7 +2079,7 @@ c        ENDIF
 
 C                                                                                              
       CALL COL2    (DPCM1,HELM1,NTOT)
-      CALL ADDCOL3_ACC (DPCM1,HELM2,BM1,NTOT)
+      CALL ADDCOL3 (DPCM1,HELM2,BM1,NTOT)
 
       CALL DSSUM_ACC (DPCM1,NX1,NY1,NZ1)
       CALL INVCOL1_ACC (DPCM1,NTOT)

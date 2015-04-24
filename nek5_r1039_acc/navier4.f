@@ -1452,7 +1452,7 @@ c
          if (niterhm.gt.0) then      ! new vector not in space                                 
             n_sav = n_sav+1
             call copy (approx(1,n_sav),v1,ntot)
-            call add2_acc(v1,approx(1,0),ntot)
+            call add2_acc (v1,approx(1,0),ntot) ! modif 4-22-15
 
 c           orthogonalize rhs against previous rhs and normalize                               
             call hconj_acc(approx,n_sav,h1,h2,vml,vmk,ws,name4,ierr)
@@ -1461,11 +1461,11 @@ c           if (ierr.ne.0) n_sav = n_sav-1
             if (ierr.ne.0) n_sav = 0
 
          else
-            call add2_acc(v1,approx(1,0),ntot)
+            call add2_acc (v1,approx(1,0),ntot) ! modif 4-22-15
          endif
       else
          n_sav = 1
-         call add2_acc(v1,approx(1,0),ntot)
+         call add2_acc (v1,approx(1,0),ntot)  ! modif 4-22-15
          call copy (approx(1,n_sav),v1,ntot)
 c        normalize                                                                             
          call hconj_acc(approx,n_sav,h1,h2,vml,vmk,ws,name4,ierr)

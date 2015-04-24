@@ -105,40 +105,40 @@ C
       return
       END
 c-----------------------------------------------------------------------
-      subroutine invcol2(a,b,n)
+c      subroutine xinvcol2(a,b,n)
 C
-      REAL A(1),B(1)
-      include 'CTIMER'
-      include 'OPCTR'
+c      REAL A(1),B(1)
+c      include 'CTIMER'
+c      include 'OPCTR'
 C
-#ifndef NOTIMER
-      if (icalld.eq.0) tinvc=0.0
-      icalld=icalld+1
-      ninvc=icalld
-      etime1=dnekclock()
+c#ifndef NOTIMER
+c      if (icalld.eq.0) tinvc=0.0
+c      icalld=icalld+1
+c      ninvc=icalld
+c      etime1=dnekclock()
 C
 C
 C
-      if (isclld.eq.0) then
-          isclld=1
-          nrout=nrout+1
-          myrout=nrout
-          rname(myrout) = 'invcl2'
-      endif
-      isbcnt = n
-      dct(myrout) = dct(myrout) + (isbcnt)
-      ncall(myrout) = ncall(myrout) + 1
-      dcount      =      dcount + (isbcnt)
-#endif
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'invcl2'
+c      endif
+c      isbcnt = n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
 C
-      DO 100 I=1,N
-         A(I)=A(I)/B(I)
- 100  CONTINUE
-#ifndef NOTIMER
-      tinvc=tinvc+(dnekclock()-etime1)
-#endif
-      return
-      END
+c      DO 100 I=1,N
+c         A(I)=A(I)/B(I)
+c 100  CONTINUE
+c#ifndef NOTIMER
+c      tinvc=tinvc+(dnekclock()-etime1)
+c#endif
+c      return
+c      END
 c-----------------------------------------------------------------------
       subroutine invcol3(a,b,c,n)
       REAL A(1),B(1),C(1)
@@ -198,29 +198,29 @@ C
       return
       END
 c-----------------------------------------------------------------------
-      subroutine Xaddcol3(a,b,c,n)
-      REAL A(1),B(1),C(1)
+c      subroutine Xaddcol3(a,b,c,n)
+c      REAL A(1),B(1),C(1)
 C
-      include 'OPCTR'
+c      include 'OPCTR'
 C
-#ifndef NOTIMER
-      if (isclld.eq.0) then
-          isclld=1
-          nrout=nrout+1
-          myrout=nrout
-          rname(myrout) = 'addcl3'
-      endif
-      isbcnt = 2*n
-      dct(myrout) = dct(myrout) + (isbcnt)
-      ncall(myrout) = ncall(myrout) + 1
-      dcount      =      dcount + (isbcnt)
-#endif
+c#ifndef NOTIMER
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'addcl3'
+c      endif
+c      isbcnt = 2*n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
 C
-      DO 100 I=1,N
-         A(I)=A(I)+B(I)*C(I)
-  100 CONTINUE
-      return
-      END
+c      DO 100 I=1,N
+c         A(I)=A(I)+B(I)*C(I)
+c  100 CONTINUE
+c      return
+c      END
 c-----------------------------------------------------------------------
       subroutine addcol4(a,b,c,d,n)
       REAL A(1),B(1),C(1),D(1)
@@ -783,7 +783,7 @@ c-----------------------------------------------------------------------
       return
       end
 c-----------------------------------------------------------------------
-      subroutine xadd2(a,b,n)
+      subroutine add2(a,b,n)
       real a(1),b(1)
       include 'OPCTR'
 
@@ -831,29 +831,29 @@ c-----------------------------------------------------------------------
       return
       end
 c-----------------------------------------------------------------------
-      subroutine addcol3(a,b,c,n)
-      real a(1),b(1),c(1)
-      include 'OPCTR'
+c      subroutine xaddcol3(a,b,c,n)
+c      real a(1),b(1),c(1)
+c      include 'OPCTR'
 
-#ifndef NOTIMER
-      if (isclld.eq.0) then
-          isclld=1
-          nrout=nrout+1
-          myrout=nrout
-          rname(myrout) = 'addcl3'
-      endif
-      isbcnt = 2*n
-      dct(myrout) = dct(myrout) + (isbcnt)
-      ncall(myrout) = ncall(myrout) + 1
-      dcount      =      dcount + (isbcnt)
-#endif
+c#ifndef NOTIMER
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'addcl3'
+c      endif
+c      isbcnt = 2*n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
 
 !xbm* unroll (10)
-      do i=1,n
-         a(i)=a(i)+b(i)*c(i)
-      enddo
-      return
-      end
+c      do i=1,n
+c         a(i)=a(i)+b(i)*c(i)
+c      enddo
+c      return
+c      end
 c-----------------------------------------------------------------------
       subroutine add2s1(a,b,c1,n)
       real a(1),b(1)
@@ -1857,23 +1857,23 @@ c-----------------------------------------------------------------------
       END
 
 c-----------------------------------------------------------------------
-c      subroutine rzero(a,n)
-c      use openacc
-c       real A(n)
+      subroutine Xrzero(a,n)
+      use openacc
+       real a(n)
 c      DIMENSION A(n)
 
-c      logical is_present
-c      is_present = (acc_is_present(a,n))
+      logical is_present
+      is_present = (acc_is_present(a,n))
 
-c!$ACC DATA PRESENT(a(1:n)) (is_present) 
-c!$ACC PARALLEL LOOP   if (is_present)
-c      DO 100 I = 1, N
-c 100     A(I ) = 0.0
-c!$ACC END PARALLEL LOOP
-c!$ACC END DATA
+!$ACC DATA PRESENT(a(1:n)) if (is_present) 
+!$ACC PARALLEL LOOP   if (is_present)
+      DO 100 I = 1, N
+ 100     a(I ) = 0.0
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
 
-c      return
-c      end
+      return
+      end
 
 
 c-----------------------------------------------------------------------
@@ -2030,7 +2030,7 @@ c-----------------------------------------------------------------------
       end
 
 c-----------------------------------------------------------------------
-      subroutine add2(a,b,n)
+      subroutine xadd2(a,b,n)
       use openacc
       real a(n),b(n)
       include 'OPCTR'
@@ -2102,12 +2102,57 @@ c-----------------------------------------------------------------------
 
 c-----------------------------------------------------------------------
 
-      subroutine invcol2_acc(a,b,n)
+c      subroutine invcol2_acc(a,b,n)
 C
-      REAL A(n),B(n)
+c      REAL A(n),B(n)
+c      include 'CTIMER'
+c      include 'OPCTR'
+C
+c#ifndef NOTIMER
+c      if (icalld.eq.0) tinvc=0.0
+c      icalld=icalld+1
+c      ninvc=icalld
+c      etime1=dnekclock()
+C
+C
+C
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'invcl2'
+c      endif
+c      isbcnt = n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
+C
+c!$ACC DATA PRESENT(a(1:n),b(1:n))
+c!$ACC PARALLEL LOOP 
+c      DO 100 I=1,N
+c         A(I)=A(I)/B(I)
+c 100  CONTINUE
+c!$ACC END PARALLEL LOOP
+c!$ACC END DATA
+
+c#ifndef NOTIMER
+c      tinvc=tinvc+(dnekclock()-etime1)
+c#endif
+c      return
+c      END
+c-----------------------------------------------------------------------
+      subroutine invcol2(a,b,n)
+      use openacc
+
+      real a(n),b(n)
       include 'CTIMER'
       include 'OPCTR'
-C
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
 #ifndef NOTIMER
       if (icalld.eq.0) tinvc=0.0
       icalld=icalld+1
@@ -2128,10 +2173,10 @@ C
       dcount      =      dcount + (isbcnt)
 #endif
 C
-!$ACC DATA PRESENT(a(1:n),b(1:n))
-!$ACC PARALLEL LOOP 
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
       DO 100 I=1,N
-         A(I)=A(I)/B(I)
+         a(I)=a(I)/b(I)
  100  CONTINUE
 !$ACC END PARALLEL LOOP
 !$ACC END DATA
@@ -2140,14 +2185,49 @@ C
       tinvc=tinvc+(dnekclock()-etime1)
 #endif
       return
-      END
+      end
+
 c-----------------------------------------------------------------------
+c      subroutine addcol3_acc(a,b,c,n)
+c      real a(n),b(n),c(n)
+c      include 'OPCTR'
+
+c#ifndef NOTIMER
+c      if (isclld.eq.0) then
+c          isclld=1
+c          nrout=nrout+1
+c          myrout=nrout
+c          rname(myrout) = 'addcl3'
+c      endif
+c      isbcnt = 2*n
+c      dct(myrout) = dct(myrout) + (isbcnt)
+c      ncall(myrout) = ncall(myrout) + 1
+c      dcount      =      dcount + (isbcnt)
+c#endif
+
+c!xbm* unroll (10)
+c!$ACC DATA PRESENT(a(1:n),b(1:n),c(1:n))
+c!$ACC PARALLEL LOOP 
+c      do i=1,n
+c         a(i)=a(i)+b(i)*c(i)
+c      enddo
+c!$ACC END PARALLEL LOOP
+c!$ACC END DATA
+c      return
+c      end
 
 
 c-----------------------------------------------------------------------
-      subroutine addcol3_acc(a,b,c,n)
+
+      subroutine addcol3(a,b,c,n)
+      use openacc
       real a(n),b(n),c(n)
       include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) .and.
+     $              acc_is_present(c,1) )
 
 #ifndef NOTIMER
       if (isclld.eq.0) then
@@ -2163,8 +2243,8 @@ c-----------------------------------------------------------------------
 #endif
 
 !xbm* unroll (10)
-!$ACC DATA PRESENT(a(1:n),b(1:n),c(1:n))
-!$ACC PARALLEL LOOP 
+!$ACC DATA PRESENT(a(1:n),b(1:n),c(1:n))  if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
       do i=1,n
          a(i)=a(i)+b(i)*c(i)
       enddo
@@ -2172,6 +2252,8 @@ c-----------------------------------------------------------------------
 !$ACC END DATA
       return
       end
+
+
 
 
 c-----------------------------------------------------------------------
@@ -2205,6 +2287,41 @@ C
       END
 
 c-----------------------------------------------------------------------
+      subroutine xcmult(a,const,n)
+      use openacc
+      real a(n)
+
+      include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1))
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'cmult '
+      endif
+      isbcnt = n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+C
+!$ACC DATA PRESENT(a(1:n))   if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
+      DO 100 I=1,N
+         a(I)=a(I)*CONST
+ 100  CONTINUE
+!$ACC END PARALLEL LOOP 
+!$ACC END DATA
+
+      return
+      end
+
+
+c-----------------------------------------------------------------------
       subroutine cadd_acc(a,const,n)
       REAL A(n)
 C
@@ -2233,6 +2350,42 @@ C
 
       return
       END
+
+
+c-----------------------------------------------------------------------
+      subroutine Xcadd(a,const,n)
+      use openacc
+      real a(n)
+
+      include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1))
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'cadd  '
+      endif
+      isbcnt = n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+C
+!$ACC DATA PRESENT(a(1:n))   if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
+      DO 100 I=1,N
+         a(I)=a(I)+CONST
+ 100  CONTINUE
+!$ACC END PARALLEL LOOP 
+!$ACC END DATA
+
+      return
+      end
+
 
 c-----------------------------------------------------------------------
       subroutine col3_acc(a,b,c,n)

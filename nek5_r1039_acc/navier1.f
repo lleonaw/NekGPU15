@@ -5621,9 +5621,9 @@ C----------------------------------------------------------------------
       include 'SIZE'
       REAL A1(1),A2(1),A3(1),B1(1),B2(1),B3(1)
       NTOT1=NX1*NY1*NZ1*NELV
-      CALL ADD2_acc(A1,B1,NTOT1)
-      CALL ADD2_acc(A2,B2,NTOT1)
-      IF(NDIM.EQ.3)CALL ADD2_acc(A3,B3,NTOT1)
+      CALL ADD2_ACC (A1,B1,NTOT1) ! modif 4-22-15
+      CALL ADD2_ACC (A2,B2,NTOT1) ! modif 4-22-15
+      IF(NDIM.EQ.3)CALL ADD2_ACC (A3,B3,NTOT1) ! modif 4-22-15
       return
       END
 
@@ -5733,9 +5733,9 @@ C---------------------------------------------------------------------
          call multd_acc (work,inpx,rxm2,sxm2,txm2,1,iflg)
          call copy  (outfld,work,ntot2)
          call multd_acc (work,inpy,rym2,sym2,tym2,2,iflg)
-         call add2_acc  (outfld,work,ntot2)
+         call add2_acc  (outfld,work,ntot2) ! modif 4-22-15
          call multd_acc (work,inpz,rzm2,szm2,tzm2,3,iflg)
-         call add2_acc  (outfld,work,ntot2)    
+         call add2_acc  (outfld,work,ntot2) ! modif 4-22-15   
 !$ACC END DATA
       else 
          write(*,*) "No implemented for P_N-P_N-2 and 2D"

@@ -1518,7 +1518,7 @@ c           if (outer.gt.2) if_hyb = .true.       ! Slow outer convergence
      $         (z_acc(1,j),w,d,pmask,vmult,nelv,ktype(1,1,kfldfdm),wk)
                endif
                call crs_solve_h1_acc (wk,w)           ! z  = M   w                             
-               call add2_acc         (z_acc(1,j),wk,n)    !  j                                 
+               call add2_acc         (z_acc(1,j),wk,n) !  j (modified 4-22-15)                                
             endif
 
             call ortho_acc        (z_acc(1,j)) ! Orthogonalize wrt null space, if present          

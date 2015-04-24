@@ -244,7 +244,7 @@ c      include 'ORTHOV'
       COMMON /HSMGW2/ work2(lx1+2,ly1+2,lz1+2,lelv)
      $     ,          work3(lx1+2,ly1+2,lz1+2,lelv)
 
-      COMMON /SCRMG2/  r (LX1*LY1*LZ1*LELT) 
+      COMMON /SCRMG2/ r (LX1*LY1*LZ1*LELT) 
      $              , w (LX1*LY1*LZ1*LELT) 
      $              , p (LX1*LY1*LZ1*LELT) 
      $              , z (LX1*LY1*LZ1*LELT)
@@ -284,7 +284,6 @@ c      parameter(lgmres=50)
 !$ACC&     CREATE(h1_basis_acc,h1_basist_acc)
 !$ACC&     CREATE(v_acc,z_acc)
 !$ACC&     CREATE(ml_acc,mu_acc)
-
 !$ACC&     CREATE(mg_lgl1,mg_ptr)
 !$ACC&     CREATE(mg_imask,mg_fast_s,mg_fast_d)
 !$ACC&     CREATE(mg_schwarz_wt,mg_rstr_wt)

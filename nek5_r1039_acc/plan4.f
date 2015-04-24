@@ -485,7 +485,7 @@ C
 c      EQUIVALENCE   (DPR,DV1)
       LOGICAL        IFSTSP
 
-      REAL DVC (LX1,LY1,LZ1,LELV), DFC(LX1,LY1,LZ1,LELV)
+      REAL DVC (LX1,LY1,LZ1,LELV), DFC(LX1,LY1,LZ1,LELV) ! modif 4-23-15
       REAL DIV1, DIV2, DIF1, DIF2, QTL1, QTL2
 c
       INTYPE = -1
@@ -495,7 +495,7 @@ c
 !$ACC  DATA COPY(qtl)
 !$ACC& COPYIN(usrdiv,vx,vy,vz,vxlag,vylag,vzlag)
 
-      call add2_acc (qtl,usrdiv,ntot1)
+      call add2_acc (qtl,usrdiv,ntot1) ! modif 4-22-15
 
 c      CALL V_EXTRAP(vext)
        CALL V_EXTRAP_ACC
@@ -543,7 +543,7 @@ C     first, compute pressure
      $                        ,pmask,vmult
      $                        ,imesh,tolspl,nmxh,1
      $                        ,approx,napprox,binvm1)
-      call add2_acc    (pr,dpr,ntot1)
+      call add2_acc    (pr,dpr,ntot1) ! modif 4-22-15
       call ortho_acc   (pr)
 #ifndef NOTIMER
       tpres=tpres+(dnekclock()-etime1)
@@ -919,7 +919,7 @@ C     surface terms
 
 !$ACC WAIT
 !$ACC UPDATE DEVICE(RESPR2)
-      CALL ADD2_ACC(RESPR, RESPR2, NTOT1)
+      CALL ADD2_ACC (RESPR, RESPR2, NTOT1) ! modif 4-22-15
 
 C     Assure that the residual is orthogonal to (1,1,...,1)T 
 C     (only if all Dirichlet b.c.)
@@ -937,8 +937,8 @@ c-----------------------------------------------------------------------
       include 'TOTAL'
 
       n = nx1*ny1*nz1*nelv
-      call add2_acc(vdiff,vdiff_e,n) ! sum up explicit and implicit part
-
+      call add2_acc (vdiff,vdiff_e,n) ! sum up explicit and implicit part
+                                  ! modif 4-22-15
       return
       end
 
