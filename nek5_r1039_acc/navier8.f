@@ -2935,7 +2935,7 @@ c
       ntot = nelv*nx1*ny1*nz1
 
 !$ACC  DATA PRESENT(uf,vf,uc,vc)
-      call col3_acc(uf,vf,vmult,ntot)
+      call col3 (uf,vf,vmult,ntot)  ! modif 4-24-15
 
       call map_f_to_c_h1_bilin_acc(vc,uf)   ! additive Schwarz
 

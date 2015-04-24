@@ -1809,11 +1809,11 @@ C
 c        call ortho (r)           ! Commented out March 15, 2011,pff
       elseif (ifmcor) then
 
-         smean = -1./glsum_acc(bm1,n) ! Modified 5/4/12 pff
-         rmean = smean*glsc2_acc(r,mult,n)
+         smean = -1./glsum (bm1,n) ! Modified 5/4/12 pff modif 4-24-15
+         rmean = smean*glsc2 (r,mult,n)  ! modif 4/24/15
          call copy (x,bm1,n)
          call dssum_acc(x,nx1,ny1,nz1)
-         call add2s2_acc(r,x,rmean,n)
+         call add2s2 (r,x,rmean,n)    ! modif 4-24-15
          call rzero_acc(x,n)
       endif
 C
@@ -1825,7 +1825,7 @@ C
 C
          if (kfldfdm.lt.0) then  ! Jacobi Preconditioner
 c           call copy(z,r,n)
-            call col3_acc(z,r,d,n)
+            call col3 (z,r,d,n)  ! modif 4-24-15
          else                                       ! Schwarz Preconditioner
             if (name.eq.'PRES'.and.param(100).eq.2) then
                call h1_overlap_2(z,r,mask)
@@ -1843,8 +1843,8 @@ c
          if (name.eq.'PRES') then
             call ortho_acc (z)
          elseif (ifmcor) then
-            rmean = smean*glsc2_acc(z,bm1,n)
-            call cadd_acc(z,rmean,n)
+            rmean = smean*glsc2 (z,bm1,n) ! modif 4-24-15
+            call cadd (z,rmean,n)     ! modif 4-24-15 
          endif
 c        write(6,*) rmean,ifmcor,' ifmcor'
 c
@@ -1890,11 +1890,11 @@ c
          call col2   (w,mask,n)
 c
          rho0 = rho
-         rho  = glsc3_acc(w,p,mult,n)
+         rho  = glsc3 (w,p,mult,n)    ! modif 4/24/15
          alpha=rtz1/rho
          alphm=-alpha
-         call add2s2_acc(x,p ,alpha,n)
-         call add2s2_acc(r,w ,alphm,n)
+         call add2s2 (x,p ,alpha,n) ! modif
+         call add2s2 (r,w ,alphm,n) ! modif 4-24-15 
 c
 c        Generate tridiagonal matrix for Lanczos scheme
          if (iter.eq.1) then
@@ -2125,7 +2125,7 @@ c
 !$ACC  DATA PRESENT(z,r,d,mask,mult,rr,w)                                                      
 !$ACC&      PRESENT(kt,fds_acc,fdst_acc) 
       if (ifbhalf) then
-         call col3_acc(rr,r,bhalf,ntot)
+         call col3 (rr,r,bhalf,ntot) ! modif 4-24-15
       else
          call copy (rr,r,ntot)
 c        call col2(rr,mult,ntot)                                                               

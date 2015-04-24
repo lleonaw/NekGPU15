@@ -5421,13 +5421,13 @@ C  No called this part, since
 C ifield = 1 ifvcor = .F.
       if (ifield.eq.1) then
          if (ifvcor) then
-            rlam  = glsum_acc (respr,ntot)/ntotg
-            call cadd_acc (respr,-rlam,ntot)            
+            rlam  = glsum (respr,ntot)/ntotg ! modif 4-24-15
+            call cadd (respr,-rlam,ntot) ! modif 4-24-15           
          endif
       elseif (ifield.eq.ifldmhd) then
          if (ifbcor) then
-            rlam = glsum_acc (respr,ntot)/ntotg
-            call cadd_acc (respr,-rlam,ntot)
+            rlam = glsum (respr,ntot)/ntotg ! modif 4-24-15
+            call cadd (respr,-rlam,ntot) ! modif 4-24-15
          endif
       else
          call exitti('ortho: unaccounted ifield = $',ifield)
@@ -6033,7 +6033,7 @@ C
 !$ACC DATA PRESENT(WORK1,RESPR,BM1)
       CALL INVCOL3_ACC (WORK1,RESPR,BM1,NTOT1)
       CALL COL2    (WORK1,RESPR,NTOT1)
-      RINIT  = SQRT    (GLSUM_ACC (WORK1,NTOT1)/VOLVM1)
+      RINIT  = SQRT    (GLSUM (WORK1,NTOT1)/VOLVM1) ! modif 4-24-15
 !$ACC END DATA
 
       IF (TOLPDF.GT.0.) THEN

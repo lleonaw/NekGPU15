@@ -568,29 +568,29 @@ c     Calculate Divergence norms of new VX,VY,VZ
       CALL OPDIV_ACC   (DVC,VX,VY,VZ)
       CALL DSSUM_ACC   (DVC,NX1,NY1,NZ1)
       CALL COL2        (DVC,BINVM1,NTOT1)
-      CALL COL3_ACC    (DV1,DVC,BM1,NTOT1)
-      DIV1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
+      CALL COL3    (DV1,DVC,BM1,NTOT1)    ! modif 4-24-15
+      DIV1 = GLSUM (DV1,NTOT1)/VOLVM1     ! modif 4-24-15
 
-      CALL COL3_ACC    (DV2,DVC,DVC,NTOT1)
+      CALL COL3    (DV2,DVC,DVC,NTOT1)    ! modif 4-24-15
       CALL COL2        (DV2,BM1   ,NTOT1)
-      DIV2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
+      DIV2 = GLSUM (DV2,NTOT1)/VOLVM1     ! modif 4-24-15
       DIV2 = SQRT      (DIV2)
 c     Calculate Divergence difference norms
       CALL SUB3_ACC    (DFC,DVC,QTL,NTOT1)
-      CALL COL3_ACC    (DV1,DFC,BM1,NTOT1)
-      DIF1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
+      CALL COL3    (DV1,DFC,BM1,NTOT1)     ! modif 4-24-15
+      DIF1 = GLSUM (DV1,NTOT1)/VOLVM1      ! modif 4-24-15
   
-      CALL COL3_ACC    (DV2,DFC,DFC,NTOT1)
+      CALL COL3    (DV2,DFC,DFC,NTOT1)     ! modif 4-24-15
       CALL COL2        (DV2,BM1   ,NTOT1)
-      DIF2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
+      DIF2 = GLSUM (DV2,NTOT1)/VOLVM1      ! modif 4/24/15
       DIF2 = SQRT      (DIF2)
 
-      CALL COL3_ACC    (DV1,QTL,BM1,NTOT1)
-      QTL1 = GLSUM_ACC (DV1,NTOT1)/VOLVM1
+      CALL COL3    (DV1,QTL,BM1,NTOT1)     ! modif 4-24-15
+      QTL1 = GLSUM (DV1,NTOT1)/VOLVM1      ! modif
   
-      CALL COL3_ACC    (DV2,QTL,QTL,NTOT1)
+      CALL COL3    (DV2,QTL,QTL,NTOT1)     ! modif 4-24-15
       CALL COL2        (DV2,BM1   ,NTOT1)
-      QTL2 = GLSUM_ACC (DV2,NTOT1)/VOLVM1
+      QTL2 = GLSUM (DV2,NTOT1)/VOLVM1      ! modif 4/24/15 
       QTL2 = SQRT      (QTL2)
 
 !$ACC END DATA
@@ -766,7 +766,7 @@ c      CALL SETHLM  (H1,H2,INTYPE)
       CALL OPCHSGN_ACC (RESV1,RESV2,RESV3)
 
       scale = -1./3.
-      call col3_acc    (ta4,vdiff,qtl,ntot)
+      call col3    (ta4,vdiff,qtl,ntot) ! modif 4-24-15
       call add2s1_acc  (ta4,pr,scale,ntot)    
       call opgrad_acc  (ta1,ta2,ta3,TA4)
       if(IFAXIS) then
@@ -973,9 +973,9 @@ c     return
       if(if3d) call add3s2_acc(vext(1,3),vz,vzlag,ab0,ab1,ntot)
 
       if(nab.eq.3) then
-        call add2s2_acc(vext(1,1),vxlag(1,1,1,1,2),ab2,ntot)
-        call add2s2_acc(vext(1,2),vylag(1,1,1,1,2),ab2,ntot)
-        if(if3d) call add2s2_acc(vext(1,3),vzlag(1,1,1,1,2),ab2,ntot)
+        call add2s2 (vext(1,1),vxlag(1,1,1,1,2),ab2,ntot)         ! modif
+        call add2s2 (vext(1,2),vylag(1,1,1,1,2),ab2,ntot)         ! modif 4-24-15
+        if(if3d) call add2s2 (vext(1,3),vzlag(1,1,1,1,2),ab2,ntot) ! modif
       endif
 !$ACC UPDATE HOST(vext) ASYNC(1)
 !$ACC WAIT

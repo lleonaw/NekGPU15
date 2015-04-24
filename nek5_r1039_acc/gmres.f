@@ -1470,19 +1470,19 @@ c
          outer = outer+1
 
          if(iter.eq.0) then               !      -1                                            
-            call col3_acc(r,ml_acc,res,n)         ! r = L  res                                 
+            call col3 (r,ml_acc,res,n)    ! r = L  res / modif 4-24-15                                 
 c           call copy(r,res,n)                                                                 
          else
             !update residual                                                                   
             call copy  (r,res,n)                  ! r = res                                
             call ax_acc    (w,x,h1,h2,n)              ! w = A x                                
-            call add2s2_acc(r,w,-1.,n)                ! r = r - w                              
+            call add2s2 (r,w,-1.,n)                ! r = r - w -modif 4-24-15                             
                                                   !      -1                                    
             call col2 (r,ml_acc,n)                     ! r = L   r                          
          endif
 
                                                   !            ______                          
-         gamma(1) = sqrt(glsc3_acc(r,r,wt,n))     ! gamma  = \/ (r,r)                          
+         gamma(1) = sqrt(glsc3 (r,r,wt,n))     ! gamma  = \/ (r,r)    ! modif 4/24/15                      
                                                   !      1                                     
          if(iter.eq.0) then
             div0 = gamma(1)*norm_fac
@@ -1499,7 +1499,7 @@ c           call copy(r,res,n)
          do j=1,m
             iter = iter+1
                                                   !       -1                                   
-            call col3_acc(w,mu_acc,v_acc(1,j),n)          ! w  = U   v                         
+            call col3 (w,mu_acc,v_acc(1,j),n)     ! w  = U   v /modif 4-24-15                        
                                                   !           j                                
 
 c . . . . . Overlapping Schwarz + coarse-grid . . . . . . .                                    
@@ -1550,7 +1550,7 @@ c           2-PASS GS, 1st pass:
             call gop(h(1,j),wk1,'+  ',j)          ! sum over P procs                           
 
             do i=1,j
-               call add2s2_acc(w,v_acc(1,i),-h(i,j),n)    ! w = w - h    v                     
+               call add2s2 (w,v_acc(1,i),-h(i,j),n)    ! w = w - h    v -modif 4-24-15                    
             enddo                                 !          i,j  i           
 
 c           2-PASS GS, 2nd pass:                                                               
@@ -1573,7 +1573,7 @@ c           enddo
                h(i+1,j)= -s(i)*temp + c(i)*h(i+1,j)
             enddo
                                                  !            ______                           
-            alpha = sqrt(glsc3_acc(w,w,wt,n))        ! alpha =  \/ (w,w)                       
+            alpha = sqrt(glsc3 (w,w,wt,n))       ! alpha =  \/ (w,w) ! modif 4/24/15                      
             rnorm = 0.
             if(alpha.eq.0.) goto 900  !converged                                               
             l = sqrt(h(j,j)*h(j,j)+alpha*alpha)
@@ -1616,7 +1616,7 @@ c           enddo
          enddo
          !sum up Arnoldi vectors                                                               
          do i=1,j
-            call add2s2_acc(x,z_acc(1,i),c(i),n)     ! x = x + c  z                            
+            call add2s2 (x,z_acc(1,i),c(i),n)     ! x = x + c  z -modif 4-24-15                          
          enddo                               !          i  i                                   
 
 c        if(iconv.eq.1) call dbg_write(x,nx1,ny1,nz1,nelv,'esol',3)                            

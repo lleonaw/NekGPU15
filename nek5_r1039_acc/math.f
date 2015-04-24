@@ -472,7 +472,7 @@ C
       return
       END
 c-----------------------------------------------------------------------
-      subroutine cadd(a,const,n)
+      subroutine Xcadd(a,const,n)
       REAL A(1)
 C
       include 'OPCTR'
@@ -759,7 +759,7 @@ c-----------------------------------------------------------------------
       return
       end
 c-----------------------------------------------------------------------
-      subroutine col3(a,b,c,n)
+      subroutine Xcol3(a,b,c,n)
       real a(1),b(1),c(1)
       include 'OPCTR'
 
@@ -880,7 +880,7 @@ C
       END
 C
 c-----------------------------------------------------------------------
-      subroutine add2s2(a,b,c1,n)
+      subroutine Xadd2s2(a,b,c1,n)
       real a(1),b(1)
 C
       include 'OPCTR'
@@ -953,7 +953,8 @@ C
  100  CONTINUE
       return
       END
-      real function vlsc2(x,y,n)
+C-------------------------------------------------------------------------
+      real function Xvlsc2(x,y,n)
       REAL X(1),Y(1)
       include 'SIZE'
       include 'OPCTR'
@@ -1017,7 +1018,7 @@ C
 C----------------------------------------------------------------------------
 
 
-      function glsc3(a,b,mult,n)
+      function Xglsc3(a,b,mult,n)
 C
 C     Perform inner-product in double precision
 C
@@ -1048,7 +1049,7 @@ C
       return
       END
 c-----------------------------------------------------------------------
-      function glsc2(x,y,n)
+      function Xglsc2(x,y,n)
 C
 C     Perform inner-product in double precision
 C
@@ -1095,7 +1096,7 @@ c-----------------------------------------------------------------------
       return
       end
 c-----------------------------------------------------------------------
-      function glsum (x,n)
+      function Xglsum (x,n)
       DIMENSION X(1)
       DIMENSION TMP(1),WORK(1)
       TSUM = 0.
@@ -2353,7 +2354,7 @@ C
 
 
 c-----------------------------------------------------------------------
-      subroutine Xcadd(a,const,n)
+      subroutine cadd(a,const,n)
       use openacc
       real a(n)
 
@@ -2388,7 +2389,7 @@ C
 
 
 c-----------------------------------------------------------------------
-      subroutine col3_acc(a,b,c,n)
+      subroutine Xcol3_acc(a,b,c,n)
       real a(n),b(n),c(n)
       include 'OPCTR'
 
@@ -2418,8 +2419,47 @@ C
       return
       end
 
+
 c-----------------------------------------------------------------------
-      subroutine add2s2_acc(a,b,c1,n)
+      subroutine col3(a,b,c,n)
+      use openacc
+      real a(n),b(n),c(n)
+      include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) .and.
+     $              acc_is_present(c,1) )
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'col3  '
+      endif
+      isbcnt = N
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+
+!xbm* unroll (10)
+C
+!$ACC DATA PRESENT(a(1:n),b(1:n),c(1:n))   if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
+      do i=1,n
+         a(i)=b(i)*c(i)
+      enddo
+!$ACC END PARALLEL LOOP 
+!$ACC END DATA
+
+      return
+      end
+
+
+c-----------------------------------------------------------------------
+      subroutine Xadd2s2_acc(a,b,c1,n)
       real a(n),b(n)
 C
       include 'OPCTR'
@@ -2450,7 +2490,44 @@ C
 C
 
 c-----------------------------------------------------------------------
-      real function vlsc2_acc(x,y,n)
+      subroutine add2s2(a,b,c1,n)
+      use openacc
+      real a(n),b(n)
+
+      include 'OPCTR'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'add2s2'
+      endif
+      isbcnt = 2*n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+
+
+!$ACC DATA PRESENT(a(1:n),b(1:n))   if (is_present)
+!$ACC PARALLEL LOOP   if (is_present)
+      DO 100 I=1,N
+        a(I)=a(I)+c1*b(I)
+  100 CONTINUE
+!$ACC END PARALLEL LOOP 
+!$ACC END DATA
+      return
+      end
+C
+
+
+c-----------------------------------------------------------------------
+      real function Xvlsc2_acc(x,y,n)
       REAL X(n),Y(n)
       include 'SIZE'
       include 'OPCTR'
@@ -2483,9 +2560,47 @@ C
       return
       end
 c-----------------------------------------------------------------------
+      real function vlsc2(a,b,n)
+      use openacc
+      real a(n),b(n)
+      include 'SIZE'
+      include 'OPCTR'
+      include 'PARALLEL'
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
+C
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'VLSC2 '
+      endif
+      isbcnt = 2*n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+C
+      s = 0.
+
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP REDUCTION(+:s)   if (is_present)
+      do i=1,n
+         s = s + a(i)*b(i)
+      enddo
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+
+      vlsc2=s
+      return
+      end
 
 c-----------------------------------------------------------------------
-      function glsum_acc(x,n)
+      function Xglsum_acc(x,n)
       DIMENSION X(1)
       DIMENSION TMP(1),WORK(1)
       TSUM = 0.
@@ -2506,7 +2621,34 @@ c-----------------------------------------------------------------------
 
 
 c-----------------------------------------------------------------------
-      function glsc2_acc(x,y,n)
+
+      function glsum(a,n)
+      use openacc
+      real a(n)
+      real TMP(1),WORK(1)
+      logical is_present
+
+      is_present =  acc_is_present(a,1)
+
+
+      TSUM = 0.
+!$ACC DATA PRESENT(a(1:n))  if (is_present)
+!$ACC PARALLEL LOOP REDUCTION(+:TSUM)  if (is_present)
+      DO 100 I=1,N
+         TSUM = TSUM+a(I)
+ 100  CONTINUE
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+
+      TMP(1)=TSUM
+      CALL GOP(TMP,WORK,'+  ',1)
+      GLSUM = TMP(1)
+      return
+      end
+
+
+c-----------------------------------------------------------------------
+      function Xglsc2_acc(x,y,n)
 C
 C     Perform inner-product in double precision
 C
@@ -2543,6 +2685,52 @@ C
 
       return
       END
+
+C----------------------------------------------------------------------------
+
+      function glsc2(a,b,n)
+      use openacc
+C
+C     Perform inner-product in double precision
+C
+      include 'OPCTR'
+c
+      real a(n), b(n)
+      real tmp,work(1)
+
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) )
+
+C
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'glsc2 '
+      endif
+      isbcnt = 2*n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+
+      tmp=0.0
+
+!$ACC DATA PRESENT(a(1:n),b(1:n))  if (is_present)
+!$ACC PARALLEL LOOP REDUCTION(+:tmp)   if (is_present)
+      do 10 i=1,n
+         tmp = tmp+ a(i)*b(i)
+   10 continue
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+
+      CALL GOP(TMP,WORK,'+  ',1)
+      GLSC2 = TMP
+
+      return
+      end
 
 
 C----------------------------------------------------------------------------
@@ -2588,6 +2776,51 @@ C
       GLSC3_ACC = TMP
       return
       END
+
+
+
+C----------------------------------------------------------------------------
+
+      function glsc3(a,b,mult,n)
+      use openacc
+      include 'OPCTR'
+C
+C     Perform inner-product in double precision
+C
+      real a(n),b(n),MULT(n)
+      real tmp,work(1)
+      logical is_present
+      is_present = (acc_is_present(a,1) .and.
+     $              acc_is_present(b,1) .and.
+     $              acc_is_present(mult,1) )
+
+#ifndef NOTIMER
+      if (isclld.eq.0) then
+          isclld=1
+          nrout=nrout+1
+          myrout=nrout
+          rname(myrout) = 'glsc3 '
+      endif
+      isbcnt = 3*n
+      dct(myrout) = dct(myrout) + (isbcnt)
+      ncall(myrout) = ncall(myrout) + 1
+      dcount      =      dcount + (isbcnt)
+#endif
+C
+      TMP = 0.0
+!$ACC DATA PRESENT(a(1:n),b(1:n),MULT(1:n))  if (is_present)
+!$ACC PARALLEL LOOP REDUCTION(+:TMP) VECTOR_LENGTH(128)  if (is_present)
+      DO 10 I=1,N
+         TMP = TMP + a(I)*b(I)*MULT(I)
+ 10   CONTINUE
+!$ACC END PARALLEL LOOP
+!$ACC END DATA
+
+      CALL GOP(TMP,WORK,'+  ',1)
+      GLSC3 = TMP
+      return
+      end
+
 
 c-----------------------------------------------------------------------
       subroutine sub2_acc(a,b,n)

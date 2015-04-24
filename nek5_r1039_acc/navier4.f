@@ -1387,7 +1387,7 @@ c
 c                                                                                              
       call cmult2_acc   (approx(1,0),approx(1,1),ws(1),ntot)
       do i=2,n_sav
-         call add2s2_acc(approx(1,0),approx(1,i),ws(i),ntot)
+         call add2s2 (approx(1,0),approx(1,i),ws(i),ntot) ! modif 4-24-15
       enddo
 c                                                                                              
       call axhelm_acc  (wl,approx(1,0),h1,h2,1,1)
@@ -1506,20 +1506,20 @@ c
 c                                                                                              
 c     Compute part of the norm   (Note:  a(0) already scaled by vml)                           
 c                                                                                              
-      alpha = glsc2_acc(approx(1,0),approx(1,k),ntot)
+      alpha = glsc2 (approx(1,0),approx(1,k),ntot)  ! modif 4/24/15
       alph1 = alpha
 c                                                                                              
 c     Gram-Schmidt                                                                             
 c                              
       km1=k-1
       do i=1,km1
-         ws(i) = vlsc2_acc(approx(1,0),approx(1,i),ntot)
+         ws(i) = vlsc2 (approx(1,0),approx(1,i),ntot)    ! modif 4-24-15
       enddo
       if (km1.GT.0) call gop(ws,ws(k),'+  ',km1)
 c                                                                                              
       do i=1,km1
          alpham = -ws(i)
-         call add2s2_acc(approx(1,k),approx(1,i),alpham,ntot)
+         call add2s2 (approx(1,k),approx(1,i),alpham,ntot) ! modif 4-24-15
          alpha = alpha - ws(i)**2
       enddo
 c                                                                                              
@@ -1550,7 +1550,7 @@ c
 c                                                                                              
 c        Compute part of the norm   (Note:  a(0) already scaled by vml)                        
 c                                                                                              
-         alpha = glsc2_acc(approx(1,0),approx(1,k),ntot)
+         alpha = glsc2 (approx(1,0),approx(1,k),ntot)  ! modif 4-24-15
          if (nid.eq.0) write(6,12) istep,name4,k,alpha,alph1
          if (alpha.le.0) then
             ierr=3
